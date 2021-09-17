@@ -301,7 +301,7 @@ class Menu extends Component {
                 </NavLink>
                 <div className="sub-menu-w">
                     <div className="sub-menu-header">
-                        ADMIN MANAGEMENT
+                        REFERENSI
                     </div>
                     <div className="sub-menu-icon">
                         <i className="os-icon os-icon-aperture"></i>
@@ -313,16 +313,166 @@ class Menu extends Component {
                                     <i className="os-icon os-icon-users"></i> &nbsp;&nbsp;&nbsp;User
                                 </Link>
                             </li>
-                        </ul>
-                        <ul className="sub-menu">
                             <li>
-                                <Link to={`/kanrisha/heya`}>
+                                <Link to={`/admin/referensi/agama`}>
+                                    <i className="os-icon os-icon-users"></i> &nbsp;&nbsp;&nbsp;Agama
+                                </Link>
+
+                            </li>
+                            <li>
+                                <Link to={`/admin/referensi/unor`}>
+                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Unit Organisasi
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={`/admin/referensi/bidang`}>
                                     <i className="os-icon os-icon-home"></i> &nbsp;&nbsp;&nbsp;Bidang
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/kanrisha/subBidang`}>
+                                <Link to={`/admin/referensi/subBidang`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Sub Bidang
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={`/admin/referensi/kantorBayar`}>
+                                    <i className="os-icon os-icon-users"></i> &nbsp;&nbsp;&nbsp;Kantor Bayar
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={`/admin/referensi/statusKepegawaian`}>
+                                    <i className="os-icon os-icon-users"></i> &nbsp;&nbsp;&nbsp;Status Kepegawaian
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={`/admin/referensi/kedudukanKepegawaian`}>
+                                    <i className="os-icon os-icon-users"></i> &nbsp;&nbsp;&nbsp;Kedudukan Kepegawaian
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={`/admin/referensi/jenisKepegawaian`}>
+                                    <i className="os-icon os-icon-users"></i> &nbsp;&nbsp;&nbsp;Jenis Kepegawaian
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={`/admin/referensi/jenisHukumanDisiplin`}>
+                                    <i className="os-icon os-icon-users"></i> &nbsp;&nbsp;&nbsp;Jenis Hukuman Disiplin
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={`/admin/referensi/jenisPenghargaan`}>
+                                    <i className="os-icon os-icon-users"></i> &nbsp;&nbsp;&nbsp;Jenis Penghargaan
+                                </Link>
+                            </li>
+                        </ul>
+                        <ul className="sub-menu">
+                            <li>
+                                <Link to={`/kanrisha/subBidang`}>
+                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Pangkat / Golongan Ruang
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={`/kanrisha/heya`}>
+                                    <i className="os-icon os-icon-home"></i> &nbsp;&nbsp;&nbsp;STLUD
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={`/kanrisha/subBidang`}>
+                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Gaji Pokok
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={`/kanrisha/subBidang`}>
+                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Jenis Naik Pangkat
+                                </Link>
+                            </li>
+                        </ul>
+                        <ul className="sub-menu">
+                            <li>
+                                <Link to={`/kanrisha/subBidang`}>
+                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Tingkat Pendidikan
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={`/kanrisha/heya`}>
+                                    <i className="os-icon os-icon-home"></i> &nbsp;&nbsp;&nbsp;Jurusan Pendidikan
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={`/kanrisha/subBidang`}>
+                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Diklat Struktural
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={`/kanrisha/subBidang`}>
+                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Diklat Fungsional
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={`/kanrisha/subBidang`}>
+                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Diklat Teknis
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={`/kanrisha/subBidang`}>
+                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Seminar
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={`/kanrisha/subBidang`}>
+                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Kursus
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={`/kanrisha/subBidang`}>
+                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Workshop
+                                </Link>
+                            </li>
+                        </ul>
+                        <ul className="sub-menu">
+                            <li>
+                                <Link to={`/kanrisha/subBidang`}>
+                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Jabatan Fungsional Umum
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={`/kanrisha/heya`}>
+                                    <i className="os-icon os-icon-home"></i> &nbsp;&nbsp;&nbsp;Jabatan Fungsional Tertentu
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={`/kanrisha/subBidang`}>
+                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Jabatan KORPRI
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={`/kanrisha/subBidang`}>
+                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Kelompok Jabatan
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={`/kanrisha/subBidang`}>
+                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Kelompok Jabatan
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={`/kanrisha/subBidang`}>
+                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Eselon Jabatan
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={`/kanrisha/subBidang`}>
+                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Jenis Jabatan
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={`/kanrisha/subBidang`}>
+                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Pejabat Penetap
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={`/kanrisha/subBidang`}>
+                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Pejabat Negara
                                 </Link>
                             </li>
                         </ul>
@@ -475,17 +625,17 @@ class Menu extends Component {
                             <div className="icon-w">
                                 <div className="os-icon os-icon-mail"></div>
                             </div>
-                            <span>Surat Masuk</span>
+                            <span>Input / Update Data Pegawai</span>
                         </NavLink>
                         <div className="sub-menu-w">
                             <div className="sub-menu-header masariuman_colorWhite">
-                                SURAT MASUK
+                                Input / Update Data Pegawai
                             </div>
                             <div className="sub-menu-icon">
                                 <i className="os-icon os-icon-mail"></i>
                             </div>
                             <div className="sub-menu-i masariuman_menuDescription">
-                                Laman ini adalah laman untuk memanajemen data dari surat yang masuk ke kantor. Laman ini berisikan informasi surat-surat yang masuk dan file-file surat yang dapat di simpan atau di unduh/download.
+                                Laman ini adalah laman untuk memanajemen data pegawai. Laman ini berisikan informasi data-data pegawai kabupaten mempawah.
                             </div>
                         </div>
                     </li>

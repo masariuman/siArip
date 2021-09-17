@@ -11,6 +11,9 @@ import MasukIndex from "./component/masuk/Index";
 import UuzaaIndex from "./component/uuzaa/Index";
 import HeyaIndex from "./component/heya/Index";
 import SubBidangIndex from "./component/alhuqulAlfareia/Index";
+import RefAgamaIndex from "./component/referensi/Agama";
+import RefUnorIndex from "./component/referensi/Unor";
+import RefBidangIndex from "./component/referensi/Bidang";
 
 class ReactRoute extends Component {
     constructor(props) {
@@ -61,6 +64,25 @@ class ReactRoute extends Component {
                         path="/kanrisha/heya"
                         component={HeyaIndex}
                     />
+
+
+                    <Route
+                        exact
+                        path="/admin/referensi/agama"
+                        component={RefAgamaIndex}
+                    />
+                    <Route
+                        exact
+                        path="/admin/referensi/unor"
+                        component={RefUnorIndex}
+                    />
+                    <Route
+                        exact
+                        path="/admin/referensi/bidang"
+                        component={RefBidangIndex}
+                    />
+
+
                     <Route
                         exact
                         path="/kanrisha/subBidang"

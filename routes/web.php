@@ -35,13 +35,26 @@ Route::post('/masuk/search', 'suratMasukCOntroller@search');
 Route::post('/keluar/search', 'suratKeluarController@search');
 
 
+Route::get('/admin/referensi/agama/deeta', 'ReferensiController@agama');
+Route::post('/admin/referensi/agama', 'ReferensiController@agamaStore');
+Route::get('/admin/referensi/agama/{url}', 'ReferensiController@agamaEdit');
+Route::put('/admin/referensi/agama/{url}', 'ReferensiController@agamaUpdate');
+Route::delete('/admin/referensi/agama/{url}', 'ReferensiController@agamaDestroy');
+
+Route::get('/admin/referensi/unor/deeta', 'ReferensiController@unor');
+Route::post('/admin/referensi/unor', 'ReferensiController@unorStore');
+Route::get('/admin/referensi/unor/{url}', 'ReferensiController@unorEdit');
+Route::put('/admin/referensi/unor/{url}', 'ReferensiController@unorUpdate');
+Route::delete('/admin/referensi/unor/{url}', 'ReferensiController@unorDestroy');
+
+
 Route::resources([
     'kanrisha/heya/deeta' => 'HeyaController',
     'kanrisha/uuzaa/deeta' => 'UuzaaController',
     'kanrisha/alhuqulAlfareia/deeta' => 'alhuqulAlfareiaController',
     'kanrisha/masuk/deeta' => 'suratMasukCOntroller',
     'kanrisha/keluar/deeta' => 'suratKeluarController',
-    'kanrisha/dashboard/deeta' => 'DashboardController',
+    'kanrisha/dashboard/deeta' => 'DashboardController'
 ]);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

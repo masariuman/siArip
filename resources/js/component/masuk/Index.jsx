@@ -35,7 +35,8 @@ class Masuk extends Component {
             filePath: null,
             fileUrl: null,
             ubahPetunjukId: "",
-            loading: true
+            rinku:"",
+            loading: false
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleEditInputChange = this.handleEditInputChange.bind(this);
@@ -361,54 +362,54 @@ class Masuk extends Component {
 
     getData() {
         this.setState({
-            loading: true
+            // loading: true
         });
         axios
             .get("/kanrisha/masuk/deeta")
             .then(response => {
-                this.setState({
-                    data: response.data.data.data,
-                    ubahPetunjukId: response.data.data.data[0].rinku,
-                    loading: false,
-                    activePage: response.data.data.current_page,
-                    itemsCountPerPage: response.data.data.per_page,
-                    totalItemsCount: response.data.data.total,
-                    pageRangeDisplayed: 10
-                });
-                $('#petunjuk').on('click',function() {
-                    var enjoyhint_instance = new EnjoyHint({});
-                    var enjoyhint_script_steps = [
-                    {
-                        'next #buttonTambahModal' : 'Untuk Menambah Data Baru, Tekan Tombol Tambah Surat Masuk Baru'
-                    },
-                    {
-                        'next #ubah1' : 'Untuk Mengubah Data, Tekan Tombol Ubah Berikut'
-                    },
-                    {
-                        'next #hapus1' : 'Untuk Menghapus Data, Tekan Hapus Berikut'
-                    },
-                    {
-                        'next #detail1' : 'Untuk Menghapus Data, Tekan Hapus Berikut'
-                    },
-                    {
-                        'next #downloadButton' : "Apabila Anda Ada Melakukan Upload Data Ketika Menambahkan Data Baru <br> Atau Mengubah Data Baru, Maka Akan Muncul <br> Tombol <button class='mr-2 mb-2 btn btn-outline-secondary'>Download</button> Yang Dapat Digunakan Untuk Mendownload/Mengunduh Data"
-                    },
-                    {
-                        'next #pagination' : 'Untuk Melihat Data Berikutnya, Pilih Pada Angka Berikut Untuk Melihat Data Pada Halaman Selanjutnya'
-                    },
-                    {
-                        'next #cari' : 'Untuk Mencari Data, Ketikkan Pada Kolom Berikut Dan Tunggu Hasilnya Keluar'
-                    },
-                    {
-                        'next #userSetting' : "Arahkan Mouse Kesini Untuk Membuka Menu Pengaturan User. <br /><br /> <img src='/petunjuk/userSetting.png' class='masariuman_imgUserSetting' /> <br /><br /> Anda Dapat Mengubah Password Dan Mengubah Foto Profil Anda Dengan Menekan Tombol Pengaturan User Untuk Membuka Form <br /> Untuk Mengubah Data Password Atau Foto Profil Anda. <br/> <br/> Untuk Keluar Dari Aplikasi, Anda Dapat Menekan Tombol Logout."
-                    },
-                    {
-                        'next #meno' : 'Pilih Menu Pada Panel Berikut Untuk Membuka Halaman Sesuai Dengan Menu Yang Dipilih.'
-                    }
-                    ];
-                    enjoyhint_instance.set(enjoyhint_script_steps);
-                    enjoyhint_instance.run();
-                });
+                // this.setState({
+                //     data: response.data.data.data,
+                //     ubahPetunjukId: response.data.data.data[0].rinku,
+                //     loading: false,
+                //     activePage: response.data.data.current_page,
+                //     itemsCountPerPage: response.data.data.per_page,
+                //     totalItemsCount: response.data.data.total,
+                //     pageRangeDisplayed: 10
+                // });
+                // $('#petunjuk').on('click',function() {
+                //     var enjoyhint_instance = new EnjoyHint({});
+                //     var enjoyhint_script_steps = [
+                //     {
+                //         'next #buttonTambahModal' : 'Untuk Menambah Data Baru, Tekan Tombol Tambah Surat Masuk Baru'
+                //     },
+                //     {
+                //         'next #ubah1' : 'Untuk Mengubah Data, Tekan Tombol Ubah Berikut'
+                //     },
+                //     {
+                //         'next #hapus1' : 'Untuk Menghapus Data, Tekan Hapus Berikut'
+                //     },
+                //     {
+                //         'next #detail1' : 'Untuk Menghapus Data, Tekan Hapus Berikut'
+                //     },
+                //     {
+                //         'next #downloadButton' : "Apabila Anda Ada Melakukan Upload Data Ketika Menambahkan Data Baru <br> Atau Mengubah Data Baru, Maka Akan Muncul <br> Tombol <button class='mr-2 mb-2 btn btn-outline-secondary'>Download</button> Yang Dapat Digunakan Untuk Mendownload/Mengunduh Data"
+                //     },
+                //     {
+                //         'next #pagination' : 'Untuk Melihat Data Berikutnya, Pilih Pada Angka Berikut Untuk Melihat Data Pada Halaman Selanjutnya'
+                //     },
+                //     {
+                //         'next #cari' : 'Untuk Mencari Data, Ketikkan Pada Kolom Berikut Dan Tunggu Hasilnya Keluar'
+                //     },
+                //     {
+                //         'next #userSetting' : "Arahkan Mouse Kesini Untuk Membuka Menu Pengaturan User. <br /><br /> <img src='/petunjuk/userSetting.png' class='masariuman_imgUserSetting' /> <br /><br /> Anda Dapat Mengubah Password Dan Mengubah Foto Profil Anda Dengan Menekan Tombol Pengaturan User Untuk Membuka Form <br /> Untuk Mengubah Data Password Atau Foto Profil Anda. <br/> <br/> Untuk Keluar Dari Aplikasi, Anda Dapat Menekan Tombol Logout."
+                //     },
+                //     {
+                //         'next #meno' : 'Pilih Menu Pada Panel Berikut Untuk Membuka Halaman Sesuai Dengan Menu Yang Dipilih.'
+                //     }
+                //     ];
+                //     enjoyhint_instance.set(enjoyhint_script_steps);
+                //     enjoyhint_instance.run();
+                // });
             })
             .catch(error => {
                 swal("Error!", "Terdapat Masalah, Silahkan Hubungi Admin!", "error");
@@ -417,12 +418,12 @@ class Masuk extends Component {
     }
 
     getSubbid() {
-        axios.get("/kanrisha/masuk/deeta/create").then((response) => {
-            this.setState({
-                subbid: response.data.data,
-                turunKe: response.data.data[0].rinku,
-            });
-        });
+        // axios.get("/kanrisha/masuk/deeta/create").then((response) => {
+        //     this.setState({
+        //         subbid: response.data.data,
+        //         turunKe: response.data.data[0].rinku,
+        //     });
+        // });
     }
 
     handlePageChange(pageNumber) {
@@ -463,7 +464,7 @@ class Masuk extends Component {
     }
 
     renderData() {
-        return !this.state.data.length ? <tr><td colSpan="6" className="text-center">Data Tidak Ditemukan</td></tr> :
+        return !this.state.data.length ? <tr><td colSpan="9" className="text-center">Data Tidak Ditemukan</td></tr> :
             this.state.data.map(data => (
                 <tr key={data.rinku}>
                     <th scope="row">{data.nomor}</th>
@@ -541,80 +542,76 @@ class Masuk extends Component {
                         </div>
                         <div className="onboarding-content with-gradient masariuman_width100percent">
                         <h4 className="onboarding-title">
-                            Tambah Surat Masuk Baru
+                            Tambah Data Pegawai
                         </h4>
                         <form onSubmit={this.handleSubmit}>
                             <div className="row">
-                            <div className="col-sm-12">
+                            <div className="col-sm-6">
                                 <div className="form-group">
                                     <input
                                         onChange={this.handleChangeAsalSurat}
                                         value={this.state.asalSurat}
                                         title="Asal Surat"
-                                        placeholder="Asal Surat.."
+                                        placeholder="NIP..."
                                         type="text"
                                         className="form-control"
                                     />
                                 </div>
                             </div>
-                            <div className="col-sm-12">
+                            <div className="col-sm-6">
                                 <div className="form-group">
                                     <input
                                         onChange={this.handleChangeNomorSurat}
                                         value={this.state.nomorSurat}
                                         title="Nomor Surat"
-                                        placeholder="Nomor Surat.."
+                                        placeholder="NIP 9..."
                                         type="text"
                                         className="form-control"
                                     />
                                 </div>
                             </div>
-                            <div className="col-sm-12">
-                                <table className="masariuman_tableLabelTanggal">
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                Tanggal Surat :
-                                            </td>
-                                            <td className="form-group">
-                                                <input
-                                                    onChange={this.handleChangeTanggalSurat}
-                                                    value={this.state.tanggalSurat}
-                                                    title="Tanggal Surat"
-                                                    placeholder="Tanggal Surat.."
-                                                    type="date"
-                                                    className="form-control"
-                                                />
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div className="col-sm-12">
-                                <div className="form-group">
-                                    <textarea
-                                        onChange={this.handleChangePerihal}
-                                        value={this.state.perihal}
-                                        title="Perihal Surat"
-                                        placeholder="Perihal Surat.."
-                                        className="form-control"
-                                        rows="3" />
-                                </div>
-                            </div>
-                            <div className="col-sm-12">
-                                Tanggal Surat Naik Ke Kepala :
+                            <div className="col-sm-3">
                                 <div className="form-group">
                                     <input
-                                        onChange={this.handleChangeTanggalNaik}
-                                        value={this.state.tanggalNaik}
-                                        title="Tanggal Surat Naik Ke Kepala"
-                                        placeholder="Tanggal Surat Naik Ke Kepala.."
-                                        type="date"
+                                        onChange={this.handleChangeNomorSurat}
+                                        value={this.state.nomorSurat}
+                                        title="Nomor Surat"
+                                        placeholder="Gelar Depan..."
+                                        type="text"
                                         className="form-control"
                                     />
                                 </div>
                             </div>
-                            <div className="col-sm-12">
+                            <div className="col-sm-6">
+                                <div className="form-group">
+                                    <input
+                                        onChange={this.handleChangeNomorSurat}
+                                        value={this.state.nomorSurat}
+                                        title="Nomor Surat"
+                                        placeholder="Nama Lengkap..."
+                                        type="text"
+                                        className="form-control"
+                                    />
+                                </div>
+                            </div>
+                            <div className="col-sm-3">
+                                <div className="form-group">
+                                    <input
+                                        onChange={this.handleChangeNomorSurat}
+                                        value={this.state.nomorSurat}
+                                        title="Nomor Surat"
+                                        placeholder="Gelar Belakang..."
+                                        type="text"
+                                        className="form-control"
+                                    />
+                                </div>
+                            </div>
+                            <div className="col-sm-4">
+                                <div className="form-group">
+                                    Agama :
+                                </div>
+                            </div>
+                            <div className="col-sm-8">
                                 <div className="form-group">
                                     <select
                                         value={this.state.turunKe}
@@ -625,26 +622,208 @@ class Masuk extends Component {
                                     </select>
                                 </div>
                             </div>
-                            <div className="col-sm-12">
-                                <table className="masariuman_tableLabelTanggal">
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                Tanggal Surat Turun :
-                                            </td>
-                                            <td className="form-group">
-                                                <input
-                                                    onChange={this.handleChangeTanggalTurun}
-                                                    value={this.state.tanggalTurun}
-                                                    title="Tanggal Surat"
-                                                    placeholder="Tanggal Surat.."
-                                                    type="date"
-                                                    className="form-control"
-                                                />
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div className="col-sm-4">
+                                <div className="form-group">
+                                    Status Kepegawaian :
+                                </div>
+                            </div>
+                            <div className="col-sm-4">
+                                <div className="form-group">
+                                    <select
+                                        value={this.state.turunKe}
+                                        onChange={this.handleChangeTurunKe}
+                                        className="form-control"
+                                    >
+                                        {this.renderSelect()}
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="col-sm-4">
+                                <div className="form-group">
+                                    <input
+                                        onChange={this.handleChangeTanggalSurat}
+                                        value={this.state.tanggalSurat}
+                                        title="Tanggal Surat"
+                                        placeholder="Tanggal Surat.."
+                                        type="date"
+                                        className="form-control"
+                                    />
+                                </div>
+                            </div>
+                            <div className="col-sm-4">
+                                <div className="form-group">
+                                    Jenis Kepegawaian :
+                                </div>
+                            </div>
+                            <div className="col-sm-4">
+                                <div className="form-group">
+                                    <select
+                                        value={this.state.turunKe}
+                                        onChange={this.handleChangeTurunKe}
+                                        className="form-control"
+                                    >
+                                        {this.renderSelect()}
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="col-sm-4">
+                                <div className="form-group">
+                                    <input
+                                        onChange={this.handleChangeTanggalSurat}
+                                        value={this.state.tanggalSurat}
+                                        title="Tanggal Surat"
+                                        placeholder="Tanggal Surat.."
+                                        type="date"
+                                        className="form-control"
+                                    />
+                                </div>
+                            </div>
+                            <div className="col-sm-5">
+                                <div className="form-group">
+                                    Kedudukan Kepegawaian :
+                                </div>
+                            </div>
+                            <div className="col-sm-7">
+                                <div className="form-group">
+                                    <select
+                                        value={this.state.turunKe}
+                                        onChange={this.handleChangeTurunKe}
+                                        className="form-control"
+                                    >
+                                        {this.renderSelect()}
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="col-sm-5">
+                                <div className="form-group">
+                                    Pangkat / Gol. Ruang :
+                                </div>
+                            </div>
+                            <div className="col-sm-7">
+                                <div className="form-group">
+                                    <select
+                                        value={this.state.turunKe}
+                                        onChange={this.handleChangeTurunKe}
+                                        className="form-control"
+                                    >
+                                        {this.renderSelect()}
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="col-sm-5">
+                                <div className="form-group">
+                                    TMT. Pangkat :
+                                </div>
+                            </div>
+                            <div className="col-sm-7">
+                                <div className="form-group">
+                                    <input
+                                        onChange={this.handleChangeTanggalSurat}
+                                        value={this.state.tanggalSurat}
+                                        title="Tanggal Surat"
+                                        placeholder="Tanggal Surat.."
+                                        type="date"
+                                        className="form-control"
+                                    />
+                                </div>
+                            </div>
+                            <div className="col-sm-4">
+                                <div className="form-group">
+                                    Unit Kerja :
+                                </div>
+                            </div>
+                            <div className="col-sm-8">
+                                <div className="form-group">
+                                    <select
+                                        value={this.state.turunKe}
+                                        onChange={this.handleChangeTurunKe}
+                                        className="form-control"
+                                    >
+                                        {this.renderSelect()}
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="col-sm-4">
+                                <div className="form-group">
+                                    Bidang :
+                                </div>
+                            </div>
+                            <div className="col-sm-8">
+                                <div className="form-group">
+                                    <select
+                                        value={this.state.turunKe}
+                                        onChange={this.handleChangeTurunKe}
+                                        className="form-control"
+                                    >
+                                        {this.renderSelect()}
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="col-sm-4">
+                                <div className="form-group">
+                                    Sub Bidang :
+                                </div>
+                            </div>
+                            <div className="col-sm-8">
+                                <div className="form-group">
+                                    <select
+                                        value={this.state.turunKe}
+                                        onChange={this.handleChangeTurunKe}
+                                        className="form-control"
+                                    >
+                                        {this.renderSelect()}
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="col-sm-4">
+                                <div className="form-group">
+                                    Jenis Jabatan :
+                                </div>
+                            </div>
+                            <div className="col-sm-8">
+                                <div className="form-group">
+                                    <select
+                                        value={this.state.turunKe}
+                                        onChange={this.handleChangeTurunKe}
+                                        className="form-control"
+                                    >
+                                        {this.renderSelect()}
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="col-sm-4">
+                                <div className="form-group">
+                                    Nama Jabatan :
+                                </div>
+                            </div>
+                            <div className="col-sm-8">
+                                <div className="form-group">
+                                    <input
+                                        onChange={this.handleChangeKodeBerkas}
+                                        value={this.state.kodeBerkas}
+                                        title="Nama Jabatan"
+                                        placeholder="Nama Jabatan.."
+                                        type="text"
+                                        className="form-control"
+                                    />
+                                </div>
+                            </div>
+                            <div className="col-sm-5">
+                                <div className="form-group">
+                                    TMT. Jabatan :
+                                </div>
+                            </div>
+                            <div className="col-sm-7">
+                                <div className="form-group">
+                                    <input
+                                        onChange={this.handleChangeTanggalSurat}
+                                        value={this.state.tanggalSurat}
+                                        title="Tanggal Surat"
+                                        placeholder="Tanggal Surat.."
+                                        type="date"
+                                        className="form-control"
+                                    />
+                                </div>
                             </div>
                             <div className="col-sm-12">
                                 <div className="form-group">
@@ -675,7 +854,7 @@ class Masuk extends Component {
                                     <tbody>
                                         <tr>
                                             <td className="masariuman_width110px">
-                                                <button className="mr-2 mb-2 btn btn-primary" type="button" onClick={this.handleButtonFile} >Upload File</button>
+                                                <button className="mr-2 mb-2 btn btn-primary" type="button" onClick={this.handleButtonFile} >Upload Foto</button>
                                             </td>
                                             <td className="form-group">
                                                 <a target="_blank" href={this.state.fileUrl}>{this.state.filePath}</a>
@@ -686,7 +865,7 @@ class Masuk extends Component {
                             </div>
                             <div className="col-sm-12">
                                 <div className="form-group text-center">
-                                    <button className="mr-2 mb-2 btn btn-primary" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Tambah Surat Masuk Baru</button>
+                                    <button className="mr-2 mb-2 btn btn-primary" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Tambah Pegawai Baru</button>
                                 </div>
                             </div>
                             </div>
@@ -711,7 +890,7 @@ class Masuk extends Component {
                         </div>
                         <div className="onboarding-content with-gradient masariuman_width100percent">
                         <h4 className="onboarding-title">
-                            Ubah Data Surat Masuk
+                            Ubah Data Pegawai
                         </h4>
                         <form onSubmit={this.handleEditSubmit}>
                             <div className="row">
@@ -856,7 +1035,7 @@ class Masuk extends Component {
                             </div>
                             <div className="col-sm-12">
                                 <div className="form-group text-center">
-                                    <button className="mr-2 mb-2 btn btn-warning" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Ubah Surat Masuk Baru</button>
+                                    <button className="mr-2 mb-2 btn btn-warning" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Ubah Data Pegawai</button>
                                 </div>
                             </div>
                             </div>
@@ -1057,8 +1236,8 @@ class Masuk extends Component {
                         <div className="os-icon os-icon-mail"></div>
                         </div>
                         <div className="masariuman-textleft">
-                            <span className="masariuman-bold">Surat Masuk</span> <br/>
-                            <small>Surat Masuk Management</small>
+                            <span className="masariuman-bold">Pegawai</span> <br/>
+                            <small>Manajemen Pegawai</small>
                         </div>
                     </div>
                     <div className="top-menu-controls">
@@ -1067,10 +1246,10 @@ class Masuk extends Component {
                 </div>
                 <ul className="breadcrumb">
                     <li className="breadcrumb-item">
-                        <a>Surat Masuk</a>
+                        <a>Pegawai</a>
                     </li>
                     <li className="breadcrumb-item">
-                        <span>Surat Masuk Management</span>
+                        <span>Manajemen pegawai</span>
                     </li>
                 </ul>
 
@@ -1081,16 +1260,16 @@ class Masuk extends Component {
                                 {/* content here */}
                                 <div className="element-box">
                                     <h5 className="form-header">
-                                    Surat Masuk List
+                                    Daftar Pegawai
                                     </h5>
                                     <div className="form-desc">
-                                        Manajemen Surat Masuk Data
+                                        Manajemen Data Pegawai
                                     </div>
                                     <div>
-                                        <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal" onClick={this.handleTambahButton}>Tambah Surat Masuk Baru</button>
+                                        <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal" onClick={this.handleTambahButton}>Tambah Pegawai Baru</button>
                                         <div className="col-sm-4 float-right" id="cari">
                                             <input type="text" className="form-control" onChange={this.handleChangeCari}
-                                                value={this.state.cari} placeholder="Cari Surat Masuk..."></input>
+                                                value={this.state.cari} placeholder="Cari NIP / Nama..."></input>
                                         </div>
                                     </div>
                                     <div className="table-responsive" id="ruanganTable">
@@ -1098,10 +1277,13 @@ class Masuk extends Component {
                                             <thead>
                                                 <tr>
                                                     <th className="width50px text-center">NO</th>
-                                                    <th className="text-center">Asal Surat</th>
-                                                    <th className="text-center">Nomor/Tanggal Surat</th>
-                                                    <th className="text-center">Perihal</th>
-                                                    <th className="text-center">Tujuan/Tanggal Turun</th>
+                                                    <th className="width50px text-center">Foto</th>
+                                                    <th className="text-center">NIP</th>
+                                                    <th className="text-center">Nama</th>
+                                                    <th className="text-center">Tempat, Tanggal Lahir</th>
+                                                    <th className="text-center">Usia</th>
+                                                    <th className="text-center">Gol. Ruang</th>
+                                                    <th className="text-center">TMT Pangkat</th>
                                                     <th className="width250px text-center">ACTION</th>
                                                 </tr>
                                             </thead>
