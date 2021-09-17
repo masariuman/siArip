@@ -8,11 +8,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="zxx">
 
 <head>
-	<title>Manajemen Surat</title>
+	<title>Sistem Arsip Pegawai</title>
 	<!-- Meta-Tags -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
-	<meta name="keywords" content="Manajemen Surat BKPSDM">
+	<meta name="keywords" content="Sistem Arsip Pegawai BKPSDM">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 	<script>
 		addEventListener("load", function () {
@@ -35,7 +35,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div id="particles-js"></div>
 	<!-- //particles -->
 	<div class="w3ls-pos">
-		<h1>Manajemen Surat</h1>
+		<h1>Sistem Arisp Pegawai</h1>
         <img src="/hando/images/logo.png"  class="logo"/>
         @if (session('status'))
             <div class="mb-4 font-medium text-sm text-green-600">
