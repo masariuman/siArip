@@ -429,11 +429,6 @@ class ReferensiController extends Controller
         if ($request->cari === null || $request->cari === "") {
             $data = ReferensiSubBidang::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
         } else {
-            // $bidang = ReferensiBidang::where("name", "like", "%" . $request->cari . "%")->get();
-            // $bidangId = [];
-            // foreach ($bidang as $key => $value) {
-            //     array_push($bidangId,$value->id);
-            // }
             $unor = ReferensiUnor::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")->get();
             $unorId = [];
             foreach ($unor as $key => $value) {
