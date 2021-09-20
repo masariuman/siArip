@@ -14,6 +14,7 @@ import SubBidangIndex from "./component/alhuqulAlfareia/Index";
 import RefAgamaIndex from "./component/referensi/Agama";
 import RefUnorIndex from "./component/referensi/Unor";
 import RefBidangIndex from "./component/referensi/Bidang";
+import RefSubBidangIndex from "./component/referensi/SubBidang";
 
 class ReactRoute extends Component {
     constructor(props) {
@@ -80,6 +81,11 @@ class ReactRoute extends Component {
                         exact
                         path="/admin/referensi/bidang"
                         component={RefBidangIndex}
+                    />
+                    <Route
+                        exact
+                        path="/admin/referensi/SubBidang"
+                        component={RefSubBidangIndex}
                     />
 
 

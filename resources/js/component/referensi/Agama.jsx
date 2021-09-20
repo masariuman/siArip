@@ -36,7 +36,7 @@ class Heya extends Component {
             cari: e.target.value
         });
         axios
-            .post(`/heya/search`, {
+            .post(`/admin/referensi/agama/search`, {
                 cari: e.target.value
             })
             .then(response => {

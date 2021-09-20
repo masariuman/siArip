@@ -1,0 +1,27 @@
+-------------------- Auto-Git Log --------------------
+		Sun Sep 19 2021 13:38:35 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Providers/JetstreamServiceProvider.php
+* public/js/app.js
+* resources/js/component/referensi/Bidang.jsx
+
+
+Created files:
+* .autogit/logs/log-19-8-2021-10-22-11.txt
+* .autogit/logs/log-19-8-2021-10-52-30.txt
+* .autogit/logs/log-19-8-2021-11-22-49.txt
+* .autogit/logs/log-19-8-2021-12-37-59.txt
+* .autogit/logs/log-19-8-2021-12-7-35.txt
+* .autogit/logs/log-19-8-2021-13-8-16.txt
+* .autogit/logs/log-19-8-2021-9-21-32.txt
+* .autogit/logs/log-19-8-2021-9-51-52.txt
+* app/Models/ReferensiBidang.php
+* composer
+
+
+Deleted files:
+
+
+Renamed files:

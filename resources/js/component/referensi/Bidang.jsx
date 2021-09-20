@@ -14,8 +14,8 @@ class Bidang extends Component {
         super(props);
         this.state = {
             data: [],
-            heya: [],
-            heyaMei : "",
+            unor: [],
+            unorName : "",
             dataNewInput: "",
             dataEditInput: "",
             cari: "",
@@ -31,12 +31,12 @@ class Bidang extends Component {
         this.modalTambah = this.modalTambah.bind(this);
         this.modalUbah = this.modalUbah.bind(this);
         this.handleChangeCari = this.handleChangeCari.bind(this);
-        this.handleChangeHeya = this.handleChangeHeya.bind(this);
+        this.handleChangeUnor = this.handleChangeUnor.bind(this);
     }
 
-    handleChangeHeya(e) {
+    handleChangeUnor(e) {
         this.setState({
-            heyaMei: e.target.value,
+            unorName: e.target.value,
         });
     }
 
@@ -45,7 +45,7 @@ class Bidang extends Component {
             cari: e.target.value
         });
         axios
-            .post(`/alhuqulAlfareia/search`, {
+            .post(`/admin/referensi/bidang/search`, {
                 cari: e.target.value
             })
             .then(response => {
@@ -64,10 +64,10 @@ class Bidang extends Component {
 
     handleDeleteButton(e) {
         axios
-            .get(`/kanrisha/alhuqulAlfareia/deeta/${e}`)
+            .get(`/admin/referensi/bidang/${e}`)
             .then(response => {
                 swal({
-                    title: `Yakin ingin menghapus Sub Bidang ${response.data.data.asm}`,
+                    title: `Yakin ingin menghapus Bidang ${response.data.data.name}`,
                     text: "Kalau Terhapus, Hubungi Admin Untuk Mengembalikan Data yang Terhapus!",
                     icon: "warning",
                     buttons: true,
@@ -79,7 +79,7 @@ class Bidang extends Component {
                             loading: true
                         });
                         axios
-                            .delete(`/kanrisha/alhuqulAlfareia/deeta/${e}`, {
+                            .delete(`/admin/referensi/bidang/${e}`, {
                                 url: this.state.url
                             })
                             .then(response => {
@@ -108,12 +108,12 @@ class Bidang extends Component {
 
     handleEditButton(e) {
         axios
-            .get(`/kanrisha/alhuqulAlfareia/deeta/${e}`)
+            .get(`/admin/referensi/bidang/${e}`)
             .then(response => {
                 this.setState({
-                    dataEditInput: response.data.data.asm,
+                    dataEditInput: response.data.data.name,
                     url: response.data.data.rinku,
-                    heyaMei: response.data.data.heyaRinku
+                    unorName: response.data.data.unorName
                 });
             })
             .catch(error => {
@@ -141,9 +141,9 @@ class Bidang extends Component {
             loading: true
         });
         axios
-            .post("/kanrisha/alhuqulAlfareia/deeta", {
+            .post("/admin/referensi/bidang", {
                 data: this.state.dataNewInput,
-                heyaMei: this.state.heyaMei
+                unorName: this.state.unorName
             })
             .then(response => {
                 this.setState({
@@ -174,8 +174,8 @@ class Bidang extends Component {
             loading: true
         });
         axios
-            .put(`/kanrisha/alhuqulAlfareia/deeta/${this.state.url}`, {
-                heyaMei: this.state.heyaMei,
+            .put(`/admin/referensi/bidang/${this.state.url}`, {
+                unorName: this.state.unorName,
                 data: this.state.dataEditInput
             })
             .then(response => {
@@ -201,13 +201,13 @@ class Bidang extends Component {
         // console.log(this.state.create);
     }
 
-    getHeya() {
-        axios.get("/kanrisha/alhuqulAlfareia/deeta/create").then((response) => {
+    getRefUnor() {
+        axios.get("/admin/referensi/unor/create").then((response) => {
+            // console.log(response.data.data);
             this.setState({
-                heya: response.data.data.heya,
-                heyaMei: response.data.data.heya[0].rinku,
+                unor: response.data.data,
+                unorName: response.data.data[0].rinku,
             });
-            // console.log(response.data.data.heya[0].rinku);
         });
     }
 
@@ -216,7 +216,7 @@ class Bidang extends Component {
             loading: true
         });
         axios
-            .get("/kanrisha/alhuqulAlfareia/deeta")
+            .get("/admin/referensi/bidang/deeta")
             .then(response => {
                 // console.log(response.data.data.data);
                 this.setState({
@@ -284,16 +284,10 @@ class Bidang extends Component {
             });
     }
 
-    testData() {
-        axios
-            .get("/masariuman_tag")
-            .then(response => console.log(response.data.deeta_data));
-    }
-
     componentDidMount() {
         this.getData();
-        this.getHeya();
-        // console.log(this.state.tag);
+        this.getRefUnor();
+        // console.log(this.state.unor);
     }
 
     componentDidUpdate() {
@@ -301,9 +295,9 @@ class Bidang extends Component {
     }
 
     renderSelect() {
-        return this.state.heya.map((albayanat) => (
-            <option value={albayanat.rinku} key={albayanat.rinku}>
-                {albayanat.heyaMei}
+        return this.state.unor.map((data) => (
+            <option value={data.rinku} key={data.rinku}>
+                {data.name}
             </option>
         ));
     }
@@ -318,7 +312,15 @@ class Bidang extends Component {
                             highlightClassName="YourHighlightClass"
                             searchWords={[this.state.cari]}
                             autoEscape={true}
-                            textToHighlight={data.asm}
+                            textToHighlight={data.name}
+                        />
+                    </td>
+                    <td>
+                        <Highlighter
+                            highlightClassName="YourHighlightClass"
+                            searchWords={[this.state.cari]}
+                            autoEscape={true}
+                            textToHighlight={data.unor}
                         />
                     </td>
                     <td>
@@ -341,10 +343,10 @@ class Bidang extends Component {
                         </div>
                         <div className="onboarding-content with-gradient masariuman_width100percent">
                         <h4 className="onboarding-title">
-                            Tambah Sub Bidang Baru
+                            Tambah Bidang Baru
                         </h4>
                         <div className="onboarding-text">
-                            Masukkan nama Sub Bidang baru.
+                            Masukkan nama Bidang baru.
                         </div>
                         <form onSubmit={this.handleSubmit}>
                             <div className="row">
@@ -353,16 +355,16 @@ class Bidang extends Component {
                                     <input
                                         onChange={this.handleChange}
                                         value={this.state.dataNewInput}
-                                        title="Nama Sub Bidang"
-                                        placeholder="Masukkan Nama Sub Bidang Baru.."
+                                        title="Nama Bidang"
+                                        placeholder="Masukkan Nama Bidang Baru.."
                                         type="text"
                                         className="form-control"
                                     />
                                 </div>
                                 <div className="form-group">
                                     <select
-                                        value={this.state.heyaMei}
-                                        onChange={this.handleChangeHeya}
+                                        value={this.state.unorName}
+                                        onChange={this.handleChangeUnor}
                                         className="form-control"
                                     >
                                         {this.renderSelect()}
@@ -371,7 +373,7 @@ class Bidang extends Component {
                             </div>
                             <div className="col-sm-12">
                                 <div className="form-group text-center">
-                                    <button className="mr-2 mb-2 btn btn-primary" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Tambah Sub Bidang Baru</button>
+                                    <button className="mr-2 mb-2 btn btn-primary" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Tambah Bidang Baru</button>
                                 </div>
                             </div>
                             </div>
@@ -396,10 +398,10 @@ class Bidang extends Component {
                         </div>
                         <div className="onboarding-content with-gradient masariuman_width100percent">
                         <h4 className="onboarding-title">
-                            Ubah Nama Sub Bidang
+                            Ubah Nama Bidang
                         </h4>
                         <div className="onboarding-text">
-                            Masukkan nama Sub Bidang baru.
+                            Masukkan nama Bidang baru.
                         </div>
                         <form onSubmit={this.handleEditSubmit}>
                             <div className="row">
@@ -408,16 +410,16 @@ class Bidang extends Component {
                                     <input
                                         onChange={this.handleEditInputChange}
                                         value={this.state.dataEditInput}
-                                        title="Nama Sub Bidang"
-                                        placeholder="Masukkan Nama Sub Bidang Baru.."
+                                        title="Nama Bidang"
+                                        placeholder="Masukkan Nama Bidang Baru.."
                                         type="text"
                                         className="form-control"
                                     />
                                 </div>
                                 <div className="form-group">
                                     <select
-                                        value={this.state.heyaMei}
-                                        onChange={this.handleChangeHeya}
+                                        value={this.state.unorName}
+                                        onChange={this.handleChangeUnor}
                                         className="form-control"
                                     >
                                         {this.renderSelect()}
@@ -426,7 +428,7 @@ class Bidang extends Component {
                             </div>
                             <div className="col-sm-12">
                                 <div className="form-group text-center">
-                                    <button className="mr-2 mb-2 btn btn-warning" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Ubah Nama Sub Bidang</button>
+                                    <button className="mr-2 mb-2 btn btn-warning" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Ubah Nama Bidang</button>
                                 </div>
                             </div>
                             </div>
@@ -450,8 +452,8 @@ class Bidang extends Component {
                         <div className="fa fa-sitemap"></div>
                         </div>
                         <div className="masariuman-textleft">
-                            <span className="masariuman-bold">Sub Bidang</span> <br/>
-                            <small>Sub Bidang Management</small>
+                            <span className="masariuman-bold">Bidang</span> <br/>
+                            <small>Manajemen Bidang</small>
                         </div>
                     </div>
                     <div className="top-menu-controls">
@@ -460,10 +462,10 @@ class Bidang extends Component {
                 </div>
                 <ul className="breadcrumb">
                     <li className="breadcrumb-item">
-                        <a>Sub Bidang</a>
+                        <a>Bidang</a>
                     </li>
                     <li className="breadcrumb-item">
-                        <span>Sub Bidang Management</span>
+                        <span>Manajemen Bidang</span>
                     </li>
                 </ul>
 
@@ -474,24 +476,25 @@ class Bidang extends Component {
                                 {/* content here */}
                                 <div className="element-box">
                                     <h5 className="form-header">
-                                    Sub Bidang List
+                                    Daftar Bidang
                                     </h5>
                                     <div className="form-desc">
-                                        Manajemen Sub Bidang Data
+                                        Manajemen Data Bidang
                                     </div>
                                     <div>
-                                        <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal">Tambah Sub Bidang Baru</button>
+                                        <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal">Tambah Bidang Baru</button>
                                         <div className="col-sm-4 float-right" id="cari">
                                             <input type="text" className="form-control" onChange={this.handleChangeCari}
-                                                value={this.state.cari} placeholder="Cari Sub Bidang..."></input>
+                                                value={this.state.cari} placeholder="Cari Bidang..."></input>
                                         </div>
                                     </div>
-                                    <div className="table-responsive" id="Sub BidangTable">
+                                    <div className="table-responsive" id="bidangTable">
                                         <table id="tabeldata" width="100%" className="table table-striped table-lightfont">
                                             <thead>
                                                 <tr>
                                                     <th className="width50px">NO</th>
-                                                    <th>NAMA Sub Bidang</th>
+                                                    <th>Bidang</th>
+                                                    <th>Unit Organisasi</th>
                                                     <th className="width250px">ACTION</th>
                                                 </tr>
                                             </thead>

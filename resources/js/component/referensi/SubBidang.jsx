@@ -7,13 +7,16 @@ import Loading from "../../warudo/Loading";
 import swal from 'sweetalert';
 import Pagination from "react-js-pagination";
 import Highlighter from "react-highlight-words";
+import parse from 'html-react-parser'
 
 
-class View extends Component {
+class subBidang extends Component {
     constructor(props) {
         super(props);
         this.state = {
             data: [],
+            bidang: [],
+            bidangName : "",
             dataNewInput: "",
             dataEditInput: "",
             cari: "",
@@ -29,6 +32,13 @@ class View extends Component {
         this.modalTambah = this.modalTambah.bind(this);
         this.modalUbah = this.modalUbah.bind(this);
         this.handleChangeCari = this.handleChangeCari.bind(this);
+        this.handleChangeBidang = this.handleChangeBidang.bind(this);
+    }
+
+    handleChangeBidang(e) {
+        this.setState({
+            bidangName: e.target.value,
+        });
     }
 
     handleChangeCari(e) {
@@ -36,7 +46,7 @@ class View extends Component {
             cari: e.target.value
         });
         axios
-            .post(`/admin/referensi/unor/search`, {
+            .post(`/admin/referensi/subBidang/search`, {
                 cari: e.target.value
             })
             .then(response => {
@@ -55,10 +65,10 @@ class View extends Component {
 
     handleDeleteButton(e) {
         axios
-            .get(`/admin/referensi/unor/${e}`)
+            .get(`/admin/referensi/subBidang/${e}`)
             .then(response => {
                 swal({
-                    title: `Yakin ingin menghapus Unit Organisasi ${response.data.data.name}`,
+                    title: `Yakin ingin menghapus Sub Bidang ${response.data.data.name}`,
                     text: "Kalau Terhapus, Hubungi Admin Untuk Mengembalikan Data yang Terhapus!",
                     icon: "warning",
                     buttons: true,
@@ -70,7 +80,7 @@ class View extends Component {
                             loading: true
                         });
                         axios
-                            .delete(`/admin/referensi/unor/${e}`, {
+                            .delete(`/admin/referensi/subBidang/${e}`, {
                                 url: this.state.url
                             })
                             .then(response => {
@@ -99,11 +109,12 @@ class View extends Component {
 
     handleEditButton(e) {
         axios
-            .get(`/admin/referensi/unor/${e}`)
+            .get(`/admin/referensi/subBidang/${e}`)
             .then(response => {
                 this.setState({
                     dataEditInput: response.data.data.name,
-                    url: response.data.data.rinku
+                    url: response.data.data.rinku,
+                    bidangName: response.data.data.bidangName
                 });
             })
             .catch(error => {
@@ -131,8 +142,9 @@ class View extends Component {
             loading: true
         });
         axios
-            .post("/admin/referensi/unor", {
-                data: this.state.dataNewInput
+            .post("/admin/referensi/subBidang", {
+                data: this.state.dataNewInput,
+                bidangName: this.state.bidangName
             })
             .then(response => {
                 this.setState({
@@ -163,7 +175,8 @@ class View extends Component {
             loading: true
         });
         axios
-            .put(`/admin/referensi/unor/${this.state.url}`, {
+            .put(`/admin/referensi/subBidang/${this.state.url}`, {
+                bidangName: this.state.bidangName,
                 data: this.state.dataEditInput
             })
             .then(response => {
@@ -189,12 +202,22 @@ class View extends Component {
         // console.log(this.state.create);
     }
 
+    getRefBidang() {
+        axios.get("/admin/referensi/bidang/create").then((response) => {
+            // console.log(response.data.data);
+            this.setState({
+                bidang: response.data.data,
+                bidangName: response.data.data[0].rinku,
+            });
+        });
+    }
+
     getData() {
         this.setState({
             loading: true
         });
         axios
-            .get("/admin/referensi/unor/deeta")
+            .get("/admin/referensi/subBidang/deeta")
             .then(response => {
                 // console.log(response.data.data.data);
                 this.setState({
@@ -245,7 +268,7 @@ class View extends Component {
             loading: true
         });
         axios
-            .get('/kanrisha/heya/deeta?page='+pageNumber)
+            .get('/kanrisha/alhuqulAlfareia/deeta?page='+pageNumber)
             .then(response => {
                 this.setState({
                     data: response.data.deeta_data.data,
@@ -262,19 +285,22 @@ class View extends Component {
             });
     }
 
-    testData() {
-        axios
-            .get("/masariuman_tag")
-            .then(response => console.log(response.data.deeta_data));
-    }
-
     componentDidMount() {
         this.getData();
-        // console.log(this.state.tag);
+        this.getRefBidang();
+        // console.log(this.state.bidang);
     }
 
     componentDidUpdate() {
         // this.getTag();
+    }
+
+    renderSelect() {
+        return this.state.bidang.map((data) => (
+            <option value={data.rinku} key={data.rinku}>
+                {data.name}
+            </option>
+        ));
     }
 
     renderData() {
@@ -288,6 +314,14 @@ class View extends Component {
                             searchWords={[this.state.cari]}
                             autoEscape={true}
                             textToHighlight={data.name}
+                        />
+                    </td>
+                    <td>
+                        <Highlighter
+                            highlightClassName="YourHighlightClass"
+                            searchWords={[this.state.cari]}
+                            autoEscape={true}
+                            textToHighlight={data.bidang}
                         />
                     </td>
                     <td>
@@ -306,14 +340,14 @@ class View extends Component {
                     <button aria-label="Close" className="close" data-dismiss="modal" type="button"><span className="close-label">Tutup</span><span className="os-icon os-icon-close"></span></button>
                     <div className="onboarding-side-by-side">
                         <div className="onboarding-media">
-                        <img alt="" src="/iconModal/roomPlus.png" width="200px" />
+                        <img alt="" src="/iconModal/organizationPlus.png" width="200px" />
                         </div>
                         <div className="onboarding-content with-gradient masariuman_width100percent">
                         <h4 className="onboarding-title">
-                            Tambah Unit Organisasi Baru
+                            Tambah Sub Bidang Baru
                         </h4>
                         <div className="onboarding-text">
-                            Masukkan nama Unit Organisasi baru.
+                            Masukkan nama Sub Bidang baru.
                         </div>
                         <form onSubmit={this.handleSubmit}>
                             <div className="row">
@@ -322,16 +356,25 @@ class View extends Component {
                                     <input
                                         onChange={this.handleChange}
                                         value={this.state.dataNewInput}
-                                        title="Nama Unit Organisasi"
-                                        placeholder="Masukkan Nama Unit Organisasi Baru.."
+                                        title="Nama Bidang"
+                                        placeholder="Masukkan Nama Bidang Baru.."
                                         type="text"
                                         className="form-control"
                                     />
                                 </div>
+                                <div className="form-group">
+                                    <select
+                                        value={this.state.bidangName}
+                                        onChange={this.handleChangeBidang}
+                                        className="form-control"
+                                    >
+                                        {this.renderSelect()}
+                                    </select>
+                                </div>
                             </div>
                             <div className="col-sm-12">
                                 <div className="form-group text-center">
-                                    <button className="mr-2 mb-2 btn btn-primary" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Tambah Unit Organisasi Baru</button>
+                                    <button className="mr-2 mb-2 btn btn-primary" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Tambah Sub Bidang Baru</button>
                                 </div>
                             </div>
                             </div>
@@ -352,14 +395,14 @@ class View extends Component {
                     <button aria-label="Close" className="close" data-dismiss="modal" type="button"><span className="close-label">Tutup</span><span className="os-icon os-icon-close"></span></button>
                     <div className="onboarding-side-by-side">
                         <div className="onboarding-media">
-                        <img alt="" src="/iconModal/roomEdit.png" width="200px" />
+                        <img alt="" src="/iconModal/organizationEdit.png" width="200px" />
                         </div>
                         <div className="onboarding-content with-gradient masariuman_width100percent">
                         <h4 className="onboarding-title">
-                            Ubah Nama Unit Organisasi
+                            Ubah Nama Sub Bidang
                         </h4>
                         <div className="onboarding-text">
-                            Masukkan nama Unit Organisasi baru.
+                            Masukkan nama Sub Bidang baru.
                         </div>
                         <form onSubmit={this.handleEditSubmit}>
                             <div className="row">
@@ -368,16 +411,25 @@ class View extends Component {
                                     <input
                                         onChange={this.handleEditInputChange}
                                         value={this.state.dataEditInput}
-                                        title="Nama Unit Organisasi"
-                                        placeholder="Masukkan Nama Unit Organisasi Baru.."
+                                        title="Nama Bidang"
+                                        placeholder="Masukkan Nama Bidang Baru.."
                                         type="text"
                                         className="form-control"
                                     />
                                 </div>
+                                <div className="form-group">
+                                    <select
+                                        value={this.state.bidangName}
+                                        onChange={this.handleChangeBidang}
+                                        className="form-control"
+                                    >
+                                        {this.renderSelect()}
+                                    </select>
+                                </div>
                             </div>
                             <div className="col-sm-12">
                                 <div className="form-group text-center">
-                                    <button className="mr-2 mb-2 btn btn-warning" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Ubah Nama Unit Organisasi</button>
+                                    <button className="mr-2 mb-2 btn btn-warning" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Ubah Nama Sub Bidang</button>
                                 </div>
                             </div>
                             </div>
@@ -398,11 +450,11 @@ class View extends Component {
                 <div className="top-bar color-scheme-transparent masariuman-height103px">
                     <div className="top-menu-controls masariuman-marginleft30px">
                         <div className="icon-w top-icon masariuman-titlecontent">
-                        <div className="os-icon os-icon-home"></div>
+                        <div className="fa fa-sitemap"></div>
                         </div>
                         <div className="masariuman-textleft">
-                            <span className="masariuman-bold">Unit Organisasi</span> <br/>
-                            <small>Manajemen Unit Organisasi</small>
+                            <span className="masariuman-bold">Sub Bidang</span> <br/>
+                            <small>Manajemen Sub Bidang</small>
                         </div>
                     </div>
                     <div className="top-menu-controls">
@@ -411,10 +463,10 @@ class View extends Component {
                 </div>
                 <ul className="breadcrumb">
                     <li className="breadcrumb-item">
-                        <a>Unit Organisasi</a>
+                        <a>Sub Bidang</a>
                     </li>
                     <li className="breadcrumb-item">
-                        <span>Manajemen Unit Organisasi</span>
+                        <span>Manajemen Sub Bidang</span>
                     </li>
                 </ul>
 
@@ -425,24 +477,25 @@ class View extends Component {
                                 {/* content here */}
                                 <div className="element-box">
                                     <h5 className="form-header">
-                                    Daftar Unit Organisasi
+                                    Daftar Sub Bidang
                                     </h5>
                                     <div className="form-desc">
-                                        Manajemen Data Unit Organisasi
+                                        Manajemen Data Sub Bidang
                                     </div>
                                     <div>
-                                        <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal">Tambah Unit Organisasi Baru</button>
+                                        <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal">Tambah Sub Bidang Baru</button>
                                         <div className="col-sm-4 float-right" id="cari">
                                             <input type="text" className="form-control" onChange={this.handleChangeCari}
-                                                value={this.state.cari} placeholder="Cari Unit Organisasi..."></input>
+                                                value={this.state.cari} placeholder="Cari Bidang..."></input>
                                         </div>
                                     </div>
-                                    <div className="table-responsive" id="unorTable">
+                                    <div className="table-responsive" id="bidangTable">
                                         <table id="tabeldata" width="100%" className="table table-striped table-lightfont">
                                             <thead>
                                                 <tr>
                                                     <th className="width50px">NO</th>
-                                                    <th>NAMA Unit Organisasi</th>
+                                                    <th>Sub Bidang</th>
+                                                    <th>Bidang - Unit Organisasi</th>
                                                     <th className="width250px">ACTION</th>
                                                 </tr>
                                             </thead>
@@ -472,4 +525,4 @@ class View extends Component {
     }
 }
 
-export default View;
+export default subBidang;
