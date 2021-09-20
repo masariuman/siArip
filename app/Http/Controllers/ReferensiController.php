@@ -434,7 +434,7 @@ class ReferensiController extends Controller
             // foreach ($bidang as $key => $value) {
             //     array_push($bidangId,$value->id);
             // }
-            $unor = ReferensiUnor::where("name", "like", "%" . $request->cari . "%")->where("sutattsu", "1")->get();
+            $unor = ReferensiUnor::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")->get();
             $unorId = [];
             foreach ($unor as $key => $value) {
                 array_push($unorId,$value->id);
@@ -446,8 +446,9 @@ class ReferensiController extends Controller
             foreach ($bidang as $key => $value) {
                 array_push($bidangId,$value->id);
             }
-            $data = ReferensiSubBidang::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
-                ->orWhereIn("refBidang_id",$bidangId)
+            $data = ReferensiSubBidang::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")->orWhere(function ($query) use ($bidangId) {
+                $query->whereIn('refBidang_id',$bidangId)->where("sutattsu", "1");
+            })
                 ->orderBy("id", "DESC")->paginate($pagination);
         }
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
