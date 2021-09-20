@@ -426,9 +426,30 @@ class ReferensiController extends Controller
     {
         //
         $pagination = 5;
-        $data = ReferensiSubBidang::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
-            // ->orwhere("refBidang_id"->ref_bidang()->name, "like", "%" . $request->cari . "%")
-            ->orderBy("id", "DESC")->paginate($pagination);
+        if ($request->cari === null || $request->cari === "") {
+            $data = ReferensiSubBidang::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        } else {
+            // $bidang = ReferensiBidang::where("name", "like", "%" . $request->cari . "%")->get();
+            // $bidangId = [];
+            // foreach ($bidang as $key => $value) {
+            //     array_push($bidangId,$value->id);
+            // }
+            $unor = ReferensiUnor::where("name", "like", "%" . $request->cari . "%")->where("sutattsu", "1")->get();
+            $unorId = [];
+            foreach ($unor as $key => $value) {
+                array_push($unorId,$value->id);
+            }
+            $bidang = ReferensiBidang::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
+                ->orWhereIn("refUnor_id",$unorId)
+                ->orderBy("id", "DESC")->get();
+            $bidangId = [];
+            foreach ($bidang as $key => $value) {
+                array_push($bidangId,$value->id);
+            }
+            $data = ReferensiSubBidang::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
+                ->orWhereIn("refBidang_id",$bidangId)
+                ->orderBy("id", "DESC")->paginate($pagination);
+        }
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data as $items) {
             $items['nomor'] = $count;
