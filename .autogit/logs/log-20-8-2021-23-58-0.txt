@@ -1,0 +1,62 @@
+-------------------- Auto-Git Log --------------------
+		Mon Sep 20 2021 23:58:00 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/ReferensiController.php
+* app/Models/ReferensiUnor.php
+* app/Providers/JetstreamServiceProvider.php
+* package-lock.json
+* package.json
+* public/js/app.js
+* resources/js/component/referensi/Agama.jsx
+* resources/js/component/referensi/Bidang.jsx
+* resources/js/component/referensi/Unor.jsx
+* resources/js/reactRoute.jsx
+* routes/web.php
+
+
+Created files:
+* .autogit/logs/log-19-8-2021-10-22-11.txt
+* .autogit/logs/log-19-8-2021-10-52-30.txt
+* .autogit/logs/log-19-8-2021-11-22-49.txt
+* .autogit/logs/log-19-8-2021-12-37-59.txt
+* .autogit/logs/log-19-8-2021-12-7-35.txt
+* .autogit/logs/log-19-8-2021-13-38-35.txt
+* .autogit/logs/log-19-8-2021-13-8-16.txt
+* .autogit/logs/log-19-8-2021-14-39-50.txt
+* .autogit/logs/log-19-8-2021-14-9-14.txt
+* .autogit/logs/log-19-8-2021-15-10-7.txt
+* .autogit/logs/log-19-8-2021-15-40-27.txt
+* .autogit/logs/log-19-8-2021-16-10-44.txt
+* .autogit/logs/log-19-8-2021-16-41-1.txt
+* .autogit/logs/log-19-8-2021-17-11-19.txt
+* .autogit/logs/log-19-8-2021-20-25-35.txt
+* .autogit/logs/log-19-8-2021-9-21-32.txt
+* .autogit/logs/log-19-8-2021-9-51-52.txt
+* .autogit/logs/log-20-8-2021-10-28-49.txt
+* .autogit/logs/log-20-8-2021-10-59-7.txt
+* .autogit/logs/log-20-8-2021-11-29-23.txt
+* .autogit/logs/log-20-8-2021-11-59-37.txt
+* .autogit/logs/log-20-8-2021-12-29-54.txt
+* .autogit/logs/log-20-8-2021-14-34-25.txt
+* .autogit/logs/log-20-8-2021-15-35-1.txt
+* .autogit/logs/log-20-8-2021-15-4-41.txt
+* .autogit/logs/log-20-8-2021-20-25-50.txt
+* .autogit/logs/log-20-8-2021-20-56-5.txt
+* .autogit/logs/log-20-8-2021-21-26-21.txt
+* .autogit/logs/log-20-8-2021-21-56-49.txt
+* .autogit/logs/log-20-8-2021-22-27-7.txt
+* .autogit/logs/log-20-8-2021-22-57-27.txt
+* .autogit/logs/log-20-8-2021-23-27-46.txt
+* .autogit/logs/log-20-8-2021-9-58-35.txt
+* app/Models/ReferensiBidang.php
+* app/Models/ReferensiSubBidang.php
+* composer
+* resources/js/component/referensi/SubBidang.jsx
+
+
+Deleted files:
+
+
+Renamed files:

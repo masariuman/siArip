@@ -301,16 +301,20 @@ class ReferensiController extends Controller
     public function bidangSearch(Request $request)
     {
         //
-        $unor = ReferensiUnor::where("name", "like", "%" . $request->cari . "%")->get();
-        $unorId = [];
-        foreach ($unor as $key => $value) {
-            array_push($unorId,$value->id);
-        }
-        // dd($unorId);
         $pagination = 5;
-        $data = ReferensiBidang::where("name", "like", "%" . $request->cari . "%")
-            ->orWhereIn("refUnor_id",$unorId)->where("sutattsu", "1")
-            ->orderBy("id", "DESC")->paginate($pagination);
+        if ($request->cari === null || $request->cari === "") {
+            $data = ReferensiBidang::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        } else {
+            $unor = ReferensiUnor::where("name", "like", "%" . $request->cari . "%")->get();
+            $unorId = [];
+            foreach ($unor as $key => $value) {
+                array_push($unorId,$value->id);
+            }
+            // dd($unorId);
+            $data = ReferensiBidang::where("name", "like", "%" . $request->cari . "%")
+                ->orWhereIn("refUnor_id",$unorId)
+                ->orderBy("id", "DESC")->where("sutattsu", "1")->paginate($pagination);
+        }
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data as $items) {
             $items['nomor'] = $count;
