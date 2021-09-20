@@ -311,9 +311,10 @@ class ReferensiController extends Controller
                 array_push($unorId,$value->id);
             }
             // dd($unorId);
-            $data = ReferensiBidang::where("name", "like", "%" . $request->cari . "%")
-                ->orWhereIn("refUnor_id",$unorId)
-                ->orderBy("id", "DESC")->where("sutattsu", "1")->paginate($pagination);
+            $data = ReferensiBidang::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")->orWhere(function ($query) use ($unorId) {
+                $query->whereIn('refUnor_id',$unorId)->where("sutattsu", "1");
+            })
+                ->orderBy("id", "DESC")->paginate($pagination);
         }
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data as $items) {
