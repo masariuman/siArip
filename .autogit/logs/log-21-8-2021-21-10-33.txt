@@ -1,0 +1,28 @@
+-------------------- Auto-Git Log --------------------
+		Tue Sep 21 2021 21:10:33 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/ReferensiController.php
+* public/js/app.js
+* resources/js/component/referensi/StatusKepegawaian.jsx
+* resources/js/reactRoute.jsx
+* routes/web.php
+
+
+Created files:
+* .autogit/logs/log-21-8-2021-20-40-12.txt
+* app/Models/ReferensiJenisHukumanDisiplin.php
+* app/Models/ReferensiJenisKepegawaian.php
+* app/Models/ReferensiJenisPenghargaan.php
+* app/Models/ReferensiKedudukanKepegawaian.php
+* resources/js/component/referensi/JenisHukumanDisiplin.jsx
+* resources/js/component/referensi/JenisKepegawaian.jsx
+* resources/js/component/referensi/JenisPenghargaan.jsx
+* resources/js/component/referensi/KedudukanKepegawaian.jsx
+
+
+Deleted files:
+
+
+Renamed files:
