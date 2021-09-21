@@ -2022,738 +2022,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/component/alhuqulAlfareia/Index.jsx":
-/*!**********************************************************!*\
-  !*** ./resources/js/component/alhuqulAlfareia/Index.jsx ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _warudo_Footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../warudo/Footer */ "./resources/js/warudo/Footer.jsx");
-/* harmony import */ var _warudo_DarkMode__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../warudo/DarkMode */ "./resources/js/warudo/DarkMode.jsx");
-/* harmony import */ var _warudo_Loading__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../warudo/Loading */ "./resources/js/warudo/Loading.jsx");
-/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! sweetalert */ "./node_modules/sweetalert/dist/sweetalert.min.js");
-/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var react_js_pagination__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-js-pagination */ "./node_modules/react-js-pagination/dist/Pagination.js");
-/* harmony import */ var react_highlight_words__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-highlight-words */ "./node_modules/react-highlight-words/dist/main.js");
-/* harmony import */ var react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_highlight_words__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-
-
-
-
-
-
-
-
-
-
-var alhuqulAlfareia = /*#__PURE__*/function (_Component) {
-  _inherits(alhuqulAlfareia, _Component);
-
-  var _super = _createSuper(alhuqulAlfareia);
-
-  function alhuqulAlfareia(props) {
-    var _this;
-
-    _classCallCheck(this, alhuqulAlfareia);
-
-    _this = _super.call(this, props);
-    _this.state = {
-      data: [],
-      heya: [],
-      heyaMei: "",
-      dataNewInput: "",
-      dataEditInput: "",
-      cari: "",
-      url: null,
-      loading: true
-    };
-    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
-    _this.handleEditInputChange = _this.handleEditInputChange.bind(_assertThisInitialized(_this));
-    _this.handleEditSubmit = _this.handleEditSubmit.bind(_assertThisInitialized(_this));
-    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    _this.renderData = _this.renderData.bind(_assertThisInitialized(_this));
-    _this.handlePageChange = _this.handlePageChange.bind(_assertThisInitialized(_this));
-    _this.modalTambah = _this.modalTambah.bind(_assertThisInitialized(_this));
-    _this.modalUbah = _this.modalUbah.bind(_assertThisInitialized(_this));
-    _this.handleChangeCari = _this.handleChangeCari.bind(_assertThisInitialized(_this));
-    _this.handleChangeHeya = _this.handleChangeHeya.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(alhuqulAlfareia, [{
-    key: "handleChangeHeya",
-    value: function handleChangeHeya(e) {
-      this.setState({
-        heyaMei: e.target.value
-      });
-    }
-  }, {
-    key: "handleChangeCari",
-    value: function handleChangeCari(e) {
-      var _this2 = this;
-
-      this.setState({
-        cari: e.target.value
-      });
-      axios.post("/alhuqulAlfareia/search", {
-        cari: e.target.value
-      }).then(function (response) {
-        // console.log(response.data);
-        _this2.setState({
-          data: response.data.data.data,
-          loading: false,
-          activePage: response.data.data.current_page,
-          itemsCountPerPage: response.data.data.per_page,
-          totalItemsCount: response.data.data.total,
-          pageRangeDisplayed: 10
-        }); // console.log(this.state.tag);
-
-      });
-    }
-  }, {
-    key: "handleDeleteButton",
-    value: function handleDeleteButton(e) {
-      var _this3 = this;
-
-      axios.get("/kanrisha/alhuqulAlfareia/deeta/".concat(e)).then(function (response) {
-        sweetalert__WEBPACK_IMPORTED_MODULE_5___default()({
-          title: "Yakin ingin menghapus Sub Bidang ".concat(response.data.data.asm),
-          text: "Kalau Terhapus, Hubungi Admin Untuk Mengembalikan Data yang Terhapus!",
-          icon: "warning",
-          buttons: true,
-          dangerMode: true
-        }).then(function (willDelete) {
-          if (willDelete) {
-            _this3.setState({
-              loading: true
-            });
-
-            axios["delete"]("/kanrisha/alhuqulAlfareia/deeta/".concat(e), {
-              url: _this3.state.url
-            }).then(function (response) {
-              _this3.setState({
-                data: response.data.data.data,
-                loading: false
-              });
-
-              sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Sukses!", "Data Berhasil Dihapus!", "success"); // console.log("from handle sumit", response);
-            })["catch"](function (error) {
-              _this3.setState({
-                loading: false
-              });
-
-              sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Error!", "Gagal Menghapus Data, Silahkan Hubungi Admin!", "error");
-            });
-          } else {
-            sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Data Tidak Terhapus!");
-          }
-        });
-      })["catch"](function (error) {
-        sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Error!", "Terdapat Masalah, Silahkan Hubungi Admin!", "error");
-      });
-    }
-  }, {
-    key: "handleEditButton",
-    value: function handleEditButton(e) {
-      var _this4 = this;
-
-      axios.get("/kanrisha/alhuqulAlfareia/deeta/".concat(e)).then(function (response) {
-        _this4.setState({
-          dataEditInput: response.data.data.asm,
-          url: response.data.data.rinku,
-          heyaMei: response.data.data.heyaRinku
-        });
-      })["catch"](function (error) {
-        sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Error!", "Terdapat Masalah, Silahkan Hubungi Admin!", "error");
-      });
-    }
-  }, {
-    key: "handleChange",
-    value: function handleChange(e) {
-      this.setState({
-        dataNewInput: e.target.value
-      }); // console.log(e.target.value);
-    }
-  }, {
-    key: "handleEditInputChange",
-    value: function handleEditInputChange(e) {
-      this.setState({
-        dataEditInput: e.target.value
-      }); // console.log(e.target.value);
-    }
-  }, {
-    key: "handleSubmit",
-    value: function handleSubmit(e) {
-      var _this5 = this;
-
-      e.preventDefault();
-      this.setState({
-        loading: true
-      });
-      axios.post("/kanrisha/alhuqulAlfareia/deeta", {
-        data: this.state.dataNewInput,
-        heyaMei: this.state.heyaMei
-      }).then(function (response) {
-        _this5.setState({
-          data: [response.data.data].concat(_toConsumableArray(_this5.state.data)),
-          dataNewInput: "",
-          loading: false
-        });
-
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()("#tambahModal").removeClass("in");
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()(".modal-backdrop").remove();
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()('body').removeClass('modal-open');
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()('body').css('padding-right', '');
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()("#tambahModal").hide();
-        sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Sukses!", "Data Baru Berhasil Ditambahkan!", "success"); // console.log("from handle sumit", response);
-      })["catch"](function (error) {
-        _this5.setState({
-          loading: false
-        });
-
-        sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Error!", "Gagal Memasukkan Data Baru, Silahkan Hubungi Admin!", "error");
-      }); // console.log(this.state.create);
-    }
-  }, {
-    key: "handleEditSubmit",
-    value: function handleEditSubmit(e) {
-      var _this6 = this;
-
-      e.preventDefault();
-      this.setState({
-        loading: true
-      });
-      axios.put("/kanrisha/alhuqulAlfareia/deeta/".concat(this.state.url), {
-        heyaMei: this.state.heyaMei,
-        data: this.state.dataEditInput
-      }).then(function (response) {
-        _this6.setState({
-          data: response.data.data.data,
-          dataEditInput: "",
-          loading: false
-        });
-
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()("#editModal").removeClass("in");
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()(".modal-backdrop").remove();
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()('body').removeClass('modal-open');
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()('body').css('padding-right', '');
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()("#editModal").hide();
-        sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Sukses!", "Data Berhasil Diubah!", "success"); // console.log("from handle sumit", response);
-      })["catch"](function (error) {
-        _this6.setState({
-          loading: false
-        });
-
-        sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Error!", "Gagal Mengubah Data, Silahkan Hubungi Admin! Kode Error : HS", "error");
-      }); // console.log(this.state.create);
-    }
-  }, {
-    key: "getHeya",
-    value: function getHeya() {
-      var _this7 = this;
-
-      axios.get("/kanrisha/alhuqulAlfareia/deeta/create").then(function (response) {
-        _this7.setState({
-          heya: response.data.data.heya,
-          heyaMei: response.data.data.heya[0].rinku
-        }); // console.log(response.data.data.heya[0].rinku);
-
-      });
-    }
-  }, {
-    key: "getData",
-    value: function getData() {
-      var _this8 = this;
-
-      this.setState({
-        loading: true
-      });
-      axios.get("/kanrisha/alhuqulAlfareia/deeta").then(function (response) {
-        // console.log(response.data.data.data);
-        _this8.setState({
-          data: response.data.data.data,
-          loading: false,
-          activePage: response.data.data.current_page,
-          itemsCountPerPage: response.data.data.per_page,
-          totalItemsCount: response.data.data.total,
-          pageRangeDisplayed: 10
-        });
-
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()('#petunjuk').on('click', function () {
-          var enjoyhint_instance = new EnjoyHint({});
-          var enjoyhint_script_steps = [{
-            'next #buttonTambahModal': 'Untuk Menambah Data Baru, Tekan Tombol Tambah Surat Masuk Baru'
-          }, {
-            'next #ubah1': 'Untuk Mengubah Data, Tekan Tombol Ubah Berikut'
-          }, {
-            'next #hapus1': 'Untuk Menghapus Data, Tekan Hapus Berikut'
-          }, {
-            'next #pagination': 'Untuk Melihat Data Berikutnya, Pilih Pada Angka Berikut Untuk Melihat Data Pada Halaman Selanjutnya'
-          }, {
-            'next #cari': 'Untuk Mencari data, Ketikkan Pada Kolom Berikut Dan Tunggu Hasilnya Keluar'
-          }, {
-            'next #userSetting': "Arahkan Mouse Kesini Untuk Membuka Menu Pengaturan User. <br /><br /> <img src='/petunjuk/userSetting.png' class='masariuman_imgUserSetting' /> <br /><br /> Anda Dapat Mengubah Password Dan Mengubah Foto Profil Anda Dengan Menekan Tombol Pengaturan User Untuk Membuka Form <br /> Untuk Mengubah Data Password Atau Foto Profil Anda. <br/> <br/> Untuk Keluar Dari Aplikasi, Anda Dapat Menekan Tombol Logout."
-          }, {
-            'next #meno': 'Pilih Menu Pada Panel Berikut Untuk Membuka Halaman Sesuai Dengan Menu Yang Dipilih.'
-          }];
-          enjoyhint_instance.set(enjoyhint_script_steps);
-          enjoyhint_instance.run();
-        });
-      })["catch"](function (error) {
-        sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Error!", "Terdapat Masalah, Silahkan Hubungi Admin! Code Error : GD", "error");
-
-        _this8.setState({
-          loading: false
-        });
-      });
-    }
-  }, {
-    key: "handlePageChange",
-    value: function handlePageChange(pageNumber) {
-      var _this9 = this;
-
-      this.setState({
-        loading: true
-      });
-      axios.get('/kanrisha/alhuqulAlfareia/deeta?page=' + pageNumber).then(function (response) {
-        _this9.setState({
-          data: response.data.deeta_data.data,
-          loading: false,
-          activePage: response.data.deeta_data.current_page,
-          itemsCountPerPage: response.data.deeta_data.per_page,
-          totalItemsCount: response.data.deeta_data.total,
-          pageRangeDisplayed: 10
-        });
-      })["catch"](function (error) {
-        sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Error!", "Terdapat Masalah, Silahkan Hubungi Admin!", "error");
-
-        _this9.setState({
-          loading: false
-        });
-      });
-    }
-  }, {
-    key: "testData",
-    value: function testData() {
-      axios.get("/masariuman_tag").then(function (response) {
-        return console.log(response.data.deeta_data);
-      });
-    }
-  }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.getData();
-      this.getHeya(); // console.log(this.state.tag);
-    }
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate() {// this.getTag();
-    }
-  }, {
-    key: "renderSelect",
-    value: function renderSelect() {
-      return this.state.heya.map(function (albayanat) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("option", {
-          value: albayanat.rinku,
-          children: albayanat.heyaMei
-        }, albayanat.rinku);
-      });
-    }
-  }, {
-    key: "renderData",
-    value: function renderData() {
-      var _this10 = this;
-
-      return !this.state.data.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("tr", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
-          colSpan: "3",
-          className: "text-center",
-          children: "Data Tidak Ditemukan"
-        })
-      }) : this.state.data.map(function (data) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("th", {
-            scope: "row",
-            children: data.nomor
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
-              highlightClassName: "YourHighlightClass",
-              searchWords: [_this10.state.cari],
-              autoEscape: true,
-              textToHighlight: data.asm
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("td", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-              "data-target": "#editModal",
-              "data-toggle": "modal",
-              className: "mb-2 mr-2 border-0 btn-transition btn btn-shadow btn-outline-warning",
-              type: "button",
-              onClick: _this10.handleEditButton.bind(_this10, data.rinku),
-              id: 'ubah' + data.nomor,
-              children: "Ubah"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-              className: "mb-2 mr-2 border-0 btn-transition btn btn-shadow btn-outline-danger",
-              type: "button",
-              onClick: _this10.handleDeleteButton.bind(_this10, data.rinku),
-              id: 'hapus' + data.nomor,
-              children: "Hapus"
-            })]
-          })]
-        }, data.id);
-      });
-    }
-  }, {
-    key: "modalTambah",
-    value: function modalTambah() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-        "aria-hidden": "true",
-        className: "onboarding-modal modal fade animated",
-        id: "tambahModal",
-        role: "dialog",
-        tabIndex: "-1",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-          className: "modal-dialog modal-lg modal-centered",
-          role: "document",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-            className: "modal-content text-center",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("button", {
-              "aria-label": "Close",
-              className: "close",
-              "data-dismiss": "modal",
-              type: "button",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
-                className: "close-label",
-                children: "Tutup"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
-                className: "os-icon os-icon-close"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-              className: "onboarding-side-by-side",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                className: "onboarding-media",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
-                  alt: "",
-                  src: "/iconModal/organizationPlus.png",
-                  width: "200px"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                className: "onboarding-content with-gradient masariuman_width100percent",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h4", {
-                  className: "onboarding-title",
-                  children: "Tambah Sub Bidang Baru"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                  className: "onboarding-text",
-                  children: "Masukkan nama Sub Bidang baru."
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("form", {
-                  onSubmit: this.handleSubmit,
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                    className: "row",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                      className: "col-sm-12",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                        className: "form-group",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
-                          onChange: this.handleChange,
-                          value: this.state.dataNewInput,
-                          title: "Nama Sub Bidang",
-                          placeholder: "Masukkan Nama Sub Bidang Baru..",
-                          type: "text",
-                          className: "form-control"
-                        })
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                        className: "form-group",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("select", {
-                          value: this.state.heyaMei,
-                          onChange: this.handleChangeHeya,
-                          className: "form-control",
-                          children: this.renderSelect()
-                        })
-                      })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                      className: "col-sm-12",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                        className: "form-group text-center",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-                          className: "mr-2 mb-2 btn btn-primary",
-                          "data-target": "#onboardingWideFormModal",
-                          "data-toggle": "modal",
-                          type: "submit",
-                          children: "Tambah Sub Bidang Baru"
-                        })
-                      })
-                    })]
-                  })
-                })]
-              })]
-            })]
-          })
-        })
-      });
-    }
-  }, {
-    key: "modalUbah",
-    value: function modalUbah() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-        "aria-hidden": "true",
-        className: "onboarding-modal modal fade animated",
-        id: "editModal",
-        role: "dialog",
-        tabIndex: "-1",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-          className: "modal-dialog modal-lg modal-centered",
-          role: "document",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-            className: "modal-content text-center",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("button", {
-              "aria-label": "Close",
-              className: "close",
-              "data-dismiss": "modal",
-              type: "button",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
-                className: "close-label",
-                children: "Tutup"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
-                className: "os-icon os-icon-close"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-              className: "onboarding-side-by-side",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                className: "onboarding-media",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
-                  alt: "",
-                  src: "/iconModal/organizationEdit.png",
-                  width: "200px"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                className: "onboarding-content with-gradient masariuman_width100percent",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h4", {
-                  className: "onboarding-title",
-                  children: "Ubah Nama Sub Bidang"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                  className: "onboarding-text",
-                  children: "Masukkan nama Sub Bidang baru."
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("form", {
-                  onSubmit: this.handleEditSubmit,
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                    className: "row",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                      className: "col-sm-12",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                        className: "form-group",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
-                          onChange: this.handleEditInputChange,
-                          value: this.state.dataEditInput,
-                          title: "Nama Sub Bidang",
-                          placeholder: "Masukkan Nama Sub Bidang Baru..",
-                          type: "text",
-                          className: "form-control"
-                        })
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                        className: "form-group",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("select", {
-                          value: this.state.heyaMei,
-                          onChange: this.handleChangeHeya,
-                          className: "form-control",
-                          children: this.renderSelect()
-                        })
-                      })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                      className: "col-sm-12",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                        className: "form-group text-center",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-                          className: "mr-2 mb-2 btn btn-warning",
-                          "data-target": "#onboardingWideFormModal",
-                          "data-toggle": "modal",
-                          type: "submit",
-                          children: "Ubah Nama Sub Bidang"
-                        })
-                      })
-                    })]
-                  })
-                })]
-              })]
-            })]
-          })
-        })
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return this.state.loading === true ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_warudo_Loading__WEBPACK_IMPORTED_MODULE_4__.default, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-        className: "content-w",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-          className: "top-bar color-scheme-transparent masariuman-height103px",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-            className: "top-menu-controls masariuman-marginleft30px",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-              className: "icon-w top-icon masariuman-titlecontent",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                className: "fa fa-sitemap"
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-              className: "masariuman-textleft",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
-                className: "masariuman-bold",
-                children: "Sub Bidang"
-              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("small", {
-                children: "Sub Bidang Management"
-              })]
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-            className: "top-menu-controls",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("button", {
-              className: "mr-2 mb-2 btn btn-outline-primary",
-              type: "button",
-              id: "petunjuk",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("i", {
-                className: "batch-icon-bulb-2"
-              }), " PETUNJUK ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("i", {
-                className: "batch-icon-bulb"
-              })]
-            })
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("ul", {
-          className: "breadcrumb",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("li", {
-            className: "breadcrumb-item",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("a", {
-              children: "Sub Bidang"
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("li", {
-            className: "breadcrumb-item",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
-              children: "Sub Bidang Management"
-            })
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-          className: "content-i masariuman-minheight100vh",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-            className: "content-box",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-              className: "element-wrapper",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                className: "element-box",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h5", {
-                  className: "form-header",
-                  children: "Sub Bidang List"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                  className: "form-desc",
-                  children: "Manajemen Sub Bidang Data"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-                    className: "mr-2 mb-2 btn btn-primary",
-                    "data-target": "#tambahModal",
-                    "data-toggle": "modal",
-                    type: "button",
-                    id: "buttonTambahModal",
-                    children: "Tambah Sub Bidang Baru"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                    className: "col-sm-4 float-right",
-                    id: "cari",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
-                      type: "text",
-                      className: "form-control",
-                      onChange: this.handleChangeCari,
-                      value: this.state.cari,
-                      placeholder: "Cari Sub Bidang..."
-                    })
-                  })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                  className: "table-responsive",
-                  id: "Sub BidangTable",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("table", {
-                    id: "tabeldata",
-                    width: "100%",
-                    className: "table table-striped table-lightfont",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("thead", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("th", {
-                          className: "width50px",
-                          children: "NO"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("th", {
-                          children: "NAMA Sub Bidang"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("th", {
-                          className: "width250px",
-                          children: "ACTION"
-                        })]
-                      })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("tbody", {
-                      children: this.renderData()
-                    })]
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                  className: "d-flex justify-content-center",
-                  id: "pagination",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_js_pagination__WEBPACK_IMPORTED_MODULE_6__.default, {
-                    activePage: this.state.activePage,
-                    itemsCountPerPage: this.state.itemsCountPerPage,
-                    totalItemsCount: this.state.totalItemsCount,
-                    pageRangeDisplayed: this.state.pageRangeDisplayed,
-                    onChange: this.handlePageChange
-                  })
-                })]
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_warudo_DarkMode__WEBPACK_IMPORTED_MODULE_3__.default, {})]
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_warudo_Footer__WEBPACK_IMPORTED_MODULE_2__.default, {}), this.modalTambah(), this.modalUbah()]
-      });
-    }
-  }]);
-
-  return alhuqulAlfareia;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (alhuqulAlfareia);
-
-/***/ }),
-
 /***/ "./resources/js/component/dashboard/Index.jsx":
 /*!****************************************************!*\
   !*** ./resources/js/component/dashboard/Index.jsx ***!
@@ -8303,6 +7571,678 @@ var Bidang = /*#__PURE__*/function (_Component) {
 
 /***/ }),
 
+/***/ "./resources/js/component/referensi/StatusKepegawaian.jsx":
+/*!****************************************************************!*\
+  !*** ./resources/js/component/referensi/StatusKepegawaian.jsx ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _warudo_Footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../warudo/Footer */ "./resources/js/warudo/Footer.jsx");
+/* harmony import */ var _warudo_DarkMode__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../warudo/DarkMode */ "./resources/js/warudo/DarkMode.jsx");
+/* harmony import */ var _warudo_Loading__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../warudo/Loading */ "./resources/js/warudo/Loading.jsx");
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! sweetalert */ "./node_modules/sweetalert/dist/sweetalert.min.js");
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react_js_pagination__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-js-pagination */ "./node_modules/react-js-pagination/dist/Pagination.js");
+/* harmony import */ var react_highlight_words__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-highlight-words */ "./node_modules/react-highlight-words/dist/main.js");
+/* harmony import */ var react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_highlight_words__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+
+
+
+
+
+
+
+
+var StatusKepegawaian = /*#__PURE__*/function (_Component) {
+  _inherits(StatusKepegawaian, _Component);
+
+  var _super = _createSuper(StatusKepegawaian);
+
+  function StatusKepegawaian(props) {
+    var _this;
+
+    _classCallCheck(this, StatusKepegawaian);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      data: [],
+      dataNewInput: "",
+      dataEditInput: "",
+      cari: "",
+      url: null,
+      loading: true
+    };
+    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
+    _this.handleEditInputChange = _this.handleEditInputChange.bind(_assertThisInitialized(_this));
+    _this.handleEditSubmit = _this.handleEditSubmit.bind(_assertThisInitialized(_this));
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.renderData = _this.renderData.bind(_assertThisInitialized(_this));
+    _this.handlePageChange = _this.handlePageChange.bind(_assertThisInitialized(_this));
+    _this.modalTambah = _this.modalTambah.bind(_assertThisInitialized(_this));
+    _this.modalUbah = _this.modalUbah.bind(_assertThisInitialized(_this));
+    _this.handleChangeCari = _this.handleChangeCari.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(StatusKepegawaian, [{
+    key: "handleChangeCari",
+    value: function handleChangeCari(e) {
+      var _this2 = this;
+
+      this.setState({
+        cari: e.target.value
+      });
+      axios.post("/admin/referensi/statusKepegawaian/search", {
+        cari: e.target.value
+      }).then(function (response) {
+        // console.log(response.data);
+        _this2.setState({
+          data: response.data.data.data,
+          loading: false,
+          activePage: response.data.data.current_page,
+          itemsCountPerPage: response.data.data.per_page,
+          totalItemsCount: response.data.data.total,
+          pageRangeDisplayed: 10
+        }); // console.log(this.state.tag);
+
+      });
+    }
+  }, {
+    key: "handleDeleteButton",
+    value: function handleDeleteButton(e) {
+      var _this3 = this;
+
+      axios.get("/admin/referensi/statusKepegawaian/".concat(e)).then(function (response) {
+        sweetalert__WEBPACK_IMPORTED_MODULE_5___default()({
+          title: "Yakin ingin menghapus Status Kepegawaian ".concat(response.data.data.name),
+          text: "Kalau Terhapus, Hubungi Admin Untuk Mengembalikan Data yang Terhapus!",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true
+        }).then(function (willDelete) {
+          if (willDelete) {
+            _this3.setState({
+              loading: true
+            });
+
+            axios["delete"]("/admin/referensi/statusKepegawaian/".concat(e), {
+              url: _this3.state.url
+            }).then(function (response) {
+              _this3.setState({
+                data: response.data.data.data,
+                loading: false
+              });
+
+              sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Sukses!", "Data Berhasil Dihapus!", "success"); // console.log("from handle sumit", response);
+            })["catch"](function (error) {
+              _this3.setState({
+                loading: false
+              });
+
+              sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Error!", "Gagal Menghapus Data, Silahkan Hubungi Admin!", "error");
+            });
+          } else {
+            sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Data Tidak Terhapus!");
+          }
+        });
+      })["catch"](function (error) {
+        sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Error!", "Terdapat Masalah, Silahkan Hubungi Admin!", "error");
+      });
+    }
+  }, {
+    key: "handleEditButton",
+    value: function handleEditButton(e) {
+      var _this4 = this;
+
+      axios.get("/admin/referensi/statusKepegawaian/".concat(e)).then(function (response) {
+        _this4.setState({
+          dataEditInput: response.data.data.name,
+          url: response.data.data.rinku
+        });
+      })["catch"](function (error) {
+        sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Error!", "Terdapat Masalah, Silahkan Hubungi Admin!", "error");
+      });
+    }
+  }, {
+    key: "handleChange",
+    value: function handleChange(e) {
+      this.setState({
+        dataNewInput: e.target.value
+      }); // console.log(e.target.value);
+    }
+  }, {
+    key: "handleEditInputChange",
+    value: function handleEditInputChange(e) {
+      this.setState({
+        dataEditInput: e.target.value
+      }); // console.log(e.target.value);
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      var _this5 = this;
+
+      e.preventDefault();
+      this.setState({
+        loading: true
+      });
+      axios.post("/admin/referensi/statusKepegawaian", {
+        data: this.state.dataNewInput
+      }).then(function (response) {
+        _this5.setState({
+          data: [response.data.data].concat(_toConsumableArray(_this5.state.data)),
+          dataNewInput: "",
+          loading: false
+        });
+
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()("#tambahModal").removeClass("in");
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()(".modal-backdrop").remove();
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()('body').removeClass('modal-open');
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()('body').css('padding-right', '');
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()("#tambahModal").hide();
+        sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Sukses!", "Data Baru Berhasil Ditambahkan!", "success"); // console.log("from handle sumit", response);
+      })["catch"](function (error) {
+        _this5.setState({
+          loading: false
+        });
+
+        sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Error!", "Gagal Memasukkan Data Baru, Silahkan Hubungi Admin!", "error");
+      }); // console.log(this.state.create);
+    }
+  }, {
+    key: "handleEditSubmit",
+    value: function handleEditSubmit(e) {
+      var _this6 = this;
+
+      e.preventDefault();
+      this.setState({
+        loading: true
+      });
+      axios.put("/admin/referensi/statusKepegawaian/".concat(this.state.url), {
+        data: this.state.dataEditInput
+      }).then(function (response) {
+        _this6.setState({
+          data: response.data.data.data,
+          dataEditInput: "",
+          loading: false
+        });
+
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()("#editModal").removeClass("in");
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()(".modal-backdrop").remove();
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()('body').removeClass('modal-open');
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()('body').css('padding-right', '');
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()("#editModal").hide();
+        sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Sukses!", "Data Berhasil Diubah!", "success"); // console.log("from handle sumit", response);
+      })["catch"](function (error) {
+        _this6.setState({
+          loading: false
+        });
+
+        sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Error!", "Gagal Mengubah Data, Silahkan Hubungi Admin! Kode Error : HS", "error");
+      }); // console.log(this.state.create);
+    }
+  }, {
+    key: "getData",
+    value: function getData() {
+      var _this7 = this;
+
+      this.setState({
+        loading: true
+      });
+      axios.get("/admin/referensi/statusKepegawaian/deeta").then(function (response) {
+        // console.log(response.data.data.data);
+        _this7.setState({
+          data: response.data.data.data,
+          loading: false,
+          activePage: response.data.data.current_page,
+          itemsCountPerPage: response.data.data.per_page,
+          totalItemsCount: response.data.data.total,
+          pageRangeDisplayed: 10
+        });
+
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()('#petunjuk').on('click', function () {
+          var enjoyhint_instance = new EnjoyHint({});
+          var enjoyhint_script_steps = [{
+            'next #buttonTambahModal': 'Untuk Menambah Data Baru, Tekan Tombol Tambah Surat Masuk Baru'
+          }, {
+            'next #ubah1': 'Untuk Mengubah Data, Tekan Tombol Ubah Berikut'
+          }, {
+            'next #hapus1': 'Untuk Menghapus Data, Tekan Hapus Berikut'
+          }, {
+            'next #pagination': 'Untuk Melihat Data Berikutnya, Pilih Pada Angka Berikut Untuk Melihat Data Pada Halaman Selanjutnya'
+          }, {
+            'next #cari': 'Untuk Mencari data, Ketikkan Pada Kolom Berikut Dan Tunggu Hasilnya Keluar'
+          }, {
+            'next #userSetting': "Arahkan Mouse Kesini Untuk Membuka Menu Pengaturan User. <br /><br /> <img src='/petunjuk/userSetting.png' class='masariuman_imgUserSetting' /> <br /><br /> Anda Dapat Mengubah Password Dan Mengubah Foto Profil Anda Dengan Menekan Tombol Pengaturan User Untuk Membuka Form <br /> Untuk Mengubah Data Password Atau Foto Profil Anda. <br/> <br/> Untuk Keluar Dari Aplikasi, Anda Dapat Menekan Tombol Logout."
+          }, {
+            'next #meno': 'Pilih Menu Pada Panel Berikut Untuk Membuka Halaman Sesuai Dengan Menu Yang Dipilih.'
+          }];
+          enjoyhint_instance.set(enjoyhint_script_steps);
+          enjoyhint_instance.run();
+        });
+      })["catch"](function (error) {
+        sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Error!", "Terdapat Masalah, Silahkan Hubungi Admin! Code Error : GD", "error");
+
+        _this7.setState({
+          loading: false
+        });
+      });
+    }
+  }, {
+    key: "handlePageChange",
+    value: function handlePageChange(pageNumber) {
+      var _this8 = this;
+
+      this.setState({
+        loading: true
+      });
+      axios.get('/kanrisha/heya/deeta?page=' + pageNumber).then(function (response) {
+        _this8.setState({
+          data: response.data.deeta_data.data,
+          loading: false,
+          activePage: response.data.deeta_data.current_page,
+          itemsCountPerPage: response.data.deeta_data.per_page,
+          totalItemsCount: response.data.deeta_data.total,
+          pageRangeDisplayed: 10
+        });
+      })["catch"](function (error) {
+        sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Error!", "Terdapat Masalah, Silahkan Hubungi Admin!", "error");
+
+        _this8.setState({
+          loading: false
+        });
+      });
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.getData(); // console.log(this.state.tag);
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {// this.getTag();
+    }
+  }, {
+    key: "renderData",
+    value: function renderData() {
+      var _this9 = this;
+
+      return !this.state.data.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("tr", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
+          colSpan: "3",
+          className: "text-center",
+          children: "Data Tidak Ditemukan"
+        })
+      }) : this.state.data.map(function (data) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("th", {
+            scope: "row",
+            children: data.nomor
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
+              highlightClassName: "YourHighlightClass",
+              searchWords: [_this9.state.cari],
+              autoEscape: true,
+              textToHighlight: data.name
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("td", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+              "data-target": "#editModal",
+              "data-toggle": "modal",
+              className: "mb-2 mr-2 border-0 btn-transition btn btn-shadow btn-outline-warning",
+              type: "button",
+              onClick: _this9.handleEditButton.bind(_this9, data.rinku),
+              id: 'ubah' + data.nomor,
+              children: "Ubah"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+              className: "mb-2 mr-2 border-0 btn-transition btn btn-shadow btn-outline-danger",
+              type: "button",
+              onClick: _this9.handleDeleteButton.bind(_this9, data.rinku),
+              id: 'hapus' + data.nomor,
+              children: "Hapus"
+            })]
+          })]
+        }, data.id);
+      });
+    }
+  }, {
+    key: "modalTambah",
+    value: function modalTambah() {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+        "aria-hidden": "true",
+        className: "onboarding-modal modal fade animated",
+        id: "tambahModal",
+        role: "dialog",
+        tabIndex: "-1",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+          className: "modal-dialog modal-lg modal-centered",
+          role: "document",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+            className: "modal-content text-center",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("button", {
+              "aria-label": "Close",
+              className: "close",
+              "data-dismiss": "modal",
+              type: "button",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                className: "close-label",
+                children: "Tutup"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                className: "os-icon os-icon-close"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+              className: "onboarding-side-by-side",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                className: "onboarding-media",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
+                  alt: "",
+                  src: "/iconModal/roomPlus.png",
+                  width: "200px"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                className: "onboarding-content with-gradient masariuman_width100percent",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h4", {
+                  className: "onboarding-title",
+                  children: "Tambah Status Kepegawaian Baru"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                  className: "onboarding-text",
+                  children: "Masukkan nama Status Kepegawaian baru."
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("form", {
+                  onSubmit: this.handleSubmit,
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                    className: "row",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                      className: "col-sm-12",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                        className: "form-group",
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
+                          onChange: this.handleChange,
+                          value: this.state.dataNewInput,
+                          title: "Nama Status Kepegawaian",
+                          placeholder: "Masukkan Nama Status Kepegawaian Baru..",
+                          type: "text",
+                          className: "form-control"
+                        })
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                      className: "col-sm-12",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                        className: "form-group text-center",
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+                          className: "mr-2 mb-2 btn btn-primary",
+                          "data-target": "#onboardingWideFormModal",
+                          "data-toggle": "modal",
+                          type: "submit",
+                          children: "Tambah Status Kepegawaian Baru"
+                        })
+                      })
+                    })]
+                  })
+                })]
+              })]
+            })]
+          })
+        })
+      });
+    }
+  }, {
+    key: "modalUbah",
+    value: function modalUbah() {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+        "aria-hidden": "true",
+        className: "onboarding-modal modal fade animated",
+        id: "editModal",
+        role: "dialog",
+        tabIndex: "-1",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+          className: "modal-dialog modal-lg modal-centered",
+          role: "document",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+            className: "modal-content text-center",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("button", {
+              "aria-label": "Close",
+              className: "close",
+              "data-dismiss": "modal",
+              type: "button",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                className: "close-label",
+                children: "Tutup"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                className: "os-icon os-icon-close"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+              className: "onboarding-side-by-side",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                className: "onboarding-media",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
+                  alt: "",
+                  src: "/iconModal/roomEdit.png",
+                  width: "200px"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                className: "onboarding-content with-gradient masariuman_width100percent",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h4", {
+                  className: "onboarding-title",
+                  children: "Ubah Nama Status Kepegawaian"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                  className: "onboarding-text",
+                  children: "Masukkan nama Status Kepegawaian baru."
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("form", {
+                  onSubmit: this.handleEditSubmit,
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                    className: "row",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                      className: "col-sm-12",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                        className: "form-group",
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
+                          onChange: this.handleEditInputChange,
+                          value: this.state.dataEditInput,
+                          title: "Nama Status Kepegawaian",
+                          placeholder: "Masukkan Nama Status Kepegawaian Baru..",
+                          type: "text",
+                          className: "form-control"
+                        })
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                      className: "col-sm-12",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                        className: "form-group text-center",
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+                          className: "mr-2 mb-2 btn btn-warning",
+                          "data-target": "#onboardingWideFormModal",
+                          "data-toggle": "modal",
+                          type: "submit",
+                          children: "Ubah Nama Status Kepegawaian"
+                        })
+                      })
+                    })]
+                  })
+                })]
+              })]
+            })]
+          })
+        })
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return this.state.loading === true ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_warudo_Loading__WEBPACK_IMPORTED_MODULE_4__.default, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        className: "content-w",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+          className: "top-bar color-scheme-transparent masariuman-height103px",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+            className: "top-menu-controls masariuman-marginleft30px",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+              className: "icon-w top-icon masariuman-titlecontent",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                className: "os-icon os-icon-home"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+              className: "masariuman-textleft",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                className: "masariuman-bold",
+                children: "Status Kepegawaian"
+              }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("small", {
+                children: "Manajemen Status Kepegawaian"
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+            className: "top-menu-controls",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("button", {
+              className: "mr-2 mb-2 btn btn-outline-primary",
+              type: "button",
+              id: "petunjuk",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("i", {
+                className: "batch-icon-bulb-2"
+              }), " PETUNJUK ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("i", {
+                className: "batch-icon-bulb"
+              })]
+            })
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("ul", {
+          className: "breadcrumb",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("li", {
+            className: "breadcrumb-item",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("a", {
+              children: "Status Kepegawaian"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("li", {
+            className: "breadcrumb-item",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+              children: "Manajemen Status Kepegawaian"
+            })
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+          className: "content-i masariuman-minheight100vh",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+            className: "content-box",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+              className: "element-wrapper",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                className: "element-box",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h5", {
+                  className: "form-header",
+                  children: "Daftar Status Kepegawaian"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                  className: "form-desc",
+                  children: "Manajemen Data Status Kepegawaian"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+                    className: "mr-2 mb-2 btn btn-primary",
+                    "data-target": "#tambahModal",
+                    "data-toggle": "modal",
+                    type: "button",
+                    id: "buttonTambahModal",
+                    children: "Tambah Status Kepegawaian Baru"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                    className: "col-sm-4 float-right",
+                    id: "cari",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
+                      type: "text",
+                      className: "form-control",
+                      onChange: this.handleChangeCari,
+                      value: this.state.cari,
+                      placeholder: "Cari Status Kepegawaian..."
+                    })
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                  className: "table-responsive",
+                  id: "statusKepegawaianTable",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("table", {
+                    id: "tabeldata",
+                    width: "100%",
+                    className: "table table-striped table-lightfont",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("thead", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("th", {
+                          className: "width50px",
+                          children: "NO"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("th", {
+                          children: "NAMA Status Kepegawaian"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("th", {
+                          className: "width250px",
+                          children: "ACTION"
+                        })]
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("tbody", {
+                      children: this.renderData()
+                    })]
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                  className: "d-flex justify-content-center",
+                  id: "pagination",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_js_pagination__WEBPACK_IMPORTED_MODULE_6__.default, {
+                    activePage: this.state.activePage,
+                    itemsCountPerPage: this.state.itemsCountPerPage,
+                    totalItemsCount: this.state.totalItemsCount,
+                    pageRangeDisplayed: this.state.pageRangeDisplayed,
+                    onChange: this.handlePageChange
+                  })
+                })]
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_warudo_DarkMode__WEBPACK_IMPORTED_MODULE_3__.default, {})]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_warudo_Footer__WEBPACK_IMPORTED_MODULE_2__.default, {}), this.modalTambah(), this.modalUbah()]
+      });
+    }
+  }]);
+
+  return StatusKepegawaian;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (StatusKepegawaian);
+
+/***/ }),
+
 /***/ "./resources/js/component/referensi/SubBidang.jsx":
 /*!********************************************************!*\
   !*** ./resources/js/component/referensi/SubBidang.jsx ***!
@@ -10811,11 +10751,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _component_masuk_Index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./component/masuk/Index */ "./resources/js/component/masuk/Index.jsx");
 /* harmony import */ var _component_uuzaa_Index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./component/uuzaa/Index */ "./resources/js/component/uuzaa/Index.jsx");
 /* harmony import */ var _component_heya_Index__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./component/heya/Index */ "./resources/js/component/heya/Index.jsx");
-/* harmony import */ var _component_alhuqulAlfareia_Index__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./component/alhuqulAlfareia/Index */ "./resources/js/component/alhuqulAlfareia/Index.jsx");
-/* harmony import */ var _component_referensi_Agama__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./component/referensi/Agama */ "./resources/js/component/referensi/Agama.jsx");
-/* harmony import */ var _component_referensi_Unor__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./component/referensi/Unor */ "./resources/js/component/referensi/Unor.jsx");
-/* harmony import */ var _component_referensi_Bidang__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./component/referensi/Bidang */ "./resources/js/component/referensi/Bidang.jsx");
-/* harmony import */ var _component_referensi_SubBidang__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./component/referensi/SubBidang */ "./resources/js/component/referensi/SubBidang.jsx");
+/* harmony import */ var _component_referensi_Agama__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./component/referensi/Agama */ "./resources/js/component/referensi/Agama.jsx");
+/* harmony import */ var _component_referensi_Unor__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./component/referensi/Unor */ "./resources/js/component/referensi/Unor.jsx");
+/* harmony import */ var _component_referensi_Bidang__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./component/referensi/Bidang */ "./resources/js/component/referensi/Bidang.jsx");
+/* harmony import */ var _component_referensi_SubBidang__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./component/referensi/SubBidang */ "./resources/js/component/referensi/SubBidang.jsx");
+/* harmony import */ var _component_referensi_StatusKepegawaian__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./component/referensi/StatusKepegawaian */ "./resources/js/component/referensi/StatusKepegawaian.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -10915,23 +10855,23 @@ var ReactRoute = /*#__PURE__*/function (_Component) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
           exact: true,
           path: "/admin/referensi/agama",
-          component: _component_referensi_Agama__WEBPACK_IMPORTED_MODULE_8__.default
+          component: _component_referensi_Agama__WEBPACK_IMPORTED_MODULE_7__.default
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
           exact: true,
           path: "/admin/referensi/unor",
-          component: _component_referensi_Unor__WEBPACK_IMPORTED_MODULE_9__.default
+          component: _component_referensi_Unor__WEBPACK_IMPORTED_MODULE_8__.default
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
           exact: true,
           path: "/admin/referensi/bidang",
-          component: _component_referensi_Bidang__WEBPACK_IMPORTED_MODULE_10__.default
+          component: _component_referensi_Bidang__WEBPACK_IMPORTED_MODULE_9__.default
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
           exact: true,
           path: "/admin/referensi/SubBidang",
-          component: _component_referensi_SubBidang__WEBPACK_IMPORTED_MODULE_11__.default
+          component: _component_referensi_SubBidang__WEBPACK_IMPORTED_MODULE_10__.default
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
           exact: true,
-          path: "/kanrisha/subBidang",
-          component: _component_alhuqulAlfareia_Index__WEBPACK_IMPORTED_MODULE_7__.default
+          path: "/admin/referensi/statusKepegawaian",
+          component: _component_referensi_StatusKepegawaian__WEBPACK_IMPORTED_MODULE_11__.default
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_warudo_Empatkosongempat__WEBPACK_IMPORTED_MODULE_1__.default, {})]
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Switch, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {

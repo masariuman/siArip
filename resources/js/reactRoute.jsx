@@ -15,6 +15,10 @@ import RefUnorIndex from "./component/referensi/Unor";
 import RefBidangIndex from "./component/referensi/Bidang";
 import RefSubBidangIndex from "./component/referensi/SubBidang";
 import RefStatusKepegawaianIndex from "./component/referensi/StatusKepegawaian";
+import RefJenisHukumanDisiplinIndex from "./component/referensi/JenisHukumanDisiplin";
+import RefJenisKepegawaianIndex from "./component/referensi/JenisKepegawaian";
+import RefJenisPenghargaanIndex from "./component/referensi/JenisPenghargaan";
+import RefKedudukanKepegawaianIndex from "./component/referensi/KedudukanKepegawaian";
 
 class ReactRoute extends Component {
     constructor(props) {
@@ -91,6 +95,26 @@ class ReactRoute extends Component {
                         exact
                         path="/admin/referensi/statusKepegawaian"
                         component={RefStatusKepegawaianIndex}
+                    />
+                    <Route
+                        exact
+                        path="/admin/referensi/jenisHukumanDisiplin"
+                        component={RefJenisHukumanDisiplinIndex}
+                    />
+                    <Route
+                        exact
+                        path="/admin/referensi/jenisKepegawaian"
+                        component={RefJenisKepegawaianIndex}
+                    />
+                    <Route
+                        exact
+                        path="/admin/referensi/jenisPenghargaan"
+                        component={RefJenisPenghargaanIndex}
+                    />
+                    <Route
+                        exact
+                        path="/admin/referensi/kedudukanKepegawaian"
+                        component={RefKedudukanKepegawaianIndex}
                     />
                     <Empatkosongempat />
                 </Switch>

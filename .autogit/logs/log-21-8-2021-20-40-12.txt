@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Tue Sep 21 2021 20:40:12 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* resources/js/reactRoute.jsx
+* routes/web.php
+
+
+Created files:
+* app/Models/ReferensiStatusKepegawaian.php
+* resources/js/component/referensi/StatusKepegawaian.jsx
+
+
+Deleted files:
+
+
+Renamed files:

@@ -59,7 +59,6 @@ Route::delete('/admin/referensi/bidang/{url}', 'ReferensiController@bidangDestro
 Route::post('/admin/referensi/bidang/search', 'ReferensiController@bidangSearch');
 
 Route::get('/admin/referensi/subBidang/deeta', 'ReferensiController@subBidang');
-Route::get('/admin/referensi/subBidang/create', 'ReferensiController@subBidangCreate');
 Route::post('/admin/referensi/subBidang', 'ReferensiController@subBidangStore');
 Route::get('/admin/referensi/subBidang/{url}', 'ReferensiController@subBidangEdit');
 Route::put('/admin/referensi/subBidang/{url}', 'ReferensiController@subBidangUpdate');
@@ -72,6 +71,34 @@ Route::get('/admin/referensi/statusKepegawaian/{url}', 'ReferensiController@stat
 Route::put('/admin/referensi/statusKepegawaian/{url}', 'ReferensiController@statusKepegawaianUpdate');
 Route::delete('/admin/referensi/statusKepegawaian/{url}', 'ReferensiController@statusKepegawaianDestroy');
 Route::post('/admin/referensi/statusKepegawaian/search', 'ReferensiController@statusKepegawaianSearch');
+
+Route::get('/admin/referensi/jenisHukumanDisiplin/deeta', 'ReferensiController@jenisHukumanDisiplin');
+Route::post('/admin/referensi/jenisHukumanDisiplin', 'ReferensiController@jenisHukumanDisiplinStore');
+Route::get('/admin/referensi/jenisHukumanDisiplin/{url}', 'ReferensiController@jenisHukumanDisiplinEdit');
+Route::put('/admin/referensi/jenisHukumanDisiplin/{url}', 'ReferensiController@jenisHukumanDisiplinUpdate');
+Route::delete('/admin/referensi/jenisHukumanDisiplin/{url}', 'ReferensiController@jenisHukumanDisiplinDestroy');
+Route::post('/admin/referensi/jenisHukumanDisiplin/search', 'ReferensiController@jenisHukumanDisiplinSearch');
+
+Route::get('/admin/referensi/jenisKepegawaian/deeta', 'ReferensiController@jenisKepegawaian');
+Route::post('/admin/referensi/jenisKepegawaian', 'ReferensiController@jenisKepegawaianStore');
+Route::get('/admin/referensi/jenisKepegawaian/{url}', 'ReferensiController@jenisKepegawaianEdit');
+Route::put('/admin/referensi/jenisKepegawaian/{url}', 'ReferensiController@jenisKepegawaianUpdate');
+Route::delete('/admin/referensi/jenisKepegawaian/{url}', 'ReferensiController@jenisKepegawaianDestroy');
+Route::post('/admin/referensi/jenisKepegawaian/search', 'ReferensiController@jenisKepegawaianSearch');
+
+Route::get('/admin/referensi/jenisPenghargaan/deeta', 'ReferensiController@jenisPenghargaan');
+Route::post('/admin/referensi/jenisPenghargaan', 'ReferensiController@jenisPenghargaanStore');
+Route::get('/admin/referensi/jenisPenghargaan/{url}', 'ReferensiController@jenisPenghargaanEdit');
+Route::put('/admin/referensi/jenisPenghargaan/{url}', 'ReferensiController@jenisPenghargaanUpdate');
+Route::delete('/admin/referensi/jenisPenghargaan/{url}', 'ReferensiController@jenisPenghargaanDestroy');
+Route::post('/admin/referensi/jenisPenghargaan/search', 'ReferensiController@jenisPenghargaanSearch');
+
+Route::get('/admin/referensi/kedudukanKepegawaian/deeta', 'ReferensiController@kedudukanKepegawaian');
+Route::post('/admin/referensi/kedudukanKepegawaian', 'ReferensiController@kedudukanKepegawaianStore');
+Route::get('/admin/referensi/kedudukanKepegawaian/{url}', 'ReferensiController@kedudukanKepegawaianEdit');
+Route::put('/admin/referensi/kedudukanKepegawaian/{url}', 'ReferensiController@kedudukanKepegawaianUpdate');
+Route::delete('/admin/referensi/kedudukanKepegawaian/{url}', 'ReferensiController@kedudukanKepegawaianDestroy');
+Route::post('/admin/referensi/kedudukanKepegawaian/search', 'ReferensiController@kedudukanKepegawaianSearch');
 
 
 Route::resources([

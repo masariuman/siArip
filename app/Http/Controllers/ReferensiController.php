@@ -7,6 +7,7 @@ use App\Models\ReferensiAgama;
 use App\Models\ReferensiUnor;
 use App\Models\ReferensiBidang;
 use App\Models\ReferensiSubBidang;
+use App\Models\ReferensiStatusKepegawaian;
 use Uuid;
 use Illuminate\Support\Facades\Hash;
 
@@ -451,6 +452,98 @@ class ReferensiController extends Controller
         foreach ($data as $items) {
             $items['nomor'] = $count;
             $items['bidang'] = $items->ref_bidang->name.' - '.$items->ref_bidang->ref_unor->name;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+
+
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+
+
+    //referensi status kepegawaian
+    public function statusKepegawaian()
+    {
+        $pagination = 5;
+        $data = ReferensiStatusKepegawaian::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        // dd($gets);
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function statusKepegawaianStore(Request $request)
+    {
+        ReferensiStatusKepegawaian::create([
+            'name' => $request->data,
+            'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string)))))
+        ]);
+        $data = ReferensiStatusKepegawaian::orderBy("id", "DESC")->first();
+        $data['nomor'] = "BARU";
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function statusKepegawaianEdit($id)
+    {
+        //
+        $data = ReferensiStatusKepegawaian::where("rinku", $id)->first();
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function statusKepegawaianUpdate(Request $request, $id)
+    {
+        //
+        $data = ReferensiStatusKepegawaian::where("rinku", $id)->first();
+        $data->update([
+            'name' => $request->data
+        ]);
+        $pagination = 5;
+        $data = ReferensiStatusKepegawaian::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function statusKepegawaianDestroy($id)
+    {
+        //
+        $data = ReferensiStatusKepegawaian::where("rinku", $id)->first();
+        $data->update([
+            'sutattsu' => '0'
+        ]);
+        $pagination = 5;
+        $data = ReferensiStatusKepegawaian::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function statusKepegawaianSearch(Request $request)
+    {
+        //
+        $pagination = 5;
+        $data = ReferensiStatusKepegawaian::where("name", "like", "%" . $request->cari . "%")->where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
             $count++;
         }
         return response()->json([
