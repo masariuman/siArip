@@ -8,6 +8,10 @@ use App\Models\ReferensiUnor;
 use App\Models\ReferensiBidang;
 use App\Models\ReferensiSubBidang;
 use App\Models\ReferensiStatusKepegawaian;
+use App\Models\ReferensiJenisHukumanDisiplin;
+use App\Models\ReferensiJenisKepegawaian;
+use App\Models\ReferensiJenisPenghargaan;
+use App\Models\ReferensiKedudukanKepegawaian;
 use Uuid;
 use Illuminate\Support\Facades\Hash;
 
@@ -541,6 +545,375 @@ class ReferensiController extends Controller
         //
         $pagination = 5;
         $data = ReferensiStatusKepegawaian::where("name", "like", "%" . $request->cari . "%")->where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+
+
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+
+
+    //referensi jenis kepegawaian
+    public function jenisKepegawaian()
+    {
+        $pagination = 5;
+        $data = ReferensiJenisKepegawaian::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        // dd($gets);
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function jenisKepegawaianStore(Request $request)
+    {
+        ReferensiJenisKepegawaian::create([
+            'name' => $request->data,
+            'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string)))))
+        ]);
+        $data = ReferensiJenisKepegawaian::orderBy("id", "DESC")->first();
+        $data['nomor'] = "BARU";
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function jenisKepegawaianEdit($id)
+    {
+        //
+        $data = ReferensiJenisKepegawaian::where("rinku", $id)->first();
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function jenisKepegawaianUpdate(Request $request, $id)
+    {
+        //
+        $data = ReferensiJenisKepegawaian::where("rinku", $id)->first();
+        $data->update([
+            'name' => $request->data
+        ]);
+        $pagination = 5;
+        $data = ReferensiJenisKepegawaian::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function jenisKepegawaianDestroy($id)
+    {
+        //
+        $data = ReferensiJenisKepegawaian::where("rinku", $id)->first();
+        $data->update([
+            'sutattsu' => '0'
+        ]);
+        $pagination = 5;
+        $data = ReferensiJenisKepegawaian::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function jenisKepegawaianSearch(Request $request)
+    {
+        //
+        $pagination = 5;
+        $data = ReferensiJenisKepegawaian::where("name", "like", "%" . $request->cari . "%")->where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+
+
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+
+
+    //referensi jenis penghargaan
+    public function jenisPenghargaan()
+    {
+        $pagination = 5;
+        $data = ReferensiJenisPenghargaan::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        // dd($gets);
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function jenisPenghargaanStore(Request $request)
+    {
+        ReferensiJenisPenghargaan::create([
+            'name' => $request->data,
+            'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string)))))
+        ]);
+        $data = ReferensiJenisPenghargaan::orderBy("id", "DESC")->first();
+        $data['nomor'] = "BARU";
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function jenisPenghargaanEdit($id)
+    {
+        //
+        $data = ReferensiJenisPenghargaan::where("rinku", $id)->first();
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function jenisPenghargaanUpdate(Request $request, $id)
+    {
+        //
+        $data = ReferensiJenisPenghargaan::where("rinku", $id)->first();
+        $data->update([
+            'name' => $request->data
+        ]);
+        $pagination = 5;
+        $data = ReferensiJenisPenghargaan::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function jenisPenghargaanDestroy($id)
+    {
+        //
+        $data = ReferensiJenisPenghargaan::where("rinku", $id)->first();
+        $data->update([
+            'sutattsu' => '0'
+        ]);
+        $pagination = 5;
+        $data = ReferensiJenisPenghargaan::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function jenisPenghargaanSearch(Request $request)
+    {
+        //
+        $pagination = 5;
+        $data = ReferensiJenisPenghargaan::where("name", "like", "%" . $request->cari . "%")->where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+
+
+
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+
+
+    //referensi jenis hukuman disiplin
+    public function jenisHukumanDisiplin()
+    {
+        $pagination = 5;
+        $data = ReferensiJenisHukumanDisiplin::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        // dd($gets);
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function jenisHukumanDisiplinStore(Request $request)
+    {
+        ReferensiJenisHukumanDisiplin::create([
+            'name' => $request->data,
+            'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string)))))
+        ]);
+        $data = ReferensiJenisHukumanDisiplin::orderBy("id", "DESC")->first();
+        $data['nomor'] = "BARU";
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function jenisHukumanDisiplinEdit($id)
+    {
+        //
+        $data = ReferensiJenisHukumanDisiplin::where("rinku", $id)->first();
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function jenisHukumanDisiplinUpdate(Request $request, $id)
+    {
+        //
+        $data = ReferensiJenisHukumanDisiplin::where("rinku", $id)->first();
+        $data->update([
+            'name' => $request->data
+        ]);
+        $pagination = 5;
+        $data = ReferensiJenisHukumanDisiplin::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function jenisHukumanDisiplinDestroy($id)
+    {
+        //
+        $data = ReferensiJenisHukumanDisiplin::where("rinku", $id)->first();
+        $data->update([
+            'sutattsu' => '0'
+        ]);
+        $pagination = 5;
+        $data = ReferensiJenisHukumanDisiplin::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function jenisHukumanDisiplinSearch(Request $request)
+    {
+        //
+        $pagination = 5;
+        $data = ReferensiJenisHukumanDisiplin::where("name", "like", "%" . $request->cari . "%")->where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+
+
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+
+
+    //referensi kedudukan kepegawaian kepegawaian
+    public function kedudukanKepegawaian()
+    {
+        $pagination = 5;
+        $data = ReferensiKedudukanKepegawaian::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        // dd($gets);
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function kedudukanKepegawaianStore(Request $request)
+    {
+        ReferensiKedudukanKepegawaian::create([
+            'name' => $request->data,
+            'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string)))))
+        ]);
+        $data = ReferensiKedudukanKepegawaian::orderBy("id", "DESC")->first();
+        $data['nomor'] = "BARU";
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function kedudukanKepegawaianEdit($id)
+    {
+        //
+        $data = ReferensiKedudukanKepegawaian::where("rinku", $id)->first();
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function kedudukanKepegawaianUpdate(Request $request, $id)
+    {
+        //
+        $data = ReferensiKedudukanKepegawaian::where("rinku", $id)->first();
+        $data->update([
+            'name' => $request->data
+        ]);
+        $pagination = 5;
+        $data = ReferensiKedudukanKepegawaian::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function kedudukanKepegawaianDestroy($id)
+    {
+        //
+        $data = ReferensiKedudukanKepegawaian::where("rinku", $id)->first();
+        $data->update([
+            'sutattsu' => '0'
+        ]);
+        $pagination = 5;
+        $data = ReferensiKedudukanKepegawaian::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function kedudukanKepegawaianSearch(Request $request)
+    {
+        //
+        $pagination = 5;
+        $data = ReferensiKedudukanKepegawaian::where("name", "like", "%" . $request->cari . "%")->where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data as $items) {
             $items['nomor'] = $count;
