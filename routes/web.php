@@ -66,6 +66,13 @@ Route::put('/admin/referensi/subBidang/{url}', 'ReferensiController@subBidangUpd
 Route::delete('/admin/referensi/subBidang/{url}', 'ReferensiController@subBidangDestroy');
 Route::post('/admin/referensi/subBidang/search', 'ReferensiController@subBidangSearch');
 
+Route::get('/admin/referensi/statusKepegawaian/deeta', 'ReferensiController@statusKepegawaian');
+Route::post('/admin/referensi/statusKepegawaian', 'ReferensiController@statusKepegawaianStore');
+Route::get('/admin/referensi/statusKepegawaian/{url}', 'ReferensiController@statusKepegawaianEdit');
+Route::put('/admin/referensi/statusKepegawaian/{url}', 'ReferensiController@statusKepegawaianUpdate');
+Route::delete('/admin/referensi/statusKepegawaian/{url}', 'ReferensiController@statusKepegawaianDestroy');
+Route::post('/admin/referensi/statusKepegawaian/search', 'ReferensiController@statusKepegawaianSearch');
+
 
 Route::resources([
     'kanrisha/heya/deeta' => 'HeyaController',

@@ -10,11 +10,11 @@ import KeluarIndex from "./component/keluar/Index";
 import MasukIndex from "./component/masuk/Index";
 import UuzaaIndex from "./component/uuzaa/Index";
 import HeyaIndex from "./component/heya/Index";
-import SubBidangIndex from "./component/alhuqulAlfareia/Index";
 import RefAgamaIndex from "./component/referensi/Agama";
 import RefUnorIndex from "./component/referensi/Unor";
 import RefBidangIndex from "./component/referensi/Bidang";
 import RefSubBidangIndex from "./component/referensi/SubBidang";
+import RefStatusKepegawaianIndex from "./component/referensi/StatusKepegawaian";
 
 class ReactRoute extends Component {
     constructor(props) {
@@ -87,12 +87,10 @@ class ReactRoute extends Component {
                         path="/admin/referensi/SubBidang"
                         component={RefSubBidangIndex}
                     />
-
-
                     <Route
                         exact
-                        path="/kanrisha/subBidang"
-                        component={SubBidangIndex}
+                        path="/admin/referensi/statusKepegawaian"
+                        component={RefStatusKepegawaianIndex}
                     />
                     <Empatkosongempat />
                 </Switch>
