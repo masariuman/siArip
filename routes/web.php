@@ -100,6 +100,13 @@ Route::put('/admin/referensi/kedudukanKepegawaian/{url}', 'ReferensiController@k
 Route::delete('/admin/referensi/kedudukanKepegawaian/{url}', 'ReferensiController@kedudukanKepegawaianDestroy');
 Route::post('/admin/referensi/kedudukanKepegawaian/search', 'ReferensiController@kedudukanKepegawaianSearch');
 
+Route::get('/admin/referensi/pangkatGolonganRuang/deeta', 'ReferensiController@pangkatGolonganRuang');
+Route::post('/admin/referensi/pangkatGolonganRuang', 'ReferensiController@pangkatGolonganRuangStore');
+Route::get('/admin/referensi/pangkatGolonganRuang/{url}', 'ReferensiController@pangkatGolonganRuangEdit');
+Route::put('/admin/referensi/pangkatGolonganRuang/{url}', 'ReferensiController@pangkatGolonganRuangUpdate');
+Route::delete('/admin/referensi/pangkatGolonganRuang/{url}', 'ReferensiController@pangkatGolonganRuangDestroy');
+Route::post('/admin/referensi/pangkatGolonganRuang/search', 'ReferensiController@pangkatGolonganRuangSearch');
+
 
 Route::resources([
     'kanrisha/heya/deeta' => 'HeyaController',

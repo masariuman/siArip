@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Thu Sep 23 2021 21:55:58 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+
+
+Created files:
+* .autogit/logs/log-22-8-2021-15-51-20.txt
+* "resources/js/component/referensi/StatusKepegawaian copy.jsx"
+
+
+Deleted files:
+
+
+Renamed files:

@@ -9,7 +9,7 @@ import Pagination from "react-js-pagination";
 import Highlighter from "react-highlight-words";
 
 
-class StatusKepegawaian extends Component {
+class PangkatGolonganRuang extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -36,7 +36,7 @@ class StatusKepegawaian extends Component {
             cari: e.target.value
         });
         axios
-            .post(`/admin/referensi/statusKepegawaian/search`, {
+            .post(`/admin/referensi/pangkatGolonganRuang/search`, {
                 cari: e.target.value
             })
             .then(response => {
@@ -55,10 +55,10 @@ class StatusKepegawaian extends Component {
 
     handleDeleteButton(e) {
         axios
-            .get(`/admin/referensi/statusKepegawaian/${e}`)
+            .get(`/admin/referensi/pangkatGolonganRuang/${e}`)
             .then(response => {
                 swal({
-                    title: `Yakin ingin menghapus Status Kepegawaian ${response.data.data.name}`,
+                    title: `Yakin ingin menghapus Pangkat / Golongan Ruang ${response.data.data.name}`,
                     text: "Kalau Terhapus, Hubungi Admin Untuk Mengembalikan Data yang Terhapus!",
                     icon: "warning",
                     buttons: true,
@@ -70,7 +70,7 @@ class StatusKepegawaian extends Component {
                             loading: true
                         });
                         axios
-                            .delete(`/admin/referensi/statusKepegawaian/${e}`, {
+                            .delete(`/admin/referensi/pangkatGolonganRuang/${e}`, {
                                 url: this.state.url
                             })
                             .then(response => {
@@ -99,7 +99,7 @@ class StatusKepegawaian extends Component {
 
     handleEditButton(e) {
         axios
-            .get(`/admin/referensi/statusKepegawaian/${e}`)
+            .get(`/admin/referensi/pangkatGolonganRuang/${e}`)
             .then(response => {
                 this.setState({
                     dataEditInput: response.data.data.name,
@@ -131,7 +131,7 @@ class StatusKepegawaian extends Component {
             loading: true
         });
         axios
-            .post("/admin/referensi/statusKepegawaian", {
+            .post("/admin/referensi/pangkatGolonganRuang", {
                 data: this.state.dataNewInput
             })
             .then(response => {
@@ -163,7 +163,7 @@ class StatusKepegawaian extends Component {
             loading: true
         });
         axios
-            .put(`/admin/referensi/statusKepegawaian/${this.state.url}`, {
+            .put(`/admin/referensi/pangkatGolonganRuang/${this.state.url}`, {
                 data: this.state.dataEditInput
             })
             .then(response => {
@@ -194,7 +194,7 @@ class StatusKepegawaian extends Component {
             loading: true
         });
         axios
-            .get("/admin/referensi/statusKepegawaian/deeta")
+            .get("/admin/referensi/pangkatGolonganRuang/deeta")
             .then(response => {
                 // console.log(response.data.data.data);
                 this.setState({
@@ -304,10 +304,10 @@ class StatusKepegawaian extends Component {
                         </div>
                         <div className="onboarding-content with-gradient masariuman_width100percent">
                         <h4 className="onboarding-title">
-                            Tambah Status Kepegawaian Baru
+                            Tambah Pangkat / Golongan Ruang Baru
                         </h4>
                         <div className="onboarding-text">
-                            Masukkan nama Status Kepegawaian baru.
+                            Masukkan nama Pangkat / Golongan Ruang baru.
                         </div>
                         <form onSubmit={this.handleSubmit}>
                             <div className="row">
@@ -316,8 +316,8 @@ class StatusKepegawaian extends Component {
                                     <input
                                         onChange={this.handleChange}
                                         value={this.state.dataNewInput}
-                                        title="Nama Status Kepegawaian"
-                                        placeholder="Masukkan Nama Status Kepegawaian Baru.."
+                                        title="Nama Pangkat / Golongan Ruang"
+                                        placeholder="Masukkan Nama Pangkat / Golongan Ruang Baru.."
                                         type="text"
                                         className="form-control"
                                     />
@@ -325,7 +325,7 @@ class StatusKepegawaian extends Component {
                             </div>
                             <div className="col-sm-12">
                                 <div className="form-group text-center">
-                                    <button className="mr-2 mb-2 btn btn-primary" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Tambah Status Kepegawaian Baru</button>
+                                    <button className="mr-2 mb-2 btn btn-primary" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Tambah Pangkat / Golongan Ruang Baru</button>
                                 </div>
                             </div>
                             </div>
@@ -350,10 +350,10 @@ class StatusKepegawaian extends Component {
                         </div>
                         <div className="onboarding-content with-gradient masariuman_width100percent">
                         <h4 className="onboarding-title">
-                            Ubah Nama Status Kepegawaian
+                            Ubah Nama Pangkat / Golongan Ruang
                         </h4>
                         <div className="onboarding-text">
-                            Masukkan nama Status Kepegawaian baru.
+                            Masukkan nama Pangkat / Golongan Ruang baru.
                         </div>
                         <form onSubmit={this.handleEditSubmit}>
                             <div className="row">
@@ -362,8 +362,8 @@ class StatusKepegawaian extends Component {
                                     <input
                                         onChange={this.handleEditInputChange}
                                         value={this.state.dataEditInput}
-                                        title="Nama Status Kepegawaian"
-                                        placeholder="Masukkan Nama Status Kepegawaian Baru.."
+                                        title="Nama Pangkat / Golongan Ruang"
+                                        placeholder="Masukkan Nama Pangkat / Golongan Ruang Baru.."
                                         type="text"
                                         className="form-control"
                                     />
@@ -371,7 +371,7 @@ class StatusKepegawaian extends Component {
                             </div>
                             <div className="col-sm-12">
                                 <div className="form-group text-center">
-                                    <button className="mr-2 mb-2 btn btn-warning" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Ubah Nama Status Kepegawaian</button>
+                                    <button className="mr-2 mb-2 btn btn-warning" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Ubah Nama Pangkat / Golongan Ruang</button>
                                 </div>
                             </div>
                             </div>
@@ -395,8 +395,8 @@ class StatusKepegawaian extends Component {
                         <div className="os-icon os-icon-home"></div>
                         </div>
                         <div className="masariuman-textleft">
-                            <span className="masariuman-bold">Status Kepegawaian</span> <br/>
-                            <small>Manajemen Status Kepegawaian</small>
+                            <span className="masariuman-bold">Pangkat / Golongan Ruang</span> <br/>
+                            <small>Manajemen Pangkat / Golongan Ruang</small>
                         </div>
                     </div>
                     <div className="top-menu-controls">
@@ -405,10 +405,10 @@ class StatusKepegawaian extends Component {
                 </div>
                 <ul className="breadcrumb">
                     <li className="breadcrumb-item">
-                        <a>Status Kepegawaian</a>
+                        <a>Pangkat / Golongan Ruang</a>
                     </li>
                     <li className="breadcrumb-item">
-                        <span>Manajemen Status Kepegawaian</span>
+                        <span>Manajemen Pangkat / Golongan Ruang</span>
                     </li>
                 </ul>
 
@@ -419,24 +419,24 @@ class StatusKepegawaian extends Component {
                                 {/* content here */}
                                 <div className="element-box">
                                     <h5 className="form-header">
-                                    Daftar Status Kepegawaian
+                                    Daftar Pangkat / Golongan Ruang
                                     </h5>
                                     <div className="form-desc">
-                                        Manajemen Data Status Kepegawaian
+                                        Manajemen Data Pangkat / Golongan Ruang
                                     </div>
                                     <div>
-                                        <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal">Tambah Status Kepegawaian Baru</button>
+                                        <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal">Tambah Pangkat / Golongan Ruang Baru</button>
                                         <div className="col-sm-4 float-right" id="cari">
                                             <input type="text" className="form-control" onChange={this.handleChangeCari}
-                                                value={this.state.cari} placeholder="Cari Status Kepegawaian..."></input>
+                                                value={this.state.cari} placeholder="Cari Pangkat / Golongan Ruang..."></input>
                                         </div>
                                     </div>
-                                    <div className="table-responsive" id="statusKepegawaianTable">
+                                    <div className="table-responsive" id="pangkatGolonganRuangTable">
                                         <table id="tabeldata" width="100%" className="table table-striped table-lightfont">
                                             <thead>
                                                 <tr>
                                                     <th className="width50px">NO</th>
-                                                    <th>NAMA Status Kepegawaian</th>
+                                                    <th>NAMA Pangkat / Golongan Ruang</th>
                                                     <th className="width250px">ACTION</th>
                                                 </tr>
                                             </thead>
@@ -466,4 +466,4 @@ class StatusKepegawaian extends Component {
     }
 }
 
-export default StatusKepegawaian;
+export default PangkatGolonganRuang;

@@ -19,6 +19,7 @@ import RefJenisHukumanDisiplinIndex from "./component/referensi/JenisHukumanDisi
 import RefJenisKepegawaianIndex from "./component/referensi/JenisKepegawaian";
 import RefJenisPenghargaanIndex from "./component/referensi/JenisPenghargaan";
 import RefKedudukanKepegawaianIndex from "./component/referensi/KedudukanKepegawaian";
+import RefPangkatGolonganRuangIndex from "./component/referensi/PangkatGolonganRuang";
 
 class ReactRoute extends Component {
     constructor(props) {
@@ -115,6 +116,11 @@ class ReactRoute extends Component {
                         exact
                         path="/admin/referensi/kedudukanKepegawaian"
                         component={RefKedudukanKepegawaianIndex}
+                    />
+                    <Route
+                        exact
+                        path="/admin/referensi/pangkatGolonganRuang"
+                        component={RefPangkatGolonganRuangIndex}
                     />
                     <Empatkosongempat />
                 </Switch>
