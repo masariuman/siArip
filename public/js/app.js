@@ -10343,11 +10343,13 @@ var PangkatGolonganRuang = /*#__PURE__*/function (_Component) {
       data: [],
       dataNewInput: "",
       dataEditInput: "",
+      dataNewInputPangkat: "",
       cari: "",
       url: null,
       loading: true
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
+    _this.handleChangePangkat = _this.handleChangePangkat.bind(_assertThisInitialized(_this));
     _this.handleEditInputChange = _this.handleEditInputChange.bind(_assertThisInitialized(_this));
     _this.handleEditSubmit = _this.handleEditSubmit.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
@@ -10432,6 +10434,7 @@ var PangkatGolonganRuang = /*#__PURE__*/function (_Component) {
       axios.get("/admin/referensi/pangkatGolonganRuang/".concat(e)).then(function (response) {
         _this4.setState({
           dataEditInput: response.data.data.name,
+          dataNewInputPangkat: response.data.data.pangkat,
           url: response.data.data.rinku
         });
       })["catch"](function (error) {
@@ -10443,6 +10446,13 @@ var PangkatGolonganRuang = /*#__PURE__*/function (_Component) {
     value: function handleChange(e) {
       this.setState({
         dataNewInput: e.target.value
+      }); // console.log(e.target.value);
+    }
+  }, {
+    key: "handleChangePangkat",
+    value: function handleChangePangkat(e) {
+      this.setState({
+        dataNewInputPangkat: e.target.value
       }); // console.log(e.target.value);
     }
   }, {
@@ -10462,7 +10472,8 @@ var PangkatGolonganRuang = /*#__PURE__*/function (_Component) {
         loading: true
       });
       axios.post("/admin/referensi/pangkatGolonganRuang", {
-        data: this.state.dataNewInput
+        data: this.state.dataNewInput,
+        dataPangkat: this.state.dataNewInputPangkat
       }).then(function (response) {
         _this5.setState({
           data: [response.data.data].concat(_toConsumableArray(_this5.state.data)),
@@ -10494,7 +10505,8 @@ var PangkatGolonganRuang = /*#__PURE__*/function (_Component) {
         loading: true
       });
       axios.put("/admin/referensi/pangkatGolonganRuang/".concat(this.state.url), {
-        data: this.state.dataEditInput
+        data: this.state.dataEditInput,
+        dataPangkat: this.state.dataNewInputPangkat
       }).then(function (response) {
         _this6.setState({
           data: response.data.data.data,
@@ -10620,6 +10632,13 @@ var PangkatGolonganRuang = /*#__PURE__*/function (_Component) {
               autoEscape: true,
               textToHighlight: data.name
             })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
+              highlightClassName: "YourHighlightClass",
+              searchWords: [_this9.state.cari],
+              autoEscape: true,
+              textToHighlight: data.pangkat
+            })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("td", {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
               "data-target": "#editModal",
@@ -10693,8 +10712,21 @@ var PangkatGolonganRuang = /*#__PURE__*/function (_Component) {
                         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
                           onChange: this.handleChange,
                           value: this.state.dataNewInput,
-                          title: "Nama Pangkat / Golongan Ruang",
-                          placeholder: "Masukkan Nama Pangkat / Golongan Ruang Baru..",
+                          title: "Nama Golongan Ruang",
+                          placeholder: "Masukkan Nama Golongan Ruang Baru..",
+                          type: "text",
+                          className: "form-control"
+                        })
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                      className: "col-sm-12",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                        className: "form-group",
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
+                          onChange: this.handleChangePangkat,
+                          value: this.state.dataNewInputPangkat,
+                          title: "Nama Pangkat",
+                          placeholder: "Masukkan Nama Pangkat..",
                           type: "text",
                           className: "form-control"
                         })
@@ -10782,6 +10814,19 @@ var PangkatGolonganRuang = /*#__PURE__*/function (_Component) {
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                       className: "col-sm-12",
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                        className: "form-group",
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
+                          onChange: this.handleChangePangkat,
+                          value: this.state.dataNewInputPangkat,
+                          title: "Nama Pangkat",
+                          placeholder: "Masukkan Nama Pangkat..",
+                          type: "text",
+                          className: "form-control"
+                        })
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                      className: "col-sm-12",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                         className: "form-group text-center",
                         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
                           className: "mr-2 mb-2 btn btn-warning",
@@ -10841,7 +10886,12 @@ var PangkatGolonganRuang = /*#__PURE__*/function (_Component) {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("li", {
             className: "breadcrumb-item",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("a", {
-              children: "Pangkat / Golongan Ruang"
+              children: "Golongan Ruang"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("li", {
+            className: "breadcrumb-item",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("a", {
+              children: "Pangkat"
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("li", {
             className: "breadcrumb-item",
@@ -10895,7 +10945,9 @@ var PangkatGolonganRuang = /*#__PURE__*/function (_Component) {
                           className: "width50px",
                           children: "NO"
                         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("th", {
-                          children: "NAMA Pangkat / Golongan Ruang"
+                          children: "NAMA Golongan Ruang"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("th", {
+                          children: "NAMA Pangkat"
                         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("th", {
                           className: "width250px",
                           children: "ACTION"

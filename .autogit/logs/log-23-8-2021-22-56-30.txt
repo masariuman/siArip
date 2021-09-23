@@ -1,0 +1,20 @@
+-------------------- Auto-Git Log --------------------
+		Thu Sep 23 2021 22:56:30 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/ReferensiController.php
+* public/js/app.js
+* resources/js/component/referensi/PangkatGolonganRuang.jsx
+* resources/js/warudo/Menu.jsx
+
+
+Created files:
+* .autogit/logs/log-23-8-2021-22-26-13.txt
+* app/Models/ReferensiPangkatGolonganRuang.php
+
+
+Deleted files:
+
+
+Renamed files:

@@ -105,6 +105,7 @@ class PangkatGolonganRuang extends Component {
             .then(response => {
                 this.setState({
                     dataEditInput: response.data.data.name,
+                    dataNewInputPangkat: response.data.data.pangkat,
                     url: response.data.data.rinku
                 });
             })
@@ -141,7 +142,8 @@ class PangkatGolonganRuang extends Component {
         });
         axios
             .post("/admin/referensi/pangkatGolonganRuang", {
-                data: this.state.dataNewInput
+                data: this.state.dataNewInput,
+                dataPangkat: this.state.dataNewInputPangkat
             })
             .then(response => {
                 this.setState({
@@ -173,7 +175,8 @@ class PangkatGolonganRuang extends Component {
         });
         axios
             .put(`/admin/referensi/pangkatGolonganRuang/${this.state.url}`, {
-                data: this.state.dataEditInput
+                data: this.state.dataEditInput,
+                dataPangkat: this.state.dataNewInputPangkat
             })
             .then(response => {
                 this.setState({
@@ -294,6 +297,14 @@ class PangkatGolonganRuang extends Component {
                         />
                     </td>
                     <td>
+                        <Highlighter
+                            highlightClassName="YourHighlightClass"
+                            searchWords={[this.state.cari]}
+                            autoEscape={true}
+                            textToHighlight={data.pangkat}
+                        />
+                    </td>
+                    <td>
                         <button data-target="#editModal" data-toggle="modal" className="mb-2 mr-2 border-0 btn-transition btn btn-shadow btn-outline-warning" type="button" onClick={this.handleEditButton.bind(this, data.rinku)} id={'ubah'+data.nomor}>Ubah</button>
                         <button className="mb-2 mr-2 border-0 btn-transition btn btn-shadow btn-outline-danger" type="button" onClick={this.handleDeleteButton.bind(this, data.rinku)} id={'hapus'+data.nomor}>Hapus</button>
                     </td>
@@ -391,6 +402,18 @@ class PangkatGolonganRuang extends Component {
                                 </div>
                             </div>
                             <div className="col-sm-12">
+                                <div className="form-group">
+                                    <input
+                                        onChange={this.handleChangePangkat}
+                                        value={this.state.dataNewInputPangkat}
+                                        title="Nama Pangkat"
+                                        placeholder="Masukkan Nama Pangkat.."
+                                        type="text"
+                                        className="form-control"
+                                    />
+                                </div>
+                            </div>
+                            <div className="col-sm-12">
                                 <div className="form-group text-center">
                                     <button className="mr-2 mb-2 btn btn-warning" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Ubah Nama Pangkat / Golongan Ruang</button>
                                 </div>
@@ -426,7 +449,10 @@ class PangkatGolonganRuang extends Component {
                 </div>
                 <ul className="breadcrumb">
                     <li className="breadcrumb-item">
-                        <a>Pangkat / Golongan Ruang</a>
+                        <a>Golongan Ruang</a>
+                    </li>
+                    <li className="breadcrumb-item">
+                        <a>Pangkat</a>
                     </li>
                     <li className="breadcrumb-item">
                         <span>Manajemen Pangkat / Golongan Ruang</span>

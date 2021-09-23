@@ -949,6 +949,7 @@ class ReferensiController extends Controller
     {
         ReferensiPangkatGolonganRuang::create([
             'name' => $request->data,
+            'pangkat' => $request->dataPangkat,
             'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string)))))
         ]);
         $data = ReferensiPangkatGolonganRuang::orderBy("id", "DESC")->first();
@@ -970,7 +971,8 @@ class ReferensiController extends Controller
         //
         $data = ReferensiPangkatGolonganRuang::where("rinku", $id)->first();
         $data->update([
-            'name' => $request->data
+            'name' => $request->data,
+            'pangkat' => $request->dataPangkat
         ]);
         $pagination = 5;
         $data = ReferensiPangkatGolonganRuang::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
@@ -1005,7 +1007,10 @@ class ReferensiController extends Controller
     {
         //
         $pagination = 5;
-        $data = ReferensiPangkatGolonganRuang::where("name", "like", "%" . $request->cari . "%")->where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $data = ReferensiPangkatGolonganRuang::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")->orWhere(function ($query) use ($request) {
+            $query->where("pangkat", "like", "%" . $request->cari . "%")->where("sutattsu", "1");
+        })
+            ->orderBy("id", "DESC")->paginate($pagination);
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data as $items) {
             $items['nomor'] = $count;
