@@ -367,111 +367,111 @@ class Menu extends Component {
                         </ul>
                         <ul className="sub-menu">
                             <li>
-                                <Link to={`/kanrisha/pangkatGolonganRuang`}>
+                                <Link to={`/admin/referensi/pangkatGolonganRuang`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Pangkat / Golongan Ruang
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/kanrisha/heya`}>
+                                <Link to={`/admin/referensi//heya`}>
                                     <i className="os-icon os-icon-home"></i> &nbsp;&nbsp;&nbsp;STLUD
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/kanrisha/subBidang`}>
+                                <Link to={`/admin/referensi/subBidang`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Gaji Pokok
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/kanrisha/subBidang`}>
+                                <Link to={`/admin/referensi/subBidang`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Jenis Naik Pangkat
                                 </Link>
                             </li>
                         </ul>
                         <ul className="sub-menu">
                             <li>
-                                <Link to={`/kanrisha/subBidang`}>
+                                <Link to={`/admin/referensi/subBidang`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Tingkat Pendidikan
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/kanrisha/heya`}>
+                                <Link to={`/admin/referensi/heya`}>
                                     <i className="os-icon os-icon-home"></i> &nbsp;&nbsp;&nbsp;Jurusan Pendidikan
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/kanrisha/subBidang`}>
+                                <Link to={`/admin/referensi/subBidang`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Diklat Struktural
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/kanrisha/subBidang`}>
+                                <Link to={`/admin/referensi/subBidang`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Diklat Fungsional
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/kanrisha/subBidang`}>
+                                <Link to={`/admin/referensi/subBidang`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Diklat Teknis
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/kanrisha/subBidang`}>
+                                <Link to={`/admin/referensi/subBidang`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Seminar
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/kanrisha/subBidang`}>
+                                <Link to={`/admin/referensi/subBidang`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Kursus
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/kanrisha/subBidang`}>
+                                <Link to={`/admin/referensi/subBidang`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Workshop
                                 </Link>
                             </li>
                         </ul>
                         <ul className="sub-menu">
                             <li>
-                                <Link to={`/kanrisha/subBidang`}>
+                                <Link to={`/admin/referensi/subBidang`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Jabatan Fungsional Umum
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/kanrisha/heya`}>
+                                <Link to={`/admin/referensi/heya`}>
                                     <i className="os-icon os-icon-home"></i> &nbsp;&nbsp;&nbsp;Jabatan Fungsional Tertentu
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/kanrisha/subBidang`}>
+                                <Link to={`/admin/referensi/subBidang`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Jabatan KORPRI
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/kanrisha/subBidang`}>
+                                <Link to={`/admin/referensi/subBidang`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Kelompok Jabatan
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/kanrisha/subBidang`}>
+                                <Link to={`/admin/referensi/subBidang`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Kelompok Jabatan
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/kanrisha/subBidang`}>
+                                <Link to={`/admin/referensi/subBidang`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Eselon Jabatan
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/kanrisha/subBidang`}>
+                                <Link to={`/admin/referensi/subBidang`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Jenis Jabatan
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/kanrisha/subBidang`}>
+                                <Link to={`/admin/referensi/subBidang`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Pejabat Penetap
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/kanrisha/subBidang`}>
+                                <Link to={`/admin/referensi/subBidang`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Pejabat Negara
                                 </Link>
                             </li>

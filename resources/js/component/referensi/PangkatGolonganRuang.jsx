@@ -16,11 +16,13 @@ class PangkatGolonganRuang extends Component {
             data: [],
             dataNewInput: "",
             dataEditInput: "",
+            dataNewInputPangkat: "",
             cari: "",
             url: null,
             loading: true
         };
         this.handleChange = this.handleChange.bind(this);
+        this.handleChangePangkat = this.handleChangePangkat.bind(this);
         this.handleEditInputChange = this.handleEditInputChange.bind(this);
         this.handleEditSubmit = this.handleEditSubmit.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -114,6 +116,13 @@ class PangkatGolonganRuang extends Component {
     handleChange(e) {
         this.setState({
             dataNewInput: e.target.value
+        });
+        // console.log(e.target.value);
+    }
+
+    handleChangePangkat(e) {
+        this.setState({
+            dataNewInputPangkat: e.target.value
         });
         // console.log(e.target.value);
     }
@@ -316,8 +325,20 @@ class PangkatGolonganRuang extends Component {
                                     <input
                                         onChange={this.handleChange}
                                         value={this.state.dataNewInput}
-                                        title="Nama Pangkat / Golongan Ruang"
-                                        placeholder="Masukkan Nama Pangkat / Golongan Ruang Baru.."
+                                        title="Nama Golongan Ruang"
+                                        placeholder="Masukkan Nama Golongan Ruang Baru.."
+                                        type="text"
+                                        className="form-control"
+                                    />
+                                </div>
+                            </div>
+                            <div className="col-sm-12">
+                                <div className="form-group">
+                                    <input
+                                        onChange={this.handleChangePangkat}
+                                        value={this.state.dataNewInputPangkat}
+                                        title="Nama Pangkat"
+                                        placeholder="Masukkan Nama Pangkat.."
                                         type="text"
                                         className="form-control"
                                     />
@@ -436,7 +457,8 @@ class PangkatGolonganRuang extends Component {
                                             <thead>
                                                 <tr>
                                                     <th className="width50px">NO</th>
-                                                    <th>NAMA Pangkat / Golongan Ruang</th>
+                                                    <th>NAMA Golongan Ruang</th>
+                                                    <th>NAMA Pangkat</th>
                                                     <th className="width250px">ACTION</th>
                                                 </tr>
                                             </thead>

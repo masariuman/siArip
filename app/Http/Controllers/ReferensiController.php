@@ -12,6 +12,7 @@ use App\Models\ReferensiJenisHukumanDisiplin;
 use App\Models\ReferensiJenisKepegawaian;
 use App\Models\ReferensiJenisPenghargaan;
 use App\Models\ReferensiKedudukanKepegawaian;
+use App\Models\ReferensiPangkatGolonganRuang;
 use Uuid;
 use Illuminate\Support\Facades\Hash;
 
@@ -914,6 +915,97 @@ class ReferensiController extends Controller
         //
         $pagination = 5;
         $data = ReferensiKedudukanKepegawaian::where("name", "like", "%" . $request->cari . "%")->where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+
+
+    //referensi pangkat / golongan ruang
+    public function pangkatGolonganRuang()
+    {
+        $pagination = 5;
+        $data = ReferensiPangkatGolonganRuang::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        // dd($gets);
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function pangkatGolonganRuangStore(Request $request)
+    {
+        ReferensiPangkatGolonganRuang::create([
+            'name' => $request->data,
+            'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string)))))
+        ]);
+        $data = ReferensiPangkatGolonganRuang::orderBy("id", "DESC")->first();
+        $data['nomor'] = "BARU";
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function pangkatGolonganRuangEdit($id)
+    {
+        //
+        $data = ReferensiPangkatGolonganRuang::where("rinku", $id)->first();
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function pangkatGolonganRuangUpdate(Request $request, $id)
+    {
+        //
+        $data = ReferensiPangkatGolonganRuang::where("rinku", $id)->first();
+        $data->update([
+            'name' => $request->data
+        ]);
+        $pagination = 5;
+        $data = ReferensiPangkatGolonganRuang::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function pangkatGolonganRuangDestroy($id)
+    {
+        //
+        $data = ReferensiPangkatGolonganRuang::where("rinku", $id)->first();
+        $data->update([
+            'sutattsu' => '0'
+        ]);
+        $pagination = 5;
+        $data = ReferensiPangkatGolonganRuang::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function pangkatGolonganRuangSearch(Request $request)
+    {
+        //
+        $pagination = 5;
+        $data = ReferensiPangkatGolonganRuang::where("name", "like", "%" . $request->cari . "%")->where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data as $items) {
             $items['nomor'] = $count;
