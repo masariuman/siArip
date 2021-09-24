@@ -1,0 +1,21 @@
+-------------------- Auto-Git Log --------------------
+		Fri Sep 24 2021 22:08:26 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/ReferensiController.php
+* public/js/app.js
+* resources/js/reactRoute.jsx
+* routes/web.php
+
+
+Created files:
+* .autogit/logs/log-24-8-2021-21-38-9.txt
+* app/Models/ReferensiTingkatPendidikan.php
+* resources/js/component/referensi/TingkatPendidikan.jsx
+
+
+Deleted files:
+
+
+Renamed files:
