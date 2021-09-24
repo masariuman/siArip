@@ -377,12 +377,7 @@ class Menu extends Component {
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/admin/referensi/subBidang`}>
-                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Gaji Pokok
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to={`/admin/referensi/subBidang`}>
+                                <Link to={`/admin/referensi/jenisNaikPangkat`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Jenis Naik Pangkat
                                 </Link>
                             </li>

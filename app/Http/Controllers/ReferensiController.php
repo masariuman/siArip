@@ -14,6 +14,7 @@ use App\Models\ReferensiJenisPenghargaan;
 use App\Models\ReferensiKedudukanKepegawaian;
 use App\Models\ReferensiPangkatGolonganRuang;
 use App\Models\ReferensiSTLUD;
+use App\Models\ReferensiJenisNaikPangkat;
 use Uuid;
 use Illuminate\Support\Facades\Hash;
 
@@ -1102,9 +1103,99 @@ class ReferensiController extends Controller
     {
         //
         $pagination = 5;
-        $data = ReferensiSTLUD::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")->orWhere(function ($query) use ($request) {
-            $query->where("pangkat", "like", "%" . $request->cari . "%")->where("sutattsu", "1");
-        })
+        $data = ReferensiSTLUD::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
+            ->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+
+
+    //referensi jenis naik pangkat
+    public function jenisNaikPangkat()
+    {
+        $pagination = 5;
+        $data = ReferensiJenisNaikPangkat::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        // dd($gets);
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function jenisNaikPangkatStore(Request $request)
+    {
+        ReferensiJenisNaikPangkat::create([
+            'name' => $request->data,
+            'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string)))))
+        ]);
+        $data = ReferensiJenisNaikPangkat::orderBy("id", "DESC")->first();
+        $data['nomor'] = "BARU";
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function jenisNaikPangkatEdit($id)
+    {
+        //
+        $data = ReferensiJenisNaikPangkat::where("rinku", $id)->first();
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function jenisNaikPangkatUpdate(Request $request, $id)
+    {
+        //
+        $data = ReferensiJenisNaikPangkat::where("rinku", $id)->first();
+        $data->update([
+            'name' => $request->data
+        ]);
+        $pagination = 5;
+        $data = ReferensiJenisNaikPangkat::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function jenisNaikPangkatDestroy($id)
+    {
+        //
+        $data = ReferensiJenisNaikPangkat::where("rinku", $id)->first();
+        $data->update([
+            'sutattsu' => '0'
+        ]);
+        $pagination = 5;
+        $data = ReferensiJenisNaikPangkat::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function jenisNaikPangkatSearch(Request $request)
+    {
+        //
+        $pagination = 5;
+        $data = ReferensiJenisNaikPangkat::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
             ->orderBy("id", "DESC")->paginate($pagination);
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data as $items) {

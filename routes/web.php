@@ -114,6 +114,13 @@ Route::put('/admin/referensi/stlud/{url}', 'ReferensiController@stludUpdate');
 Route::delete('/admin/referensi/stlud/{url}', 'ReferensiController@stludDestroy');
 Route::post('/admin/referensi/stlud/search', 'ReferensiController@stludSearch');
 
+Route::get('/admin/referensi/jenisNaikPangkat/deeta', 'ReferensiController@jenisNaikPangkat');
+Route::post('/admin/referensi/jenisNaikPangkat', 'ReferensiController@jenisNaikPangkatStore');
+Route::get('/admin/referensi/jenisNaikPangkat/{url}', 'ReferensiController@jenisNaikPangkatEdit');
+Route::put('/admin/referensi/jenisNaikPangkat/{url}', 'ReferensiController@jenisNaikPangkatUpdate');
+Route::delete('/admin/referensi/jenisNaikPangkat/{url}', 'ReferensiController@jenisNaikPangkatDestroy');
+Route::post('/admin/referensi/jenisNaikPangkat/search', 'ReferensiController@jenisNaikPangkatSearch');
+
 
 Route::resources([
     'kanrisha/heya/deeta' => 'HeyaController',
