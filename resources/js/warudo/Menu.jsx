@@ -334,11 +334,11 @@ class Menu extends Component {
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Sub Bidang
                                 </Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link to={`/admin/referensi/kantorBayar`}>
                                     <i className="os-icon os-icon-users"></i> &nbsp;&nbsp;&nbsp;Kantor Bayar
                                 </Link>
-                            </li>
+                            </li> */}
                             <li>
                                 <Link to={`/admin/referensi/statusKepegawaian`}>
                                     <i className="os-icon os-icon-users"></i> &nbsp;&nbsp;&nbsp;Status Kepegawaian
