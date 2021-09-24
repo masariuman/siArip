@@ -13,6 +13,7 @@ use App\Models\ReferensiJenisKepegawaian;
 use App\Models\ReferensiJenisPenghargaan;
 use App\Models\ReferensiKedudukanKepegawaian;
 use App\Models\ReferensiPangkatGolonganRuang;
+use App\Models\ReferensiSTLUD;
 use Uuid;
 use Illuminate\Support\Facades\Hash;
 
@@ -1008,6 +1009,100 @@ class ReferensiController extends Controller
         //
         $pagination = 5;
         $data = ReferensiPangkatGolonganRuang::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")->orWhere(function ($query) use ($request) {
+            $query->where("pangkat", "like", "%" . $request->cari . "%")->where("sutattsu", "1");
+        })
+            ->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+
+
+    //referensi stlud
+    public function stlud()
+    {
+        $pagination = 5;
+        $data = ReferensiSTLUD::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        // dd($gets);
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function stludStore(Request $request)
+    {
+        ReferensiSTLUD::create([
+            'name' => $request->data,
+            'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string)))))
+        ]);
+        $data = ReferensiSTLUD::orderBy("id", "DESC")->first();
+        $data['nomor'] = "BARU";
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function stludEdit($id)
+    {
+        //
+        $data = ReferensiSTLUD::where("rinku", $id)->first();
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function stludUpdate(Request $request, $id)
+    {
+        //
+        $data = ReferensiSTLUD::where("rinku", $id)->first();
+        $data->update([
+            'name' => $request->data
+        ]);
+        $pagination = 5;
+        $data = ReferensiSTLUD::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function stludDestroy($id)
+    {
+        //
+        $data = ReferensiSTLUD::where("rinku", $id)->first();
+        $data->update([
+            'sutattsu' => '0'
+        ]);
+        $pagination = 5;
+        $data = ReferensiSTLUD::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function stludSearch(Request $request)
+    {
+        //
+        $pagination = 5;
+        $data = ReferensiSTLUD::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")->orWhere(function ($query) use ($request) {
             $query->where("pangkat", "like", "%" . $request->cari . "%")->where("sutattsu", "1");
         })
             ->orderBy("id", "DESC")->paginate($pagination);

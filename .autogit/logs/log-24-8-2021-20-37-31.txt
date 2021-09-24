@@ -1,0 +1,17 @@
+-------------------- Auto-Git Log --------------------
+		Fri Sep 24 2021 20:37:31 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+
+
+Created files:
+* .autogit/logs/log-24-8-2021-10-33-27.txt
+* app/Models/STLUD.php
+* resources/js/component/referensi/STLUD.jsx
+
+
+Deleted files:
+
+
+Renamed files:

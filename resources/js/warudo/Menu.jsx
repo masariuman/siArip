@@ -372,7 +372,7 @@ class Menu extends Component {
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/admin/referensi//heya`}>
+                                <Link to={`/admin/referensi/stlud`}>
                                     <i className="os-icon os-icon-home"></i> &nbsp;&nbsp;&nbsp;STLUD
                                 </Link>
                             </li>

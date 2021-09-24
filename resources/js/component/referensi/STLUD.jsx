@@ -58,7 +58,7 @@ class STLUD extends Component {
             .get(`/admin/referensi/stlud/${e}`)
             .then(response => {
                 swal({
-                    title: `Yakin ingin menghapus Status Kepegawaian ${response.data.data.name}`,
+                    title: `Yakin ingin menghapus Surat Tanda Lulus Ujian Dinas (STLUD) ${response.data.data.name}`,
                     text: "Kalau Terhapus, Hubungi Admin Untuk Mengembalikan Data yang Terhapus!",
                     icon: "warning",
                     buttons: true,
@@ -304,10 +304,10 @@ class STLUD extends Component {
                         </div>
                         <div className="onboarding-content with-gradient masariuman_width100percent">
                         <h4 className="onboarding-title">
-                            Tambah Status Kepegawaian Baru
+                            Tambah Surat Tanda Lulus Ujian Dinas (STLUD) Baru
                         </h4>
                         <div className="onboarding-text">
-                            Masukkan nama Status Kepegawaian baru.
+                            Masukkan nama Surat Tanda Lulus Ujian Dinas (STLUD) baru.
                         </div>
                         <form onSubmit={this.handleSubmit}>
                             <div className="row">
@@ -316,8 +316,8 @@ class STLUD extends Component {
                                     <input
                                         onChange={this.handleChange}
                                         value={this.state.dataNewInput}
-                                        title="Nama Status Kepegawaian"
-                                        placeholder="Masukkan Nama Status Kepegawaian Baru.."
+                                        title="Nama Surat Tanda Lulus Ujian Dinas (STLUD)"
+                                        placeholder="Masukkan Nama Surat Tanda Lulus Ujian Dinas (STLUD) Baru.."
                                         type="text"
                                         className="form-control"
                                     />
@@ -325,7 +325,7 @@ class STLUD extends Component {
                             </div>
                             <div className="col-sm-12">
                                 <div className="form-group text-center">
-                                    <button className="mr-2 mb-2 btn btn-primary" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Tambah Status Kepegawaian Baru</button>
+                                    <button className="mr-2 mb-2 btn btn-primary" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Tambah Surat Tanda Lulus Ujian Dinas (STLUD) Baru</button>
                                 </div>
                             </div>
                             </div>
@@ -350,10 +350,10 @@ class STLUD extends Component {
                         </div>
                         <div className="onboarding-content with-gradient masariuman_width100percent">
                         <h4 className="onboarding-title">
-                            Ubah Nama Status Kepegawaian
+                            Ubah Nama Surat Tanda Lulus Ujian Dinas (STLUD)
                         </h4>
                         <div className="onboarding-text">
-                            Masukkan nama Status Kepegawaian baru.
+                            Masukkan nama Surat Tanda Lulus Ujian Dinas (STLUD) baru.
                         </div>
                         <form onSubmit={this.handleEditSubmit}>
                             <div className="row">
@@ -362,8 +362,8 @@ class STLUD extends Component {
                                     <input
                                         onChange={this.handleEditInputChange}
                                         value={this.state.dataEditInput}
-                                        title="Nama Status Kepegawaian"
-                                        placeholder="Masukkan Nama Status Kepegawaian Baru.."
+                                        title="Nama Surat Tanda Lulus Ujian Dinas (STLUD)"
+                                        placeholder="Masukkan Nama Surat Tanda Lulus Ujian Dinas (STLUD) Baru.."
                                         type="text"
                                         className="form-control"
                                     />
@@ -371,7 +371,7 @@ class STLUD extends Component {
                             </div>
                             <div className="col-sm-12">
                                 <div className="form-group text-center">
-                                    <button className="mr-2 mb-2 btn btn-warning" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Ubah Nama Status Kepegawaian</button>
+                                    <button className="mr-2 mb-2 btn btn-warning" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Ubah Nama Surat Tanda Lulus Ujian Dinas (STLUD)</button>
                                 </div>
                             </div>
                             </div>
@@ -395,8 +395,8 @@ class STLUD extends Component {
                         <div className="os-icon os-icon-home"></div>
                         </div>
                         <div className="masariuman-textleft">
-                            <span className="masariuman-bold">Status Kepegawaian</span> <br/>
-                            <small>Manajemen Status Kepegawaian</small>
+                            <span className="masariuman-bold">Surat Tanda Lulus Ujian Dinas (STLUD)</span> <br/>
+                            <small>Manajemen Surat Tanda Lulus Ujian Dinas (STLUD)</small>
                         </div>
                     </div>
                     <div className="top-menu-controls">
@@ -405,10 +405,10 @@ class STLUD extends Component {
                 </div>
                 <ul className="breadcrumb">
                     <li className="breadcrumb-item">
-                        <a>Status Kepegawaian</a>
+                        <a>Surat Tanda Lulus Ujian Dinas (STLUD)</a>
                     </li>
                     <li className="breadcrumb-item">
-                        <span>Manajemen Status Kepegawaian</span>
+                        <span>Manajemen Surat Tanda Lulus Ujian Dinas (STLUD)</span>
                     </li>
                 </ul>
 
@@ -419,16 +419,16 @@ class STLUD extends Component {
                                 {/* content here */}
                                 <div className="element-box">
                                     <h5 className="form-header">
-                                    Daftar Status Kepegawaian
+                                    Daftar Surat Tanda Lulus Ujian Dinas (STLUD)
                                     </h5>
                                     <div className="form-desc">
-                                        Manajemen Data Status Kepegawaian
+                                        Manajemen Data Surat Tanda Lulus Ujian Dinas (STLUD)
                                     </div>
                                     <div>
-                                        <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal">Tambah Status Kepegawaian Baru</button>
+                                        <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal">Tambah Surat Tanda Lulus Ujian Dinas (STLUD) Baru</button>
                                         <div className="col-sm-4 float-right" id="cari">
                                             <input type="text" className="form-control" onChange={this.handleChangeCari}
-                                                value={this.state.cari} placeholder="Cari Status Kepegawaian..."></input>
+                                                value={this.state.cari} placeholder="Cari Surat Tanda Lulus Ujian Dinas (STLUD)..."></input>
                                         </div>
                                     </div>
                                     <div className="table-responsive" id="stludTable">
@@ -436,7 +436,7 @@ class STLUD extends Component {
                                             <thead>
                                                 <tr>
                                                     <th className="width50px">NO</th>
-                                                    <th>NAMA Status Kepegawaian</th>
+                                                    <th>NAMA Surat Tanda Lulus Ujian Dinas (STLUD)</th>
                                                     <th className="width250px">ACTION</th>
                                                 </tr>
                                             </thead>
