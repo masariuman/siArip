@@ -15,6 +15,7 @@ use App\Models\ReferensiKedudukanKepegawaian;
 use App\Models\ReferensiPangkatGolonganRuang;
 use App\Models\ReferensiSTLUD;
 use App\Models\ReferensiJenisNaikPangkat;
+use App\Models\ReferensiTingkatPendidikan;
 use Uuid;
 use Illuminate\Support\Facades\Hash;
 
@@ -1196,6 +1197,98 @@ class ReferensiController extends Controller
         //
         $pagination = 5;
         $data = ReferensiJenisNaikPangkat::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
+            ->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+
+
+    //referensi tingkat pendidikan
+    public function tingkatPendidikan()
+    {
+        $pagination = 5;
+        $data = ReferensiTingkatPendidikan::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        // dd($gets);
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function tingkatPendidikanStore(Request $request)
+    {
+        ReferensiTingkatPendidikan::create([
+            'name' => $request->data,
+            'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string)))))
+        ]);
+        $data = ReferensiTingkatPendidikan::orderBy("id", "DESC")->first();
+        $data['nomor'] = "BARU";
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function tingkatPendidikanEdit($id)
+    {
+        //
+        $data = ReferensiTingkatPendidikan::where("rinku", $id)->first();
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function tingkatPendidikanUpdate(Request $request, $id)
+    {
+        //
+        $data = ReferensiTingkatPendidikan::where("rinku", $id)->first();
+        $data->update([
+            'name' => $request->data
+        ]);
+        $pagination = 5;
+        $data = ReferensiTingkatPendidikan::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function tingkatPendidikanDestroy($id)
+    {
+        //
+        $data = ReferensiTingkatPendidikan::where("rinku", $id)->first();
+        $data->update([
+            'sutattsu' => '0'
+        ]);
+        $pagination = 5;
+        $data = ReferensiTingkatPendidikan::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function tingkatPendidikanSearch(Request $request)
+    {
+        //
+        $pagination = 5;
+        $data = ReferensiTingkatPendidikan::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
             ->orderBy("id", "DESC")->paginate($pagination);
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data as $items) {

@@ -1,0 +1,22 @@
+-------------------- Auto-Git Log --------------------
+		Fri Sep 24 2021 21:38:09 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/ReferensiController.php
+* public/js/app.js
+* resources/js/reactRoute.jsx
+* resources/js/warudo/Menu.jsx
+* routes/web.php
+
+
+Created files:
+* .autogit/logs/log-24-8-2021-21-7-50.txt
+* app/Models/ReferensiJenisNaikPangkat.php
+* resources/js/component/referensi/JenisNaikPangkat.jsx
+
+
+Deleted files:
+
+
+Renamed files:

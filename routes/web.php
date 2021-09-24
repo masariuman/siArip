@@ -121,6 +121,12 @@ Route::put('/admin/referensi/jenisNaikPangkat/{url}', 'ReferensiController@jenis
 Route::delete('/admin/referensi/jenisNaikPangkat/{url}', 'ReferensiController@jenisNaikPangkatDestroy');
 Route::post('/admin/referensi/jenisNaikPangkat/search', 'ReferensiController@jenisNaikPangkatSearch');
 
+Route::get('/admin/referensi/tingkatPendidikan/deeta', 'ReferensiController@tingkatPendidikan');
+Route::post('/admin/referensi/tingkatPendidikan', 'ReferensiController@tingkatPendidikanStore');
+Route::get('/admin/referensi/tingkatPendidikan/{url}', 'ReferensiController@tingkatPendidikanEdit');
+Route::put('/admin/referensi/tingkatPendidikan/{url}', 'ReferensiController@tingkatPendidikanUpdate');
+Route::delete('/admin/referensi/tingkatPendidikan/{url}', 'ReferensiController@tingkatPendidikanDestroy');
+Route::post('/admin/referensi/tingkatPendidikan/search', 'ReferensiController@tingkatPendidikanSearch');
 
 Route::resources([
     'kanrisha/heya/deeta' => 'HeyaController',
