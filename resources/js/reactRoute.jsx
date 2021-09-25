@@ -25,15 +25,15 @@ import RefJenisNaikPangkatIndex from "./component/referensi/JenisNaikPangkat";
 import RefTingkatPendidikanIndex from "./component/referensi/TingkatPendidikan";
 import RefJurusanPendidikanIndex from "./component/referensi/JurusanPendidikan";
 import RefDiklatStrukturalIndex from "./component/referensi/DiklatStruktural";
-import RefPejabatPenetapIndex from "./component/referensi/RefPejabatPenetapIndex";
-import RefPejabatNegaraIndex from "./component/referensi/RefPejabatNegaraIndex";
-import RefDiklatFungsionalIndex from "./component/referensi/RefDiklatFungsionalIndex";
-import RefDiklatTeknisIndex from "./component/referensi/RefDiklatTeknisIndex";
-import RefJabatanFungsionalUmumIndex from "./component/referensi/RefJabatanFungsionalUmumIndex";
-import RefJabatanFungsionalTertentuIndex from "./component/referensi/RefJabatanFungsionalTertentuIndex";
-import RefJabatanKORPRIIndex from "./component/referensi/RefJabatanKORPRIIndex";
-import RefEselonJabatanIndex from "./component/referensi/RefEselonJabatanIndex";
-import RefJenisJabatanIndex from "./component/referensi/RefJenisJabatanIndex";
+import RefPejabatPenetapIndex from "./component/referensi/PejabatPenetap";
+import RefPejabatNegaraIndex from "./component/referensi/PejabatNegara";
+import RefDiklatFungsionalIndex from "./component/referensi/DiklatFungsional";
+import RefDiklatTeknisIndex from "./component/referensiDiklatTeknis";
+import RefJabatanFungsionalUmumIndex from "./component/referensiJabatanFungsionalUmum";
+import RefJabatanFungsionalTertentuIndex from "./component/referensiJabatanFungsionalTertentu";
+import RefJabatanKORPRIIndex from "./component/referensi/JabatanKORPRI";
+import RefEselonJabatanIndex from "./component/referensi/EselonJabatan";
+import RefJenisJabatanIndex from "./component/referens/JenisJabatan";
 
 class ReactRoute extends Component {
     constructor(props) {

@@ -9,7 +9,7 @@ import Pagination from "react-js-pagination";
 import Highlighter from "react-highlight-words";
 
 
-class DiklatStruktural extends Component {
+class PejabatNegara extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -36,7 +36,7 @@ class DiklatStruktural extends Component {
             cari: e.target.value
         });
         axios
-            .post(`/admin/referensi/diklatStruktural/search`, {
+            .post(`/admin/referensi/pejabatNegara/search`, {
                 cari: e.target.value
             })
             .then(response => {
@@ -55,10 +55,10 @@ class DiklatStruktural extends Component {
 
     handleDeleteButton(e) {
         axios
-            .get(`/admin/referensi/diklatStruktural/${e}`)
+            .get(`/admin/referensi/pejabatNegara/${e}`)
             .then(response => {
                 swal({
-                    title: `Yakin ingin menghapus Diklat Struktural ${response.data.data.name}`,
+                    title: `Yakin ingin menghapus Pejabat Negara ${response.data.data.name}`,
                     text: "Kalau Terhapus, Hubungi Admin Untuk Mengembalikan Data yang Terhapus!",
                     icon: "warning",
                     buttons: true,
@@ -70,7 +70,7 @@ class DiklatStruktural extends Component {
                             loading: true
                         });
                         axios
-                            .delete(`/admin/referensi/diklatStruktural/${e}`, {
+                            .delete(`/admin/referensi/pejabatNegara/${e}`, {
                                 url: this.state.url
                             })
                             .then(response => {
@@ -99,7 +99,7 @@ class DiklatStruktural extends Component {
 
     handleEditButton(e) {
         axios
-            .get(`/admin/referensi/diklatStruktural/${e}`)
+            .get(`/admin/referensi/pejabatNegara/${e}`)
             .then(response => {
                 this.setState({
                     dataEditInput: response.data.data.name,
@@ -131,7 +131,7 @@ class DiklatStruktural extends Component {
             loading: true
         });
         axios
-            .post("/admin/referensi/diklatStruktural", {
+            .post("/admin/referensi/pejabatNegara", {
                 data: this.state.dataNewInput
             })
             .then(response => {
@@ -163,7 +163,7 @@ class DiklatStruktural extends Component {
             loading: true
         });
         axios
-            .put(`/admin/referensi/diklatStruktural/${this.state.url}`, {
+            .put(`/admin/referensi/pejabatNegara/${this.state.url}`, {
                 data: this.state.dataEditInput
             })
             .then(response => {
@@ -194,7 +194,7 @@ class DiklatStruktural extends Component {
             loading: true
         });
         axios
-            .get("/admin/referensi/diklatStruktural/deeta")
+            .get("/admin/referensi/pejabatNegara/deeta")
             .then(response => {
                 // console.log(response.data.data.data);
                 this.setState({
@@ -304,10 +304,10 @@ class DiklatStruktural extends Component {
                         </div>
                         <div className="onboarding-content with-gradient masariuman_width100percent">
                         <h4 className="onboarding-title">
-                            Tambah Diklat Struktural Baru
+                            Tambah Pejabat Negara Baru
                         </h4>
                         <div className="onboarding-text">
-                            Masukkan nama Diklat Struktural baru.
+                            Masukkan nama Pejabat Negara baru.
                         </div>
                         <form onSubmit={this.handleSubmit}>
                             <div className="row">
@@ -316,8 +316,8 @@ class DiklatStruktural extends Component {
                                     <input
                                         onChange={this.handleChange}
                                         value={this.state.dataNewInput}
-                                        title="Nama Diklat Struktural"
-                                        placeholder="Masukkan Nama Diklat Struktural Baru.."
+                                        title="Nama Pejabat Negara"
+                                        placeholder="Masukkan Nama Pejabat Negara Baru.."
                                         type="text"
                                         className="form-control"
                                     />
@@ -325,7 +325,7 @@ class DiklatStruktural extends Component {
                             </div>
                             <div className="col-sm-12">
                                 <div className="form-group text-center">
-                                    <button className="mr-2 mb-2 btn btn-primary" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Tambah Diklat Struktural Baru</button>
+                                    <button className="mr-2 mb-2 btn btn-primary" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Tambah Pejabat Negara Baru</button>
                                 </div>
                             </div>
                             </div>
@@ -350,10 +350,10 @@ class DiklatStruktural extends Component {
                         </div>
                         <div className="onboarding-content with-gradient masariuman_width100percent">
                         <h4 className="onboarding-title">
-                            Ubah Nama Diklat Struktural
+                            Ubah Nama Pejabat Negara
                         </h4>
                         <div className="onboarding-text">
-                            Masukkan nama Diklat Struktural baru.
+                            Masukkan nama Pejabat Negara baru.
                         </div>
                         <form onSubmit={this.handleEditSubmit}>
                             <div className="row">
@@ -362,8 +362,8 @@ class DiklatStruktural extends Component {
                                     <input
                                         onChange={this.handleEditInputChange}
                                         value={this.state.dataEditInput}
-                                        title="Nama Diklat Struktural"
-                                        placeholder="Masukkan Nama Diklat Struktural Baru.."
+                                        title="Nama Pejabat Negara"
+                                        placeholder="Masukkan Nama Pejabat Negara Baru.."
                                         type="text"
                                         className="form-control"
                                     />
@@ -371,7 +371,7 @@ class DiklatStruktural extends Component {
                             </div>
                             <div className="col-sm-12">
                                 <div className="form-group text-center">
-                                    <button className="mr-2 mb-2 btn btn-warning" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Ubah Nama Diklat Struktural</button>
+                                    <button className="mr-2 mb-2 btn btn-warning" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Ubah Nama Pejabat Negara</button>
                                 </div>
                             </div>
                             </div>
@@ -395,8 +395,8 @@ class DiklatStruktural extends Component {
                         <div className="os-icon os-icon-home"></div>
                         </div>
                         <div className="masariuman-textleft">
-                            <span className="masariuman-bold">Diklat Struktural</span> <br/>
-                            <small>Manajemen Diklat Struktural</small>
+                            <span className="masariuman-bold">Pejabat Negara</span> <br/>
+                            <small>Manajemen Pejabat Negara</small>
                         </div>
                     </div>
                     <div className="top-menu-controls">
@@ -405,10 +405,10 @@ class DiklatStruktural extends Component {
                 </div>
                 <ul className="breadcrumb">
                     <li className="breadcrumb-item">
-                        <a>Diklat Struktural</a>
+                        <a>Pejabat Negara</a>
                     </li>
                     <li className="breadcrumb-item">
-                        <span>Manajemen Diklat Struktural</span>
+                        <span>Manajemen Pejabat Negara</span>
                     </li>
                 </ul>
 
@@ -419,24 +419,24 @@ class DiklatStruktural extends Component {
                                 {/* content here */}
                                 <div className="element-box">
                                     <h5 className="form-header">
-                                    Daftar Diklat Struktural
+                                    Daftar Pejabat Negara
                                     </h5>
                                     <div className="form-desc">
-                                        Manajemen Data Diklat Struktural
+                                        Manajemen Data Pejabat Negara
                                     </div>
                                     <div>
-                                        <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal">Tambah Diklat Struktural Baru</button>
+                                        <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal">Tambah Pejabat Negara Baru</button>
                                         <div className="col-sm-4 float-right" id="cari">
                                             <input type="text" className="form-control" onChange={this.handleChangeCari}
-                                                value={this.state.cari} placeholder="Cari Diklat Struktural..."></input>
+                                                value={this.state.cari} placeholder="Cari Pejabat Negara..."></input>
                                         </div>
                                     </div>
-                                    <div className="table-responsive" id="diklatStrukturalTable">
+                                    <div className="table-responsive" id="pejabatNegaraTable">
                                         <table id="tabeldata" width="100%" className="table table-striped table-lightfont">
                                             <thead>
                                                 <tr>
                                                     <th className="width50px">NO</th>
-                                                    <th>NAMA Diklat Struktural</th>
+                                                    <th>NAMA Pejabat Negara</th>
                                                     <th className="width250px">ACTION</th>
                                                 </tr>
                                             </thead>
@@ -466,4 +466,4 @@ class DiklatStruktural extends Component {
     }
 }
 
-export default DiklatStruktural;
+export default PejabatNegara;

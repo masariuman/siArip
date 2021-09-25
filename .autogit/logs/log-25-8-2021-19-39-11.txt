@@ -1,0 +1,20 @@
+-------------------- Auto-Git Log --------------------
+		Sat Sep 25 2021 19:39:11 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/ReferensiController.php
+* app/Models/ReferensiPejabatNegara.php
+* app/Models/ReferensiPejabatPenetap.php
+
+
+Created files:
+* .autogit/logs/log-25-8-2021-19-8-56.txt
+* app/Models/ReferensiJabatanKORPI.php
+* database/migrations/2021_09_25_193534_create_table_jabatan_korpri.php
+
+
+Deleted files:
+
+
+Renamed files:
