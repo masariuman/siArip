@@ -389,7 +389,7 @@ class Menu extends Component {
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/admin/referensi/heya`}>
+                                <Link to={`/admin/referensi/jurusanPendidikan`}>
                                     <i className="os-icon os-icon-home"></i> &nbsp;&nbsp;&nbsp;Jurusan Pendidikan
                                 </Link>
                             </li>

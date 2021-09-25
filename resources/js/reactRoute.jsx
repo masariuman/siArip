@@ -23,6 +23,7 @@ import RefPangkatGolonganRuangIndex from "./component/referensi/PangkatGolonganR
 import RefSTLUDIndex from "./component/referensi/STLUD";
 import RefJenisNaikPangkatIndex from "./component/referensi/JenisNaikPangkat";
 import RefTingkatPendidikanIndex from "./component/referensi/TingkatPendidikan";
+import RefJurusanPendidikanIndex from "./component/referensi/JurusanPendidikan";
 
 class ReactRoute extends Component {
     constructor(props) {
@@ -139,6 +140,11 @@ class ReactRoute extends Component {
                         exact
                         path="/admin/referensi/tingkatPendidikan"
                         component={RefTingkatPendidikanIndex}
+                    />
+                    <Route
+                        exact
+                        path="/admin/referensi/jurusanPendidikan"
+                        component={RefJurusanPendidikanIndex}
                     />
                     <Empatkosongempat />
                 </Switch>
