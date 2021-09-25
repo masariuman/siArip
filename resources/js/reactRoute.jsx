@@ -28,12 +28,12 @@ import RefDiklatStrukturalIndex from "./component/referensi/DiklatStruktural";
 import RefPejabatPenetapIndex from "./component/referensi/PejabatPenetap";
 import RefPejabatNegaraIndex from "./component/referensi/PejabatNegara";
 import RefDiklatFungsionalIndex from "./component/referensi/DiklatFungsional";
-import RefDiklatTeknisIndex from "./component/referensiDiklatTeknis";
-import RefJabatanFungsionalUmumIndex from "./component/referensiJabatanFungsionalUmum";
-import RefJabatanFungsionalTertentuIndex from "./component/referensiJabatanFungsionalTertentu";
+import RefDiklatTeknisIndex from "./component/referensi/DiklatTeknis";
+import RefJabatanFungsionalUmumIndex from "./component/referensi/JabatanFungsionalUmum";
+import RefJabatanFungsionalTertentuIndex from "./component/referensi/JabatanFungsionalTertentu";
 import RefJabatanKORPRIIndex from "./component/referensi/JabatanKORPRI";
 import RefEselonJabatanIndex from "./component/referensi/EselonJabatan";
-import RefJenisJabatanIndex from "./component/referens/JenisJabatan";
+import RefJenisJabatanIndex from "./component/referensi/JenisJabatan";
 
 class ReactRoute extends Component {
     constructor(props) {
