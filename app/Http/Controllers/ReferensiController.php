@@ -1509,7 +1509,7 @@ class ReferensiController extends Controller
     public function diklatFungsional()
     {
         $pagination = 5;
-        $data = ReferensiDiklatStruktural::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $data = ReferensiDiklatFungsional::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data as $items) {
             $items['nomor'] = $count;
@@ -1522,11 +1522,11 @@ class ReferensiController extends Controller
     }
     public function diklatFungsionalStore(Request $request)
     {
-        ReferensiDiklatStruktural::create([
+        ReferensiDiklatFungsional::create([
             'name' => $request->data,
             'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string)))))
         ]);
-        $data = ReferensiDiklatStruktural::orderBy("id", "DESC")->first();
+        $data = ReferensiDiklatFungsional::orderBy("id", "DESC")->first();
         $data['nomor'] = "BARU";
         return response()->json([
             'data' => $data
@@ -1535,7 +1535,7 @@ class ReferensiController extends Controller
     public function diklatFungsionalEdit($id)
     {
         //
-        $data = ReferensiDiklatStruktural::where("rinku", $id)->first();
+        $data = ReferensiDiklatFungsional::where("rinku", $id)->first();
         return response()->json([
             'data' => $data
         ]);
@@ -1543,12 +1543,12 @@ class ReferensiController extends Controller
     public function diklatFungsionalUpdate(Request $request, $id)
     {
         //
-        $data = ReferensiDiklatStruktural::where("rinku", $id)->first();
+        $data = ReferensiDiklatFungsional::where("rinku", $id)->first();
         $data->update([
             'name' => $request->data
         ]);
         $pagination = 5;
-        $data = ReferensiDiklatStruktural::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $data = ReferensiDiklatFungsional::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data as $items) {
             $items['nomor'] = $count;
@@ -1561,12 +1561,12 @@ class ReferensiController extends Controller
     public function diklatFungsionalDestroy($id)
     {
         //
-        $data = ReferensiDiklatStruktural::where("rinku", $id)->first();
+        $data = ReferensiDiklatFungsional::where("rinku", $id)->first();
         $data->update([
             'sutattsu' => '0'
         ]);
         $pagination = 5;
-        $data = ReferensiDiklatStruktural::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $data = ReferensiDiklatFungsional::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data as $items) {
             $items['nomor'] = $count;
@@ -1580,7 +1580,7 @@ class ReferensiController extends Controller
     {
         //
         $pagination = 5;
-        $data = ReferensiDiklatStruktural::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
+        $data = ReferensiDiklatFungsional::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
             ->orderBy("id", "DESC")->paginate($pagination);
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data as $items) {
@@ -1602,7 +1602,7 @@ class ReferensiController extends Controller
     public function diklatTeknis()
     {
         $pagination = 5;
-        $data = ReferensiDiklatStruktural::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $data = ReferensiDiklatTeknis::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data as $items) {
             $items['nomor'] = $count;
@@ -1615,11 +1615,11 @@ class ReferensiController extends Controller
     }
     public function diklatTeknisStore(Request $request)
     {
-        ReferensiDiklatStruktural::create([
+        ReferensiDiklatTeknis::create([
             'name' => $request->data,
             'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string)))))
         ]);
-        $data = ReferensiDiklatStruktural::orderBy("id", "DESC")->first();
+        $data = ReferensiDiklatTeknis::orderBy("id", "DESC")->first();
         $data['nomor'] = "BARU";
         return response()->json([
             'data' => $data
@@ -1628,7 +1628,7 @@ class ReferensiController extends Controller
     public function diklatTeknisEdit($id)
     {
         //
-        $data = ReferensiDiklatStruktural::where("rinku", $id)->first();
+        $data = ReferensiDiklatTeknis::where("rinku", $id)->first();
         return response()->json([
             'data' => $data
         ]);
@@ -1636,12 +1636,12 @@ class ReferensiController extends Controller
     public function diklatTeknisUpdate(Request $request, $id)
     {
         //
-        $data = ReferensiDiklatStruktural::where("rinku", $id)->first();
+        $data = ReferensiDiklatTeknis::where("rinku", $id)->first();
         $data->update([
             'name' => $request->data
         ]);
         $pagination = 5;
-        $data = ReferensiDiklatStruktural::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $data = ReferensiDiklatTeknis::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data as $items) {
             $items['nomor'] = $count;
@@ -1654,12 +1654,12 @@ class ReferensiController extends Controller
     public function diklatTeknisDestroy($id)
     {
         //
-        $data = ReferensiDiklatStruktural::where("rinku", $id)->first();
+        $data = ReferensiDiklatTeknis::where("rinku", $id)->first();
         $data->update([
             'sutattsu' => '0'
         ]);
         $pagination = 5;
-        $data = ReferensiDiklatStruktural::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $data = ReferensiDiklatTeknis::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data as $items) {
             $items['nomor'] = $count;
@@ -1673,7 +1673,7 @@ class ReferensiController extends Controller
     {
         //
         $pagination = 5;
-        $data = ReferensiDiklatStruktural::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
+        $data = ReferensiDiklatTeknis::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
             ->orderBy("id", "DESC")->paginate($pagination);
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data as $items) {
