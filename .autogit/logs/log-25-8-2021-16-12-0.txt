@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Sat Sep 25 2021 16:12:00 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/ReferensiController.php
+* public/js/app.js
+* resources/js/reactRoute.jsx
+
+
+Created files:
+* .autogit/logs/log-25-8-2021-15-41-42.txt
+* resources/js/component/referensi/DiklatStruktural.jsx
+
+
+Deleted files:
+
+
+Renamed files:
