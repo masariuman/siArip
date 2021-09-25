@@ -1,0 +1,29 @@
+-------------------- Auto-Git Log --------------------
+		Sat Sep 25 2021 17:42:42 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+
+
+Created files:
+* .autogit/logs/log-25-8-2021-17-12-34.txt
+* app/Models/ReferensiDiklatFungsional.php
+* app/Models/ReferensiDiklatTeknis.php
+* app/Models/ReferensiEselonJabatan.php
+* app/Models/ReferensiJabatanFungsionalTertentu.php
+* app/Models/ReferensiJabatanFungsionalUmum.php
+* app/Models/ReferensiPejabatNegara.php
+* app/Models/ReferensiPejabatPenetap.php
+* database/migrations/2021_09_25_171247_create_table_diklat_fungsional.php
+* database/migrations/2021_09_25_171258_create_table_diklat_teknis.php
+* database/migrations/2021_09_25_171319_create_table_jabatan_fungsional_umum.php
+* database/migrations/2021_09_25_171331_create_table_jabatan_fungsional_tertentu.php
+* database/migrations/2021_09_25_171408_create_table_eselon_jabatan.php
+* database/migrations/2021_09_25_171427_create_table_pejabat_penetap.php
+* database/migrations/2021_09_25_171438_create_table_pejabat_negara.php
+
+
+Deleted files:
+
+
+Renamed files:

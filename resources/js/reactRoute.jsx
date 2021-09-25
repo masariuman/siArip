@@ -25,6 +25,15 @@ import RefJenisNaikPangkatIndex from "./component/referensi/JenisNaikPangkat";
 import RefTingkatPendidikanIndex from "./component/referensi/TingkatPendidikan";
 import RefJurusanPendidikanIndex from "./component/referensi/JurusanPendidikan";
 import RefDiklatStrukturalIndex from "./component/referensi/DiklatStruktural";
+import RefPejabatPenetapIndex from "./component/referensi/RefPejabatPenetapIndex";
+import RefPejabatNegaraIndex from "./component/referensi/RefPejabatNegaraIndex";
+import RefDiklatFungsionalIndex from "./component/referensi/RefDiklatFungsionalIndex";
+import RefDiklatTeknisIndex from "./component/referensi/RefDiklatTeknisIndex";
+import RefJabatanFungsionalUmumIndex from "./component/referensi/RefJabatanFungsionalUmumIndex";
+import RefJabatanFungsionalTertentuIndex from "./component/referensi/RefJabatanFungsionalTertentuIndex";
+import RefJabatanKORPRIIndex from "./component/referensi/RefJabatanKORPRIIndex";
+import RefEselonJabatanIndex from "./component/referensi/RefEselonJabatanIndex";
+import RefJenisJabatanIndex from "./component/referensi/RefJenisJabatanIndex";
 
 class ReactRoute extends Component {
     constructor(props) {
@@ -151,6 +160,51 @@ class ReactRoute extends Component {
                         exact
                         path="/admin/referensi/diklatStruktural"
                         component={RefDiklatStrukturalIndex}
+                    />
+                    <Route
+                        exact
+                        path="/admin/referensi/diklatFungsional"
+                        component={RefDiklatFungsionalIndex}
+                    />
+                    <Route
+                        exact
+                        path="/admin/referensi/diklatTeknis"
+                        component={RefDiklatTeknisIndex}
+                    />
+                    <Route
+                        exact
+                        path="/admin/referensi/jabatanFungsionalUmum"
+                        component={RefJabatanFungsionalUmumIndex}
+                    />
+                    <Route
+                        exact
+                        path="/admin/referensi/jabatanFungsionalTertentu"
+                        component={RefJabatanFungsionalTertentuIndex}
+                    />
+                    <Route
+                        exact
+                        path="/admin/referensi/jabatanKORPRI"
+                        component={RefJabatanKORPRIIndex}
+                    />
+                    <Route
+                        exact
+                        path="/admin/referensi/eselonJabatan"
+                        component={RefEselonJabatanIndex}
+                    />
+                    <Route
+                        exact
+                        path="/admin/referensi/jenisJabatan"
+                        component={RefJenisJabatanIndex}
+                    />
+                    <Route
+                        exact
+                        path="/admin/referensi/pejabatPenetap"
+                        component={RefPejabatPenetapIndex}
+                    />
+                    <Route
+                        exact
+                        path="/admin/referensi/pejabatNegara"
+                        component={RefPejabatNegaraIndex}
                     />
                     <Empatkosongempat />
                 </Switch>

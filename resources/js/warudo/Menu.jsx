@@ -408,21 +408,6 @@ class Menu extends Component {
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Diklat Teknis
                                 </Link>
                             </li>
-                            <li>
-                                <Link to={`/admin/referensi/seminar`}>
-                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Seminar
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to={`/admin/referensi/kursus`}>
-                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Kursus
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to={`/admin/referensi/wokshop`}>
-                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Workshop
-                                </Link>
-                            </li>
                         </ul>
                         <ul className="sub-menu">
                             <li>

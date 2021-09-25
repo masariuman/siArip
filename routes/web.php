@@ -142,6 +142,69 @@ Route::put('/admin/referensi/diklatStruktural/{url}', 'ReferensiController@dikla
 Route::delete('/admin/referensi/diklatStruktural/{url}', 'ReferensiController@diklatStrukturalDestroy');
 Route::post('/admin/referensi/diklatStruktural/search', 'ReferensiController@diklatStrukturalSearch');
 
+Route::get('/admin/referensi/diklatTeknis/deeta', 'ReferensiController@diklatTeknis');
+Route::post('/admin/referensi/diklatTeknis', 'ReferensiController@diklatTeknisStore');
+Route::get('/admin/referensi/diklatTeknis/{url}', 'ReferensiController@diklatTeknisEdit');
+Route::put('/admin/referensi/diklatTeknis/{url}', 'ReferensiController@diklatTeknisUpdate');
+Route::delete('/admin/referensi/diklatTeknis/{url}', 'ReferensiController@diklatTeknisDestroy');
+Route::post('/admin/referensi/diklatTeknis/search', 'ReferensiController@diklatTeknisSearch');
+
+Route::get('/admin/referensi/jabatanFungsionalUmum/deeta', 'ReferensiController@jabatanFungsionalUmum');
+Route::post('/admin/referensi/jabatanFungsionalUmum', 'ReferensiController@jabatanFungsionalUmumStore');
+Route::get('/admin/referensi/jabatanFungsionalUmum/{url}', 'ReferensiController@jabatanFungsionalUmumEdit');
+Route::put('/admin/referensi/jabatanFungsionalUmum/{url}', 'ReferensiController@jabatanFungsionalUmumUpdate');
+Route::delete('/admin/referensi/jabatanFungsionalUmum/{url}', 'ReferensiController@jabatanFungsionalUmumDestroy');
+Route::post('/admin/referensi/jabatanFungsionalUmum/search', 'ReferensiController@jabatanFungsionalUmumSearch');
+
+Route::get('/admin/referensi/jabatanFungsionalTertentu/deeta', 'ReferensiController@jabatanFungsionalTertentu');
+Route::post('/admin/referensi/jabatanFungsionalTertentu', 'ReferensiController@jabatanFungsionalTertentuStore');
+Route::get('/admin/referensi/jabatanFungsionalTertentu/{url}', 'ReferensiController@jabatanFungsionalTertentuEdit');
+Route::put('/admin/referensi/jabatanFungsionalTertentu/{url}', 'ReferensiController@jabatanFungsionalTertentuUpdate');
+Route::delete('/admin/referensi/jabatanFungsionalTertentu/{url}', 'ReferensiController@jabatanFungsionalTertentuDestroy');
+Route::post('/admin/referensi/jabatanFungsionalTertentu/search', 'ReferensiController@jabatanFungsionalTertentuSearch');
+
+Route::get('/admin/referensi/jabatanKORPRI/deeta', 'ReferensiController@jabatanKORPRI');
+Route::post('/admin/referensi/jabatanKORPRI', 'ReferensiController@jabatanKORPRIStore');
+Route::get('/admin/referensi/jabatanKORPRI/{url}', 'ReferensiController@jabatanKORPRIEdit');
+Route::put('/admin/referensi/jabatanKORPRI/{url}', 'ReferensiController@jabatanKORPRIUpdate');
+Route::delete('/admin/referensi/jabatanKORPRI/{url}', 'ReferensiController@jabatanKORPRIDestroy');
+Route::post('/admin/referensi/jabatanKORPRI/search', 'ReferensiController@jabatanKORPRISearch');
+
+Route::get('/admin/referensi/eselonJabatan/deeta', 'ReferensiController@eselonJabatan');
+Route::post('/admin/referensi/eselonJabatan', 'ReferensiController@eselonJabatanStore');
+Route::get('/admin/referensi/eselonJabatan/{url}', 'ReferensiController@eselonJabatanEdit');
+Route::put('/admin/referensi/eselonJabatan/{url}', 'ReferensiController@eselonJabatanUpdate');
+Route::delete('/admin/referensi/eselonJabatan/{url}', 'ReferensiController@eselonJabatanDestroy');
+Route::post('/admin/referensi/eselonJabatan/search', 'ReferensiController@eselonJabatanSearch');
+
+Route::get('/admin/referensi/diklatFungsional/deeta', 'ReferensiController@diklatFungsional');
+Route::post('/admin/referensi/diklatFungsional', 'ReferensiController@diklatFungsionalStore');
+Route::get('/admin/referensi/diklatFungsional/{url}', 'ReferensiController@diklatFungsionalEdit');
+Route::put('/admin/referensi/diklatFungsional/{url}', 'ReferensiController@diklatFungsionalUpdate');
+Route::delete('/admin/referensi/diklatFungsional/{url}', 'ReferensiController@diklatFungsionalDestroy');
+Route::post('/admin/referensi/diklatFungsional/search', 'ReferensiController@diklatFungsionalSearch');
+
+Route::get('/admin/referensi/jenisJabatan/deeta', 'ReferensiController@jenisJabatan');
+Route::post('/admin/referensi/jenisJabatan', 'ReferensiController@jenisJabatanStore');
+Route::get('/admin/referensi/jenisJabatan/{url}', 'ReferensiController@jenisJabatanEdit');
+Route::put('/admin/referensi/jenisJabatan/{url}', 'ReferensiController@jenisJabatanUpdate');
+Route::delete('/admin/referensi/jenisJabatan/{url}', 'ReferensiController@jenisJabatanDestroy');
+Route::post('/admin/referensi/jenisJabatan/search', 'ReferensiController@jenisJabatanSearch');
+
+Route::get('/admin/referensi/pejabatPenetap/deeta', 'ReferensiController@pejabatPenetap');
+Route::post('/admin/referensi/pejabatPenetap', 'ReferensiController@pejabatPenetapStore');
+Route::get('/admin/referensi/pejabatPenetap/{url}', 'ReferensiController@pejabatPenetapEdit');
+Route::put('/admin/referensi/pejabatPenetap/{url}', 'ReferensiController@pejabatPenetapUpdate');
+Route::delete('/admin/referensi/pejabatPenetap/{url}', 'ReferensiController@pejabatPenetapDestroy');
+Route::post('/admin/referensi/pejabatPenetap/search', 'ReferensiController@pejabatPenetapSearch');
+
+Route::get('/admin/referensi/pejabatNegara/deeta', 'ReferensiController@pejabatNegara');
+Route::post('/admin/referensi/pejabatNegara', 'ReferensiController@pejabatNegaraStore');
+Route::get('/admin/referensi/pejabatNegara/{url}', 'ReferensiController@pejabatNegaraEdit');
+Route::put('/admin/referensi/pejabatNegara/{url}', 'ReferensiController@pejabatNegaraUpdate');
+Route::delete('/admin/referensi/pejabatNegara/{url}', 'ReferensiController@pejabatNegaraDestroy');
+Route::post('/admin/referensi/pejabatNegara/search', 'ReferensiController@pejabatNegaraSearch');
+
 Route::resources([
     'kanrisha/heya/deeta' => 'HeyaController',
     'kanrisha/uuzaa/deeta' => 'UuzaaController',
