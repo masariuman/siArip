@@ -135,6 +135,13 @@ Route::put('/admin/referensi/jurusanPendidikan/{url}', 'ReferensiController@juru
 Route::delete('/admin/referensi/jurusanPendidikan/{url}', 'ReferensiController@jurusanPendidikanDestroy');
 Route::post('/admin/referensi/jurusanPendidikan/search', 'ReferensiController@jurusanPendidikanSearch');
 
+Route::get('/admin/referensi/diklatStruktural/deeta', 'ReferensiController@diklatStruktural');
+Route::post('/admin/referensi/diklatStruktural', 'ReferensiController@diklatStrukturalStore');
+Route::get('/admin/referensi/diklatStruktural/{url}', 'ReferensiController@diklatStrukturalEdit');
+Route::put('/admin/referensi/diklatStruktural/{url}', 'ReferensiController@diklatStrukturalUpdate');
+Route::delete('/admin/referensi/diklatStruktural/{url}', 'ReferensiController@diklatStrukturalDestroy');
+Route::post('/admin/referensi/diklatStruktural/search', 'ReferensiController@diklatStrukturalSearch');
+
 Route::resources([
     'kanrisha/heya/deeta' => 'HeyaController',
     'kanrisha/uuzaa/deeta' => 'UuzaaController',

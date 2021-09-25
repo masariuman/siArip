@@ -1,0 +1,21 @@
+-------------------- Auto-Git Log --------------------
+		Sat Sep 25 2021 11:39:29 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/ReferensiController.php
+* public/js/app.js
+* resources/js/component/referensi/JurusanPendidikan.jsx
+* resources/js/warudo/Menu.jsx
+
+
+Created files:
+* .autogit/logs/log-25-8-2021-11-9-9.txt
+* app/Models/ReferensiJurusanPendidikan.php
+* database/migrations/2021_09_25_113012_create_table_diklat_struktural.php
+
+
+Deleted files:
+
+
+Renamed files:
