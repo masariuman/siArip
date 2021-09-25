@@ -1,0 +1,28 @@
+-------------------- Auto-Git Log --------------------
+		Sat Sep 25 2021 19:08:56 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* public/js/app.js
+* resources/js/reactRoute.jsx
+* resources/js/warudo/Menu.jsx
+* routes/web.php
+
+
+Created files:
+* .autogit/logs/log-25-8-2021-17-42-42.txt
+* resources/js/component/referensi/RefDiklatFungsionalIndex.jsx
+* resources/js/component/referensi/RefDiklatTeknisIndex.jsx
+* resources/js/component/referensi/RefEselonJabatanIndex.jsx
+* resources/js/component/referensi/RefJabatanFungsionalTertentuIndex.jsx
+* resources/js/component/referensi/RefJabatanFungsionalUmumIndex.jsx
+* resources/js/component/referensi/RefJabatanKORPRIIndex.jsx
+* resources/js/component/referensi/RefJenisJabatanIndex.jsx
+* resources/js/component/referensi/RefPejabatNegaraIndex.jsx
+* resources/js/component/referensi/RefPejabatPenetapIndex.jsx
+
+
+Deleted files:
+
+
+Renamed files:
