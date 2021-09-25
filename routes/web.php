@@ -128,6 +128,13 @@ Route::put('/admin/referensi/tingkatPendidikan/{url}', 'ReferensiController@ting
 Route::delete('/admin/referensi/tingkatPendidikan/{url}', 'ReferensiController@tingkatPendidikanDestroy');
 Route::post('/admin/referensi/tingkatPendidikan/search', 'ReferensiController@tingkatPendidikanSearch');
 
+Route::get('/admin/referensi/jurusanPendidikan/deeta', 'ReferensiController@jurusanPendidikan');
+Route::post('/admin/referensi/jurusanPendidikan', 'ReferensiController@jurusanPendidikanStore');
+Route::get('/admin/referensi/jurusanPendidikan/{url}', 'ReferensiController@jurusanPendidikanEdit');
+Route::put('/admin/referensi/jurusanPendidikan/{url}', 'ReferensiController@jurusanPendidikanUpdate');
+Route::delete('/admin/referensi/jurusanPendidikan/{url}', 'ReferensiController@jurusanPendidikanDestroy');
+Route::post('/admin/referensi/jurusanPendidikan/search', 'ReferensiController@jurusanPendidikanSearch');
+
 Route::resources([
     'kanrisha/heya/deeta' => 'HeyaController',
     'kanrisha/uuzaa/deeta' => 'UuzaaController',
