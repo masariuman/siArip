@@ -16,6 +16,7 @@ use App\Models\ReferensiPangkatGolonganRuang;
 use App\Models\ReferensiSTLUD;
 use App\Models\ReferensiJenisNaikPangkat;
 use App\Models\ReferensiTingkatPendidikan;
+use App\Models\ReferensiJurusanPendidikan;
 use Uuid;
 use Illuminate\Support\Facades\Hash;
 
@@ -1289,6 +1290,98 @@ class ReferensiController extends Controller
         //
         $pagination = 5;
         $data = ReferensiTingkatPendidikan::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
+            ->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+
+
+    //referensi jurusan pendidikan
+    public function jurusanPendidikan()
+    {
+        $pagination = 5;
+        $data = ReferensiJurusanPendidikan::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        // dd($gets);
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function jurusanPendidikanStore(Request $request)
+    {
+        ReferensiJurusanPendidikan::create([
+            'name' => $request->data,
+            'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string)))))
+        ]);
+        $data = ReferensiJurusanPendidikan::orderBy("id", "DESC")->first();
+        $data['nomor'] = "BARU";
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function jurusanPendidikanEdit($id)
+    {
+        //
+        $data = ReferensiJurusanPendidikan::where("rinku", $id)->first();
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function jurusanPendidikanUpdate(Request $request, $id)
+    {
+        //
+        $data = ReferensiJurusanPendidikan::where("rinku", $id)->first();
+        $data->update([
+            'name' => $request->data
+        ]);
+        $pagination = 5;
+        $data = ReferensiJurusanPendidikan::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function jurusanPendidikanDestroy($id)
+    {
+        //
+        $data = ReferensiJurusanPendidikan::where("rinku", $id)->first();
+        $data->update([
+            'sutattsu' => '0'
+        ]);
+        $pagination = 5;
+        $data = ReferensiJurusanPendidikan::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function jurusanPendidikanSearch(Request $request)
+    {
+        //
+        $pagination = 5;
+        $data = ReferensiJurusanPendidikan::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
             ->orderBy("id", "DESC")->paginate($pagination);
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data as $items) {

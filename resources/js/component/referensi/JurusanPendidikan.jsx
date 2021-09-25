@@ -9,7 +9,7 @@ import Pagination from "react-js-pagination";
 import Highlighter from "react-highlight-words";
 
 
-class TingkatPendidikan extends Component {
+class JurusanPendidikan extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -36,7 +36,7 @@ class TingkatPendidikan extends Component {
             cari: e.target.value
         });
         axios
-            .post(`/admin/referensi/tingkatPendidikan/search`, {
+            .post(`/admin/referensi/jurusanPendidikan/search`, {
                 cari: e.target.value
             })
             .then(response => {
@@ -55,10 +55,10 @@ class TingkatPendidikan extends Component {
 
     handleDeleteButton(e) {
         axios
-            .get(`/admin/referensi/tingkatPendidikan/${e}`)
+            .get(`/admin/referensi/jurusanPendidikan/${e}`)
             .then(response => {
                 swal({
-                    title: `Yakin ingin menghapus Tingkat Pendidikan ${response.data.data.name}`,
+                    title: `Yakin ingin menghapus Jurusan Pendidikan ${response.data.data.name}`,
                     text: "Kalau Terhapus, Hubungi Admin Untuk Mengembalikan Data yang Terhapus!",
                     icon: "warning",
                     buttons: true,
@@ -70,7 +70,7 @@ class TingkatPendidikan extends Component {
                             loading: true
                         });
                         axios
-                            .delete(`/admin/referensi/tingkatPendidikan/${e}`, {
+                            .delete(`/admin/referensi/jurusanPendidikan/${e}`, {
                                 url: this.state.url
                             })
                             .then(response => {
@@ -99,7 +99,7 @@ class TingkatPendidikan extends Component {
 
     handleEditButton(e) {
         axios
-            .get(`/admin/referensi/tingkatPendidikan/${e}`)
+            .get(`/admin/referensi/jurusanPendidikan/${e}`)
             .then(response => {
                 this.setState({
                     dataEditInput: response.data.data.name,
@@ -131,7 +131,7 @@ class TingkatPendidikan extends Component {
             loading: true
         });
         axios
-            .post("/admin/referensi/tingkatPendidikan", {
+            .post("/admin/referensi/jurusanPendidikan", {
                 data: this.state.dataNewInput
             })
             .then(response => {
@@ -163,7 +163,7 @@ class TingkatPendidikan extends Component {
             loading: true
         });
         axios
-            .put(`/admin/referensi/tingkatPendidikan/${this.state.url}`, {
+            .put(`/admin/referensi/jurusanPendidikan/${this.state.url}`, {
                 data: this.state.dataEditInput
             })
             .then(response => {
@@ -194,7 +194,7 @@ class TingkatPendidikan extends Component {
             loading: true
         });
         axios
-            .get("/admin/referensi/tingkatPendidikan/deeta")
+            .get("/admin/referensi/jurusanPendidikan/deeta")
             .then(response => {
                 // console.log(response.data.data.data);
                 this.setState({
@@ -304,10 +304,10 @@ class TingkatPendidikan extends Component {
                         </div>
                         <div className="onboarding-content with-gradient masariuman_width100percent">
                         <h4 className="onboarding-title">
-                            Tambah Tingkat Pendidikan Baru
+                            Tambah Jurusan Pendidikan Baru
                         </h4>
                         <div className="onboarding-text">
-                            Masukkan nama Tingkat Pendidikan baru.
+                            Masukkan nama Jurusan Pendidikan baru.
                         </div>
                         <form onSubmit={this.handleSubmit}>
                             <div className="row">
@@ -316,8 +316,8 @@ class TingkatPendidikan extends Component {
                                     <input
                                         onChange={this.handleChange}
                                         value={this.state.dataNewInput}
-                                        title="Nama Tingkat Pendidikan"
-                                        placeholder="Masukkan Nama Tingkat Pendidikan Baru.."
+                                        title="Nama Jurusan Pendidikan"
+                                        placeholder="Masukkan Nama Jurusan Pendidikan Baru.."
                                         type="text"
                                         className="form-control"
                                     />
@@ -325,7 +325,7 @@ class TingkatPendidikan extends Component {
                             </div>
                             <div className="col-sm-12">
                                 <div className="form-group text-center">
-                                    <button className="mr-2 mb-2 btn btn-primary" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Tambah Tingkat Pendidikan Baru</button>
+                                    <button className="mr-2 mb-2 btn btn-primary" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Tambah Jurusan Pendidikan Baru</button>
                                 </div>
                             </div>
                             </div>
@@ -350,10 +350,10 @@ class TingkatPendidikan extends Component {
                         </div>
                         <div className="onboarding-content with-gradient masariuman_width100percent">
                         <h4 className="onboarding-title">
-                            Ubah Nama Tingkat Pendidikan
+                            Ubah Nama Jurusan Pendidikan
                         </h4>
                         <div className="onboarding-text">
-                            Masukkan nama Tingkat Pendidikan baru.
+                            Masukkan nama Jurusan Pendidikan baru.
                         </div>
                         <form onSubmit={this.handleEditSubmit}>
                             <div className="row">
@@ -362,8 +362,8 @@ class TingkatPendidikan extends Component {
                                     <input
                                         onChange={this.handleEditInputChange}
                                         value={this.state.dataEditInput}
-                                        title="Nama Tingkat Pendidikan"
-                                        placeholder="Masukkan Nama Tingkat Pendidikan Baru.."
+                                        title="Nama Jurusan Pendidikan"
+                                        placeholder="Masukkan Nama Jurusan Pendidikan Baru.."
                                         type="text"
                                         className="form-control"
                                     />
@@ -371,7 +371,7 @@ class TingkatPendidikan extends Component {
                             </div>
                             <div className="col-sm-12">
                                 <div className="form-group text-center">
-                                    <button className="mr-2 mb-2 btn btn-warning" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Ubah Nama Tingkat Pendidikan</button>
+                                    <button className="mr-2 mb-2 btn btn-warning" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Ubah Nama Jurusan Pendidikan</button>
                                 </div>
                             </div>
                             </div>
@@ -395,8 +395,8 @@ class TingkatPendidikan extends Component {
                         <div className="os-icon os-icon-home"></div>
                         </div>
                         <div className="masariuman-textleft">
-                            <span className="masariuman-bold">Tingkat Pendidikan</span> <br/>
-                            <small>Manajemen Tingkat Pendidikan</small>
+                            <span className="masariuman-bold">Jurusan Pendidikan</span> <br/>
+                            <small>Manajemen Jurusan Pendidikan</small>
                         </div>
                     </div>
                     <div className="top-menu-controls">
@@ -405,10 +405,10 @@ class TingkatPendidikan extends Component {
                 </div>
                 <ul className="breadcrumb">
                     <li className="breadcrumb-item">
-                        <a>Tingkat Pendidikan</a>
+                        <a>Jurusan Pendidikan</a>
                     </li>
                     <li className="breadcrumb-item">
-                        <span>Manajemen Tingkat Pendidikan</span>
+                        <span>Manajemen Jurusan Pendidikan</span>
                     </li>
                 </ul>
 
@@ -419,24 +419,24 @@ class TingkatPendidikan extends Component {
                                 {/* content here */}
                                 <div className="element-box">
                                     <h5 className="form-header">
-                                    Daftar Tingkat Pendidikan
+                                    Daftar Jurusan Pendidikan
                                     </h5>
                                     <div className="form-desc">
-                                        Manajemen Data Tingkat Pendidikan
+                                        Manajemen Data Jurusan Pendidikan
                                     </div>
                                     <div>
-                                        <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal">Tambah Tingkat Pendidikan Baru</button>
+                                        <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal">Tambah Jurusan Pendidikan Baru</button>
                                         <div className="col-sm-4 float-right" id="cari">
                                             <input type="text" className="form-control" onChange={this.handleChangeCari}
-                                                value={this.state.cari} placeholder="Cari Tingkat Pendidikan..."></input>
+                                                value={this.state.cari} placeholder="Cari Jurusan Pendidikan..."></input>
                                         </div>
                                     </div>
-                                    <div className="table-responsive" id="tingkatPendidikanTable">
+                                    <div className="table-responsive" id="jurusanPendidikanTable">
                                         <table id="tabeldata" width="100%" className="table table-striped table-lightfont">
                                             <thead>
                                                 <tr>
                                                     <th className="width50px">NO</th>
-                                                    <th>NAMA Tingkat Pendidikan</th>
+                                                    <th>NAMA Jurusan Pendidikan</th>
                                                     <th className="width250px">ACTION</th>
                                                 </tr>
                                             </thead>
@@ -466,4 +466,4 @@ class TingkatPendidikan extends Component {
     }
 }
 
-export default TingkatPendidikan;
+export default JurusanPendidikan;

@@ -394,79 +394,69 @@ class Menu extends Component {
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/admin/referensi/subBidang`}>
+                                <Link to={`/admin/referensi/diklatStruktural`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Diklat Struktural
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/admin/referensi/subBidang`}>
+                                <Link to={`/admin/referensi/diklatFungsional`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Diklat Fungsional
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/admin/referensi/subBidang`}>
+                                <Link to={`/admin/referensi/diklatTeknis`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Diklat Teknis
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/admin/referensi/subBidang`}>
+                                <Link to={`/admin/referensi/seminar`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Seminar
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/admin/referensi/subBidang`}>
+                                <Link to={`/admin/referensi/kursus`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Kursus
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/admin/referensi/subBidang`}>
+                                <Link to={`/admin/referensi/wokshop`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Workshop
                                 </Link>
                             </li>
                         </ul>
                         <ul className="sub-menu">
                             <li>
-                                <Link to={`/admin/referensi/subBidang`}>
+                                <Link to={`/admin/referensi/jabatanFungsionalUmum`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Jabatan Fungsional Umum
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/admin/referensi/heya`}>
+                                <Link to={`/admin/referensi/jabatanFungsionalTertentu`}>
                                     <i className="os-icon os-icon-home"></i> &nbsp;&nbsp;&nbsp;Jabatan Fungsional Tertentu
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/admin/referensi/subBidang`}>
+                                <Link to={`/admin/referensi/jabatanKorpri`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Jabatan KORPRI
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/admin/referensi/subBidang`}>
-                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Kelompok Jabatan
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to={`/admin/referensi/subBidang`}>
-                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Kelompok Jabatan
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to={`/admin/referensi/subBidang`}>
+                                <Link to={`/admin/referensi/eselonJabatan`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Eselon Jabatan
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/admin/referensi/subBidang`}>
+                                <Link to={`/admin/referensi/jenisJabatan`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Jenis Jabatan
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/admin/referensi/subBidang`}>
+                                <Link to={`/admin/referensi/pejabatPenetap`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Pejabat Penetap
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/admin/referensi/subBidang`}>
+                                <Link to={`/admin/referensi/pejabatNegara`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Pejabat Negara
                                 </Link>
                             </li>

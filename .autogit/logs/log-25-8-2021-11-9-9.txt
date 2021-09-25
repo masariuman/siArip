@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Sat Sep 25 2021 11:09:09 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* resources/js/reactRoute.jsx
+* resources/js/warudo/Menu.jsx
+
+
+Created files:
+* .autogit/logs/log-25-8-2021-10-38-53.txt
+* resources/js/component/referensi/JurusanPendidikan.jsx
+
+
+Deleted files:
+
+
+Renamed files:
