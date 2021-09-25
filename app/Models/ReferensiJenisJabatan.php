@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ReferensiJenisJabatan extends Model
 {
-    protected $table = 'ref_agama';
+    protected $table = 'ref_jenisJabatan';
     protected $fillable = [
         'name',
         'sutattsu',

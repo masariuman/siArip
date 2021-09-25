@@ -1695,7 +1695,7 @@ class ReferensiController extends Controller
     public function jabatanFungsionalUmum()
     {
         $pagination = 5;
-        $data = ReferensiDiklatFungsional::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $data = ReferensiJabatanFungsionalUmum::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data as $items) {
             $items['nomor'] = $count;
@@ -1708,11 +1708,11 @@ class ReferensiController extends Controller
     }
     public function jabatanFungsionalUmumStore(Request $request)
     {
-        ReferensiDiklatFungsional::create([
+        ReferensiJabatanFungsionalUmum::create([
             'name' => $request->data,
             'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string)))))
         ]);
-        $data = ReferensiDiklatFungsional::orderBy("id", "DESC")->first();
+        $data = ReferensiJabatanFungsionalUmum::orderBy("id", "DESC")->first();
         $data['nomor'] = "BARU";
         return response()->json([
             'data' => $data
@@ -1721,7 +1721,7 @@ class ReferensiController extends Controller
     public function jabatanFungsionalUmumEdit($id)
     {
         //
-        $data = ReferensiDiklatFungsional::where("rinku", $id)->first();
+        $data = ReferensiJabatanFungsionalUmum::where("rinku", $id)->first();
         return response()->json([
             'data' => $data
         ]);
@@ -1729,12 +1729,12 @@ class ReferensiController extends Controller
     public function jabatanFungsionalUmumUpdate(Request $request, $id)
     {
         //
-        $data = ReferensiDiklatFungsional::where("rinku", $id)->first();
+        $data = ReferensiJabatanFungsionalUmum::where("rinku", $id)->first();
         $data->update([
             'name' => $request->data
         ]);
         $pagination = 5;
-        $data = ReferensiDiklatFungsional::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $data = ReferensiJabatanFungsionalUmum::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data as $items) {
             $items['nomor'] = $count;
@@ -1747,12 +1747,12 @@ class ReferensiController extends Controller
     public function jabatanFungsionalUmumDestroy($id)
     {
         //
-        $data = ReferensiDiklatFungsional::where("rinku", $id)->first();
+        $data = ReferensiJabatanFungsionalUmum::where("rinku", $id)->first();
         $data->update([
             'sutattsu' => '0'
         ]);
         $pagination = 5;
-        $data = ReferensiDiklatFungsional::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $data = ReferensiJabatanFungsionalUmum::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data as $items) {
             $items['nomor'] = $count;
@@ -1766,7 +1766,7 @@ class ReferensiController extends Controller
     {
         //
         $pagination = 5;
-        $data = ReferensiDiklatFungsional::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
+        $data = ReferensiJabatanFungsionalUmum::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
             ->orderBy("id", "DESC")->paginate($pagination);
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data as $items) {
