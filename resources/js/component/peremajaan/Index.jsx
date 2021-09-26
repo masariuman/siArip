@@ -14,19 +14,11 @@ class Peremajaan extends Component {
         super(props);
         this.state = {
             data: [],
-            subbid: [],
-
+            unor: [],
+            unorName: "",
             agama: [],
             agamaUser: "",
-            asalSurat: "",
-            nomorSurat: "",
-            tanggalSurat: "",
-            perihal: "",
-            tanggalNaik: "",
-            turunKe: "",
-            turunKeName: "",
-            kodeBerkas: "",
-            tanggalTurun: "",
+
             dataEditInput: "",
             buttonTambahModal: "",
             cari: "",
@@ -52,14 +44,9 @@ class Peremajaan extends Component {
         this.modalDetail = this.modalDetail.bind(this);
         this.modalUser = this.modalUser.bind(this);
         this.handleChangeCari = this.handleChangeCari.bind(this);
-        this.handleChangeAsalSurat = this.handleChangeAsalSurat.bind(this);
-        this.handleChangeNomorSurat = this.handleChangeNomorSurat.bind(this);
-        this.handleChangeTanggalSurat = this.handleChangeTanggalSurat.bind(this);
-        this.handleChangePerihal = this.handleChangePerihal.bind(this);
-        this.handleChangeTanggalNaik = this.handleChangeTanggalNaik.bind(this);
-        this.handleChangeTurunKe = this.handleChangeTurunKe.bind(this);
-        this.handleChangeTanggalTurun = this.handleChangeTanggalTurun.bind(this);
-        this.handleChangeKodeBerkas = this.handleChangeKodeBerkas.bind(this);
+
+        this.handleChangeAgama = this.handleChangeAgama.bind(this);
+        this.handleChangeUnor = this.handleChangeUnor.bind(this);
         this.handleChangeFile = this.handleChangeFile.bind(this);
         this.handleButtonFile = this.handleButtonFile.bind(this);
         this.handleTambahButton = this.handleTambahButton.bind(this);
@@ -90,55 +77,6 @@ class Peremajaan extends Component {
         // console.log(e.target.value);
     }
 
-    handleChangeAsalSurat(e) {
-        this.setState({
-            asalSurat: e.target.value
-        });
-        // console.log(e.target.value);
-    }
-
-    handleChangeKodeBerkas(e) {
-        this.setState({
-            kodeBerkas: e.target.value
-        });
-        // console.log(e.target.value);
-    }
-
-    handleChangeNomorSurat(e) {
-        this.setState({
-            nomorSurat: e.target.value
-        });
-        // console.log(e.target.value);
-    }
-
-    handleChangeTanggalSurat(e) {
-        this.setState({
-            tanggalSurat: e.target.value
-        });
-        // console.log(e.target.value);
-    }
-
-    handleChangePerihal(e) {
-        this.setState({
-            perihal: e.target.value
-        });
-        // console.log(e.target.value);
-    }
-
-    handleChangeTanggalNaik(e) {
-        this.setState({
-            tanggalNaik: e.target.value
-        });
-        // console.log(e.target.value);
-    }
-
-    handleChangeTurunKe(e) {
-        this.setState({
-            turunKe: e.target.value
-        });
-        // console.log(e.target.value);
-    }
-
     handleChangeAgama(e) {
         this.setState({
             agamaUser: e.target.value
@@ -146,9 +84,9 @@ class Peremajaan extends Component {
         // console.log(e.target.value);
     }
 
-    handleChangeTanggalTurun(e) {
+    handleChangeUnor(e) {
         this.setState({
-            tanggalTurun: e.target.value
+            unorName: e.target.value
         });
         // console.log(e.target.value);
     }
@@ -445,6 +383,15 @@ class Peremajaan extends Component {
         });
     }
 
+    getUnor() {
+        axios.get("/admin/referensi/unor/create").then((response) => {
+            this.setState({
+                unor: response.data.data,
+                unorName: response.data.data[0].rinku,
+            });
+        });
+    }
+
     handlePageChange(pageNumber) {
         this.setState({
             loading: true
@@ -467,15 +414,10 @@ class Peremajaan extends Component {
             });
     }
 
-    testData() {
-        axios
-            .get("/kanrisha/masuk/deeta")
-            .then(response => console.log(response.data.data));
-    }
-
     componentDidMount() {
         this.getData();
         this.getAgama();
+        this.getUnor();
     }
 
     componentDidUpdate() {
@@ -542,15 +484,23 @@ class Peremajaan extends Component {
     }
 
     renderSelect() {
-        return this.state.subbid.map((data) => (
-            <option value={data.rinku} key={data.rinku}>
-                {data.asm}
-            </option>
-        ));
+        // return this.state.subbid.map((data) => (
+        //     <option value={data.rinku} key={data.rinku}>
+        //         {data.asm}
+        //     </option>
+        // ));
     }
 
     renderSelectAgama() {
         return this.state.agama.map((data) => (
+            <option value={data.rinku} key={data.rinku}>
+                {data.name}
+            </option>
+        ));
+    }
+
+    renderSelectUnor() {
+        return this.state.unor.map((data) => (
             <option value={data.rinku} key={data.rinku}>
                 {data.name}
             </option>
@@ -577,8 +527,8 @@ class Peremajaan extends Component {
                             <div className="col-sm-6">
                                 <div className="form-group">
                                     <input
-                                        onChange={this.handleChangeAsalSurat}
-                                        value={this.state.asalSurat}
+                                        onChange={this.handleChangeAgama}
+                                        value={this.state.agamaUser}
                                         title="Asal Surat"
                                         placeholder="NIP..."
                                         type="text"
@@ -589,8 +539,8 @@ class Peremajaan extends Component {
                             <div className="col-sm-6">
                                 <div className="form-group">
                                     <input
-                                        onChange={this.handleChangeNomorSurat}
-                                        value={this.state.nomorSurat}
+                                        onChange={this.handleChangeAgama}
+                                        value={this.state.agamaUser}
                                         title="Nomor Surat"
                                         placeholder="NIP 9..."
                                         type="text"
@@ -601,8 +551,8 @@ class Peremajaan extends Component {
                             <div className="col-sm-3">
                                 <div className="form-group">
                                     <input
-                                        onChange={this.handleChangeNomorSurat}
-                                        value={this.state.nomorSurat}
+                                        onChange={this.handleChangeAgama}
+                                        value={this.state.agamaUser}
                                         title="Nomor Surat"
                                         placeholder="Gelar Depan..."
                                         type="text"
@@ -613,8 +563,8 @@ class Peremajaan extends Component {
                             <div className="col-sm-6">
                                 <div className="form-group">
                                     <input
-                                        onChange={this.handleChangeNomorSurat}
-                                        value={this.state.nomorSurat}
+                                        onChange={this.handleChangeAgama}
+                                        value={this.state.agamaUser}
                                         title="Nomor Surat"
                                         placeholder="Nama Lengkap..."
                                         type="text"
@@ -625,8 +575,8 @@ class Peremajaan extends Component {
                             <div className="col-sm-3">
                                 <div className="form-group">
                                     <input
-                                        onChange={this.handleChangeNomorSurat}
-                                        value={this.state.nomorSurat}
+                                        onChange={this.handleChangeAgama}
+                                        value={this.state.agamaUser}
                                         title="Nomor Surat"
                                         placeholder="Gelar Belakang..."
                                         type="text"
@@ -763,11 +713,11 @@ class Peremajaan extends Component {
                             <div className="col-sm-8">
                                 <div className="form-group">
                                     <select
-                                        value={this.state.turunKe}
-                                        onChange={this.handleChangeTurunKe}
+                                        value={this.state.unorName}
+                                        onChange={this.handleChangeUnor}
                                         className="form-control"
                                     >
-                                        {this.renderSelect()}
+                                        {this.renderSelectUnor()}
                                     </select>
                                 </div>
                             </div>
@@ -779,8 +729,8 @@ class Peremajaan extends Component {
                             <div className="col-sm-8">
                                 <div className="form-group">
                                     <select
-                                        value={this.state.turunKe}
-                                        onChange={this.handleChangeTurunKe}
+                                        value={this.state.agamaUser}
+                                        onChange={this.handleChangeAgama}
                                         className="form-control"
                                     >
                                         {this.renderSelect()}
@@ -795,8 +745,8 @@ class Peremajaan extends Component {
                             <div className="col-sm-8">
                                 <div className="form-group">
                                     <select
-                                        value={this.state.turunKe}
-                                        onChange={this.handleChangeTurunKe}
+                                        value={this.state.agamaUser}
+                                        onChange={this.handleChangeAgama}
                                         className="form-control"
                                     >
                                         {this.renderSelect()}
@@ -909,7 +859,7 @@ class Peremajaan extends Component {
     modalUbah() {
         return (
             <div aria-hidden="true" className="onboarding-modal modal fade animated" id="editModal" role="dialog" tabIndex="-1">
-                <div className="modal-dialog modal-lg modal-centered" role="document">
+                {/* <div className="modal-dialog modal-lg modal-centered" role="document">
                     <div className="modal-content text-center">
                     <button aria-label="Close" className="close" data-dismiss="modal" type="button"><span className="close-label">Tutup</span><span className="os-icon os-icon-close"></span></button>
                     <div className="onboarding-side-by-side">
@@ -1071,7 +1021,7 @@ class Peremajaan extends Component {
                         </div>
                     </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         );
     }
@@ -1079,7 +1029,7 @@ class Peremajaan extends Component {
     modalDetail() {
         return (
             <div aria-hidden="true" className="onboarding-modal modal fade animated" id="detailModal" role="dialog" tabIndex="-1">
-                <div className="modal-dialog modal-lg modal-centered" role="document">
+                {/* <div className="modal-dialog modal-lg modal-centered" role="document">
                     <div className="modal-content">
                     <button aria-label="Close" className="close" data-dismiss="modal" type="button"><span className="close-label">Tutup</span><span className="os-icon os-icon-close"></span></button>
                     <div className="onboarding-side-by-side">
@@ -1207,7 +1157,7 @@ class Peremajaan extends Component {
                         </div>
                     </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         );
     }
