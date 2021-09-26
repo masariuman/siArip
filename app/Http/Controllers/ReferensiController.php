@@ -354,6 +354,26 @@ class ReferensiController extends Controller
             'data' => $data
         ]);
     }
+    public function unorBidang($id)
+    {
+        //
+        $unor = ReferensiUnor::where("rinku", $id)->first();
+        $bidang = ReferensiBidang::where("sutattsu", "1")->where('refUnor_id', $unor['id'])->orderBy("name", "ASC")->get();
+        $bidangs = [];
+        $x = 0;
+        foreach ($bidang as $value) {
+            $bidangs['unor'][$x]['name'] = $unor->name;
+            $bidangs['unor'][$x]['rinku'] = $unor->rinku;
+            $x = $x + 1;
+        }
+        if (count($bidang) === 0) {
+            $bidangs['unor'][0]['name'] = "";
+            $bidangs['unor'][0]['url'] = "";
+        }
+        return response()->json([
+            'data' => $bidangs
+        ]);
+    }
 
 //------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------

@@ -88,6 +88,12 @@ class Peremajaan extends Component {
         this.setState({
             unorName: e.target.value
         });
+        axios.get(`/admin/referensi/unorBidang/${e.target.value}`).then((response) => {
+            this.setState({
+                bidang: response.data.data.data,
+                bidangName: response.data.data.data[0].url,
+            });
+        });
         // console.log(e.target.value);
     }
 
