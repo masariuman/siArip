@@ -546,7 +546,7 @@ class Masuk extends Component {
                         </h4>
                         <form onSubmit={this.handleSubmit}>
                             <div className="row">
-                            <div className="col-sm-6">
+                            {/* <div className="col-sm-6">
                                 <div className="form-group">
                                     <input
                                         onChange={this.handleChangeAsalSurat}
@@ -593,7 +593,7 @@ class Masuk extends Component {
                                         className="form-control"
                                     />
                                 </div>
-                            </div>
+                            </div> */}
                             <div className="col-sm-3">
                                 <div className="form-group">
                                     <input

@@ -7,7 +7,7 @@ import {
 import Empatkosongempat from "./warudo/Empatkosongempat";
 import DashboardIndex from "./component/dashboard/Index";
 import KeluarIndex from "./component/keluar/Index";
-import MasukIndex from "./component/masuk/Index";
+import MasukIndex from "./component/peremajaan/Index";
 import UuzaaIndex from "./component/uuzaa/Index";
 import HeyaIndex from "./component/heya/Index";
 import RefAgamaIndex from "./component/referensi/Agama";

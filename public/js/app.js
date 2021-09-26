@@ -4509,10 +4509,10 @@ var Keluar = /*#__PURE__*/function (_Component) {
 
 /***/ }),
 
-/***/ "./resources/js/component/masuk/Index.jsx":
-/*!************************************************!*\
-  !*** ./resources/js/component/masuk/Index.jsx ***!
-  \************************************************/
+/***/ "./resources/js/component/peremajaan/Index.jsx":
+/*!*****************************************************!*\
+  !*** ./resources/js/component/peremajaan/Index.jsx ***!
+  \*****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -5196,58 +5196,6 @@ var Masuk = /*#__PURE__*/function (_Component) {
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
                     className: "row",
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                      className: "col-sm-6",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                        className: "form-group",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
-                          onChange: this.handleChangeAsalSurat,
-                          value: this.state.asalSurat,
-                          title: "Asal Surat",
-                          placeholder: "NIP...",
-                          type: "text",
-                          className: "form-control"
-                        })
-                      })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                      className: "col-sm-6",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                        className: "form-group",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
-                          onChange: this.handleChangeNomorSurat,
-                          value: this.state.nomorSurat,
-                          title: "Nomor Surat",
-                          placeholder: "NIP 9...",
-                          type: "text",
-                          className: "form-control"
-                        })
-                      })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                      className: "col-sm-3",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                        className: "form-group",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
-                          onChange: this.handleChangeNomorSurat,
-                          value: this.state.nomorSurat,
-                          title: "Nomor Surat",
-                          placeholder: "Gelar Depan...",
-                          type: "text",
-                          className: "form-control"
-                        })
-                      })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                      className: "col-sm-6",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                        className: "form-group",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
-                          onChange: this.handleChangeNomorSurat,
-                          value: this.state.nomorSurat,
-                          title: "Nomor Surat",
-                          placeholder: "Nama Lengkap...",
-                          type: "text",
-                          className: "form-control"
-                        })
-                      })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                       className: "col-sm-3",
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                         className: "form-group",
@@ -23568,7 +23516,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _warudo_Empatkosongempat__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./warudo/Empatkosongempat */ "./resources/js/warudo/Empatkosongempat.jsx");
 /* harmony import */ var _component_dashboard_Index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./component/dashboard/Index */ "./resources/js/component/dashboard/Index.jsx");
 /* harmony import */ var _component_keluar_Index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./component/keluar/Index */ "./resources/js/component/keluar/Index.jsx");
-/* harmony import */ var _component_masuk_Index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./component/masuk/Index */ "./resources/js/component/masuk/Index.jsx");
+/* harmony import */ var _component_peremajaan_Index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./component/peremajaan/Index */ "./resources/js/component/peremajaan/Index.jsx");
 /* harmony import */ var _component_uuzaa_Index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./component/uuzaa/Index */ "./resources/js/component/uuzaa/Index.jsx");
 /* harmony import */ var _component_heya_Index__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./component/heya/Index */ "./resources/js/component/heya/Index.jsx");
 /* harmony import */ var _component_referensi_Agama__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./component/referensi/Agama */ "./resources/js/component/referensi/Agama.jsx");
@@ -23701,7 +23649,7 @@ var ReactRoute = /*#__PURE__*/function (_Component) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_31__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_32__.Route, {
           exact: true,
           path: "/surat-masuk",
-          component: _component_masuk_Index__WEBPACK_IMPORTED_MODULE_4__.default
+          component: _component_peremajaan_Index__WEBPACK_IMPORTED_MODULE_4__.default
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_31__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_32__.Route, {
           exact: true,
           path: "/kanrisha/uuzaa",
@@ -23819,7 +23767,7 @@ var ReactRoute = /*#__PURE__*/function (_Component) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_31__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_32__.Route, {
           exact: true,
           path: "/surat-masuk",
-          component: _component_masuk_Index__WEBPACK_IMPORTED_MODULE_4__.default
+          component: _component_peremajaan_Index__WEBPACK_IMPORTED_MODULE_4__.default
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_31__.jsx)(_warudo_Empatkosongempat__WEBPACK_IMPORTED_MODULE_1__.default, {})]
       });
     }
