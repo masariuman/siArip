@@ -4671,8 +4671,16 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
   }, {
     key: "handleChangeUnor",
     value: function handleChangeUnor(e) {
+      var _this2 = this;
+
       this.setState({
         unorName: e.target.value
+      });
+      axios.get("/admin/referensi/unorBidang/".concat(e.target.value)).then(function (response) {
+        _this2.setState({
+          bidang: response.data.data.data,
+          bidangName: response.data.data.data[0].url
+        });
       }); // console.log(e.target.value);
     }
   }, {
@@ -4688,7 +4696,7 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
   }, {
     key: "handleChangeCari",
     value: function handleChangeCari(e) {
-      var _this2 = this;
+      var _this3 = this;
 
       this.setState({
         cari: e.target.value
@@ -4697,7 +4705,7 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
         cari: e.target.value
       }).then(function (response) {
         // console.log(response.data);
-        _this2.setState({
+        _this3.setState({
           data: response.data.data.data,
           loading: false,
           activePage: response.data.data.current_page,
@@ -4711,7 +4719,7 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
   }, {
     key: "handleDeleteButton",
     value: function handleDeleteButton(e) {
-      var _this3 = this;
+      var _this4 = this;
 
       axios.get("/kanrisha/masuk/deeta/".concat(e)).then(function (response) {
         sweetalert__WEBPACK_IMPORTED_MODULE_5___default()({
@@ -4722,21 +4730,21 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
           dangerMode: true
         }).then(function (willDelete) {
           if (willDelete) {
-            _this3.setState({
+            _this4.setState({
               loading: true
             });
 
             axios["delete"]("/kanrisha/masuk/deeta/".concat(e), {
-              url: _this3.state.url
+              url: _this4.state.url
             }).then(function (response) {
-              _this3.setState({
+              _this4.setState({
                 data: response.data.data.data,
                 loading: false
               });
 
               sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Sukses!", "Data Berhasil Dihapus!", "success"); // console.log("from handle sumit", response);
             })["catch"](function (error) {
-              _this3.setState({
+              _this4.setState({
                 loading: false
               });
 
@@ -4753,10 +4761,10 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
   }, {
     key: "handleEditButton",
     value: function handleEditButton(e) {
-      var _this4 = this;
+      var _this5 = this;
 
       axios.get("/kanrisha/masuk/deeta/".concat(e)).then(function (response) {
-        _this4.setState({
+        _this5.setState({
           asalSurat: response.data.data.asalSurat,
           nomorSurat: response.data.data.nomorSurat,
           tanggalSurat: response.data.data.tanggalSurat,
@@ -4795,7 +4803,7 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      var _this5 = this;
+      var _this6 = this;
 
       e.preventDefault();
       this.setState({
@@ -4812,8 +4820,8 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
       data.append('tanggalTurun', this.state.tanggalTurun);
       data.append('kodeBerkas', this.state.kodeBerkas);
       axios.post("/kanrisha/masuk/deeta", data).then(function (response) {
-        _this5.setState({
-          data: [response.data.data].concat(_toConsumableArray(_this5.state.data)),
+        _this6.setState({
+          data: [response.data.data].concat(_toConsumableArray(_this6.state.data)),
           asalSurat: "",
           nomorSurat: "",
           tanggalSurat: "",
@@ -4834,7 +4842,7 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
         jquery__WEBPACK_IMPORTED_MODULE_1___default()("#tambahModal").hide();
         sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Sukses!", "Data Baru Berhasil Ditambahkan!", "success"); // console.log("from handle sumit", response);
       })["catch"](function (error) {
-        _this5.setState({
+        _this6.setState({
           loading: false
         });
 
@@ -4844,7 +4852,7 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
   }, {
     key: "handleEditSubmit",
     value: function handleEditSubmit(e) {
-      var _this6 = this;
+      var _this7 = this;
 
       e.preventDefault();
       this.setState({
@@ -4863,7 +4871,7 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
       data.append('rinku', this.state.url);
       console.log(data);
       axios.post("/kanrisha/masuk/deeta/update", data).then(function (response) {
-        _this6.setState({
+        _this7.setState({
           data: response.data.data.data,
           asalSurat: "",
           nomorSurat: "",
@@ -4885,7 +4893,7 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
         jquery__WEBPACK_IMPORTED_MODULE_1___default()("#editModal").hide();
         sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Sukses!", "Data Berhasil Diubah!", "success"); // console.log("from handle sumit", response);
       })["catch"](function (error) {
-        _this6.setState({
+        _this7.setState({
           loading: false
         });
 
@@ -4895,7 +4903,7 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
   }, {
     key: "getData",
     value: function getData() {
-      var _this7 = this;
+      var _this8 = this;
 
       this.setState({// loading: true
       });
@@ -4945,7 +4953,7 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
       })["catch"](function (error) {
         sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Error!", "Terdapat Masalah, Silahkan Hubungi Admin!", "error");
 
-        _this7.setState({
+        _this8.setState({
           loading: false
         });
       });
@@ -4962,10 +4970,10 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
   }, {
     key: "getAgama",
     value: function getAgama() {
-      var _this8 = this;
+      var _this9 = this;
 
       axios.get("/admin/referensi/agama/create").then(function (response) {
-        _this8.setState({
+        _this9.setState({
           agama: response.data.data,
           agamaUser: response.data.data[0].rinku
         });
@@ -4974,10 +4982,10 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
   }, {
     key: "getUnor",
     value: function getUnor() {
-      var _this9 = this;
+      var _this10 = this;
 
       axios.get("/admin/referensi/unor/create").then(function (response) {
-        _this9.setState({
+        _this10.setState({
           unor: response.data.data,
           unorName: response.data.data[0].rinku
         });
@@ -4986,13 +4994,13 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
   }, {
     key: "handlePageChange",
     value: function handlePageChange(pageNumber) {
-      var _this10 = this;
+      var _this11 = this;
 
       this.setState({
         loading: true
       });
       axios.get('/kanrisha/masuk/deeta?page=' + pageNumber).then(function (response) {
-        _this10.setState({
+        _this11.setState({
           data: response.data.data.data,
           loading: false,
           activePage: response.data.data.current_page,
@@ -5003,7 +5011,7 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
       })["catch"](function (error) {
         sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Error!", "Terdapat Masalah, Silahkan Hubungi Admin!", "error");
 
-        _this10.setState({
+        _this11.setState({
           loading: false
         });
       });
@@ -5022,7 +5030,7 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
   }, {
     key: "renderData",
     value: function renderData() {
-      var _this11 = this;
+      var _this12 = this;
 
       return !this.state.data.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("tr", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
@@ -5038,14 +5046,14 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
               highlightClassName: "YourHighlightClass",
-              searchWords: [_this11.state.cari],
+              searchWords: [_this12.state.cari],
               autoEscape: true,
               textToHighlight: data.asalSurat
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("td", {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
               highlightClassName: "YourHighlightClass",
-              searchWords: [_this11.state.cari],
+              searchWords: [_this12.state.cari],
               autoEscape: true,
               textToHighlight: data.nomorSurat
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("small", {
@@ -5054,14 +5062,14 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
               highlightClassName: "YourHighlightClass",
-              searchWords: [_this11.state.cari],
+              searchWords: [_this12.state.cari],
               autoEscape: true,
               textToHighlight: data.potonganPerihal
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("td", {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
               highlightClassName: "YourHighlightClass",
-              searchWords: [_this11.state.cari],
+              searchWords: [_this12.state.cari],
               autoEscape: true,
               textToHighlight: data.tujuan
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("small", {
@@ -5080,7 +5088,7 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
                 "data-toggle": "modal",
                 className: "mr-2 mb-2 btn btn-outline-info",
                 type: "button",
-                onClick: _this11.handleEditButton.bind(_this11, data.rinku),
+                onClick: _this12.handleEditButton.bind(_this12, data.rinku),
                 id: 'detail' + data.nomor,
                 children: "Detail"
               })]
@@ -5091,13 +5099,13 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
                 "data-toggle": "modal",
                 className: "mr-2 mb-2 btn btn-outline-warning",
                 type: "button",
-                onClick: _this11.handleEditButton.bind(_this11, data.rinku),
+                onClick: _this12.handleEditButton.bind(_this12, data.rinku),
                 id: 'ubah' + data.nomor,
                 children: "Ubah"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
                 className: "mr-2 mb-2 btn btn-outline-danger",
                 type: "button",
-                onClick: _this11.handleDeleteButton.bind(_this11, data.rinku),
+                onClick: _this12.handleDeleteButton.bind(_this12, data.rinku),
                 id: 'hapus' + data.nomor,
                 children: "Hapus"
               })]
