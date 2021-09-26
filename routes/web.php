@@ -36,6 +36,7 @@ Route::post('/keluar/search', 'suratKeluarController@search');
 
 
 Route::get('/admin/referensi/agama/deeta', 'ReferensiController@agama');
+Route::get('/admin/referensi/agama/create', 'ReferensiController@agamaCreate');
 Route::post('/admin/referensi/agama', 'ReferensiController@agamaStore');
 Route::get('/admin/referensi/agama/{url}', 'ReferensiController@agamaEdit');
 Route::put('/admin/referensi/agama/{url}', 'ReferensiController@agamaUpdate');

@@ -4578,20 +4578,22 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-var Masuk = /*#__PURE__*/function (_Component) {
-  _inherits(Masuk, _Component);
+var Peremajaan = /*#__PURE__*/function (_Component) {
+  _inherits(Peremajaan, _Component);
 
-  var _super = _createSuper(Masuk);
+  var _super = _createSuper(Peremajaan);
 
-  function Masuk(props) {
+  function Peremajaan(props) {
     var _this;
 
-    _classCallCheck(this, Masuk);
+    _classCallCheck(this, Peremajaan);
 
     _this = _super.call(this, props);
     _this.state = {
       data: [],
       subbid: [],
+      agama: [],
+      agamaUser: "",
       asalSurat: "",
       nomorSurat: "",
       tanggalSurat: "",
@@ -4641,7 +4643,7 @@ var Masuk = /*#__PURE__*/function (_Component) {
     return _this;
   }
 
-  _createClass(Masuk, [{
+  _createClass(Peremajaan, [{
     key: "renderSashinDetail",
     value: function renderSashinDetail() {
       return !this.state.uploaderSashin || this.state.uploaderSashin === "" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
@@ -4720,6 +4722,13 @@ var Masuk = /*#__PURE__*/function (_Component) {
     value: function handleChangeTurunKe(e) {
       this.setState({
         turunKe: e.target.value
+      }); // console.log(e.target.value);
+    }
+  }, {
+    key: "handleChangeAgama",
+    value: function handleChangeAgama(e) {
+      this.setState({
+        agamaUser: e.target.value
       }); // console.log(e.target.value);
     }
   }, {
@@ -5014,15 +5023,27 @@ var Masuk = /*#__PURE__*/function (_Component) {
       // });
     }
   }, {
+    key: "getAgama",
+    value: function getAgama() {
+      var _this8 = this;
+
+      axios.get("/admin/referensi/agama/create").then(function (response) {
+        _this8.setState({
+          agama: response.data.data,
+          agamaUser: response.data.data[0].rinku
+        });
+      });
+    }
+  }, {
     key: "handlePageChange",
     value: function handlePageChange(pageNumber) {
-      var _this8 = this;
+      var _this9 = this;
 
       this.setState({
         loading: true
       });
       axios.get('/kanrisha/masuk/deeta?page=' + pageNumber).then(function (response) {
-        _this8.setState({
+        _this9.setState({
           data: response.data.data.data,
           loading: false,
           activePage: response.data.data.current_page,
@@ -5033,7 +5054,7 @@ var Masuk = /*#__PURE__*/function (_Component) {
       })["catch"](function (error) {
         sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Error!", "Terdapat Masalah, Silahkan Hubungi Admin!", "error");
 
-        _this8.setState({
+        _this9.setState({
           loading: false
         });
       });
@@ -5049,7 +5070,7 @@ var Masuk = /*#__PURE__*/function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.getData();
-      this.getSubbid();
+      this.getAgama();
     }
   }, {
     key: "componentDidUpdate",
@@ -5058,7 +5079,7 @@ var Masuk = /*#__PURE__*/function (_Component) {
   }, {
     key: "renderData",
     value: function renderData() {
-      var _this9 = this;
+      var _this10 = this;
 
       return !this.state.data.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("tr", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
@@ -5074,14 +5095,14 @@ var Masuk = /*#__PURE__*/function (_Component) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
               highlightClassName: "YourHighlightClass",
-              searchWords: [_this9.state.cari],
+              searchWords: [_this10.state.cari],
               autoEscape: true,
               textToHighlight: data.asalSurat
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("td", {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
               highlightClassName: "YourHighlightClass",
-              searchWords: [_this9.state.cari],
+              searchWords: [_this10.state.cari],
               autoEscape: true,
               textToHighlight: data.nomorSurat
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("small", {
@@ -5090,14 +5111,14 @@ var Masuk = /*#__PURE__*/function (_Component) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
               highlightClassName: "YourHighlightClass",
-              searchWords: [_this9.state.cari],
+              searchWords: [_this10.state.cari],
               autoEscape: true,
               textToHighlight: data.potonganPerihal
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("td", {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
               highlightClassName: "YourHighlightClass",
-              searchWords: [_this9.state.cari],
+              searchWords: [_this10.state.cari],
               autoEscape: true,
               textToHighlight: data.tujuan
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("small", {
@@ -5116,7 +5137,7 @@ var Masuk = /*#__PURE__*/function (_Component) {
                 "data-toggle": "modal",
                 className: "mr-2 mb-2 btn btn-outline-info",
                 type: "button",
-                onClick: _this9.handleEditButton.bind(_this9, data.rinku),
+                onClick: _this10.handleEditButton.bind(_this10, data.rinku),
                 id: 'detail' + data.nomor,
                 children: "Detail"
               })]
@@ -5127,13 +5148,13 @@ var Masuk = /*#__PURE__*/function (_Component) {
                 "data-toggle": "modal",
                 className: "mr-2 mb-2 btn btn-outline-warning",
                 type: "button",
-                onClick: _this9.handleEditButton.bind(_this9, data.rinku),
+                onClick: _this10.handleEditButton.bind(_this10, data.rinku),
                 id: 'ubah' + data.nomor,
                 children: "Ubah"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
                 className: "mr-2 mb-2 btn btn-outline-danger",
                 type: "button",
-                onClick: _this9.handleDeleteButton.bind(_this9, data.rinku),
+                onClick: _this10.handleDeleteButton.bind(_this10, data.rinku),
                 id: 'hapus' + data.nomor,
                 children: "Hapus"
               })]
@@ -5153,8 +5174,19 @@ var Masuk = /*#__PURE__*/function (_Component) {
       });
     }
   }, {
+    key: "renderSelectAgama",
+    value: function renderSelectAgama() {
+      return this.state.agama.map(function (data) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("option", {
+          value: data.rinku,
+          children: data.name
+        }, data.rinku);
+      });
+    }
+  }, {
     key: "modalTambah",
     value: function modalTambah() {
+      // console.log(this.state.agama);
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
         "aria-hidden": "true",
         className: "onboarding-modal modal fade animated",
@@ -5271,10 +5303,10 @@ var Masuk = /*#__PURE__*/function (_Component) {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                         className: "form-group",
                         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("select", {
-                          value: this.state.turunKe,
-                          onChange: this.handleChangeTurunKe,
+                          value: this.state.agamaUser,
+                          onChange: this.handleChangeAgama,
                           className: "form-control",
-                          children: this.renderSelect()
+                          children: this.renderSelectAgama()
                         })
                       })
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
@@ -5970,10 +6002,10 @@ var Masuk = /*#__PURE__*/function (_Component) {
     }
   }]);
 
-  return Masuk;
+  return Peremajaan;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Masuk);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Peremajaan);
 
 /***/ }),
 

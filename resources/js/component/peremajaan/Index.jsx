@@ -9,12 +9,15 @@ import Pagination from "react-js-pagination";
 import Highlighter from "react-highlight-words";
 
 
-class Masuk extends Component {
+class Peremajaan extends Component {
     constructor(props) {
         super(props);
         this.state = {
             data: [],
             subbid: [],
+
+            agama: [],
+            agamaUser: "",
             asalSurat: "",
             nomorSurat: "",
             tanggalSurat: "",
@@ -132,6 +135,13 @@ class Masuk extends Component {
     handleChangeTurunKe(e) {
         this.setState({
             turunKe: e.target.value
+        });
+        // console.log(e.target.value);
+    }
+
+    handleChangeAgama(e) {
+        this.setState({
+            agamaUser: e.target.value
         });
         // console.log(e.target.value);
     }
@@ -426,6 +436,15 @@ class Masuk extends Component {
         // });
     }
 
+    getAgama() {
+        axios.get("/admin/referensi/agama/create").then((response) => {
+            this.setState({
+                agama: response.data.data,
+                agamaUser: response.data.data[0].rinku,
+            });
+        });
+    }
+
     handlePageChange(pageNumber) {
         this.setState({
             loading: true
@@ -456,7 +475,7 @@ class Masuk extends Component {
 
     componentDidMount() {
         this.getData();
-        this.getSubbid();
+        this.getAgama();
     }
 
     componentDidUpdate() {
@@ -530,7 +549,16 @@ class Masuk extends Component {
         ));
     }
 
+    renderSelectAgama() {
+        return this.state.agama.map((data) => (
+            <option value={data.rinku} key={data.rinku}>
+                {data.name}
+            </option>
+        ));
+    }
+
     modalTambah() {
+        // console.log(this.state.agama);
         return (
             <div aria-hidden="true" className="onboarding-modal modal fade animated" id="tambahModal" role="dialog" tabIndex="-1">
                 <div className="modal-dialog modal-lg modal-centered" role="document">
@@ -614,11 +642,11 @@ class Masuk extends Component {
                             <div className="col-sm-8">
                                 <div className="form-group">
                                     <select
-                                        value={this.state.turunKe}
-                                        onChange={this.handleChangeTurunKe}
+                                        value={this.state.agamaUser}
+                                        onChange={this.handleChangeAgama}
                                         className="form-control"
                                     >
-                                        {this.renderSelect()}
+                                        {this.renderSelectAgama()}
                                     </select>
                                 </div>
                             </div>
@@ -1315,4 +1343,4 @@ class Masuk extends Component {
     }
 }
 
-export default Masuk;
+export default Peremajaan;
