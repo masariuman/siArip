@@ -546,7 +546,7 @@ class Masuk extends Component {
                         </h4>
                         <form onSubmit={this.handleSubmit}>
                             <div className="row">
-                            {/* <div className="col-sm-6">
+                            <div className="col-sm-6">
                                 <div className="form-group">
                                     <input
                                         onChange={this.handleChangeAsalSurat}
@@ -593,7 +593,7 @@ class Masuk extends Component {
                                         className="form-control"
                                     />
                                 </div>
-                            </div> */}
+                            </div>
                             <div className="col-sm-3">
                                 <div className="form-group">
                                     <input
@@ -622,7 +622,7 @@ class Masuk extends Component {
                                     </select>
                                 </div>
                             </div>
-                            <div className="col-sm-4">
+                            {/* <div className="col-sm-4">
                                 <div className="form-group">
                                     Status Kepegawaian :
                                 </div>
@@ -649,8 +649,8 @@ class Masuk extends Component {
                                         className="form-control"
                                     />
                                 </div>
-                            </div>
-                            <div className="col-sm-4">
+                            </div> */}
+                            {/* <div className="col-sm-4">
                                 <div className="form-group">
                                     Jenis Kepegawaian :
                                 </div>
@@ -677,8 +677,8 @@ class Masuk extends Component {
                                         className="form-control"
                                     />
                                 </div>
-                            </div>
-                            <div className="col-sm-5">
+                            </div> */}
+                            {/* <div className="col-sm-5">
                                 <div className="form-group">
                                     Kedudukan Kepegawaian :
                                 </div>
@@ -726,7 +726,7 @@ class Masuk extends Component {
                                         className="form-control"
                                     />
                                 </div>
-                            </div>
+                            </div> */}
                             <div className="col-sm-4">
                                 <div className="form-group">
                                     Unit Kerja :
@@ -775,7 +775,7 @@ class Masuk extends Component {
                                     </select>
                                 </div>
                             </div>
-                            <div className="col-sm-4">
+                            {/* <div className="col-sm-4">
                                 <div className="form-group">
                                     Jenis Jabatan :
                                 </div>
@@ -836,7 +836,7 @@ class Masuk extends Component {
                                         className="form-control"
                                     />
                                 </div>
-                            </div>
+                            </div> */}
                             <div className="col-sm-12">
                                 <div className="form-group">
                                     <input
