@@ -4598,7 +4598,7 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
       bidang: [],
       bidangName: "",
       subbid: [],
-      subbids: "",
+      subbidName: "",
       agama: [],
       agamaUser: "",
       dataEditInput: "",
@@ -4629,6 +4629,7 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
     _this.handleChangeAgama = _this.handleChangeAgama.bind(_assertThisInitialized(_this));
     _this.handleChangeUnor = _this.handleChangeUnor.bind(_assertThisInitialized(_this));
     _this.handleChangeBidang = _this.handleChangeBidang.bind(_assertThisInitialized(_this));
+    _this.handleChangeSubbid = _this.handleChangeSubbid.bind(_assertThisInitialized(_this));
     _this.handleChangeFile = _this.handleChangeFile.bind(_assertThisInitialized(_this));
     _this.handleButtonFile = _this.handleButtonFile.bind(_assertThisInitialized(_this));
     _this.handleTambahButton = _this.handleTambahButton.bind(_assertThisInitialized(_this));
@@ -4697,6 +4698,19 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
     value: function handleChangeBidang(e) {
       this.setState({
         bidangName: e.target.value
+      }); // axios.get(`/admin/referensi/unorBidang/${e.target.value}`).then((response) => {
+      //     this.setState({
+      //         bidang: response.data.data.data,
+      //         bidangName: response.data.data.data[0].url,
+      //     });
+      // });
+      // console.log(e.target.value);
+    }
+  }, {
+    key: "handleChangeSubbid",
+    value: function handleChangeSubbid(e) {
+      this.setState({
+        subbidName: e.target.value
       }); // axios.get(`/admin/referensi/unorBidang/${e.target.value}`).then((response) => {
       //     this.setState({
       //         bidang: response.data.data.data,
@@ -5013,7 +5027,7 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
           unor: response.data.data.unor,
           unorName: response.data.data.unor[0].rinku,
           bidang: response.data.data.bidang
-        }, _defineProperty(_this10$setState, "unorName", response.data.data.bidang[0].rinku), _defineProperty(_this10$setState, "subbid", response.data.data.bidang), _defineProperty(_this10$setState, "subbids", response.data.data.bidang[0].rinku), _this10$setState));
+        }, _defineProperty(_this10$setState, "unorName", response.data.data.bidang[0].rinku), _defineProperty(_this10$setState, "subbid", response.data.data.bidang), _defineProperty(_this10$setState, "subbidName", response.data.data.bidang[0].rinku), _this10$setState));
       });
     }
   }, {
@@ -5171,6 +5185,16 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
     key: "renderSelectBidang",
     value: function renderSelectBidang() {
       return this.state.bidang.map(function (data) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("option", {
+          value: data.rinku,
+          children: data.name
+        }, data.rinku);
+      });
+    }
+  }, {
+    key: "renderSelectSubbid",
+    value: function renderSelectSubbid() {
+      return this.state.subbid.map(function (data) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("option", {
           value: data.rinku,
           children: data.name
@@ -5348,10 +5372,10 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                         className: "form-group",
                         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("select", {
-                          value: this.state.agamaUser,
-                          onChange: this.handleChangeAgama,
+                          value: this.state.subbidName,
+                          onChange: this.handleChangeSubbid,
                           className: "form-control",
-                          children: this.renderSelect()
+                          children: this.renderSelectSubbid()
                         })
                       })
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {

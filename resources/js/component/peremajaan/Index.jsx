@@ -19,7 +19,7 @@ class Peremajaan extends Component {
             bidang: [],
             bidangName: "",
             subbid: [],
-            subbids: "",
+            subbidName: "",
             agama: [],
             agamaUser: "",
 
@@ -52,6 +52,8 @@ class Peremajaan extends Component {
         this.handleChangeAgama = this.handleChangeAgama.bind(this);
         this.handleChangeUnor = this.handleChangeUnor.bind(this);
         this.handleChangeBidang = this.handleChangeBidang.bind(this);
+        this.handleChangeSubbid = this.handleChangeSubbid.bind(this);
+
         this.handleChangeFile = this.handleChangeFile.bind(this);
         this.handleButtonFile = this.handleButtonFile.bind(this);
         this.handleTambahButton = this.handleTambahButton.bind(this);
@@ -106,6 +108,19 @@ class Peremajaan extends Component {
     handleChangeBidang(e) {
         this.setState({
             bidangName: e.target.value
+        });
+        // axios.get(`/admin/referensi/unorBidang/${e.target.value}`).then((response) => {
+        //     this.setState({
+        //         bidang: response.data.data.data,
+        //         bidangName: response.data.data.data[0].url,
+        //     });
+        // });
+        // console.log(e.target.value);
+    }
+
+    handleChangeSubbid(e) {
+        this.setState({
+            subbidName: e.target.value
         });
         // axios.get(`/admin/referensi/unorBidang/${e.target.value}`).then((response) => {
         //     this.setState({
@@ -416,7 +431,7 @@ class Peremajaan extends Component {
                 bidang: response.data.data.bidang,
                 unorName: response.data.data.bidang[0].rinku,
                 subbid: response.data.data.bidang,
-                subbids: response.data.data.bidang[0].rinku,
+                subbidName: response.data.data.bidang[0].rinku,
             });
         });
     }
@@ -538,6 +553,14 @@ class Peremajaan extends Component {
 
     renderSelectBidang() {
         return this.state.bidang.map((data) => (
+            <option value={data.rinku} key={data.rinku}>
+                {data.name}
+            </option>
+        ));
+    }
+
+    renderSelectSubbid() {
+        return this.state.subbid.map((data) => (
             <option value={data.rinku} key={data.rinku}>
                 {data.name}
             </option>
@@ -782,11 +805,11 @@ class Peremajaan extends Component {
                             <div className="col-sm-8">
                                 <div className="form-group">
                                     <select
-                                        value={this.state.agamaUser}
-                                        onChange={this.handleChangeAgama}
+                                        value={this.state.subbidName}
+                                        onChange={this.handleChangeSubbid}
                                         className="form-control"
                                     >
-                                        {this.renderSelect()}
+                                        {this.renderSelectSubbid()}
                                     </select>
                                 </div>
                             </div>
