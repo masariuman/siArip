@@ -359,19 +359,21 @@ class ReferensiController extends Controller
         //
         $unor = ReferensiUnor::where("rinku", $id)->first();
         $bidang = ReferensiBidang::where("sutattsu", "1")->where('refUnor_id', $unor['id'])->orderBy("name", "ASC")->get();
-        $bidangs = [];
+        $data['bidang'] = [];
         $x = 0;
         foreach ($bidang as $value) {
-            $bidangs['data'][$x]['name'] = $value->name;
-            $bidangs['data'][$x]['rinku'] = $value->rinku;
+            $data['bidang']['data'][$x]['name'] = $value->name;
+            $data['bidang']['data'][$x]['rinku'] = $value->rinku;
             $x = $x + 1;
         }
         if (count($bidang) === 0) {
-            $bidangs['unor'][0]['name'] = "";
-            $bidangs['unor'][0]['url'] = "";
+            $data['bidang']['unor'][0]['name'] = "";
+            $data['bidang']['unor'][0]['url'] = "";
         }
+        $bidangSubbid = ReferensiBidang::where("sutattsu", "1")->where('refUnor_id', $unor['id'])->orderBy("name", "ASC")->first();
+        $data['subbid'] = ReferensiSubBidang::where("refBidang_id", $bidangSubbid['id'])->where("sutattsu", "1")->orderBy("id", "DESC")->get();
         return response()->json([
-            'data' => $bidangs
+            'data' => $data
         ]);
     }
     public function unorBidang()

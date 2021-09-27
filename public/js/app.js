@@ -4688,8 +4688,8 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
         console.log(response);
 
         _this2.setState({
-          bidang: response.data.data.data,
-          bidangName: response.data.data.data[0].url
+          bidang: response.data.data.bidang.data,
+          bidangName: response.data.data.bidang.data[0].url
         });
       }); // console.log(e.target.value);
     }
