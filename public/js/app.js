@@ -4593,6 +4593,8 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
       data: [],
       unor: [],
       unorName: "",
+      bidang: [],
+      bidangName: "",
       agama: [],
       agamaUser: "",
       dataEditInput: "",
@@ -4622,6 +4624,7 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
     _this.handleChangeCari = _this.handleChangeCari.bind(_assertThisInitialized(_this));
     _this.handleChangeAgama = _this.handleChangeAgama.bind(_assertThisInitialized(_this));
     _this.handleChangeUnor = _this.handleChangeUnor.bind(_assertThisInitialized(_this));
+    _this.handleChangeBidang = _this.handleChangeBidang.bind(_assertThisInitialized(_this));
     _this.handleChangeFile = _this.handleChangeFile.bind(_assertThisInitialized(_this));
     _this.handleButtonFile = _this.handleButtonFile.bind(_assertThisInitialized(_this));
     _this.handleTambahButton = _this.handleTambahButton.bind(_assertThisInitialized(_this));
@@ -4682,6 +4685,19 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
           bidangName: response.data.data.data[0].url
         });
       }); // console.log(e.target.value);
+    }
+  }, {
+    key: "handleChangeBidang",
+    value: function handleChangeBidang(e) {
+      this.setState({
+        bidangName: e.target.value
+      }); // axios.get(`/admin/referensi/unorBidang/${e.target.value}`).then((response) => {
+      //     this.setState({
+      //         bidang: response.data.data.data,
+      //         bidangName: response.data.data.data[0].url,
+      //     });
+      // });
+      // console.log(e.target.value);
     }
   }, {
     key: "handleChangeFile",
@@ -5143,6 +5159,16 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
       });
     }
   }, {
+    key: "renderSelectBidang",
+    value: function renderSelectBidang() {
+      return this.state.bidang.map(function (data) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("option", {
+          value: data.rinku,
+          children: data.name
+        }, data.rinku);
+      });
+    }
+  }, {
     key: "modalTambah",
     value: function modalTambah() {
       // console.log(this.state.agama);
@@ -5296,10 +5322,10 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                         className: "form-group",
                         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("select", {
-                          value: this.state.agamaUser,
-                          onChange: this.handleChangeAgama,
+                          value: this.state.bidangName,
+                          onChange: this.handleChangeBidang,
                           className: "form-control",
-                          children: this.renderSelect()
+                          children: this.renderSelectBidang()
                         })
                       })
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {

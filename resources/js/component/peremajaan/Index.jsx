@@ -100,7 +100,7 @@ class Peremajaan extends Component {
         // console.log(e.target.value);
     }
 
-    handleChangeUnor(e) {
+    handleChangeBidang(e) {
         this.setState({
             bidangName: e.target.value
         });
