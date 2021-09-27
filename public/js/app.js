@@ -4680,6 +4680,8 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
         unorName: e.target.value
       });
       axios.get("/admin/referensi/unorBidang/".concat(e.target.value)).then(function (response) {
+        console.log(response);
+
         _this2.setState({
           bidang: response.data.data.data,
           bidangName: response.data.data.data[0].url

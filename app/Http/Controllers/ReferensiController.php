@@ -362,8 +362,8 @@ class ReferensiController extends Controller
         $bidangs = [];
         $x = 0;
         foreach ($bidang as $value) {
-            $bidangs['unor'][$x]['name'] = $unor->name;
-            $bidangs['unor'][$x]['rinku'] = $unor->rinku;
+            $bidangs['data'][$x]['name'] = $value->name;
+            $bidangs['data'][$x]['rinku'] = $value->rinku;
             $x = $x + 1;
         }
         if (count($bidang) === 0) {
