@@ -5027,7 +5027,7 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
           unor: response.data.data.unor,
           unorName: response.data.data.unor[0].rinku,
           bidang: response.data.data.bidang
-        }, _defineProperty(_this10$setState, "unorName", response.data.data.bidang[0].rinku), _defineProperty(_this10$setState, "subbid", response.data.data.bidang), _defineProperty(_this10$setState, "subbidName", response.data.data.bidang[0].rinku), _this10$setState));
+        }, _defineProperty(_this10$setState, "unorName", response.data.data.bidang[0].rinku), _defineProperty(_this10$setState, "subbid", response.data.data.subbid), _defineProperty(_this10$setState, "subbidName", response.data.data.subbid[0].rinku), _this10$setState));
       });
     }
   }, {

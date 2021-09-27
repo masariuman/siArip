@@ -430,8 +430,8 @@ class Peremajaan extends Component {
                 unorName: response.data.data.unor[0].rinku,
                 bidang: response.data.data.bidang,
                 unorName: response.data.data.bidang[0].rinku,
-                subbid: response.data.data.bidang,
-                subbidName: response.data.data.bidang[0].rinku,
+                subbid: response.data.data.subbid,
+                subbidName: response.data.data.subbid[0].rinku,
             });
         });
     }
