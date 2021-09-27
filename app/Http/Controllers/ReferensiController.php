@@ -381,11 +381,19 @@ class ReferensiController extends Controller
         $data['bidang'] = ReferensiBidang::where("refUnor_id", $unor['id'])->where("sutattsu", "1")->orderBy("id", "DESC")->get();
         $bidang = ReferensiBidang::where("sutattsu", "1")->orderBy("id", "DESC")->first();
         $data['subbid'] = ReferensiSubBidang::where("refBidang_id", $bidang['id'])->where("sutattsu", "1")->orderBy("id", "DESC")->get();
+        $checkBidang = count($data['bidang']);
         $checkSubbid = count($data['subbid']);
-        if (empty($data['subbid'])) {
-            $data['subbid']['rinku'] = "as";
+        if (empty($checkSubbid)) {
+            $data['subbid'] = [] ;
+            $data['subbid'][0]['rinku'] = "";
+            $data['subbid'][0]['name'] = "";
         }
-        dd($data['subbid']);
+        if (empty($checkBidang)) {
+            $data['bidang'] = [] ;
+            $data['bidang'][0]['rinku'] = "";
+            $data['bidang'][0]['name'] = "";
+        }
+        // dd($data['subbid']);
         // dd($data);
         return response()->json([
             'data' => $data
