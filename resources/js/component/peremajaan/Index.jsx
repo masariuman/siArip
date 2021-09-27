@@ -99,7 +99,9 @@ class Peremajaan extends Component {
             console.log(response);
             this.setState({
                 bidang: response.data.data.bidang.data,
-                bidangName: response.data.data.bidang.data[0].rinku,
+                bidangName: response.data.data.bidang.data[0].url,
+                subbid: response.data.data.subbid,
+                subbidName: response.data.data.subbid[0].rinku,
             });
         });
         // console.log(e.target.value);

@@ -358,20 +358,29 @@ class ReferensiController extends Controller
     {
         //
         $unor = ReferensiUnor::where("rinku", $id)->first();
-        $bidang = ReferensiBidang::where("sutattsu", "1")->where('refUnor_id', $unor['id'])->orderBy("name", "ASC")->get();
+        $bidang = ReferensiBidang::where('refUnor_id', $unor['id'])->where("sutattsu", "1")->orderBy("name", "ASC")->get();
         $data['bidang'] = [];
+        $data['subbid'] = [];
         $x = 0;
         foreach ($bidang as $value) {
             $data['bidang']['data'][$x]['name'] = $value->name;
             $data['bidang']['data'][$x]['rinku'] = $value->rinku;
             $x = $x + 1;
         }
-        if (count($bidang) === 0) {
-            $data['bidang']['unor'][0]['name'] = "";
-            $data['bidang']['unor'][0]['url'] = "";
-        }
         $bidangSubbid = ReferensiBidang::where("sutattsu", "1")->where('refUnor_id', $unor['id'])->orderBy("name", "ASC")->first();
-        $data['subbid'] = ReferensiSubBidang::where("refBidang_id", $bidangSubbid['id'])->where("sutattsu", "1")->orderBy("id", "DESC")->get();
+        if (count($bidang) === 0) {
+            $data['bidang']['data'][0]['name'] = "";
+            $data['bidang']['data'][0]['url'] = "";
+            $data['subbid'][0]['rinku'] = "";
+            $data['subbid'][0]['name'] = "";
+        } else {
+            $data['subbid'] = ReferensiSubBidang::where("refBidang_id", $bidangSubbid['id'])->where("sutattsu", "1")->orderBy("id", "DESC")->get();
+            if (count($data['subbid']) === 0) {
+                $data['subbid'][0]['rinku'] = "";
+                $data['subbid'][0]['name'] = "";
+            }
+        }
+
         return response()->json([
             'data' => $data
         ]);
