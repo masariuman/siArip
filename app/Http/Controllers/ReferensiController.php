@@ -376,7 +376,9 @@ class ReferensiController extends Controller
     }
     public function unorBidang()
     {
-        $data = ReferensiUnor::where("sutattsu", "1")->orderBy("id", "DESC")->get();
+        $data['unor'] = ReferensiUnor::where("sutattsu", "1")->orderBy("id", "DESC")->get();
+        $unor = ReferensiUnor::where("sutattsu", "1")->orderBy("id", "DESC")->first();
+        $data['bidang'] = ReferensiBidang::where("refUnor_id", $unor['id'])->where("sutattsu", "1")->orderBy("id", "DESC")->get();
         // dd($data);
         return response()->json([
             'data' => $data

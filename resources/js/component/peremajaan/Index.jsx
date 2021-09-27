@@ -18,6 +18,8 @@ class Peremajaan extends Component {
             unorName: "",
             bidang: [],
             bidangName: "",
+            subbid: [],
+            subbids: "",
             agama: [],
             agamaUser: "",
 
@@ -409,10 +411,12 @@ class Peremajaan extends Component {
     getUnor() {
         axios.get("/admin/referensi/unorBidang").then((response) => {
             this.setState({
-                unor: response.data.data,
-                unorName: response.data.data[0].rinku,
-                bidang: response.data.data,
-                unorName: response.data.data[0].rinku,
+                unor: response.data.data.unor,
+                unorName: response.data.data.unor[0].rinku,
+                bidang: response.data.data.bidang,
+                unorName: response.data.data.bidang[0].rinku,
+                subbid: response.data.data.bidang,
+                subbids: response.data.data.bidang[0].rinku,
             });
         });
     }

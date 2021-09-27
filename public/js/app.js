@@ -4597,6 +4597,8 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
       unorName: "",
       bidang: [],
       bidangName: "",
+      subbid: [],
+      subbids: "",
       agama: [],
       agamaUser: "",
       dataEditInput: "",
@@ -5005,11 +5007,13 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
       var _this10 = this;
 
       axios.get("/admin/referensi/unorBidang").then(function (response) {
-        _this10.setState(_defineProperty({
-          unor: response.data.data,
-          unorName: response.data.data[0].rinku,
-          bidang: response.data.data
-        }, "unorName", response.data.data[0].rinku));
+        var _this10$setState;
+
+        _this10.setState((_this10$setState = {
+          unor: response.data.data.unor,
+          unorName: response.data.data.unor[0].rinku,
+          bidang: response.data.data.bidang
+        }, _defineProperty(_this10$setState, "unorName", response.data.data.bidang[0].rinku), _defineProperty(_this10$setState, "subbid", response.data.data.bidang), _defineProperty(_this10$setState, "subbids", response.data.data.bidang[0].rinku), _this10$setState));
       });
     }
   }, {
