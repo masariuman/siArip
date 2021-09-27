@@ -16,6 +16,8 @@ class Peremajaan extends Component {
             data: [],
             unor: [],
             unorName: "",
+            bidang: [],
+            bidangName: "",
             agama: [],
             agamaUser: "",
 
@@ -47,6 +49,7 @@ class Peremajaan extends Component {
 
         this.handleChangeAgama = this.handleChangeAgama.bind(this);
         this.handleChangeUnor = this.handleChangeUnor.bind(this);
+        this.handleChangeBidang = this.handleChangeBidang.bind(this);
         this.handleChangeFile = this.handleChangeFile.bind(this);
         this.handleButtonFile = this.handleButtonFile.bind(this);
         this.handleTambahButton = this.handleTambahButton.bind(this);
@@ -94,6 +97,19 @@ class Peremajaan extends Component {
                 bidangName: response.data.data.data[0].url,
             });
         });
+        // console.log(e.target.value);
+    }
+
+    handleChangeUnor(e) {
+        this.setState({
+            bidangName: e.target.value
+        });
+        // axios.get(`/admin/referensi/unorBidang/${e.target.value}`).then((response) => {
+        //     this.setState({
+        //         bidang: response.data.data.data,
+        //         bidangName: response.data.data.data[0].url,
+        //     });
+        // });
         // console.log(e.target.value);
     }
 
@@ -513,6 +529,14 @@ class Peremajaan extends Component {
         ));
     }
 
+    renderSelectBidang() {
+        return this.state.bidang.map((data) => (
+            <option value={data.rinku} key={data.rinku}>
+                {data.name}
+            </option>
+        ));
+    }
+
     modalTambah() {
         // console.log(this.state.agama);
         return (
@@ -735,11 +759,11 @@ class Peremajaan extends Component {
                             <div className="col-sm-8">
                                 <div className="form-group">
                                     <select
-                                        value={this.state.agamaUser}
-                                        onChange={this.handleChangeAgama}
+                                        value={this.state.bidangName}
+                                        onChange={this.handleChangeBidang}
                                         className="form-control"
                                     >
-                                        {this.renderSelect()}
+                                        {this.renderSelectBidang()}
                                     </select>
                                 </div>
                             </div>
