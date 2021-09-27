@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Mon Sep 27 2021 13:04:56 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/ReferensiController.php
+* public/js/app.js
+* resources/js/component/peremajaan/Index.jsx
+
+
+Created files:
+* .autogit/logs/log-27-8-2021-12-34-39.txt
+
+
+Deleted files:
+
+
+Renamed files:
