@@ -4534,6 +4534,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -5002,11 +5004,12 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
     value: function getUnor() {
       var _this10 = this;
 
-      axios.get("/admin/referensi/unor/create").then(function (response) {
-        _this10.setState({
+      axios.get("/admin/referensi/unorBidang").then(function (response) {
+        _this10.setState(_defineProperty({
           unor: response.data.data,
-          unorName: response.data.data[0].rinku
-        });
+          unorName: response.data.data[0].rinku,
+          bidang: response.data.data
+        }, "unorName", response.data.data[0].rinku));
       });
     }
   }, {

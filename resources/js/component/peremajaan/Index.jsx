@@ -407,9 +407,11 @@ class Peremajaan extends Component {
     }
 
     getUnor() {
-        axios.get("/admin/referensi/unor/create").then((response) => {
+        axios.get("/admin/referensi/unorBidang").then((response) => {
             this.setState({
                 unor: response.data.data,
+                unorName: response.data.data[0].rinku,
+                bidang: response.data.data,
                 unorName: response.data.data[0].rinku,
             });
         });

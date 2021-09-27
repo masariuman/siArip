@@ -354,7 +354,7 @@ class ReferensiController extends Controller
             'data' => $data
         ]);
     }
-    public function unorBidang($id)
+    public function unorBidangOnChange($id)
     {
         //
         $unor = ReferensiUnor::where("rinku", $id)->first();
@@ -372,6 +372,14 @@ class ReferensiController extends Controller
         }
         return response()->json([
             'data' => $bidangs
+        ]);
+    }
+    public function unorBidang()
+    {
+        $data = ReferensiUnor::where("sutattsu", "1")->orderBy("id", "DESC")->get();
+        // dd($data);
+        return response()->json([
+            'data' => $data
         ]);
     }
 
