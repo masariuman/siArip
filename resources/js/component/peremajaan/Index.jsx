@@ -57,7 +57,7 @@ class Peremajaan extends Component {
         this.handleChangeAgama = this.handleChangeAgama.bind(this);
         this.handleChangeNip = this.handleChangeNip.bind(this);
         this.handleChangeNip9 = this.handleChangeNip9.bind(this);
-        this.handleChangeGelarBelakang = this.handleChangeGelarBelakang.bind(this);
+        this.handleChangeGelarDepan = this.handleChangeGelarDepan.bind(this);
         this.handleChangeNamaLengkap = this.handleChangeNamaLengkap.bind(this);
         this.handleChangeGelarBelakang = this.handleChangeGelarBelakang.bind(this);
         this.handleChangeUnor = this.handleChangeUnor.bind(this);
