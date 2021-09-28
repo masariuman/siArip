@@ -376,6 +376,7 @@ class ReferensiController extends Controller
         } else {
             $data['subbid'] = ReferensiSubBidang::where("refBidang_id", $bidangSubbid['id'])->where("sutattsu", "1")->orderBy("id", "DESC")->get();
             if (count($data['subbid']) === 0) {
+                $data['subbid'] = [];
                 $data['subbid'][0]['rinku'] = "";
                 $data['subbid'][0]['name'] = "";
             }
