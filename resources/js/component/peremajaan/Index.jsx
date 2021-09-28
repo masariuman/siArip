@@ -22,6 +22,11 @@ class Peremajaan extends Component {
             subbidName: "",
             agama: [],
             agamaUser: "",
+            gelarBelakang : "",
+            gelarDepan : "",
+            nip : "",
+            nip9 : "",
+            namaLengkap : "",
 
             dataEditInput: "",
             buttonTambahModal: "",
@@ -50,6 +55,11 @@ class Peremajaan extends Component {
         this.handleChangeCari = this.handleChangeCari.bind(this);
 
         this.handleChangeAgama = this.handleChangeAgama.bind(this);
+        this.handleChangeNip = this.handleChangeNip.bind(this);
+        this.handleChangeNip9 = this.handleChangeNip9.bind(this);
+        this.handleChangeGelarBelakang = this.handleChangeGelarBelakang.bind(this);
+        this.handleChangeNamaLengkap = this.handleChangeNamaLengkap.bind(this);
+        this.handleChangeGelarBelakang = this.handleChangeGelarBelakang.bind(this);
         this.handleChangeUnor = this.handleChangeUnor.bind(this);
         this.handleChangeBidang = this.handleChangeBidang.bind(this);
         this.handleChangeSubbid = this.handleChangeSubbid.bind(this);
@@ -87,6 +97,41 @@ class Peremajaan extends Component {
     handleChangeAgama(e) {
         this.setState({
             agamaUser: e.target.value
+        });
+        // console.log(e.target.value);
+    }
+
+    handleChangeNip(e) {
+        this.setState({
+            nip: e.target.value
+        });
+        // console.log(e.target.value);
+    }
+
+    handleChangeNip9(e) {
+        this.setState({
+            nip9: e.target.value
+        });
+        // console.log(e.target.value);
+    }
+
+    handleChangeGelarBelakang(e) {
+        this.setState({
+            gelarBelakang: e.target.value
+        });
+        // console.log(e.target.value);
+    }
+
+    handleChangeGelarDepan(e) {
+        this.setState({
+            gelarDepan: e.target.value
+        });
+        // console.log(e.target.value);
+    }
+
+    handleChangeNamaLengkap(e) {
+        this.setState({
+            namaLengkap: e.target.value
         });
         // console.log(e.target.value);
     }
@@ -589,9 +634,9 @@ class Peremajaan extends Component {
                             <div className="col-sm-6">
                                 <div className="form-group">
                                     <input
-                                        onChange={this.handleChangeAgama}
-                                        value={this.state.agamaUser}
-                                        title="Asal Surat"
+                                        onChange={this.handleChangeNip}
+                                        value={this.state.nip}
+                                        title="NIP"
                                         placeholder="NIP..."
                                         type="text"
                                         className="form-control"
@@ -601,8 +646,8 @@ class Peremajaan extends Component {
                             <div className="col-sm-6">
                                 <div className="form-group">
                                     <input
-                                        onChange={this.handleChangeAgama}
-                                        value={this.state.agamaUser}
+                                        onChange={this.handleChangeNip9}
+                                        value={this.state.nip9}
                                         title="Nomor Surat"
                                         placeholder="NIP 9..."
                                         type="text"
@@ -613,8 +658,8 @@ class Peremajaan extends Component {
                             <div className="col-sm-3">
                                 <div className="form-group">
                                     <input
-                                        onChange={this.handleChangeAgama}
-                                        value={this.state.agamaUser}
+                                        onChange={this.handleChangeGelarDepan}
+                                        value={this.state.gelarDepan}
                                         title="Nomor Surat"
                                         placeholder="Gelar Depan..."
                                         type="text"
@@ -625,8 +670,8 @@ class Peremajaan extends Component {
                             <div className="col-sm-6">
                                 <div className="form-group">
                                     <input
-                                        onChange={this.handleChangeAgama}
-                                        value={this.state.agamaUser}
+                                        onChange={this.handleChangeNamaLengkap}
+                                        value={this.state.namaLengkap}
                                         title="Nomor Surat"
                                         placeholder="Nama Lengkap..."
                                         type="text"
@@ -637,8 +682,8 @@ class Peremajaan extends Component {
                             <div className="col-sm-3">
                                 <div className="form-group">
                                     <input
-                                        onChange={this.handleChangeAgama}
-                                        value={this.state.agamaUser}
+                                        onChange={this.handleChangeGelarBelakang}
+                                        value={this.state.gelarBelakang}
                                         title="Nomor Surat"
                                         placeholder="Gelar Belakang..."
                                         type="text"

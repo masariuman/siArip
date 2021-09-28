@@ -4601,6 +4601,11 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
       subbidName: "",
       agama: [],
       agamaUser: "",
+      gelarBelakang: "",
+      gelarDepan: "",
+      nip: "",
+      nip9: "",
+      namaLengkap: "",
       dataEditInput: "",
       buttonTambahModal: "",
       cari: "",
@@ -4627,6 +4632,11 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
     _this.modalUser = _this.modalUser.bind(_assertThisInitialized(_this));
     _this.handleChangeCari = _this.handleChangeCari.bind(_assertThisInitialized(_this));
     _this.handleChangeAgama = _this.handleChangeAgama.bind(_assertThisInitialized(_this));
+    _this.handleChangeNip = _this.handleChangeNip.bind(_assertThisInitialized(_this));
+    _this.handleChangeNip9 = _this.handleChangeNip9.bind(_assertThisInitialized(_this));
+    _this.handleChangeGelarBelakang = _this.handleChangeGelarBelakang.bind(_assertThisInitialized(_this));
+    _this.handleChangeNamaLengkap = _this.handleChangeNamaLengkap.bind(_assertThisInitialized(_this));
+    _this.handleChangeGelarBelakang = _this.handleChangeGelarBelakang.bind(_assertThisInitialized(_this));
     _this.handleChangeUnor = _this.handleChangeUnor.bind(_assertThisInitialized(_this));
     _this.handleChangeBidang = _this.handleChangeBidang.bind(_assertThisInitialized(_this));
     _this.handleChangeSubbid = _this.handleChangeSubbid.bind(_assertThisInitialized(_this));
@@ -4674,6 +4684,41 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
     value: function handleChangeAgama(e) {
       this.setState({
         agamaUser: e.target.value
+      }); // console.log(e.target.value);
+    }
+  }, {
+    key: "handleChangeNip",
+    value: function handleChangeNip(e) {
+      this.setState({
+        nip: e.target.value
+      }); // console.log(e.target.value);
+    }
+  }, {
+    key: "handleChangeNip9",
+    value: function handleChangeNip9(e) {
+      this.setState({
+        nip9: e.target.value
+      }); // console.log(e.target.value);
+    }
+  }, {
+    key: "handleChangeGelarBelakang",
+    value: function handleChangeGelarBelakang(e) {
+      this.setState({
+        gelarBelakang: e.target.value
+      }); // console.log(e.target.value);
+    }
+  }, {
+    key: "handleChangeGelarDepan",
+    value: function handleChangeGelarDepan(e) {
+      this.setState({
+        gelarDepan: e.target.value
+      }); // console.log(e.target.value);
+    }
+  }, {
+    key: "handleChangeNamaLengkap",
+    value: function handleChangeNamaLengkap(e) {
+      this.setState({
+        namaLengkap: e.target.value
       }); // console.log(e.target.value);
     }
   }, {
@@ -5251,9 +5296,9 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                         className: "form-group",
                         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
-                          onChange: this.handleChangeAgama,
-                          value: this.state.agamaUser,
-                          title: "Asal Surat",
+                          onChange: this.handleChangeNip,
+                          value: this.state.nip,
+                          title: "NIP",
                           placeholder: "NIP...",
                           type: "text",
                           className: "form-control"
@@ -5264,8 +5309,8 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                         className: "form-group",
                         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
-                          onChange: this.handleChangeAgama,
-                          value: this.state.agamaUser,
+                          onChange: this.handleChangeNip9,
+                          value: this.state.nip9,
                           title: "Nomor Surat",
                           placeholder: "NIP 9...",
                           type: "text",
@@ -5277,8 +5322,8 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                         className: "form-group",
                         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
-                          onChange: this.handleChangeAgama,
-                          value: this.state.agamaUser,
+                          onChange: this.handleChangeGelarDepan,
+                          value: this.state.gelarDepan,
                           title: "Nomor Surat",
                           placeholder: "Gelar Depan...",
                           type: "text",
@@ -5290,8 +5335,8 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                         className: "form-group",
                         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
-                          onChange: this.handleChangeAgama,
-                          value: this.state.agamaUser,
+                          onChange: this.handleChangeNamaLengkap,
+                          value: this.state.namaLengkap,
                           title: "Nomor Surat",
                           placeholder: "Nama Lengkap...",
                           type: "text",
@@ -5303,8 +5348,8 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                         className: "form-group",
                         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
-                          onChange: this.handleChangeAgama,
-                          value: this.state.agamaUser,
+                          onChange: this.handleChangeGelarBelakang,
+                          value: this.state.gelarBelakang,
                           title: "Nomor Surat",
                           placeholder: "Gelar Belakang...",
                           type: "text",
