@@ -4606,6 +4606,8 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
       nip: "",
       nip9: "",
       namaLengkap: "",
+      tempatLahir: "",
+      tanggalLahir: "",
       dataEditInput: "",
       buttonTambahModal: "",
       cari: "",
@@ -4640,6 +4642,8 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
     _this.handleChangeUnor = _this.handleChangeUnor.bind(_assertThisInitialized(_this));
     _this.handleChangeBidang = _this.handleChangeBidang.bind(_assertThisInitialized(_this));
     _this.handleChangeSubbid = _this.handleChangeSubbid.bind(_assertThisInitialized(_this));
+    _this.handleChangeTempatLahir = _this.handleChangeTempatLahir.bind(_assertThisInitialized(_this));
+    _this.handleChangeTanggalLahir = _this.handleChangeTanggalLahir.bind(_assertThisInitialized(_this));
     _this.handleChangeFile = _this.handleChangeFile.bind(_assertThisInitialized(_this));
     _this.handleButtonFile = _this.handleButtonFile.bind(_assertThisInitialized(_this));
     _this.handleTambahButton = _this.handleTambahButton.bind(_assertThisInitialized(_this));
@@ -4719,6 +4723,20 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
     value: function handleChangeNamaLengkap(e) {
       this.setState({
         namaLengkap: e.target.value
+      }); // console.log(e.target.value);
+    }
+  }, {
+    key: "handleChangeTempatLahir",
+    value: function handleChangeTempatLahir(e) {
+      this.setState({
+        tempatLahir: e.target.value
+      }); // console.log(e.target.value);
+    }
+  }, {
+    key: "handleChangeTanggalLahir",
+    value: function handleChangeTanggalLahir(e) {
+      this.setState({
+        tanggalLahir: e.target.value
       }); // console.log(e.target.value);
     }
   }, {
@@ -4891,8 +4909,8 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      var data = new FormData();
-      data.append('file', this.state.file);
+      var data = new FormData(); // data.append('file', this.state.file);
+
       data.append('unorName', this.state.unorName);
       data.append('bidangName', this.state.bidangName);
       data.append('subbidName', this.state.subbidName);
@@ -4902,6 +4920,8 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
       data.append('nip', this.state.nip);
       data.append('nip9', this.state.nip9);
       data.append('namaLengkap', this.state.namaLengkap);
+      data.append('tempatLahir', this.state.tempatLahir);
+      data.append('tanggalLahir', this.state.tanggalLahir);
       axios.post("/admin/pegawai", data).then(function (response) {
         _this6.setState({
           data: [response.data.data].concat(_toConsumableArray(_this6.state.data)),
@@ -4914,6 +4934,8 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
           nip: "",
           nip9: "",
           namaLengkap: "",
+          tempatLahir: "",
+          tanggalLahir: "",
           file: null,
           filePath: null,
           fileUrl: null,
@@ -4943,8 +4965,8 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      var data = new FormData();
-      data.append('file', this.state.file);
+      var data = new FormData(); // data.append('file', this.state.file);
+
       data.append('asalSurat', this.state.asalSurat);
       data.append('nomorSurat', this.state.nomorSurat);
       data.append('tanggalSurat', this.state.tanggalSurat);
@@ -5370,9 +5392,9 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                         className: "form-group",
                         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
-                          onChange: this.handleChangeGelarBelakang,
-                          value: this.state.gelarBelakang,
-                          title: "Nomor Surat",
+                          onChange: this.handleChangeTempatLahir,
+                          value: this.state.tempatLahir,
+                          title: "Tempat lahir",
                           placeholder: "Tempat Lahir...",
                           type: "text",
                           className: "form-control"
@@ -5383,10 +5405,10 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                         className: "form-group",
                         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
-                          onChange: this.handleChangeTanggalSurat,
-                          value: this.state.tanggalSurat,
-                          title: "Tanggal Surat",
-                          placeholder: "Tanggal Surat..",
+                          onChange: this.handleChangeTanggalLahir,
+                          value: this.state.tanggalLahir,
+                          title: "Tanggal Lahir",
+                          placeholder: "Tanggal Lahir..",
                           type: "date",
                           className: "form-control"
                         })

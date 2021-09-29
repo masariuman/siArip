@@ -66,6 +66,7 @@ class Peremajaan extends Component {
         this.handleChangeBidang = this.handleChangeBidang.bind(this);
         this.handleChangeSubbid = this.handleChangeSubbid.bind(this);
         this.handleChangeTempatLahir = this.handleChangeTempatLahir.bind(this);
+        this.handleChangeTanggalLahir = this.handleChangeTanggalLahir.bind(this);
 
         this.handleChangeFile = this.handleChangeFile.bind(this);
         this.handleButtonFile = this.handleButtonFile.bind(this);
@@ -142,6 +143,13 @@ class Peremajaan extends Component {
     handleChangeTempatLahir(e) {
         this.setState({
             tempatLahir: e.target.value
+        });
+        // console.log(e.target.value);
+    }
+
+    handleChangeTanggalLahir(e) {
+        this.setState({
+            tanggalLahir: e.target.value
         });
         // console.log(e.target.value);
     }
@@ -311,7 +319,7 @@ class Peremajaan extends Component {
             loading: true
         });
         const data = new FormData();
-        data.append('file', this.state.file);
+        // data.append('file', this.state.file);
         data.append('unorName', this.state.unorName);
         data.append('bidangName', this.state.bidangName);
         data.append('subbidName', this.state.subbidName);
@@ -321,6 +329,8 @@ class Peremajaan extends Component {
         data.append('nip', this.state.nip);
         data.append('nip9', this.state.nip9);
         data.append('namaLengkap', this.state.namaLengkap);
+        data.append('tempatLahir', this.state.tempatLahir);
+        data.append('tanggalLahir', this.state.tanggalLahir);
         axios
             .post("/admin/pegawai", data)
             .then(response => {
@@ -335,6 +345,8 @@ class Peremajaan extends Component {
                     nip: "",
                     nip9: "",
                     namaLengkap: "",
+                    tempatLahir: "",
+                    tanggalLahir: "",
                     file: null,
                     filePath: null,
                     fileUrl: null,
@@ -363,7 +375,7 @@ class Peremajaan extends Component {
             loading: true
         });
         const data = new FormData();
-        data.append('file', this.state.file);
+        // data.append('file', this.state.file);
         data.append('asalSurat', this.state.asalSurat);
         data.append('nomorSurat', this.state.nomorSurat);
         data.append('tanggalSurat', this.state.tanggalSurat);
@@ -749,111 +761,6 @@ class Peremajaan extends Component {
                                     </select>
                                 </div>
                             </div>
-                            {/* <div className="col-sm-4">
-                                <div className="form-group">
-                                    Status Kepegawaian :
-                                </div>
-                            </div>
-                            <div className="col-sm-4">
-                                <div className="form-group">
-                                    <select
-                                        value={this.state.turunKe}
-                                        onChange={this.handleChangeTurunKe}
-                                        className="form-control"
-                                    >
-                                        {this.renderSelect()}
-                                    </select>
-                                </div>
-                            </div>
-                            <div className="col-sm-4">
-                                <div className="form-group">
-                                    <input
-                                        onChange={this.handleChangeTanggalSurat}
-                                        value={this.state.tanggalSurat}
-                                        title="Tanggal Surat"
-                                        placeholder="Tanggal Surat.."
-                                        type="date"
-                                        className="form-control"
-                                    />
-                                </div>
-                            </div> */}
-                            {/* <div className="col-sm-4">
-                                <div className="form-group">
-                                    Jenis Kepegawaian :
-                                </div>
-                            </div>
-                            <div className="col-sm-4">
-                                <div className="form-group">
-                                    <select
-                                        value={this.state.turunKe}
-                                        onChange={this.handleChangeTurunKe}
-                                        className="form-control"
-                                    >
-                                        {this.renderSelect()}
-                                    </select>
-                                </div>
-                            </div>
-                            <div className="col-sm-4">
-                                <div className="form-group">
-                                    <input
-                                        onChange={this.handleChangeTanggalSurat}
-                                        value={this.state.tanggalSurat}
-                                        title="Tanggal Surat"
-                                        placeholder="Tanggal Surat.."
-                                        type="date"
-                                        className="form-control"
-                                    />
-                                </div>
-                            </div> */}
-                            {/* <div className="col-sm-5">
-                                <div className="form-group">
-                                    Kedudukan Kepegawaian :
-                                </div>
-                            </div>
-                            <div className="col-sm-7">
-                                <div className="form-group">
-                                    <select
-                                        value={this.state.turunKe}
-                                        onChange={this.handleChangeTurunKe}
-                                        className="form-control"
-                                    >
-                                        {this.renderSelect()}
-                                    </select>
-                                </div>
-                            </div>
-                            <div className="col-sm-5">
-                                <div className="form-group">
-                                    Pangkat / Gol. Ruang :
-                                </div>
-                            </div>
-                            <div className="col-sm-7">
-                                <div className="form-group">
-                                    <select
-                                        value={this.state.turunKe}
-                                        onChange={this.handleChangeTurunKe}
-                                        className="form-control"
-                                    >
-                                        {this.renderSelect()}
-                                    </select>
-                                </div>
-                            </div>
-                            <div className="col-sm-5">
-                                <div className="form-group">
-                                    TMT. Pangkat :
-                                </div>
-                            </div>
-                            <div className="col-sm-7">
-                                <div className="form-group">
-                                    <input
-                                        onChange={this.handleChangeTanggalSurat}
-                                        value={this.state.tanggalSurat}
-                                        title="Tanggal Surat"
-                                        placeholder="Tanggal Surat.."
-                                        type="date"
-                                        className="form-control"
-                                    />
-                                </div>
-                            </div> */}
                             <div className="col-sm-4">
                                 <div className="form-group">
                                     Unit Kerja :

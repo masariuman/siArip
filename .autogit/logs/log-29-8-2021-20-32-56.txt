@@ -1,0 +1,17 @@
+-------------------- Auto-Git Log --------------------
+		Wed Sep 29 2021 20:32:56 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* public/js/app.js
+* resources/js/component/peremajaan/Index.jsx
+
+
+Created files:
+* .autogit/logs/log-29-8-2021-15-46-36.txt
+
+
+Deleted files:
+
+
+Renamed files:
