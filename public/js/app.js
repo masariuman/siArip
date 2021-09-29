@@ -4893,24 +4893,27 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
       });
       var data = new FormData();
       data.append('file', this.state.file);
-      data.append('asalSurat', this.state.asalSurat);
-      data.append('nomorSurat', this.state.nomorSurat);
-      data.append('tanggalSurat', this.state.tanggalSurat);
-      data.append('perihal', this.state.perihal);
-      data.append('tanggalNaik', this.state.tanggalNaik);
-      data.append('turunKe', this.state.turunKe);
-      data.append('tanggalTurun', this.state.tanggalTurun);
-      data.append('kodeBerkas', this.state.kodeBerkas);
-      axios.post("/kanrisha/masuk/deeta", data).then(function (response) {
+      data.append('unorName', this.state.unorName);
+      data.append('bidangName', this.state.bidangName);
+      data.append('subbidName', this.state.subbidName);
+      data.append('agamaUser', this.state.agamaUser);
+      data.append('gelarBelakang', this.state.gelarBelakang);
+      data.append('gelarDepan', this.state.gelarDepan);
+      data.append('nip', this.state.nip);
+      data.append('nip9', this.state.nip9);
+      data.append('namaLengkap', this.state.namaLengkap);
+      axios.post("/admin/pegawai", data).then(function (response) {
         _this6.setState({
           data: [response.data.data].concat(_toConsumableArray(_this6.state.data)),
-          asalSurat: "",
-          nomorSurat: "",
-          tanggalSurat: "",
-          perihal: "",
-          tanggalNaik: "",
-          tanggalTurun: "",
-          kodeBerkas: "",
+          unorName: "",
+          bidangName: "",
+          subbidName: "",
+          agamaUser: "",
+          gelarBelakang: "",
+          gelarDepan: "",
+          nip: "",
+          nip9: "",
+          namaLengkap: "",
           file: null,
           filePath: null,
           fileUrl: null,
@@ -5357,6 +5360,38 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
                         })
                       })
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                      className: "col-sm-5",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                        className: "form-group",
+                        children: "Tempat & Tanggal lahir :"
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                      className: "col-sm-3",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                        className: "form-group",
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
+                          onChange: this.handleChangeGelarBelakang,
+                          value: this.state.gelarBelakang,
+                          title: "Nomor Surat",
+                          placeholder: "Tempat Lahir...",
+                          type: "text",
+                          className: "form-control"
+                        })
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                      className: "col-sm-4",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                        className: "form-group",
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
+                          onChange: this.handleChangeTanggalSurat,
+                          value: this.state.tanggalSurat,
+                          title: "Tanggal Surat",
+                          placeholder: "Tanggal Surat..",
+                          type: "date",
+                          className: "form-control"
+                        })
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                       className: "col-sm-4",
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                         className: "form-group",
@@ -5422,44 +5457,6 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
                           onChange: this.handleChangeSubbid,
                           className: "form-control",
                           children: this.renderSelectSubbid()
-                        })
-                      })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                      className: "col-sm-12",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                        className: "form-group",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
-                          onChange: this.handleChangeFile,
-                          title: "File",
-                          placeholder: "File..",
-                          type: "file",
-                          className: "form-control masariuman_displayNone",
-                          ref: "fileUploader"
-                        })
-                      })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                      className: "col-sm-12",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("table", {
-                        className: "masariuman_tableFile",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("tbody", {
-                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
-                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
-                              className: "masariuman_width110px",
-                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-                                className: "mr-2 mb-2 btn btn-primary",
-                                type: "button",
-                                onClick: this.handleButtonFile,
-                                children: "Upload Foto"
-                              })
-                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
-                              className: "form-group",
-                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("a", {
-                                target: "_blank",
-                                href: this.state.fileUrl,
-                                children: this.state.filePath
-                              })
-                            })]
-                          })
                         })
                       })
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {

@@ -27,6 +27,8 @@ class Peremajaan extends Component {
             nip : "",
             nip9 : "",
             namaLengkap : "",
+            tempatLahir : "",
+            tanggalLahir : "",
 
             dataEditInput: "",
             buttonTambahModal: "",
@@ -63,6 +65,7 @@ class Peremajaan extends Component {
         this.handleChangeUnor = this.handleChangeUnor.bind(this);
         this.handleChangeBidang = this.handleChangeBidang.bind(this);
         this.handleChangeSubbid = this.handleChangeSubbid.bind(this);
+        this.handleChangeTempatLahir = this.handleChangeTempatLahir.bind(this);
 
         this.handleChangeFile = this.handleChangeFile.bind(this);
         this.handleButtonFile = this.handleButtonFile.bind(this);
@@ -132,6 +135,13 @@ class Peremajaan extends Component {
     handleChangeNamaLengkap(e) {
         this.setState({
             namaLengkap: e.target.value
+        });
+        // console.log(e.target.value);
+    }
+
+    handleChangeTempatLahir(e) {
+        this.setState({
+            tempatLahir: e.target.value
         });
         // console.log(e.target.value);
     }
@@ -694,6 +704,35 @@ class Peremajaan extends Component {
                                     />
                                 </div>
                             </div>
+                            <div className="col-sm-5">
+                                <div className="form-group">
+                                    Tempat & Tanggal lahir :
+                                </div>
+                            </div>
+                            <div className="col-sm-3">
+                                <div className="form-group">
+                                    <input
+                                        onChange={this.handleChangeTempatLahir}
+                                        value={this.state.tempatLahir}
+                                        title="Tempat lahir"
+                                        placeholder="Tempat Lahir..."
+                                        type="text"
+                                        className="form-control"
+                                    />
+                                </div>
+                            </div>
+                            <div className="col-sm-4">
+                                <div className="form-group">
+                                    <input
+                                        onChange={this.handleChangeTanggalLahir}
+                                        value={this.state.tanggalLahir}
+                                        title="Tanggal Lahir"
+                                        placeholder="Tanggal Lahir.."
+                                        type="date"
+                                        className="form-control"
+                                    />
+                                </div>
+                            </div>
                             <div className="col-sm-4">
                                 <div className="form-group">
                                     Agama :
@@ -925,7 +964,7 @@ class Peremajaan extends Component {
                                     />
                                 </div>
                             </div> */}
-                            <div className="col-sm-12">
+                            {/* <div className="col-sm-12">
                                 <div className="form-group">
                                     <input
                                         onChange={this.handleChangeFile}
@@ -950,7 +989,7 @@ class Peremajaan extends Component {
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div>
+                            </div> */}
                             <div className="col-sm-12">
                                 <div className="form-group text-center">
                                     <button className="mr-2 mb-2 btn btn-primary" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Tambah Pegawai Baru</button>
