@@ -26,7 +26,8 @@ class UuzaaController extends Controller
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data as $items) {
             $items['nomor'] = $count;
-            $items['heyaMei'] = $items->heya->heyaMei;
+            $items['tanggalLahirText'] = date("d F Y", strtotime($items['tanggalLahir']));
+            $items['subbidName'] = $items->ref_subbid->name;
             if ($items['reberu'] === "3") {
                 $items['level'] = "User";
             } else if ($items['reberu'] === "2") {
@@ -100,7 +101,7 @@ class UuzaaController extends Controller
         // }
         $data = Uuzaa::orderBy("id", "DESC")->first();
         $data['nomor'] = "BARU";
-        $data['heyaMei'] = $data->heya->heyaMei;
+        $data['subbidName'] = $data->ref_subbid->name;
         if ($data['reberu'] === "3") {
             $data['level'] = "User";
         } else if ($itdataems['reberu'] === "2") {
