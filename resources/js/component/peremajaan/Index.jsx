@@ -302,26 +302,29 @@ class Peremajaan extends Component {
         });
         const data = new FormData();
         data.append('file', this.state.file);
-        data.append('asalSurat', this.state.asalSurat);
-        data.append('nomorSurat', this.state.nomorSurat);
-        data.append('tanggalSurat', this.state.tanggalSurat);
-        data.append('perihal', this.state.perihal);
-        data.append('tanggalNaik', this.state.tanggalNaik);
-        data.append('turunKe', this.state.turunKe);
-        data.append('tanggalTurun', this.state.tanggalTurun);
-        data.append('kodeBerkas', this.state.kodeBerkas);
+        data.append('unorName', this.state.unorName);
+        data.append('bidangName', this.state.bidangName);
+        data.append('subbidName', this.state.subbidName);
+        data.append('agamaUser', this.state.agamaUser);
+        data.append('gelarBelakang', this.state.gelarBelakang);
+        data.append('gelarDepan', this.state.gelarDepan);
+        data.append('nip', this.state.nip);
+        data.append('nip9', this.state.nip9);
+        data.append('namaLengkap', this.state.namaLengkap);
         axios
-            .post("/kanrisha/masuk/deeta", data)
+            .post("/admin/pegawai", data)
             .then(response => {
                 this.setState({
                     data: [response.data.data, ...this.state.data],
-                    asalSurat: "",
-                    nomorSurat: "",
-                    tanggalSurat: "",
-                    perihal: "",
-                    tanggalNaik: "",
-                    tanggalTurun: "",
-                    kodeBerkas: "",
+                    unorName: "",
+                    bidangName: "",
+                    subbidName: "",
+                    agamaUser: "",
+                    gelarBelakang: "",
+                    gelarDepan: "",
+                    nip: "",
+                    nip9: "",
+                    namaLengkap: "",
                     file: null,
                     filePath: null,
                     fileUrl: null,

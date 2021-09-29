@@ -210,7 +210,7 @@ Route::post('/admin/referensi/pejabatNegara/search', 'ReferensiController@pejaba
 
 Route::resources([
     'kanrisha/heya/deeta' => 'HeyaController',
-    'kanrisha/uuzaa/deeta' => 'UuzaaController',
+    'admin/pegawai' => 'UuzaaController',
     'kanrisha/alhuqulAlfareia/deeta' => 'alhuqulAlfareiaController',
     'kanrisha/masuk/deeta' => 'suratMasukCOntroller',
     'kanrisha/keluar/deeta' => 'suratKeluarController',
