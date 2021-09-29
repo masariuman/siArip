@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Wed Sep 29 2021 21:33:27 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/UuzaaController.php
+* app/Models/ReferensiSubBidang.php
+* app/Models/Uuzaa.php
+* database/migrations/2014_10_12_000000_create_users_table.php
+
+
+Created files:
+* .autogit/logs/log-29-8-2021-21-3-13.txt
+
+
+Deleted files:
+
+
+Renamed files:

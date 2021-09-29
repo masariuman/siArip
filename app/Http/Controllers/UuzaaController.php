@@ -75,11 +75,14 @@ class UuzaaController extends Controller
     {
         //
         // dd($request);
-        $heya = Heya::where('rinku', $request->heyaMei)->first();
+        $heya = ReferensiSubBidang::where('rinku', $request->subbidName)->first();
         Uuzaa::create([
             'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string))))),
             'juugyouinBangou' => $request->nip,
+            'nip9' => $request->nip9,
+            'gelarDepan' => $request->gelarDepan,
             'name' => $request->name,
+            'gelarBelakang' => $request->gelarBelakang,
             'yuuzaaMei' => $request->name,
             'heya_id' => $heya->id,
             'password' => Hash::make($request->nip)
