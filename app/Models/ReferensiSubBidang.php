@@ -20,4 +20,9 @@ class ReferensiSubBidang extends Model
     {
         return $this->belongsTo('App\Models\ReferensiBidang','refBidang_id');
     }
+
+    public function user()
+    {
+        return $this->hasMany('App\Models\User')->withTimestamps();
+    }
 }

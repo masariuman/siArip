@@ -14,14 +14,19 @@ class Uuzaa extends Model
         'yuuzaaMei',
         'sashin',
         'reberu',
-        'heya_id',
+        'subBidang_id',
         'login',
         'password',
-        'sutattsu'
+        'sutattsu',
+        'nip9',
+        'gelarDepan',
+        'gelarBelakang',
+        'tempatLahir',
+        'tanggalLahir'
     ];
 
-    public function heya()
+    public function ref_subbid()
     {
-        return $this->belongsTo('App\Models\Heya', 'heya_id');
+        return $this->belongsTo('App\Models\ReferensiSubBidang', 'subBidang_id');
     }
 }
