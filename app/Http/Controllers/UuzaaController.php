@@ -77,16 +77,18 @@ class UuzaaController extends Controller
         // dd($request->request);
         $data = $request->request->all();
         $subbid = ReferensiSubBidang::where('rinku', $data['subbidName'])->first();
-        dd($subbid);
+        // dd($subbid);
         Uuzaa::create([
             'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string))))),
-            'juugyouinBangou' => $request->nip,
-            'nip9' => $request->nip9,
-            'gelarDepan' => $request->gelarDepan,
-            'name' => $request->name,
-            'gelarBelakang' => $request->gelarBelakang,
-            'yuuzaaMei' => $request->name,
-            'heya_id' => $heya->id,
+            'juugyouinBangou' => $data['nip'],
+            'nip9' => $data['nip9'],
+            'gelarDepan' =>  $data['gelarDepan'],
+            'name' => $data['namaLengkap'],
+            'gelarBelakang' => $data['gelarBelakang'],
+            'tempatLahir' => $data['tempatLahir'],
+            'tanggalLahir' => $data['tanggalLahir'],
+            'yuuzaaMei' => $data['nip'],
+            'subBidang_id' => $subbid->id,
             'password' => Hash::make($request->nip)
         ]);
         // $pagination = 5;
