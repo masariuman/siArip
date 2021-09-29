@@ -27,6 +27,14 @@ class UuzaaController extends Controller
         foreach ($data as $items) {
             $items['nomor'] = $count;
             $items['tanggalLahirText'] = date("d F Y", strtotime($items['tanggalLahir']));
+            $dateNow = getdate();
+            $tahunLahir = date("Y", strtotime($items['tanggalLahir']));
+            $bulanLahir = date("m", strtotime($items['tanggalLahir']));
+            $tahunNow = $dateNow['year'];
+            $bulanNow = $dateNow['mon'];
+            // dd($tahunNow - $tahunLahir);
+            $items['usia'] = strval($tahunNow - $tahunLahir)." Tahun ".strval($bulanNow - $bulanLahir)." Bulan";
+            // dd($usia);
             $items['subbidName'] = $items->ref_subbid->name;
             if ($items['reberu'] === "3") {
                 $items['level'] = "User";

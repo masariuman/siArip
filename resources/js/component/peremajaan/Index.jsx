@@ -584,8 +584,8 @@ class Peremajaan extends Component {
                             highlightClassName="YourHighlightClass"
                             searchWords={[this.state.cari]}
                             autoEscape={true}
-                            textToHighlight={data.tempatLahir}
-                        />, {data.tanggalLahirText}
+                            textToHighlight={data.usia}
+                        />
                         <br />
                         <small>{data.tanggalTurunText}</small>
                     </td>
