@@ -576,8 +576,6 @@ class Peremajaan extends Component {
                             autoEscape={true}
                             textToHighlight={data.tempatLahir}
                         />, {data.tanggalLahirText}
-                        <br />
-                        <small>{data.tanggalTurunText}</small>
                     </td>
                     <td>
                         <Highlighter
@@ -586,28 +584,22 @@ class Peremajaan extends Component {
                             autoEscape={true}
                             textToHighlight={data.usia}
                         />
-                        <br />
-                        <small>{data.tanggalTurunText}</small>
                     </td>
                     <td>
                         <Highlighter
                             highlightClassName="YourHighlightClass"
                             searchWords={[this.state.cari]}
                             autoEscape={true}
-                            textToHighlight={data.tempatLahir}
-                        />, {data.tanggalLahirText}
-                        <br />
-                        <small>{data.tanggalTurunText}</small>
+                            textToHighlight="gol"
+                        />
                     </td>
                     <td>
                         <Highlighter
                             highlightClassName="YourHighlightClass"
                             searchWords={[this.state.cari]}
                             autoEscape={true}
-                            textToHighlight={data.tempatLahir}
-                        />, {data.tanggalLahirText}
-                        <br />
-                        <small>{data.tanggalTurunText}</small>
+                            textToHighlight="ruang"
+                        />
                     </td>
                     <td id="downloadButton">
                         <div className="text-center">

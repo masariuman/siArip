@@ -33,7 +33,10 @@ class UuzaaController extends Controller
             $tahunNow = $dateNow['year'];
             $bulanNow = $dateNow['mon'];
             // dd($tahunNow - $tahunLahir);
-            $items['usia'] = strval($tahunNow - $tahunLahir)." Tahun ".strval($bulanNow - $bulanLahir)." Bulan";
+            $dateLahirr = date_create($tahunLahir . '-' . $bulanLahir . '-01');
+            $datenow = date_create($tahunNow . '-' . $bulanNow . '-01');
+            $interval = date_diff($dateLahirr, $datenow);
+            $items['usia'] = $interval->y." Tahun ".$interval->m." Bulan";
             // dd($usia);
             $items['subbidName'] = $items->ref_subbid->name;
             if ($items['reberu'] === "3") {
