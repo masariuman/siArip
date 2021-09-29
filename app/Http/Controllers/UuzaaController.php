@@ -74,8 +74,10 @@ class UuzaaController extends Controller
     public function store(Request $request)
     {
         //
-        // dd($request);
-        $heya = ReferensiSubBidang::where('rinku', $request->subbidName)->first();
+        // dd($request->request);
+        $data = $request->request->all();
+        $subbid = ReferensiSubBidang::where('rinku', $data['subbidName'])->first();
+        dd($subbid);
         Uuzaa::create([
             'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string))))),
             'juugyouinBangou' => $request->nip,

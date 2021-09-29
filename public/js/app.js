@@ -4911,8 +4911,6 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
       });
       var data = new FormData(); // data.append('file', this.state.file);
 
-      data.append('unorName', this.state.unorName);
-      data.append('bidangName', this.state.bidangName);
       data.append('subbidName', this.state.subbidName);
       data.append('agamaUser', this.state.agamaUser);
       data.append('gelarBelakang', this.state.gelarBelakang);
