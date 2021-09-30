@@ -434,16 +434,18 @@ class Detail extends Component {
         axios
             .get(`/admin/pegawai/${this.props.match.params.url}`)
             .then(response => {
-                console.log(response);
-                // this.setState({
-                //     data: response.data.data.data,
-                //     ubahPetunjukId: response.data.data.data[0].rinku,
-                //     loading: false,
-                //     activePage: response.data.data.current_page,
-                //     itemsCountPerPage: response.data.data.per_page,
-                //     totalItemsCount: response.data.data.total,
-                //     pageRangeDisplayed: 10
-                // });
+                // console.log(response.data.data);
+                this.setState({
+                    // data: response.data.data.data,
+                    namaLengkap : response.data.data.name,
+                    nip : response.data.data.juugyouinBangou,
+                    // ubahPetunjukId: response.data.data.data[0].rinku,
+                    loading: false,
+                    // activePage: response.data.data.current_page,
+                    // itemsCountPerPage: response.data.data.per_page,
+                    // totalItemsCount: response.data.data.total,
+                    // pageRangeDisplayed: 10
+                });
                 $('#petunjuk').on('click',function() {
                     var enjoyhint_instance = new EnjoyHint({});
                     var enjoyhint_script_steps = [
@@ -1293,8 +1295,8 @@ class Detail extends Component {
                         <div className="os-icon os-icon-mail"></div>
                         </div>
                         <div className="masariuman-textleft">
-                            <span className="masariuman-bold">Pegawai</span> <br/>
-                            <small>Manajemen Pegawai</small>
+                            <span className="masariuman-bold">{this.state.namaLengkap}</span> <br/>
+                            <small>{this.state.nip}</small>
                         </div>
                     </div>
                     <div className="top-menu-controls">

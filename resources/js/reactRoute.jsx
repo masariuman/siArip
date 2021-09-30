@@ -209,7 +209,7 @@ class ReactRoute extends Component {
                     />
                     <Route
                         exact
-                        path="/admin/pegawai/:url"
+                        path="/admin/pegawai/:url/detail"
                         component={DetailPegawai}
                     />
                     <Empatkosongempat />

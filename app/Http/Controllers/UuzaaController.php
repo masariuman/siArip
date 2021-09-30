@@ -153,7 +153,7 @@ class UuzaaController extends Controller
     {
         //
         // $data = Uuzaa::where('rinku', $id)->first();
-        // $data['heyaRinku'] = $data->heya->rinku;
+        // // $data['heyaRinku'] = $data->heya->rinku;
         // return response()->json([
         //     'data' => $data
         // ]);

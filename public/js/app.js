@@ -5021,15 +5021,18 @@ var Detail = /*#__PURE__*/function (_Component) {
       this.setState({// loading: true
       });
       axios.get("/admin/pegawai/".concat(this.props.match.params.url)).then(function (response) {
-        console.log(response); // this.setState({
-        //     data: response.data.data.data,
-        //     ubahPetunjukId: response.data.data.data[0].rinku,
-        //     loading: false,
-        //     activePage: response.data.data.current_page,
-        //     itemsCountPerPage: response.data.data.per_page,
-        //     totalItemsCount: response.data.data.total,
-        //     pageRangeDisplayed: 10
-        // });
+        // console.log(response.data.data);
+        _this8.setState({
+          // data: response.data.data.data,
+          namaLengkap: response.data.data.name,
+          nip: response.data.data.juugyouinBangou,
+          // ubahPetunjukId: response.data.data.data[0].rinku,
+          loading: false // activePage: response.data.data.current_page,
+          // itemsCountPerPage: response.data.data.per_page,
+          // totalItemsCount: response.data.data.total,
+          // pageRangeDisplayed: 10
+
+        });
 
         jquery__WEBPACK_IMPORTED_MODULE_1___default()('#petunjuk').on('click', function () {
           var enjoyhint_instance = new EnjoyHint({});
@@ -5596,9 +5599,9 @@ var Detail = /*#__PURE__*/function (_Component) {
               className: "masariuman-textleft",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
                 className: "masariuman-bold",
-                children: "Pegawai"
+                children: this.state.namaLengkap
               }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("small", {
-                children: "Manajemen Pegawai"
+                children: this.state.nip
               })]
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
@@ -6080,7 +6083,7 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
   }, {
     key: "handleDetail",
     value: function handleDetail(e) {
-      var path = "/admin/pegawai/".concat(e);
+      var path = "/admin/pegawai/".concat(e, "/detail");
       this.props.history.push(path);
     }
   }, {
@@ -24595,7 +24598,7 @@ var ReactRoute = /*#__PURE__*/function (_Component) {
           component: _component_referensi_PejabatNegara__WEBPACK_IMPORTED_MODULE_24__.default
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_32__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_33__.Route, {
           exact: true,
-          path: "/admin/pegawai/:url",
+          path: "/admin/pegawai/:url/detail",
           component: _component_peremajaan_Detail__WEBPACK_IMPORTED_MODULE_5__.default
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_32__.jsx)(_warudo_Empatkosongempat__WEBPACK_IMPORTED_MODULE_1__.default, {})]
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_32__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_33__.Switch, {

@@ -276,7 +276,7 @@ class Peremajaan extends Component {
     }
 
     handleDetail(e) {
-        let path = `/admin/pegawai/${e}`;
+        let path = `/admin/pegawai/${e}/detail`;
         this.props.history.push(path);
     }
 
