@@ -8,6 +8,7 @@ import Empatkosongempat from "./warudo/Empatkosongempat";
 import DashboardIndex from "./component/dashboard/Index";
 import KeluarIndex from "./component/keluar/Index";
 import PeremajaanData from "./component/peremajaan/Index";
+import DetailPegawai from "./component/peremajaan/Detail";
 import UuzaaIndex from "./component/uuzaa/Index";
 import HeyaIndex from "./component/heya/Index";
 import RefAgamaIndex from "./component/referensi/Agama";
@@ -205,6 +206,11 @@ class ReactRoute extends Component {
                         exact
                         path="/admin/referensi/pejabatNegara"
                         component={RefPejabatNegaraIndex}
+                    />
+                    <Route
+                        exact
+                        path="/admin/pegawai/:url"
+                        component={DetailPegawai}
                     />
                     <Empatkosongempat />
                 </Switch>

@@ -10,7 +10,7 @@ import Highlighter from "react-highlight-words";
 // import { useHistory } from "react-router-dom";
 
 
-class Peremajaan extends Component {
+class Detail extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -432,17 +432,18 @@ class Peremajaan extends Component {
             // loading: true
         });
         axios
-            .get("/admin/pegawai")
+            .get(`/admin/pegawai/${this.props.match.params.url}`)
             .then(response => {
-                this.setState({
-                    data: response.data.data.data,
-                    ubahPetunjukId: response.data.data.data[0].rinku,
-                    loading: false,
-                    activePage: response.data.data.current_page,
-                    itemsCountPerPage: response.data.data.per_page,
-                    totalItemsCount: response.data.data.total,
-                    pageRangeDisplayed: 10
-                });
+                console.log(response);
+                // this.setState({
+                //     data: response.data.data.data,
+                //     ubahPetunjukId: response.data.data.data[0].rinku,
+                //     loading: false,
+                //     activePage: response.data.data.current_page,
+                //     itemsCountPerPage: response.data.data.per_page,
+                //     totalItemsCount: response.data.data.total,
+                //     pageRangeDisplayed: 10
+                // });
                 $('#petunjuk').on('click',function() {
                     var enjoyhint_instance = new EnjoyHint({});
                     var enjoyhint_script_steps = [
@@ -1371,4 +1372,4 @@ class Peremajaan extends Component {
     }
 }
 
-export default Peremajaan;
+export default Detail;
