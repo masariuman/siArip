@@ -1,0 +1,20 @@
+-------------------- Auto-Git Log --------------------
+		Thu Sep 30 2021 12:36:00 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* database/migrations/2014_10_12_000000_create_users_table.php
+* public/js/app.js
+* resources/js/component/peremajaan/Index.jsx
+* resources/js/reactRoute.jsx
+* resources/js/warudo/Menu.jsx
+
+
+Created files:
+* public/sashin/avatar.jpg
+
+
+Deleted files:
+
+
+Renamed files:

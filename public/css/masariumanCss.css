@@ -455,3 +455,11 @@ html {
 .masariuman_paddingBottom0 {
     padding-bottom: 0;
 }
+
+.masariuman_width70px {
+    width: 70px;
+}
+
+.masariuman_table:hover {
+    background-color: #53b9fdbb !important;
+}

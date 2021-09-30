@@ -213,7 +213,7 @@ class Peremajaan extends Component {
             cari: e.target.value
         });
         axios
-            .post(`/masuk/search`, {
+            .post(`/admin/pegawai/search`, {
                 cari: e.target.value
             })
             .then(response => {
@@ -231,6 +231,50 @@ class Peremajaan extends Component {
     }
 
     handleDeleteButton(e) {
+        axios
+            .get(`/kanrisha/masuk/deeta/${e}`)
+            .then(response => {
+                swal({
+                    title: `Yakin ingin menghapus surat dari ${response.data.data.asalSurat} dengan nomor surat ${response.data.data.nomorSurat}`,
+                    text: "Kalau Terhapus, Hubungi Admin Untuk Mengembalikan Data yang Terhapus!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                  })
+                  .then((willDelete) => {
+                    if (willDelete) {
+                        this.setState({
+                            loading: true
+                        });
+                        axios
+                            .delete(`/kanrisha/masuk/deeta/${e}`, {
+                                url: this.state.url
+                            })
+                            .then(response => {
+                                this.setState({
+                                    data: response.data.data.data,
+                                    loading: false
+                                });
+                                swal("Sukses!", "Data Berhasil Dihapus!", "success");
+                                // console.log("from handle sumit", response);
+                            })
+                            .catch(error => {
+                                this.setState({
+                                    loading: false
+                                });
+                                swal("Error!", "Gagal Menghapus Data, Silahkan Hubungi Admin!", "error");
+                            });
+                    } else {
+                      swal("Data Tidak Terhapus!");
+                    }
+                  });
+            })
+            .catch(error => {
+                swal("Error!", "Terdapat Masalah, Silahkan Hubungi Admin!", "error");
+            });
+    }
+
+    handleDetail(e) {
         axios
             .get(`/kanrisha/masuk/deeta/${e}`)
             .then(response => {
@@ -544,12 +588,12 @@ class Peremajaan extends Component {
     renderData() {
         return !this.state.data.length ? <tr><td colSpan="9" className="text-center">Data Tidak Ditemukan</td></tr> :
             this.state.data.map(data => (
-                <tr key={data.rinku}>
-                    <th scope="row">{data.nomor}</th>
-                    <td>
-                        <img alt="" src={"/sashin/"+data.sashin} />
+                <tr key={data.rinku} className="masariuman_table"  onClick={this.handleDetail.bind(this, data.rinku)}>
+                    <th scope="row" className="text-center">{data.nomor}</th>
+                    <td className="text-center">
+                        <img className="masariuman_width70px" alt="" src={"/sashin/"+data.sashin} />
                     </td>
-                    <td>
+                    <td className="text-center">
                         <Highlighter
                             highlightClassName="YourHighlightClass"
                             searchWords={[this.state.cari]}
@@ -557,7 +601,7 @@ class Peremajaan extends Component {
                             textToHighlight={data.juugyouinBangou}
                         />
                     </td>
-                    <td>
+                    <td className="text-center">
                         <Highlighter
                             highlightClassName="YourHighlightClass"
                             searchWords={[this.state.cari]}
@@ -565,7 +609,7 @@ class Peremajaan extends Component {
                             textToHighlight={data.name}
                         />
                     </td>
-                    <td>
+                    <td className="text-center">
                         <Highlighter
                             highlightClassName="YourHighlightClass"
                             searchWords={[this.state.cari]}
@@ -573,7 +617,7 @@ class Peremajaan extends Component {
                             textToHighlight={data.tempatLahir}
                         />, {data.tanggalLahirText}
                     </td>
-                    <td>
+                    <td className="text-center">
                         <Highlighter
                             highlightClassName="YourHighlightClass"
                             searchWords={[this.state.cari]}
@@ -581,7 +625,7 @@ class Peremajaan extends Component {
                             textToHighlight={data.usia}
                         />
                     </td>
-                    <td>
+                    <td className="text-center">
                         <Highlighter
                             highlightClassName="YourHighlightClass"
                             searchWords={[this.state.cari]}
@@ -589,7 +633,7 @@ class Peremajaan extends Component {
                             textToHighlight="gol"
                         />
                     </td>
-                    <td>
+                    <td className="text-center">
                         <Highlighter
                             highlightClassName="YourHighlightClass"
                             searchWords={[this.state.cari]}

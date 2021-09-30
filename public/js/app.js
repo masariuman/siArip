@@ -4802,7 +4802,7 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
       this.setState({
         cari: e.target.value
       });
-      axios.post("/masuk/search", {
+      axios.post("/admin/pegawai/search", {
         cari: e.target.value
       }).then(function (response) {
         // console.log(response.data);
@@ -5141,15 +5141,20 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
         })
       }) : this.state.data.map(function (data) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
+          className: "masariuman_table",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("th", {
             scope: "row",
+            className: "text-center",
             children: data.nomor
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
+            className: "text-center",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
+              className: "masariuman_width70px",
               alt: "",
               src: "/sashin/" + data.sashin
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
+            className: "text-center",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
               highlightClassName: "YourHighlightClass",
               searchWords: [_this12.state.cari],
@@ -5157,6 +5162,7 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
               textToHighlight: data.juugyouinBangou
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
+            className: "text-center",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
               highlightClassName: "YourHighlightClass",
               searchWords: [_this12.state.cari],
@@ -5164,6 +5170,7 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
               textToHighlight: data.name
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("td", {
+            className: "text-center",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
               highlightClassName: "YourHighlightClass",
               searchWords: [_this12.state.cari],
@@ -5171,6 +5178,7 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
               textToHighlight: data.tempatLahir
             }), ", ", data.tanggalLahirText]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
+            className: "text-center",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
               highlightClassName: "YourHighlightClass",
               searchWords: [_this12.state.cari],
@@ -5178,6 +5186,7 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
               textToHighlight: data.usia
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
+            className: "text-center",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
               highlightClassName: "YourHighlightClass",
               searchWords: [_this12.state.cari],
@@ -5185,6 +5194,7 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
               textToHighlight: "gol"
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
+            className: "text-center",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
               highlightClassName: "YourHighlightClass",
               searchWords: [_this12.state.cari],
