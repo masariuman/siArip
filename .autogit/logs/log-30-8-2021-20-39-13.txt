@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Thu Sep 30 2021 20:39:13 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* public/css/masariumanCss.css
+* public/js/app.js
+* resources/js/component/peremajaan/Detail.jsx
+
+
+Created files:
+* .autogit/logs/log-30-8-2021-15-38-35.txt
+
+
+Deleted files:
+
+
+Renamed files:

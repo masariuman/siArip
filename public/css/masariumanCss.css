@@ -478,6 +478,7 @@ html {
 }
 
 .masariuman_borderleftright0px {
+    padding: 10px;
     border-left: 0;
     border-right: 0;
 }

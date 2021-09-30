@@ -208,6 +208,13 @@ Route::put('/admin/referensi/pejabatNegara/{url}', 'ReferensiController@pejabatN
 Route::delete('/admin/referensi/pejabatNegara/{url}', 'ReferensiController@pejabatNegaraDestroy');
 Route::post('/admin/referensi/pejabatNegara/search', 'ReferensiController@pejabatNegaraSearch');
 
+Route::get('/admin/referensi/kategoriArsip/deeta', 'ReferensiController@kategoriArsip');
+Route::post('/admin/referensi/kategoriArsip', 'ReferensiController@kategoriArsipStore');
+Route::get('/admin/referensi/kategoriArsip/{url}', 'ReferensiController@kategoriArsipEdit');
+Route::put('/admin/referensi/kategoriArsip/{url}', 'ReferensiController@kategoriArsipUpdate');
+Route::delete('/admin/referensi/kategoriArsip/{url}', 'ReferensiController@kategoriArsipDestroy');
+Route::post('/admin/referensi/kategoriArsip/search', 'ReferensiController@kategoriArsipSearch');
+
 Route::resources([
     'kanrisha/heya/deeta' => 'HeyaController',
     'admin/pegawai' => 'UuzaaController',

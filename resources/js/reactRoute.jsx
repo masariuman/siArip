@@ -9,6 +9,7 @@ import DashboardIndex from "./component/dashboard/Index";
 import KeluarIndex from "./component/keluar/Index";
 import PeremajaanData from "./component/peremajaan/Index";
 import DetailPegawai from "./component/peremajaan/Detail";
+import ArsipPegawai from "./component/peremajaan/Arsip";
 import UuzaaIndex from "./component/uuzaa/Index";
 import HeyaIndex from "./component/heya/Index";
 import RefAgamaIndex from "./component/referensi/Agama";
@@ -211,6 +212,11 @@ class ReactRoute extends Component {
                         exact
                         path="/admin/pegawai/:url/detail"
                         component={DetailPegawai}
+                    />
+                    <Route
+                        exact
+                        path="/admin/pegawai/:url/arsip"
+                        component={ArsipPegawai}
                     />
                     <Empatkosongempat />
                 </Switch>

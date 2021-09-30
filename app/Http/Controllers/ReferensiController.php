@@ -2399,4 +2399,97 @@ class ReferensiController extends Controller
             'data' => $data
         ]);
     }
+
+
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+
+
+    //referensi kategori arsip
+    public function kategoriArsip()
+    {
+        $pagination = 5;
+        $data = ReferensiPejabatNegara::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        // dd($gets);
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function kategoriArsipStore(Request $request)
+    {
+        ReferensiPejabatNegara::create([
+            'name' => $request->data,
+            'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string)))))
+        ]);
+        $data = ReferensiPejabatNegara::orderBy("id", "DESC")->first();
+        $data['nomor'] = "BARU";
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function kategoriArsipEdit($id)
+    {
+        //
+        $data = ReferensiPejabatNegara::where("rinku", $id)->first();
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function kategoriArsipUpdate(Request $request, $id)
+    {
+        //
+        $data = ReferensiPejabatNegara::where("rinku", $id)->first();
+        $data->update([
+            'name' => $request->data
+        ]);
+        $pagination = 5;
+        $data = ReferensiPejabatNegara::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function kategoriArsipDestroy($id)
+    {
+        //
+        $data = ReferensiPejabatNegara::where("rinku", $id)->first();
+        $data->update([
+            'sutattsu' => '0'
+        ]);
+        $pagination = 5;
+        $data = ReferensiPejabatNegara::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function kategoriArsipSearch(Request $request)
+    {
+        //
+        $pagination = 5;
+        $data = ReferensiPejabatNegara::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
+            ->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
 }
