@@ -309,8 +309,8 @@ class Menu extends Component {
                     <div className="sub-menu-i">
                         <ul className="sub-menu">
                             <li>
-                                <Link to={`/kanrisha/uuzaa`}>
-                                    <i className="os-icon os-icon-users"></i> &nbsp;&nbsp;&nbsp;User
+                                <Link to={`/admin/referensi/kategoriArsip`}>
+                                    <i className="os-icon os-icon-users"></i> &nbsp;&nbsp;&nbsp;Kategori Arsip
                                 </Link>
                             </li>
                             <li>

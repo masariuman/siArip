@@ -1,0 +1,24 @@
+-------------------- Auto-Git Log --------------------
+		Thu Sep 30 2021 21:09:59 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/ReferensiController.php
+* public/css/masariumanCss.css
+* public/js/app.js
+* resources/js/component/peremajaan/Detail.jsx
+* resources/js/reactRoute.jsx
+* routes/web.php
+
+
+Created files:
+* .autogit/logs/log-30-8-2021-20-39-13.txt
+* app/Models/ReferensiKategoriArsip.php
+* database/migrations/2021_09_30_210522_create_table_referensi_kategori_arsip.php
+* resources/js/component/peremajaan/Arsip.jsx
+
+
+Deleted files:
+
+
+Renamed files:

@@ -27,6 +27,7 @@ use App\Models\ReferensiPejabatNegara;
 use App\Models\ReferensiPejabatPenetap;
 use App\Models\ReferensiJabatanKORPI;
 use App\Models\ReferensiJenisJabatan;
+use App\Models\ReferensiKategoriArsip;
 use Uuid;
 use Illuminate\Support\Facades\Hash;
 
@@ -2410,7 +2411,7 @@ class ReferensiController extends Controller
     public function kategoriArsip()
     {
         $pagination = 5;
-        $data = ReferensiPejabatNegara::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $data = ReferensiKategoriArsip::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data as $items) {
             $items['nomor'] = $count;
@@ -2423,11 +2424,11 @@ class ReferensiController extends Controller
     }
     public function kategoriArsipStore(Request $request)
     {
-        ReferensiPejabatNegara::create([
+        ReferensiKategoriArsip::create([
             'name' => $request->data,
             'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string)))))
         ]);
-        $data = ReferensiPejabatNegara::orderBy("id", "DESC")->first();
+        $data = ReferensiKategoriArsip::orderBy("id", "DESC")->first();
         $data['nomor'] = "BARU";
         return response()->json([
             'data' => $data
@@ -2436,7 +2437,7 @@ class ReferensiController extends Controller
     public function kategoriArsipEdit($id)
     {
         //
-        $data = ReferensiPejabatNegara::where("rinku", $id)->first();
+        $data = ReferensiKategoriArsip::where("rinku", $id)->first();
         return response()->json([
             'data' => $data
         ]);
@@ -2444,12 +2445,12 @@ class ReferensiController extends Controller
     public function kategoriArsipUpdate(Request $request, $id)
     {
         //
-        $data = ReferensiPejabatNegara::where("rinku", $id)->first();
+        $data = ReferensiKategoriArsip::where("rinku", $id)->first();
         $data->update([
             'name' => $request->data
         ]);
         $pagination = 5;
-        $data = ReferensiPejabatNegara::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $data = ReferensiKategoriArsip::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data as $items) {
             $items['nomor'] = $count;
@@ -2462,12 +2463,12 @@ class ReferensiController extends Controller
     public function kategoriArsipDestroy($id)
     {
         //
-        $data = ReferensiPejabatNegara::where("rinku", $id)->first();
+        $data = ReferensiKategoriArsip::where("rinku", $id)->first();
         $data->update([
             'sutattsu' => '0'
         ]);
         $pagination = 5;
-        $data = ReferensiPejabatNegara::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
+        $data = ReferensiKategoriArsip::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data as $items) {
             $items['nomor'] = $count;
@@ -2481,7 +2482,7 @@ class ReferensiController extends Controller
     {
         //
         $pagination = 5;
-        $data = ReferensiPejabatNegara::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
+        $data = ReferensiKategoriArsip::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
             ->orderBy("id", "DESC")->paginate($pagination);
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data as $items) {

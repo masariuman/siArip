@@ -36,6 +36,7 @@ import RefJabatanFungsionalTertentuIndex from "./component/referensi/JabatanFung
 import RefJabatanKORPRIIndex from "./component/referensi/JabatanKORPRI";
 import RefEselonJabatanIndex from "./component/referensi/EselonJabatan";
 import RefJenisJabatanIndex from "./component/referensi/JenisJabatan";
+import RefKategoriArsipIndex from "./component/referensi/KategoriArsip";
 
 class ReactRoute extends Component {
     constructor(props) {
@@ -207,6 +208,11 @@ class ReactRoute extends Component {
                         exact
                         path="/admin/referensi/pejabatNegara"
                         component={RefPejabatNegaraIndex}
+                    />
+                    <Route
+                        exact
+                        path="/admin/referensi/kategoriArsip"
+                        component={RefKategoriArsipIndex}
                     />
                     <Route
                         exact
