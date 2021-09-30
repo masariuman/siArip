@@ -1,0 +1,21 @@
+-------------------- Auto-Git Log --------------------
+		Thu Sep 30 2021 21:40:49 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/ReferensiController.php
+* public/js/app.js
+* resources/js/reactRoute.jsx
+* resources/js/warudo/Menu.jsx
+
+
+Created files:
+* .autogit/logs/log-30-8-2021-21-9-59.txt
+* database/migrations/2021_09_30_213535_create_table_arsip.php
+* resources/js/component/referensi/KategoriArsip.jsx
+
+
+Deleted files:
+
+
+Renamed files:
