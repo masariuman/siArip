@@ -460,6 +460,24 @@ html {
     width: 70px;
 }
 
+.masariuman_width220px {
+    width: 220px;
+}
+
 .masariuman_table:hover {
     background-color: #53b9fdbb !important;
+}
+
+.masariuman_leftSide {
+    height: 96%;
+    text-align: center;
+}
+
+.masariuman_foto {
+
+}
+
+.masariuman_borderleftright0px {
+    border-left: 0;
+    border-right: 0;
 }

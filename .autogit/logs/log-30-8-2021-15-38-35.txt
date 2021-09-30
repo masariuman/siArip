@@ -1,0 +1,20 @@
+-------------------- Auto-Git Log --------------------
+		Thu Sep 30 2021 15:38:35 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* public/iconModal/icon.psd
+* public/js/app.js
+* resources/js/component/peremajaan/Detail.jsx
+
+
+Created files:
+* .autogit/logs/log-30-8-2021-15-8-4.txt
+* public/iconModal/user-icon.png
+* public/iconModal/user.png
+
+
+Deleted files:
+
+
+Renamed files:

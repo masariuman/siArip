@@ -439,6 +439,8 @@ class Detail extends Component {
                     // data: response.data.data.data,
                     namaLengkap : response.data.data.name,
                     nip : response.data.data.juugyouinBangou,
+                    gelarBelakang : response.data.data.gelarBelakang,
+                    gelarDepan : response.data.data.gelarDepan,
                     // ubahPetunjukId: response.data.data.data[0].rinku,
                     loading: false,
                     // activePage: response.data.data.current_page,
@@ -1319,46 +1321,61 @@ class Detail extends Component {
                                 {/* content here */}
                                 <div className="row">
                                     <div className="col-md-4">
-                                    <div className="element-box">
-                                            <h5 className="form-header">
-                                            Daftar Pegawai
-                                            </h5>
-                                            <div className="form-desc">
-                                                Manajemen Data Pegawai
+                                        <div className="element-box masariuman_leftSide">
+                                            <div className="masariuman_foto">
+                                                <img className="masariuman_width220px" alt="" src={"/sashin/avatar.jpg"} />
                                             </div>
                                             <div>
-                                                <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal" onClick={this.handleTambahButton}>Tambah Pegawai Baru</button>
-                                                <div className="col-sm-4 float-right" id="cari">
-                                                    <input type="text" className="form-control" onChange={this.handleChangeCari}
-                                                        value={this.state.cari} placeholder="Cari NIP / Nama..."></input>
-                                                </div>
+                                                <span className="masariuman-bold">{this.state.gelarBelakang +". "+ this.state.namaLengkap +", "+this.state.gelarDepan}</span> <br/>
+                                                <small>NIP. {this.state.nip}</small>
                                             </div>
-                                            <div className="table-responsive" id="ruanganTable">
-                                                <table id="tabeldata" width="100%" className="table table-striped table-lightfont">
-                                                    <thead>
-                                                        <tr>
-                                                            <th className="width50px text-center">NO</th>
-                                                            <th className="width50px text-center">Foto</th>
-                                                            <th className="text-center">NIP</th>
-                                                            <th className="text-center">Nama</th>
-                                                            <th className="text-center">Tempat, Tanggal Lahir</th>
-                                                            <th className="text-center">Usia</th>
-                                                            <th className="text-center">Gol. Ruang</th>
-                                                            <th className="text-center">TMT Pangkat</th>
-                                                            {/* <th className="width250px text-center">ACTION</th> */}
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>{this.renderData()}</tbody>
-                                                </table>
+                                            <div>
+                                                <Link
+                                                    to={`/translation/posts/edit`}
+                                                    className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
+                                                >
+                                                    <span className="pe-7s-pen"> </span> Arsip
+                                                </Link>
                                             </div>
-                                            <div className="d-flex justify-content-center" id="pagination">
-                                                <Pagination
-                                                    activePage={this.state.activePage}
-                                                    itemsCountPerPage={this.state.itemsCountPerPage}
-                                                    totalItemsCount={this.state.totalItemsCount}
-                                                    pageRangeDisplayed={this.state.pageRangeDisplayed}
-                                                    onChange={this.handlePageChange}
-                                                />
+                                            <div>
+                                                <Link
+                                                    to={`/translation/posts/edit`}
+                                                    className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
+                                                >
+                                                    <span className="pe-7s-pen"> </span> Identitas
+                                                </Link>
+                                            </div>
+                                            <div>
+                                                <Link
+                                                    to={`/translation/posts/edit`}
+                                                    className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
+                                                >
+                                                    <span className="pe-7s-pen"> </span> CPNS
+                                                </Link>
+                                            </div>
+                                            <div>
+                                                <Link
+                                                    to={`/translation/posts/edit`}
+                                                    className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
+                                                >
+                                                    <span className="pe-7s-pen"> </span> PNS
+                                                </Link>
+                                            </div>
+                                            <div>
+                                                <Link
+                                                    to={`/translation/posts/edit`}
+                                                    className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
+                                                >
+                                                    <span className="pe-7s-pen"> </span> Pangkat Akhir
+                                                </Link>
+                                            </div>
+                                            <div>
+                                                <Link
+                                                    to={`/translation/posts/edit`}
+                                                    className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
+                                                >
+                                                    <span className="pe-7s-pen"> </span> Jabatan Akhir
+                                                </Link>
                                             </div>
                                         </div>
                                     </div>
