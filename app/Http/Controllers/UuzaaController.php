@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Uuzaa;
 use App\Models\Heya;
 use App\Models\ReferensiSubBidang;
+use App\Models\Arsip;
+use App\Models\ReferensiKategoriArsip;
 use Uuid;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -409,69 +411,32 @@ class UuzaaController extends Controller
     public function arsipPegawai(Request $request, $id)
     {
         //
-        $Uuzaa = Uuzaa::where('rinku', $id)->first();
-        $oldpass = false;
-        if ($request->heyaMei) {
-            $heya = Heya::where('rinku', $request->heyaMei)->first();
-        }
-        if ($request->reberu) {
-            if ($request->reberu === "nol") {
-                $Uuzaa->update([
-                    'reberu' => "0",
-                    'login' => "1"
-                ]);
-            } else if ($request->reberu === "1" || $request->reberu === "2") {
-                $Uuzaa->update([
-                    'reberu' => $request->reberu,
-                    'login' => "1"
-                ]);
-            } else {
-                $Uuzaa->update([
-                    'reberu' => $request->reberu,
-                    'login' => "0"
-                ]);
-            }
-        } else if ($request->newPass) {
-            if (!Hash::check($request->oldPass, $request->user()->password)) {
-                $oldpass = true;
-            } else {
-                $oldpass = false;
-                $Uuzaa->update([
-                    'password' => Hash::make($request->newPass)
-                ]);
-            }
+        $data = $request->request->all();
+        dd($request);
+        $file = $request->files->all();
+        $pegawai = Uuzaa::where('rinku', $id)->first();
+        $kategori = ReferensiKategoriArsip::where('rinku', $data['kategoriName'])->first();
+        if ($file) {
+            $file = $request->file('file');
+            $fileExt = $file->getClientOriginalExtension();
+            $fileName = $pegawai->juugyouinBangou."_".$kategori->name."_".date('YmdHis').".$fileExt";
+            $request->file('file')->move("zaFail", $fileName);
+            Arsip::create([
+                'name' => $data['name'],
+                'rinku' => $data['tanggalSurat'],
+                'keterangan' => $data['keterangan'],
+                'kategori_id' => $kategori->id,
+                'pegawai_id' => $pegawai->id,
+                'file' => $fileName
+            ]);
         } else {
-            $Uuzaa->update([
-                'juugyouinBangou' => $request->nip,
-                'name' => $request->name,
-                'heya_id' => $heya->id
+            Arsip::create([
+                'name' => $data['name'],
+                'rinku' => $data['tanggalSurat'],
+                'keterangan' => $data['keterangan'],
+                'kategori_id' => $kategori->id,
+                'pegawai_id' => $pegawai->id
             ]);
         }
-        $pagination = 5;
-        $data = Uuzaa::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
-        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
-        foreach ($data as $items) {
-            $items['nomor'] = $count;
-            $items['heyaMei'] = $items->heya->heyaMei;
-            if ($items['reberu'] === "3") {
-                $items['level'] = "User";
-            } else if ($items['reberu'] === "2") {
-                $items['level'] = "Admin";
-            } else if ($items['reberu'] === "1") {
-                $items['level'] = "Super Admin";
-            } else {
-                $items['level'] = "Legendary Admin";
-            }
-            $count++;
-        }
-        if ($oldpass === true) {
-            $data['oldPassConfirm'] = false;
-        }
-        if ($oldpass === false) {
-            $data['oldPassConfirm'] = true;
-        }
-        return response()->json([
-            'data' => $data
-        ]);
     }
 }

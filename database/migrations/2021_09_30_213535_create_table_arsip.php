@@ -20,6 +20,8 @@ class CreateTableArsip extends Migration
             $table->string('keterangan')->nullable();
             $table->unsignedBigInteger('pegawai_id');
             $table->foreign('pegawai_id')->references('id')->on('users');
+            $table->unsignedBigInteger('kategori_id');
+            $table->foreign('kategori_id')->references('id')->on('ref_kategoriArsip');
             $table->string('file')->nullable();
             $table->enum('sutattsu', ['1', '0'])->default('1');
             $table->timestamps();

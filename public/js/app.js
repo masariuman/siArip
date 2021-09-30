@@ -4946,23 +4946,20 @@ var Arsip = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      var data = new FormData(); // data.append('file', this.state.file);
-
-      data.append('subbidName', this.state.subbidName);
-      data.append('agamaUser', this.state.agamaUser);
-      data.append('gelarBelakang', this.state.gelarBelakang);
-      data.append('gelarDepan', this.state.gelarDepan);
-      data.append('nip', this.state.nip);
-      data.append('nip9', this.state.nip9);
-      data.append('namaLengkap', this.state.namaLengkap);
-      data.append('tempatLahir', this.state.tempatLahir);
-      data.append('tanggalLahir', this.state.tanggalLahir);
-      axios.post("/admin/pegawai", data).then(function (response) {
+      var data = new FormData();
+      data.append('file', this.state.file);
+      data.append('kategoriName', this.state.kategoriName);
+      data.append('keterangan', this.state.keterangan);
+      data.append('name', this.state.name);
+      axios.put("/admin/pegawai/".concat(this.props.match.params.url, "/arsip"), data).then(function (response) {
         _this6.setState({
           data: [response.data.data].concat(_toConsumableArray(_this6.state.data)),
           unorName: "",
           bidangName: "",
           subbidName: "",
+          kategoriName: "",
+          keterangan: "",
+          name: "",
           agamaUser: "",
           gelarBelakang: "",
           gelarDepan: "",

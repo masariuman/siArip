@@ -12,7 +12,17 @@ class Arsip extends Model
         'name',
         'keterangan',
         'pegawai_id',
+        'kategori_id',
         'file',
         'sutattsu'
     ];
+
+    public function pegawai()
+    {
+        return $this->belongsTo('App\Models\User', 'pegawai_id');
+    }
+    public function kategori()
+    {
+        return $this->belongsTo('App\Models\ReferensiKategoriArsip', 'kategori_id');
+    }
 }
