@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Thu Sep 30 2021 23:42:12 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/ReferensiController.php
+* public/js/app.js
+* resources/js/component/peremajaan/Arsip.jsx
+* routes/web.php
+
+
+Created files:
+* .autogit/logs/log-30-8-2021-23-11-47.txt
+
+
+Deleted files:
+
+
+Renamed files:
