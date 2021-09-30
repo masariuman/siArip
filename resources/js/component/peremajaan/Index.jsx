@@ -29,6 +29,7 @@ class Peremajaan extends Component {
             namaLengkap : "",
             tempatLahir : "",
             tanggalLahir : "",
+            sashin : "",
 
             dataEditInput: "",
             buttonTambahModal: "",
@@ -68,6 +69,7 @@ class Peremajaan extends Component {
         this.handleChangeTempatLahir = this.handleChangeTempatLahir.bind(this);
         this.handleChangeTanggalLahir = this.handleChangeTanggalLahir.bind(this);
 
+
         this.handleChangeFile = this.handleChangeFile.bind(this);
         this.handleButtonFile = this.handleButtonFile.bind(this);
         this.handleTambahButton = this.handleTambahButton.bind(this);
@@ -77,6 +79,7 @@ class Peremajaan extends Component {
     renderSashinDetail() {
         return !this.state.uploaderSashin || this.state.uploaderSashin === "" ? <img alt="" src="/warudo/dist/img/avatar.jpg" /> : <img alt="" src={"/sashin/"+this.state.uploaderSashin} />;
     }
+
 
     handleTambahButton(e) {
         this.setState({
@@ -544,12 +547,7 @@ class Peremajaan extends Component {
                 <tr key={data.rinku}>
                     <th scope="row">{data.nomor}</th>
                     <td>
-                        <Highlighter
-                            highlightClassName="YourHighlightClass"
-                            searchWords={[this.state.cari]}
-                            autoEscape={true}
-                            textToHighlight={data.nip9}
-                        />
+                        <img alt="" src={"/sashin/"+data.sashin} />
                     </td>
                     <td>
                         <Highlighter
@@ -558,8 +556,6 @@ class Peremajaan extends Component {
                             autoEscape={true}
                             textToHighlight={data.juugyouinBangou}
                         />
-                        <br />
-                        <small>{data.tanggalSuratText}</small>
                     </td>
                     <td>
                         <Highlighter
@@ -601,7 +597,7 @@ class Peremajaan extends Component {
                             textToHighlight="ruang"
                         />
                     </td>
-                    <td id="downloadButton">
+                    {/* <td id="downloadButton">
                         <div className="text-center">
                             {data.file ? (
                                 <a href={`/zaFail/${data.file}`} className="mr-2 mb-2 btn btn-outline-secondary">Download</a>
@@ -614,7 +610,7 @@ class Peremajaan extends Component {
                             <button data-target="#editModal" data-toggle="modal" className="mr-2 mb-2 btn btn-outline-warning" type="button" onClick={this.handleEditButton.bind(this, data.rinku)} id={'ubah'+data.nomor}>Ubah</button>
                             <button className="mr-2 mb-2 btn btn-outline-danger" type="button" onClick={this.handleDeleteButton.bind(this, data.rinku)} id={'hapus'+data.nomor}>Hapus</button>
                         </div>
-                    </td>
+                    </td> */}
                 </tr>
             ));
     }
@@ -1338,7 +1334,7 @@ class Peremajaan extends Component {
                                                     <th className="text-center">Usia</th>
                                                     <th className="text-center">Gol. Ruang</th>
                                                     <th className="text-center">TMT Pangkat</th>
-                                                    <th className="width250px text-center">ACTION</th>
+                                                    {/* <th className="width250px text-center">ACTION</th> */}
                                                 </tr>
                                             </thead>
                                             <tbody>{this.renderData()}</tbody>

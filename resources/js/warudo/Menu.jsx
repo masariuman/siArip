@@ -590,7 +590,7 @@ class Menu extends Component {
                     <li className=" has-sub-menu">
                         <NavLink
                             activeClassName="masariuman-active"
-                            to={`/surat-masuk`}
+                            to={`/peremajaanData`}
                         >
                             <div className="icon-w">
                                 <div className="os-icon os-icon-mail"></div>

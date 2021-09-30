@@ -4608,6 +4608,7 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
       namaLengkap: "",
       tempatLahir: "",
       tanggalLahir: "",
+      sashin: "",
       dataEditInput: "",
       buttonTambahModal: "",
       cari: "",
@@ -5144,21 +5145,17 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
             scope: "row",
             children: data.nomor
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
+              alt: "",
+              src: "/sashin/" + data.sashin
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
               highlightClassName: "YourHighlightClass",
               searchWords: [_this12.state.cari],
               autoEscape: true,
-              textToHighlight: data.nip9
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("td", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
-              highlightClassName: "YourHighlightClass",
-              searchWords: [_this12.state.cari],
-              autoEscape: true,
               textToHighlight: data.juugyouinBangou
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("small", {
-              children: data.tanggalSuratText
-            })]
+            })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
               highlightClassName: "YourHighlightClass",
@@ -5194,41 +5191,6 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
               autoEscape: true,
               textToHighlight: "ruang"
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("td", {
-            id: "downloadButton",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-              className: "text-center",
-              children: [data.file ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("a", {
-                href: "/zaFail/".concat(data.file),
-                className: "mr-2 mb-2 btn btn-outline-secondary",
-                children: "Download"
-              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-                "data-target": "#detailModal",
-                "data-toggle": "modal",
-                className: "mr-2 mb-2 btn btn-outline-info",
-                type: "button",
-                onClick: _this12.handleEditButton.bind(_this12, data.rinku),
-                id: 'detail' + data.nomor,
-                children: "Detail"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-              className: "text-center",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-                "data-target": "#editModal",
-                "data-toggle": "modal",
-                className: "mr-2 mb-2 btn btn-outline-warning",
-                type: "button",
-                onClick: _this12.handleEditButton.bind(_this12, data.rinku),
-                id: 'ubah' + data.nomor,
-                children: "Ubah"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-                className: "mr-2 mb-2 btn btn-outline-danger",
-                type: "button",
-                onClick: _this12.handleDeleteButton.bind(_this12, data.rinku),
-                id: 'hapus' + data.nomor,
-                children: "Hapus"
-              })]
-            })]
           })]
         }, data.rinku);
       });
@@ -5714,9 +5676,6 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
                         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("th", {
                           className: "text-center",
                           children: "TMT Pangkat"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("th", {
-                          className: "width250px text-center",
-                          children: "ACTION"
                         })]
                       })
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("tbody", {
@@ -23291,7 +23250,7 @@ var ReactRoute = /*#__PURE__*/function (_Component) {
           component: _component_keluar_Index__WEBPACK_IMPORTED_MODULE_3__.default
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_31__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_32__.Route, {
           exact: true,
-          path: "/surat-masuk",
+          path: "/peremajaanData",
           component: _component_peremajaan_Index__WEBPACK_IMPORTED_MODULE_4__.default
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_31__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_32__.Route, {
           exact: true,
@@ -23409,7 +23368,7 @@ var ReactRoute = /*#__PURE__*/function (_Component) {
           component: _component_keluar_Index__WEBPACK_IMPORTED_MODULE_3__.default
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_31__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_32__.Route, {
           exact: true,
-          path: "/surat-masuk",
+          path: "/peremajaanData",
           component: _component_peremajaan_Index__WEBPACK_IMPORTED_MODULE_4__.default
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_31__.jsx)(_warudo_Empatkosongempat__WEBPACK_IMPORTED_MODULE_1__.default, {})]
       });
@@ -24481,7 +24440,7 @@ var Menu = /*#__PURE__*/function (_Component) {
             className: " has-sub-menu",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.NavLink, {
               activeClassName: "masariuman-active",
-              to: "/surat-masuk",
+              to: "/peremajaanData",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                 className: "icon-w",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {

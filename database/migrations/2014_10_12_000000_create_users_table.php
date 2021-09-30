@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->date('tanggalLahir')->nullable();
             $table->string('email')->unique()->nullable();;
             $table->string('yuuzaaMei')->nullable();
-            $table->text('sashin')->nullable();
+            $table->text('sashin')->default('avatar.jpg');
             $table->enum('reberu', ['3', '2', '1', '0'])->default('3')->comment('3 = Normal User, 2 = Admin Ruangan, 1 = Super Admin, 0 = Lagendary Admin');
             $table->unsignedBigInteger('heyasubBidang_id_id');
             $table->foreign('subBidang_id')->references('id')->on('ref_subbid');
