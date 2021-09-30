@@ -1292,7 +1292,7 @@ class Detail extends Component {
                 <div className="top-bar color-scheme-transparent masariuman-height103px">
                     <div className="top-menu-controls masariuman-marginleft30px">
                         <div className="icon-w top-icon masariuman-titlecontent">
-                        <div className="os-icon os-icon-mail"></div>
+                        <div className="os-icon os-icon-user"></div>
                         </div>
                         <div className="masariuman-textleft">
                             <span className="masariuman-bold">{this.state.namaLengkap}</span> <br/>
@@ -1317,46 +1317,95 @@ class Detail extends Component {
                         <div className="content-box">
                             <div className="element-wrapper">
                                 {/* content here */}
-                                <div className="element-box">
-                                    <h5 className="form-header">
-                                    Daftar Pegawai
-                                    </h5>
-                                    <div className="form-desc">
-                                        Manajemen Data Pegawai
-                                    </div>
-                                    <div>
-                                        <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal" onClick={this.handleTambahButton}>Tambah Pegawai Baru</button>
-                                        <div className="col-sm-4 float-right" id="cari">
-                                            <input type="text" className="form-control" onChange={this.handleChangeCari}
-                                                value={this.state.cari} placeholder="Cari NIP / Nama..."></input>
+                                <div className="row">
+                                    <div className="col-md-4">
+                                    <div className="element-box">
+                                            <h5 className="form-header">
+                                            Daftar Pegawai
+                                            </h5>
+                                            <div className="form-desc">
+                                                Manajemen Data Pegawai
+                                            </div>
+                                            <div>
+                                                <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal" onClick={this.handleTambahButton}>Tambah Pegawai Baru</button>
+                                                <div className="col-sm-4 float-right" id="cari">
+                                                    <input type="text" className="form-control" onChange={this.handleChangeCari}
+                                                        value={this.state.cari} placeholder="Cari NIP / Nama..."></input>
+                                                </div>
+                                            </div>
+                                            <div className="table-responsive" id="ruanganTable">
+                                                <table id="tabeldata" width="100%" className="table table-striped table-lightfont">
+                                                    <thead>
+                                                        <tr>
+                                                            <th className="width50px text-center">NO</th>
+                                                            <th className="width50px text-center">Foto</th>
+                                                            <th className="text-center">NIP</th>
+                                                            <th className="text-center">Nama</th>
+                                                            <th className="text-center">Tempat, Tanggal Lahir</th>
+                                                            <th className="text-center">Usia</th>
+                                                            <th className="text-center">Gol. Ruang</th>
+                                                            <th className="text-center">TMT Pangkat</th>
+                                                            {/* <th className="width250px text-center">ACTION</th> */}
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>{this.renderData()}</tbody>
+                                                </table>
+                                            </div>
+                                            <div className="d-flex justify-content-center" id="pagination">
+                                                <Pagination
+                                                    activePage={this.state.activePage}
+                                                    itemsCountPerPage={this.state.itemsCountPerPage}
+                                                    totalItemsCount={this.state.totalItemsCount}
+                                                    pageRangeDisplayed={this.state.pageRangeDisplayed}
+                                                    onChange={this.handlePageChange}
+                                                />
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="table-responsive" id="ruanganTable">
-                                        <table id="tabeldata" width="100%" className="table table-striped table-lightfont">
-                                            <thead>
-                                                <tr>
-                                                    <th className="width50px text-center">NO</th>
-                                                    <th className="width50px text-center">Foto</th>
-                                                    <th className="text-center">NIP</th>
-                                                    <th className="text-center">Nama</th>
-                                                    <th className="text-center">Tempat, Tanggal Lahir</th>
-                                                    <th className="text-center">Usia</th>
-                                                    <th className="text-center">Gol. Ruang</th>
-                                                    <th className="text-center">TMT Pangkat</th>
-                                                    {/* <th className="width250px text-center">ACTION</th> */}
-                                                </tr>
-                                            </thead>
-                                            <tbody>{this.renderData()}</tbody>
-                                        </table>
-                                    </div>
-                                    <div className="d-flex justify-content-center" id="pagination">
-                                        <Pagination
-                                            activePage={this.state.activePage}
-                                            itemsCountPerPage={this.state.itemsCountPerPage}
-                                            totalItemsCount={this.state.totalItemsCount}
-                                            pageRangeDisplayed={this.state.pageRangeDisplayed}
-                                            onChange={this.handlePageChange}
-                                        />
+                                    <div className="col-md-8">
+                                        <div className="element-box">
+                                            <h5 className="form-header">
+                                            Daftar Pegawai
+                                            </h5>
+                                            <div className="form-desc">
+                                                Manajemen Data Pegawai
+                                            </div>
+                                            <div>
+                                                <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal" onClick={this.handleTambahButton}>Tambah Pegawai Baru</button>
+                                                <div className="col-sm-4 float-right" id="cari">
+                                                    <input type="text" className="form-control" onChange={this.handleChangeCari}
+                                                        value={this.state.cari} placeholder="Cari NIP / Nama..."></input>
+                                                </div>
+                                            </div>
+                                            <div className="table-responsive" id="ruanganTable">
+                                                <table id="tabeldata" width="100%" className="table table-striped table-lightfont">
+                                                    <thead>
+                                                        <tr>
+                                                            <th className="width50px text-center">NO</th>
+                                                            <th className="width50px text-center">Foto</th>
+                                                            <th className="text-center">NIP</th>
+                                                            <th className="text-center">Nama</th>
+                                                            <th className="text-center">Tempat, Tanggal Lahir</th>
+                                                            <th className="text-center">Usia</th>
+                                                            <th className="text-center">Gol. Ruang</th>
+                                                            <th className="text-center">TMT Pangkat</th>
+                                                            {/* <th className="width250px text-center">ACTION</th> */}
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>{this.renderData()}</tbody>
+                                                </table>
+                                            </div>
+                                            <div className="d-flex justify-content-center" id="pagination">
+                                                <Pagination
+                                                    activePage={this.state.activePage}
+                                                    itemsCountPerPage={this.state.itemsCountPerPage}
+                                                    totalItemsCount={this.state.totalItemsCount}
+                                                    pageRangeDisplayed={this.state.pageRangeDisplayed}
+                                                    onChange={this.handlePageChange}
+                                                />
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                                 {/* end content here */}
