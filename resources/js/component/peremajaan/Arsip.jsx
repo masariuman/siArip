@@ -31,6 +31,7 @@ class Arsip extends Component {
             tempatLahir : "",
             tanggalLahir : "",
             sashin : "",
+            kategori : "",
 
             dataEditInput: "",
             buttonTambahModal: "",
@@ -615,6 +616,14 @@ class Arsip extends Component {
         ));
     }
 
+    renderSelectKategori() {
+        return this.state.kategori.map((data) => (
+            <option value={data.rinku} key={data.rinku}>
+                {data.name}
+            </option>
+        ));
+    }
+
     renderSelectUnor() {
         return this.state.unor.map((data) => (
             <option value={data.rinku} key={data.rinku}>
@@ -652,112 +661,23 @@ class Arsip extends Component {
                         </div>
                         <div className="onboarding-content with-gradient masariuman_width100percent">
                         <h4 className="onboarding-title">
-                            Tambah Data Pegawai
+                            Tambah Arsip Baru
                         </h4>
                         <form onSubmit={this.handleSubmit}>
                             <div className="row">
-                            <div className="col-sm-6">
-                                <div className="form-group">
-                                    <input
-                                        onChange={this.handleChangeNip}
-                                        value={this.state.nip}
-                                        title="NIP"
-                                        placeholder="NIP..."
-                                        type="text"
-                                        className="form-control"
-                                    />
-                                </div>
-                            </div>
-                            <div className="col-sm-6">
-                                <div className="form-group">
-                                    <input
-                                        onChange={this.handleChangeNip9}
-                                        value={this.state.nip9}
-                                        title="Nomor Surat"
-                                        placeholder="NIP 9..."
-                                        type="text"
-                                        className="form-control"
-                                    />
-                                </div>
-                            </div>
-                            <div className="col-sm-3">
-                                <div className="form-group">
-                                    <input
-                                        onChange={this.handleChangeGelarDepan}
-                                        value={this.state.gelarDepan}
-                                        title="Nomor Surat"
-                                        placeholder="Gelar Depan..."
-                                        type="text"
-                                        className="form-control"
-                                    />
-                                </div>
-                            </div>
-                            <div className="col-sm-6">
-                                <div className="form-group">
-                                    <input
-                                        onChange={this.handleChangeNamaLengkap}
-                                        value={this.state.namaLengkap}
-                                        title="Nomor Surat"
-                                        placeholder="Nama Lengkap..."
-                                        type="text"
-                                        className="form-control"
-                                    />
-                                </div>
-                            </div>
-                            <div className="col-sm-3">
-                                <div className="form-group">
-                                    <input
-                                        onChange={this.handleChangeGelarBelakang}
-                                        value={this.state.gelarBelakang}
-                                        title="Nomor Surat"
-                                        placeholder="Gelar Belakang..."
-                                        type="text"
-                                        className="form-control"
-                                    />
-                                </div>
-                            </div>
-                            <div className="col-sm-5">
-                                <div className="form-group">
-                                    Tempat & Tanggal lahir :
-                                </div>
-                            </div>
-                            <div className="col-sm-3">
-                                <div className="form-group">
-                                    <input
-                                        onChange={this.handleChangeTempatLahir}
-                                        value={this.state.tempatLahir}
-                                        title="Tempat lahir"
-                                        placeholder="Tempat Lahir..."
-                                        type="text"
-                                        className="form-control"
-                                    />
-                                </div>
-                            </div>
                             <div className="col-sm-4">
                                 <div className="form-group">
-                                    <input
-                                        onChange={this.handleChangeTanggalLahir}
-                                        value={this.state.tanggalLahir}
-                                        title="Tanggal Lahir"
-                                        placeholder="Tanggal Lahir.."
-                                        type="date"
-                                        className="form-control"
-                                    />
-                                </div>
-                            </div>
-                            <div className="col-sm-4">
-                                <div className="form-group">
-                                    Agama :
+                                    kategori :
                                 </div>
                             </div>
                             <div className="col-sm-8">
                                 <div className="form-group">
                                     <select
-                                        value={this.state.agamaUser}
-                                        onChange={this.handleChangeAgama}
+                                        value={this.state.kategori}
+                                        onChange={this.handleChangeKategori}
                                         className="form-control"
                                     >
-                                        {this.renderSelectAgama()}
+                                        {this.renderSelectKategori()}
                                     </select>
                                 </div>
                             </div>
