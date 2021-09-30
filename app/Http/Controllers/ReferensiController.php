@@ -2422,6 +2422,14 @@ class ReferensiController extends Controller
             'data' => $data
         ]);
     }
+    public function kategoriArsipCreate()
+    {
+        $data = ReferensiKategoriArsip::where("sutattsu", "1")->orderBy("id", "DESC")->get();
+        // dd($data);
+        return response()->json([
+            'data' => $data
+        ]);
+    }
     public function kategoriArsipStore(Request $request)
     {
         ReferensiKategoriArsip::create([

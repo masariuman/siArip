@@ -209,6 +209,7 @@ Route::delete('/admin/referensi/pejabatNegara/{url}', 'ReferensiController@pejab
 Route::post('/admin/referensi/pejabatNegara/search', 'ReferensiController@pejabatNegaraSearch');
 
 Route::get('/admin/referensi/kategoriArsip/deeta', 'ReferensiController@kategoriArsip');
+Route::get('/admin/referensi/kategoriArsip/create', 'ReferensiController@kategoriArsipCreate');
 Route::post('/admin/referensi/kategoriArsip', 'ReferensiController@kategoriArsipStore');
 Route::get('/admin/referensi/kategoriArsip/{url}', 'ReferensiController@kategoriArsipEdit');
 Route::put('/admin/referensi/kategoriArsip/{url}', 'ReferensiController@kategoriArsipUpdate');

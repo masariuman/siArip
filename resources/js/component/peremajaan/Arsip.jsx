@@ -31,7 +31,10 @@ class Arsip extends Component {
             tempatLahir : "",
             tanggalLahir : "",
             sashin : "",
-            kategori : "",
+            kategori: [],
+            kategoriName : "",
+            name : "",
+            keterangan : "",
 
             dataEditInput: "",
             buttonTambahModal: "",
@@ -60,6 +63,11 @@ class Arsip extends Component {
         this.handleChangeCari = this.handleChangeCari.bind(this);
 
         this.handleChangeAgama = this.handleChangeAgama.bind(this);
+        this.handleChangeKategori = this.handleChangeKategori.bind(this);
+        this.handleChangeName = this.handleChangeName.bind(this);
+        this.handleChangeKeterangan = this.handleChangeKeterangan.bind(this);
+
+
         this.handleChangeNip = this.handleChangeNip.bind(this);
         this.handleChangeNip9 = this.handleChangeNip9.bind(this);
         this.handleChangeGelarDepan = this.handleChangeGelarDepan.bind(this);
@@ -106,6 +114,27 @@ class Arsip extends Component {
     handleChangeAgama(e) {
         this.setState({
             agamaUser: e.target.value
+        });
+        // console.log(e.target.value);
+    }
+
+    handleChangeKategori(e) {
+        this.setState({
+            kategori: e.target.value
+        });
+        // console.log(e.target.value);
+    }
+
+    handleChangeName(e) {
+        this.setState({
+            name: e.target.value
+        });
+        // console.log(e.target.value);
+    }
+
+    handleChangeKeterangan(e) {
+        this.setState({
+            keterangan: e.target.value
         });
         // console.log(e.target.value);
     }
@@ -329,18 +358,12 @@ class Arsip extends Component {
             loading: true
         });
         const data = new FormData();
-        // data.append('file', this.state.file);
-        data.append('subbidName', this.state.subbidName);
-        data.append('agamaUser', this.state.agamaUser);
-        data.append('gelarBelakang', this.state.gelarBelakang);
-        data.append('gelarDepan', this.state.gelarDepan);
-        data.append('nip', this.state.nip);
-        data.append('nip9', this.state.nip9);
-        data.append('namaLengkap', this.state.namaLengkap);
-        data.append('tempatLahir', this.state.tempatLahir);
-        data.append('tanggalLahir', this.state.tanggalLahir);
+        data.append('file', this.state.file);
+        data.append('kategoriName', this.state.kategoriName);
+        data.append('keterangan', this.state.keterangan);
+        data.append('name', this.state.name);
         axios
-            .post("/admin/pegawai", data)
+            .put(`/admin/pegawai/${this.props.match.params.url}/arsip`, data)
             .then(response => {
                 this.setState({
                     data: [response.data.data, ...this.state.data],
@@ -508,6 +531,15 @@ class Arsip extends Component {
         });
     }
 
+    getKategori() {
+        axios.get("/admin/referensi/kategoriArsip/create").then((response) => {
+            this.setState({
+                kategori: response.data.data,
+                kategoriName: response.data.data[0].rinku,
+            });
+        });
+    }
+
     getUnor() {
         axios.get("/admin/referensi/unorBidang").then((response) => {
             this.setState({
@@ -547,6 +579,7 @@ class Arsip extends Component {
         this.getData();
         this.getAgama();
         this.getUnor();
+        this.getKategori();
     }
 
     componentDidUpdate() {
@@ -665,15 +698,15 @@ class Arsip extends Component {
                         </h4>
                         <form onSubmit={this.handleSubmit}>
                             <div className="row">
-                            <div className="col-sm-4">
+                            <div className="col-sm-3">
                                 <div className="form-group">
                                     kategori :
                                 </div>
                             </div>
-                            <div className="col-sm-8">
+                            <div className="col-sm-9">
                                 <div className="form-group">
                                     <select
-                                        value={this.state.kategori}
+                                        value={this.state.kategoriName}
                                         onChange={this.handleChangeKategori}
                                         className="form-control"
                                     >
@@ -681,52 +714,28 @@ class Arsip extends Component {
                                     </select>
                                 </div>
                             </div>
-                            <div className="col-sm-4">
+                            <div className="col-sm-12">
                                 <div className="form-group">
-                                    Unit Kerja :
-                                </div>
-                            </div>
-                            <div className="col-sm-8">
-                                <div className="form-group">
-                                    <select
-                                        value={this.state.unorName}
-                                        onChange={this.handleChangeUnor}
+                                    <input
+                                        onChange={this.handleChangeName}
+                                        value={this.state.name}
+                                        title="Nama Berkas"
+                                        placeholder="Nama Berkas..."
+                                        type="text"
                                         className="form-control"
-                                    >
-                                        {this.renderSelectUnor()}
-                                    </select>
+                                    />
                                 </div>
                             </div>
-                            <div className="col-sm-4">
+                            <div className="col-sm-12">
                                 <div className="form-group">
-                                    Bidang :
-                                </div>
-                            </div>
-                            <div className="col-sm-8">
-                                <div className="form-group">
-                                    <select
-                                        value={this.state.bidangName}
-                                        onChange={this.handleChangeBidang}
+                                    <input
+                                        onChange={this.handleChangeKeterangan}
+                                        value={this.state.keterangan}
+                                        title="keterangan"
+                                        placeholder="keterangan..."
+                                        type="text"
                                         className="form-control"
-                                    >
-                                        {this.renderSelectBidang()}
-                                    </select>
-                                </div>
-                            </div>
-                            <div className="col-sm-4">
-                                <div className="form-group">
-                                    Sub Bidang :
-                                </div>
-                            </div>
-                            <div className="col-sm-8">
-                                <div className="form-group">
-                                    <select
-                                        value={this.state.subbidName}
-                                        onChange={this.handleChangeSubbid}
-                                        className="form-control"
-                                    >
-                                        {this.renderSelectSubbid()}
-                                    </select>
+                                    />
                                 </div>
                             </div>
                             {/* <div className="col-sm-4">
@@ -791,7 +800,7 @@ class Arsip extends Component {
                                     />
                                 </div>
                             </div> */}
-                            {/* <div className="col-sm-12">
+                            <div className="col-sm-12">
                                 <div className="form-group">
                                     <input
                                         onChange={this.handleChangeFile}
@@ -808,7 +817,7 @@ class Arsip extends Component {
                                     <tbody>
                                         <tr>
                                             <td className="masariuman_width110px">
-                                                <button className="mr-2 mb-2 btn btn-primary" type="button" onClick={this.handleButtonFile} >Upload Foto</button>
+                                                <button className="mr-2 mb-2 btn btn-primary" type="button" onClick={this.handleButtonFile} >Upload File</button>
                                             </td>
                                             <td className="form-group">
                                                 <a target="_blank" href={this.state.fileUrl}>{this.state.filePath}</a>
@@ -816,7 +825,7 @@ class Arsip extends Component {
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div> */}
+                            </div>
                             <div className="col-sm-12">
                                 <div className="form-group text-center">
                                     <button className="mr-2 mb-2 btn btn-primary" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Tambah Pegawai Baru</button>
