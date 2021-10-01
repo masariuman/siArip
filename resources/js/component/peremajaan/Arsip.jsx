@@ -362,8 +362,9 @@ class Arsip extends Component {
         data.append('kategoriName', this.state.kategoriName);
         data.append('keterangan', this.state.keterangan);
         data.append('name', this.state.name);
+        data.append('pegawai_id', this.props.match.params.url);
         axios
-            .put(`/admin/pegawai/${this.props.match.params.url}/arsip`, data)
+            .post(`/admin/pegawai/arsip`, data)
             .then(response => {
                 this.setState({
                     data: [response.data.data, ...this.state.data],

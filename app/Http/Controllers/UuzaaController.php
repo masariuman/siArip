@@ -408,7 +408,7 @@ class UuzaaController extends Controller
     }
 
 
-    public function arsipPegawai(Request $request, $id)
+    public function arsipPegawai(Request $request)
     {
         //
         $data = $request->request->all();

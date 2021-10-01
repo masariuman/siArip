@@ -4951,7 +4951,8 @@ var Arsip = /*#__PURE__*/function (_Component) {
       data.append('kategoriName', this.state.kategoriName);
       data.append('keterangan', this.state.keterangan);
       data.append('name', this.state.name);
-      axios.put("/admin/pegawai/".concat(this.props.match.params.url, "/arsip"), data).then(function (response) {
+      data.append('pegawai_id', this.props.match.params.url);
+      axios.post("/admin/pegawai/arsip", data).then(function (response) {
         _this6.setState({
           data: [response.data.data].concat(_toConsumableArray(_this6.state.data)),
           unorName: "",

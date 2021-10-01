@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Fri Oct 01 2021 00:42:49 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/UuzaaController.php
+* app/Models/Arsip.php
+* database/migrations/2021_09_30_213535_create_table_arsip.php
+* public/js/app.js
+
+
+Created files:
+* .autogit/logs/log-1-9-2021-0-12-28.txt
+
+
+Deleted files:
+
+
+Renamed files:
