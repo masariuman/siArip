@@ -1,0 +1,41 @@
+-------------------- Auto-Git Log --------------------
+		Sat Oct 02 2021 12:17:14 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* resources/js/component/peremajaan/Index.jsx
+* resources/js/component/referensi/Bidang.jsx
+* resources/js/component/referensi/DiklatFungsional.jsx
+* resources/js/component/referensi/DiklatStruktural.jsx
+* resources/js/component/referensi/DiklatTeknis.jsx
+* resources/js/component/referensi/EselonJabatan.jsx
+* resources/js/component/referensi/JabatanFungsionalTertentu.jsx
+* resources/js/component/referensi/JabatanFungsionalUmum.jsx
+* resources/js/component/referensi/JabatanKORPRI.jsx
+* resources/js/component/referensi/JenisHukumanDisiplin.jsx
+* resources/js/component/referensi/JenisJabatan.jsx
+* resources/js/component/referensi/JenisKepegawaian.jsx
+* resources/js/component/referensi/JenisNaikPangkat.jsx
+* resources/js/component/referensi/JenisPenghargaan.jsx
+* resources/js/component/referensi/JurusanPendidikan.jsx
+* resources/js/component/referensi/KategoriArsip.jsx
+* resources/js/component/referensi/KedudukanKepegawaian.jsx
+* resources/js/component/referensi/PangkatGolonganRuang.jsx
+* resources/js/component/referensi/PejabatNegara.jsx
+* resources/js/component/referensi/PejabatPenetap.jsx
+* resources/js/component/referensi/STLUD.jsx
+* resources/js/component/referensi/StatusKepegawaian.jsx
+* resources/js/component/referensi/SubBidang.jsx
+* resources/js/component/referensi/TingkatPendidikan.jsx
+* resources/js/component/referensi/Unor.jsx
+* routes/web.php
+
+
+Created files:
+* .autogit/logs/log-2-9-2021-11-47-0.txt
+
+
+Deleted files:
+
+
+Renamed files:
