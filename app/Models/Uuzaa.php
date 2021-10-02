@@ -29,4 +29,8 @@ class Uuzaa extends Model
     {
         return $this->belongsTo('App\Models\ReferensiSubBidang', 'subBidang_id');
     }
+    public function arsip()
+    {
+        return $this->hasMany('App\Models\Arsip', 'pegawai_id');
+    }
 }

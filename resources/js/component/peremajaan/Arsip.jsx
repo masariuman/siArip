@@ -35,6 +35,7 @@ class Arsip extends Component {
             kategoriName : "",
             name : "",
             keterangan : "",
+            arsip: [],
 
             dataEditInput: "",
             buttonTambahModal: "",
@@ -462,13 +463,14 @@ class Arsip extends Component {
         axios
             .get(`/admin/pegawai/${this.props.match.params.url}`)
             .then(response => {
-                // console.log(response.data.data);
+                console.log(response);
                 this.setState({
                     // data: response.data.data.data,
-                    namaLengkap : response.data.data.name,
-                    nip : response.data.data.juugyouinBangou,
-                    gelarBelakang : response.data.data.gelarBelakang,
-                    gelarDepan : response.data.data.gelarDepan,
+                    namaLengkap : response.data.data.pegawai.name,
+                    nip : response.data.data.pegawai.juugyouinBangou,
+                    gelarBelakang : response.data.data.pegawai.gelarBelakang,
+                    gelarDepan : response.data.data.pegawai.gelarDepan,
+                    arsip : response.data.data.arsip,
                     // ubahPetunjukId: response.data.data.data[0].rinku,
                     loading: false,
                     // activePage: response.data.data.current_page,
@@ -591,8 +593,8 @@ class Arsip extends Component {
     }
 
     renderData() {
-        return !this.state.data.length ? <tr><td colSpan="9" className="text-center">Data Tidak Ditemukan</td></tr> :
-            this.state.data.map(data => (
+        return !this.state.arsip.length ? <tr><td colSpan="9" className="text-center">Data Tidak Ditemukan</td></tr> :
+            this.state.arsip.map(data => (
                 <tr key={data.rinku} className="masariuman_table"  onClick={this.handleDetail.bind(this, data.rinku)}>
                     <th scope="row" className="text-center">{data.nomor}</th>
                     <td className="text-center">

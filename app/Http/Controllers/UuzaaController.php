@@ -138,7 +138,8 @@ class UuzaaController extends Controller
     public function show($id)
     {
         //
-        $data = Uuzaa::where('rinku', $id)->first();
+        $data['pegawai'] = Uuzaa::where('rinku', $id)->first();
+        $data['arsip'] = Arsip::where('pegawai_id',$data['pegawai']['id'])->where('sutattsu','1')->get();
         // $data['heyaRinku'] = $data->heya->rinku;
         return response()->json([
             'data' => $data

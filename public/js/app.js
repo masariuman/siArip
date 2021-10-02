@@ -4615,6 +4615,7 @@ var Arsip = /*#__PURE__*/function (_Component) {
       kategoriName: "",
       name: "",
       keterangan: "",
+      arsip: [],
       dataEditInput: "",
       buttonTambahModal: "",
       cari: "",
@@ -5048,13 +5049,15 @@ var Arsip = /*#__PURE__*/function (_Component) {
       this.setState({// loading: true
       });
       axios.get("/admin/pegawai/".concat(this.props.match.params.url)).then(function (response) {
-        // console.log(response.data.data);
+        console.log(response);
+
         _this8.setState({
           // data: response.data.data.data,
-          namaLengkap: response.data.data.name,
-          nip: response.data.data.juugyouinBangou,
-          gelarBelakang: response.data.data.gelarBelakang,
-          gelarDepan: response.data.data.gelarDepan,
+          namaLengkap: response.data.data.pegawai.name,
+          nip: response.data.data.pegawai.juugyouinBangou,
+          gelarBelakang: response.data.data.pegawai.gelarBelakang,
+          gelarDepan: response.data.data.pegawai.gelarDepan,
+          arsip: response.data.data.arsip,
           // ubahPetunjukId: response.data.data.data[0].rinku,
           loading: false // activePage: response.data.data.current_page,
           // itemsCountPerPage: response.data.data.per_page,
@@ -5185,13 +5188,13 @@ var Arsip = /*#__PURE__*/function (_Component) {
     value: function renderData() {
       var _this13 = this;
 
-      return !this.state.data.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("tr", {
+      return !this.state.arsip.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("tr", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
           colSpan: "9",
           className: "text-center",
           children: "Data Tidak Ditemukan"
         })
-      }) : this.state.data.map(function (data) {
+      }) : this.state.arsip.map(function (data) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
           className: "masariuman_table",
           onClick: _this13.handleDetail.bind(_this13, data.rinku),
