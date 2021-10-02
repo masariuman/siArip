@@ -5057,7 +5057,7 @@ var Arsip = /*#__PURE__*/function (_Component) {
           nip: response.data.data.pegawai.juugyouinBangou,
           gelarBelakang: response.data.data.pegawai.gelarBelakang,
           gelarDepan: response.data.data.pegawai.gelarDepan,
-          arsip: response.data.data.arsip,
+          arsip: response.data.data.arsip.data,
           // ubahPetunjukId: response.data.data.data[0].rinku,
           loading: false // activePage: response.data.data.current_page,
           // itemsCountPerPage: response.data.data.per_page,
@@ -5208,7 +5208,7 @@ var Arsip = /*#__PURE__*/function (_Component) {
               highlightClassName: "YourHighlightClass",
               searchWords: [_this13.state.cari],
               autoEscape: true,
-              textToHighlight: data.kategori
+              textToHighlight: data.kategori.name
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "text-center",

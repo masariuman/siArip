@@ -470,7 +470,7 @@ class Arsip extends Component {
                     nip : response.data.data.pegawai.juugyouinBangou,
                     gelarBelakang : response.data.data.pegawai.gelarBelakang,
                     gelarDepan : response.data.data.pegawai.gelarDepan,
-                    arsip : response.data.data.arsip,
+                    arsip : response.data.data.arsip.data,
                     // ubahPetunjukId: response.data.data.data[0].rinku,
                     loading: false,
                     // activePage: response.data.data.current_page,
@@ -602,7 +602,7 @@ class Arsip extends Component {
                             highlightClassName="YourHighlightClass"
                             searchWords={[this.state.cari]}
                             autoEscape={true}
-                            textToHighlight={data.kategori}
+                            textToHighlight={data.kategori.name}
                         />
                     </td>
                     <td className="text-center">
