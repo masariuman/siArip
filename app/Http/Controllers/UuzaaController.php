@@ -439,4 +439,20 @@ class UuzaaController extends Controller
             ]);
         }
     }
+
+    public function arsipPegawaiSearch(Request $request)
+    {
+        //
+        $pagination = 5;
+        $data = Uuzaa::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
+            ->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
 }
