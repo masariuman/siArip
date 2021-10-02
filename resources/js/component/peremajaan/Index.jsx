@@ -218,7 +218,7 @@ class Peremajaan extends Component {
                 cari: e.target.value
             })
             .then(response => {
-                // console.log(response.data);
+                // console.log(response);
                 this.setState({
                     data: response.data.data.data,
                     loading: false,

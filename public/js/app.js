@@ -7372,7 +7372,8 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
       axios.post("/admin/pegawai/search", {
         cari: e.target.value
       }).then(function (response) {
-        // console.log(response.data);
+        console.log(response);
+
         _this3.setState({
           data: response.data.data.data,
           loading: false,

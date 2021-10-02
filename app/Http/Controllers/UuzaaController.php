@@ -445,7 +445,7 @@ class UuzaaController extends Controller
         //
         $pagination = 5;
         $data = Uuzaa::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
-            ->orwhere("juugyouinBangou", "like", "%" . $request->cari . "%")
+            ->orWhere("juugyouinBangou", "like", "%" . $request->cari . "%")
             ->orderBy("id", "DESC")->paginate($pagination);
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data as $items) {

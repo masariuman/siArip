@@ -1,0 +1,17 @@
+-------------------- Auto-Git Log --------------------
+		Sat Oct 02 2021 14:18:23 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/UuzaaController.php
+* public/js/app.js
+
+
+Created files:
+* .autogit/logs/log-2-9-2021-13-48-1.txt
+
+
+Deleted files:
+
+
+Renamed files:

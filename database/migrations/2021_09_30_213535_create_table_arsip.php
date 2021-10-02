@@ -23,7 +23,7 @@ class CreateTableArsip extends Migration
             $table->unsignedBigInteger('kategori_id');
             $table->foreign('kategori_id')->references('id')->on('ref_kategoriArsip');
             $table->string('file')->nullable();
-            $table->enum('sutattsu', ['1', '0'])->default('1');
+            $table->enum('sutattsu', ['4','3','2','1','0'])->default('1');
             $table->timestamps();
         });
     }
