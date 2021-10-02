@@ -217,6 +217,7 @@ Route::delete('/admin/referensi/kategoriArsip/{url}', 'ReferensiController@kateg
 Route::post('/admin/referensi/kategoriArsip/search', 'ReferensiController@kategoriArsipSearch');
 
 Route::post('/admin/pegawai/arsip', 'UuzaaController@arsipPegawai');
+Route::post('/admin/pegawai/arsip/search', 'UuzaaController@arsipPegawaiSearch');
 
 Route::resources([
     'kanrisha/heya/deeta' => 'HeyaController',

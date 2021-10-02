@@ -245,14 +245,14 @@ class EselonJabatan extends Component {
             loading: true
         });
         axios
-            .get('/kanrisha/heya/deeta?page='+pageNumber)
+            .get('/admin/referensi/eselonJabatan/deeta?page='+pageNumber)
             .then(response => {
                 this.setState({
-                    data: response.data.deeta_data.data,
+                    data: response.data.data.data,
                     loading: false,
-                    activePage: response.data.deeta_data.current_page,
-                    itemsCountPerPage: response.data.deeta_data.per_page,
-                    totalItemsCount: response.data.deeta_data.total,
+                    activePage: response.data.data.current_page,
+                    itemsCountPerPage: response.data.data.per_page,
+                    totalItemsCount: response.data.data.total,
                     pageRangeDisplayed: 10
                 });
             })

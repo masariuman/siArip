@@ -520,7 +520,7 @@ class Peremajaan extends Component {
             loading: true
         });
         axios
-            .get('/kanrisha/masuk/deeta?page='+pageNumber)
+            .get('/admin/pegawai?page='+pageNumber)
             .then(response => {
                 this.setState({
                     data: response.data.data.data,

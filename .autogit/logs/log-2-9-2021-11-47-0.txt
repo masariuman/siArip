@@ -1,0 +1,17 @@
+-------------------- Auto-Git Log --------------------
+		Sat Oct 02 2021 11:47:00 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* public/js/app.js
+* resources/js/component/referensi/Agama.jsx
+
+
+Created files:
+* .autogit/logs/log-1-9-2021-15-42-2.txt
+
+
+Deleted files:
+
+
+Renamed files:
