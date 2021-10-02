@@ -7673,7 +7673,7 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      axios.get('/kanrisha/masuk/deeta?page=' + pageNumber).then(function (response) {
+      axios.get('/admin/pegawai?page=' + pageNumber).then(function (response) {
         _this11.setState({
           data: response.data.data.data,
           loading: false,
@@ -9309,13 +9309,13 @@ var Bidang = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      axios.get('/kanrisha/alhuqulAlfareia/deeta?page=' + pageNumber).then(function (response) {
+      axios.get('/admin/referensi/bidang/deeta?page=' + pageNumber).then(function (response) {
         _this9.setState({
-          data: response.data.deeta_data.data,
+          data: response.data.data.data,
           loading: false,
-          activePage: response.data.deeta_data.current_page,
-          itemsCountPerPage: response.data.deeta_data.per_page,
-          totalItemsCount: response.data.deeta_data.total,
+          activePage: response.data.data.current_page,
+          itemsCountPerPage: response.data.data.per_page,
+          totalItemsCount: response.data.data.total,
           pageRangeDisplayed: 10
         });
       })["catch"](function (error) {
@@ -10017,13 +10017,13 @@ var DiklatFungsional = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      axios.get('/kanrisha/heya/deeta?page=' + pageNumber).then(function (response) {
+      axios.get('/admin/referensi/diklatFungsional/deeta?page=' + pageNumber).then(function (response) {
         _this8.setState({
-          data: response.data.deeta_data.data,
+          data: response.data.data.data,
           loading: false,
-          activePage: response.data.deeta_data.current_page,
-          itemsCountPerPage: response.data.deeta_data.per_page,
-          totalItemsCount: response.data.deeta_data.total,
+          activePage: response.data.data.current_page,
+          itemsCountPerPage: response.data.data.per_page,
+          totalItemsCount: response.data.data.total,
           pageRangeDisplayed: 10
         });
       })["catch"](function (error) {
@@ -10689,13 +10689,13 @@ var DiklatStruktural = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      axios.get('/kanrisha/heya/deeta?page=' + pageNumber).then(function (response) {
+      axios.get('/admin/referensi/diklatStruktural/deeta?page=' + pageNumber).then(function (response) {
         _this8.setState({
-          data: response.data.deeta_data.data,
+          data: response.data.data.data,
           loading: false,
-          activePage: response.data.deeta_data.current_page,
-          itemsCountPerPage: response.data.deeta_data.per_page,
-          totalItemsCount: response.data.deeta_data.total,
+          activePage: response.data.data.current_page,
+          itemsCountPerPage: response.data.data.per_page,
+          totalItemsCount: response.data.data.total,
           pageRangeDisplayed: 10
         });
       })["catch"](function (error) {
@@ -11361,13 +11361,13 @@ var DiklatTeknis = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      axios.get('/kanrisha/heya/deeta?page=' + pageNumber).then(function (response) {
+      axios.get('/admin/referensi/diklatTeknis/deeta?page=' + pageNumber).then(function (response) {
         _this8.setState({
-          data: response.data.deeta_data.data,
+          data: response.data.data.data,
           loading: false,
-          activePage: response.data.deeta_data.current_page,
-          itemsCountPerPage: response.data.deeta_data.per_page,
-          totalItemsCount: response.data.deeta_data.total,
+          activePage: response.data.data.current_page,
+          itemsCountPerPage: response.data.data.per_page,
+          totalItemsCount: response.data.data.total,
           pageRangeDisplayed: 10
         });
       })["catch"](function (error) {
@@ -12033,13 +12033,13 @@ var EselonJabatan = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      axios.get('/kanrisha/heya/deeta?page=' + pageNumber).then(function (response) {
+      axios.get('/admin/referensi/eselonJabatan/deeta?page=' + pageNumber).then(function (response) {
         _this8.setState({
-          data: response.data.deeta_data.data,
+          data: response.data.data.data,
           loading: false,
-          activePage: response.data.deeta_data.current_page,
-          itemsCountPerPage: response.data.deeta_data.per_page,
-          totalItemsCount: response.data.deeta_data.total,
+          activePage: response.data.data.current_page,
+          itemsCountPerPage: response.data.data.per_page,
+          totalItemsCount: response.data.data.total,
           pageRangeDisplayed: 10
         });
       })["catch"](function (error) {
@@ -12705,13 +12705,13 @@ var JabatanFungsionalTertentu = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      axios.get('/kanrisha/heya/deeta?page=' + pageNumber).then(function (response) {
+      axios.get('/admin/referensi/jabatanFungsionalTertentu/deeta?page=' + pageNumber).then(function (response) {
         _this8.setState({
-          data: response.data.deeta_data.data,
+          data: response.data.data.data,
           loading: false,
-          activePage: response.data.deeta_data.current_page,
-          itemsCountPerPage: response.data.deeta_data.per_page,
-          totalItemsCount: response.data.deeta_data.total,
+          activePage: response.data.data.current_page,
+          itemsCountPerPage: response.data.data.per_page,
+          totalItemsCount: response.data.data.total,
           pageRangeDisplayed: 10
         });
       })["catch"](function (error) {
@@ -13377,13 +13377,13 @@ var JabatanFungsionalUmum = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      axios.get('/kanrisha/heya/deeta?page=' + pageNumber).then(function (response) {
+      axios.get('/admin/referensi/jabatanFungsionalUmum/deeta?page=' + pageNumber).then(function (response) {
         _this8.setState({
-          data: response.data.deeta_data.data,
+          data: response.data.data.data,
           loading: false,
-          activePage: response.data.deeta_data.current_page,
-          itemsCountPerPage: response.data.deeta_data.per_page,
-          totalItemsCount: response.data.deeta_data.total,
+          activePage: response.data.data.current_page,
+          itemsCountPerPage: response.data.data.per_page,
+          totalItemsCount: response.data.data.total,
           pageRangeDisplayed: 10
         });
       })["catch"](function (error) {
@@ -14049,13 +14049,13 @@ var JabatanKORPRI = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      axios.get('/kanrisha/heya/deeta?page=' + pageNumber).then(function (response) {
+      axios.get('/admin/referensi/jabatanKORPRI/deeta?page=' + pageNumber).then(function (response) {
         _this8.setState({
-          data: response.data.deeta_data.data,
+          data: response.data.data.data,
           loading: false,
-          activePage: response.data.deeta_data.current_page,
-          itemsCountPerPage: response.data.deeta_data.per_page,
-          totalItemsCount: response.data.deeta_data.total,
+          activePage: response.data.data.current_page,
+          itemsCountPerPage: response.data.data.per_page,
+          totalItemsCount: response.data.data.total,
           pageRangeDisplayed: 10
         });
       })["catch"](function (error) {
@@ -14721,13 +14721,13 @@ var JenisHukumanDisiplin = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      axios.get('/kanrisha/heya/deeta?page=' + pageNumber).then(function (response) {
+      axios.get('/admin/referensi/jenisHukumanDisiplin/deeta?page=' + pageNumber).then(function (response) {
         _this8.setState({
-          data: response.data.deeta_data.data,
+          data: response.data.data.data,
           loading: false,
-          activePage: response.data.deeta_data.current_page,
-          itemsCountPerPage: response.data.deeta_data.per_page,
-          totalItemsCount: response.data.deeta_data.total,
+          activePage: response.data.data.current_page,
+          itemsCountPerPage: response.data.data.per_page,
+          totalItemsCount: response.data.data.total,
           pageRangeDisplayed: 10
         });
       })["catch"](function (error) {
@@ -15393,13 +15393,13 @@ var JenisJabatan = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      axios.get('/kanrisha/heya/deeta?page=' + pageNumber).then(function (response) {
+      axios.get('/admin/referensi/jenisJabatan/deeta?page=' + pageNumber).then(function (response) {
         _this8.setState({
-          data: response.data.deeta_data.data,
+          data: response.data.data.data,
           loading: false,
-          activePage: response.data.deeta_data.current_page,
-          itemsCountPerPage: response.data.deeta_data.per_page,
-          totalItemsCount: response.data.deeta_data.total,
+          activePage: response.data.data.current_page,
+          itemsCountPerPage: response.data.data.per_page,
+          totalItemsCount: response.data.data.total,
           pageRangeDisplayed: 10
         });
       })["catch"](function (error) {
@@ -16065,13 +16065,13 @@ var JenisKepegawaian = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      axios.get('/kanrisha/heya/deeta?page=' + pageNumber).then(function (response) {
+      axios.get('/admin/referensi/jenisKepegawaian/deeta?page=' + pageNumber).then(function (response) {
         _this8.setState({
-          data: response.data.deeta_data.data,
+          data: response.data.data.data,
           loading: false,
-          activePage: response.data.deeta_data.current_page,
-          itemsCountPerPage: response.data.deeta_data.per_page,
-          totalItemsCount: response.data.deeta_data.total,
+          activePage: response.data.data.current_page,
+          itemsCountPerPage: response.data.data.per_page,
+          totalItemsCount: response.data.data.total,
           pageRangeDisplayed: 10
         });
       })["catch"](function (error) {
@@ -16737,13 +16737,13 @@ var JenisNaikPangkat = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      axios.get('/kanrisha/heya/deeta?page=' + pageNumber).then(function (response) {
+      axios.get('/admin/referensi/jenisNaikPangkat/deeta?page=' + pageNumber).then(function (response) {
         _this8.setState({
-          data: response.data.deeta_data.data,
+          data: response.data.data.data,
           loading: false,
-          activePage: response.data.deeta_data.current_page,
-          itemsCountPerPage: response.data.deeta_data.per_page,
-          totalItemsCount: response.data.deeta_data.total,
+          activePage: response.data.data.current_page,
+          itemsCountPerPage: response.data.data.per_page,
+          totalItemsCount: response.data.data.total,
           pageRangeDisplayed: 10
         });
       })["catch"](function (error) {
@@ -17409,13 +17409,13 @@ var JenisPenghargaan = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      axios.get('/kanrisha/heya/deeta?page=' + pageNumber).then(function (response) {
+      axios.get('/admin/referensi/jenisPenghargaan/deeta?page=' + pageNumber).then(function (response) {
         _this8.setState({
-          data: response.data.deeta_data.data,
+          data: response.data.data.data,
           loading: false,
-          activePage: response.data.deeta_data.current_page,
-          itemsCountPerPage: response.data.deeta_data.per_page,
-          totalItemsCount: response.data.deeta_data.total,
+          activePage: response.data.data.current_page,
+          itemsCountPerPage: response.data.data.per_page,
+          totalItemsCount: response.data.data.total,
           pageRangeDisplayed: 10
         });
       })["catch"](function (error) {
@@ -18081,13 +18081,13 @@ var JurusanPendidikan = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      axios.get('/kanrisha/heya/deeta?page=' + pageNumber).then(function (response) {
+      axios.get('/admin/referensi/jurusanPendidikan/deeta?page=' + pageNumber).then(function (response) {
         _this8.setState({
-          data: response.data.deeta_data.data,
+          data: response.data.data.data,
           loading: false,
-          activePage: response.data.deeta_data.current_page,
-          itemsCountPerPage: response.data.deeta_data.per_page,
-          totalItemsCount: response.data.deeta_data.total,
+          activePage: response.data.data.current_page,
+          itemsCountPerPage: response.data.data.per_page,
+          totalItemsCount: response.data.data.total,
           pageRangeDisplayed: 10
         });
       })["catch"](function (error) {
@@ -18753,13 +18753,13 @@ var KategoriArsip = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      axios.get('/kanrisha/heya/deeta?page=' + pageNumber).then(function (response) {
+      axios.get('/admin/referensi/kategoriArsip/deeta?page=' + pageNumber).then(function (response) {
         _this8.setState({
-          data: response.data.deeta_data.data,
+          data: response.data.data.data,
           loading: false,
-          activePage: response.data.deeta_data.current_page,
-          itemsCountPerPage: response.data.deeta_data.per_page,
-          totalItemsCount: response.data.deeta_data.total,
+          activePage: response.data.data.current_page,
+          itemsCountPerPage: response.data.data.per_page,
+          totalItemsCount: response.data.data.total,
           pageRangeDisplayed: 10
         });
       })["catch"](function (error) {
@@ -19425,13 +19425,13 @@ var KedudukanKepegawaian = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      axios.get('/kanrisha/heya/deeta?page=' + pageNumber).then(function (response) {
+      axios.get('/admin/referensi/kedudukanKepegawaian/deeta?page=' + pageNumber).then(function (response) {
         _this8.setState({
-          data: response.data.deeta_data.data,
+          data: response.data.data.data,
           loading: false,
-          activePage: response.data.deeta_data.current_page,
-          itemsCountPerPage: response.data.deeta_data.per_page,
-          totalItemsCount: response.data.deeta_data.total,
+          activePage: response.data.data.current_page,
+          itemsCountPerPage: response.data.data.per_page,
+          totalItemsCount: response.data.data.total,
           pageRangeDisplayed: 10
         });
       })["catch"](function (error) {
@@ -20109,13 +20109,13 @@ var PangkatGolonganRuang = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      axios.get('/kanrisha/heya/deeta?page=' + pageNumber).then(function (response) {
+      axios.get('/admin/referensi/pangkatGolonganRuang/deeta?page=' + pageNumber).then(function (response) {
         _this8.setState({
-          data: response.data.deeta_data.data,
+          data: response.data.data.data,
           loading: false,
-          activePage: response.data.deeta_data.current_page,
-          itemsCountPerPage: response.data.deeta_data.per_page,
-          totalItemsCount: response.data.deeta_data.total,
+          activePage: response.data.data.current_page,
+          itemsCountPerPage: response.data.data.per_page,
+          totalItemsCount: response.data.data.total,
           pageRangeDisplayed: 10
         });
       })["catch"](function (error) {
@@ -20821,13 +20821,13 @@ var PejabatNegara = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      axios.get('/kanrisha/heya/deeta?page=' + pageNumber).then(function (response) {
+      axios.get('/admin/referensi/pejabatNegara/deeta?page=' + pageNumber).then(function (response) {
         _this8.setState({
-          data: response.data.deeta_data.data,
+          data: response.data.data.data,
           loading: false,
-          activePage: response.data.deeta_data.current_page,
-          itemsCountPerPage: response.data.deeta_data.per_page,
-          totalItemsCount: response.data.deeta_data.total,
+          activePage: response.data.data.current_page,
+          itemsCountPerPage: response.data.data.per_page,
+          totalItemsCount: response.data.data.total,
           pageRangeDisplayed: 10
         });
       })["catch"](function (error) {
@@ -21493,13 +21493,13 @@ var PejabatPenetap = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      axios.get('/kanrisha/heya/deeta?page=' + pageNumber).then(function (response) {
+      axios.get('/admin/referensi/pejabatPenetap/deeta?page=' + pageNumber).then(function (response) {
         _this8.setState({
-          data: response.data.deeta_data.data,
+          data: response.data.data.data,
           loading: false,
-          activePage: response.data.deeta_data.current_page,
-          itemsCountPerPage: response.data.deeta_data.per_page,
-          totalItemsCount: response.data.deeta_data.total,
+          activePage: response.data.data.current_page,
+          itemsCountPerPage: response.data.data.per_page,
+          totalItemsCount: response.data.data.total,
           pageRangeDisplayed: 10
         });
       })["catch"](function (error) {
@@ -22165,13 +22165,13 @@ var STLUD = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      axios.get('/kanrisha/heya/deeta?page=' + pageNumber).then(function (response) {
+      axios.get('/admin/referensi/stlud/deeta?page=' + pageNumber).then(function (response) {
         _this8.setState({
-          data: response.data.deeta_data.data,
+          data: response.data.data.data,
           loading: false,
-          activePage: response.data.deeta_data.current_page,
-          itemsCountPerPage: response.data.deeta_data.per_page,
-          totalItemsCount: response.data.deeta_data.total,
+          activePage: response.data.data.current_page,
+          itemsCountPerPage: response.data.data.per_page,
+          totalItemsCount: response.data.data.total,
           pageRangeDisplayed: 10
         });
       })["catch"](function (error) {
@@ -22837,13 +22837,13 @@ var StatusKepegawaian = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      axios.get('/kanrisha/heya/deeta?page=' + pageNumber).then(function (response) {
+      axios.get('/admin/referensi/statusKepegawaian/deeta?page=' + pageNumber).then(function (response) {
         _this8.setState({
-          data: response.data.deeta_data.data,
+          data: response.data.data.data,
           loading: false,
-          activePage: response.data.deeta_data.current_page,
-          itemsCountPerPage: response.data.deeta_data.per_page,
-          totalItemsCount: response.data.deeta_data.total,
+          activePage: response.data.data.current_page,
+          itemsCountPerPage: response.data.data.per_page,
+          totalItemsCount: response.data.data.total,
           pageRangeDisplayed: 10
         });
       })["catch"](function (error) {
@@ -23537,13 +23537,13 @@ var subBidang = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      axios.get('/kanrisha/alhuqulAlfareia/deeta?page=' + pageNumber).then(function (response) {
+      axios.get('/admin/referensi/subBidang/deeta?page=' + pageNumber).then(function (response) {
         _this9.setState({
-          data: response.data.deeta_data.data,
+          data: response.data.data.data,
           loading: false,
-          activePage: response.data.deeta_data.current_page,
-          itemsCountPerPage: response.data.deeta_data.per_page,
-          totalItemsCount: response.data.deeta_data.total,
+          activePage: response.data.data.current_page,
+          itemsCountPerPage: response.data.data.per_page,
+          totalItemsCount: response.data.data.total,
           pageRangeDisplayed: 10
         });
       })["catch"](function (error) {
@@ -24245,13 +24245,13 @@ var TingkatPendidikan = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      axios.get('/kanrisha/heya/deeta?page=' + pageNumber).then(function (response) {
+      axios.get('/admin/referensi/tingkatPendidikan/deeta?page=' + pageNumber).then(function (response) {
         _this8.setState({
-          data: response.data.deeta_data.data,
+          data: response.data.data.data,
           loading: false,
-          activePage: response.data.deeta_data.current_page,
-          itemsCountPerPage: response.data.deeta_data.per_page,
-          totalItemsCount: response.data.deeta_data.total,
+          activePage: response.data.data.current_page,
+          itemsCountPerPage: response.data.data.per_page,
+          totalItemsCount: response.data.data.total,
           pageRangeDisplayed: 10
         });
       })["catch"](function (error) {
@@ -24917,13 +24917,13 @@ var View = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      axios.get('/kanrisha/heya/deeta?page=' + pageNumber).then(function (response) {
+      axios.get('/admin/referensi/unor/deeta?page=' + pageNumber).then(function (response) {
         _this8.setState({
-          data: response.data.deeta_data.data,
+          data: response.data.data.data,
           loading: false,
-          activePage: response.data.deeta_data.current_page,
-          itemsCountPerPage: response.data.deeta_data.per_page,
-          totalItemsCount: response.data.deeta_data.total,
+          activePage: response.data.data.current_page,
+          itemsCountPerPage: response.data.data.per_page,
+          totalItemsCount: response.data.data.total,
           pageRangeDisplayed: 10
         });
       })["catch"](function (error) {
