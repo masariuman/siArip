@@ -120,7 +120,7 @@ class Arsip extends Component {
 
     handleChangeKategori(e) {
         this.setState({
-            kategori: e.target.value
+            kategoriName: e.target.value
         });
         // console.log(e.target.value);
     }

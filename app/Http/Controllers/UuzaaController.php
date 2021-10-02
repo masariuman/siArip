@@ -412,9 +412,9 @@ class UuzaaController extends Controller
     {
         //
         $data = $request->request->all();
-        dd($request);
+        // dd($request);
         $file = $request->files->all();
-        $pegawai = Uuzaa::where('rinku', $id)->first();
+        $pegawai = Uuzaa::where('rinku', $data['pegawai_id'])->first();
         $kategori = ReferensiKategoriArsip::where('rinku', $data['kategoriName'])->first();
         if ($file) {
             $file = $request->file('file');
@@ -423,7 +423,7 @@ class UuzaaController extends Controller
             $request->file('file')->move("zaFail", $fileName);
             Arsip::create([
                 'name' => $data['name'],
-                'rinku' => $data['tanggalSurat'],
+                'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string))))),
                 'keterangan' => $data['keterangan'],
                 'kategori_id' => $kategori->id,
                 'pegawai_id' => $pegawai->id,
@@ -432,7 +432,7 @@ class UuzaaController extends Controller
         } else {
             Arsip::create([
                 'name' => $data['name'],
-                'rinku' => $data['tanggalSurat'],
+                'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string))))),
                 'keterangan' => $data['keterangan'],
                 'kategori_id' => $kategori->id,
                 'pegawai_id' => $pegawai->id

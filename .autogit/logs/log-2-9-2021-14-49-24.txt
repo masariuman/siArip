@@ -1,0 +1,20 @@
+-------------------- Auto-Git Log --------------------
+		Sat Oct 02 2021 14:49:24 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/UuzaaController.php
+* database/migrations/2021_09_30_213535_create_table_arsip.php
+* public/js/app.js
+* resources/js/component/peremajaan/Index.jsx
+* routes/web.php
+
+
+Created files:
+* .autogit/logs/log-2-9-2021-14-18-23.txt
+
+
+Deleted files:
+
+
+Renamed files:

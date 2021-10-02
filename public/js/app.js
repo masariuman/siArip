@@ -4704,7 +4704,7 @@ var Arsip = /*#__PURE__*/function (_Component) {
     key: "handleChangeKategori",
     value: function handleChangeKategori(e) {
       this.setState({
-        kategori: e.target.value
+        kategoriName: e.target.value
       }); // console.log(e.target.value);
     }
   }, {
@@ -7372,8 +7372,7 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
       axios.post("/admin/pegawai/search", {
         cari: e.target.value
       }).then(function (response) {
-        console.log(response);
-
+        // console.log(response);
         _this3.setState({
           data: response.data.data.data,
           loading: false,
