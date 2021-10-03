@@ -476,4 +476,15 @@ class UuzaaController extends Controller
             'data' => $data
         ]);
     }
+
+    public function arsipPegawaiEdit($id)
+    {
+        //
+        $data = Arsip::where('rinku', $id)->first();
+        // $data['heyaRinku'] = $data->heya->rinku;
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+
 }

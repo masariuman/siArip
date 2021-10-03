@@ -315,12 +315,13 @@ class Arsip extends Component {
         axios
             .get(`/admin/pegawai/arsip/${e}/edit`)
             .then(response => {
+                console.log(response);
                 this.setState({
-                    namaLengkap : response.data.data.pegawai.name,
-                    nip : response.data.data.pegawai.juugyouinBangou,
-                    gelarBelakang : response.data.data.pegawai.gelarBelakang,
-                    gelarDepan : response.data.data.pegawai.gelarDepan,
-                    arsip : response.data.data.arsip.data,
+                    kategori: [],
+                    kategoriName : "",
+                    name : response.data.data.name,
+                    keterangan : response.data.data.keterangan,
+                    arsip: [],
                     loading: false,
                     url: e,
                     filePath: response.data.data.filePath,

@@ -4901,21 +4901,17 @@ var Arsip = /*#__PURE__*/function (_Component) {
     value: function handleEditButton(e) {
       var _this5 = this;
 
-      axios.get("/kanrisha/masuk/deeta/".concat(e)).then(function (response) {
+      axios.get("/admin/pegawai/arsip/".concat(e, "/edit")).then(function (response) {
+        console.log(response);
+
         _this5.setState({
-          asalSurat: response.data.data.asalSurat,
-          nomorSurat: response.data.data.nomorSurat,
-          tanggalSurat: response.data.data.tanggalSurat,
-          perihal: response.data.data.perihal,
-          tanggalNaik: response.data.data.tanggalNaik,
-          tanggalTurun: response.data.data.tanggalTurun,
-          turunKe: response.data.data.subbid.rinku,
-          turunKeName: response.data.data.subbid.asm,
-          kodeBerkas: response.data.data.kodeBerkas,
+          kategori: [],
+          kategoriName: "",
+          name: "",
+          keterangan: "",
+          arsip: [],
+          loading: false,
           url: e,
-          uploader: response.data.data.uploader,
-          uploaderNip: response.data.data.uploaderNip,
-          uploaderSashin: response.data.data.uploaderSashin,
           filePath: response.data.data.filePath,
           fileUrl: response.data.data.filePath,
           file: null
@@ -5049,8 +5045,7 @@ var Arsip = /*#__PURE__*/function (_Component) {
       this.setState({// loading: true
       });
       axios.get("/admin/pegawai/".concat(this.props.match.params.url)).then(function (response) {
-        console.log(response);
-
+        // console.log(response);
         _this8.setState({
           // data: response.data.data.data,
           namaLengkap: response.data.data.pegawai.name,
