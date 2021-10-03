@@ -489,4 +489,48 @@ class UuzaaController extends Controller
         ]);
     }
 
+    public function arsipPegawaiUpdate(Request $request)
+    {
+        //
+        $data = $request->request->all();
+        // dd($request);
+        $file = $request->files->all();
+        $pegawai = Uuzaa::where('rinku', $data['pegawai_id'])->first();
+        $kategori = ReferensiKategoriArsip::where('rinku', $data['kategoriName'])->first();
+        if ($file) {
+            $file = $request->file('file');
+            $fileExt = $file->getClientOriginalExtension();
+            $fileName = $pegawai->juugyouinBangou."_".$kategori->name."_".date('YmdHis').".$fileExt";
+            $request->file('file')->move("zaFail", $fileName);
+            Arsip::create([
+                'name' => $data['name'],
+                'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string))))),
+                'keterangan' => $data['keterangan'],
+                'kategori_id' => $kategori->id,
+                'pegawai_id' => $pegawai->id,
+                'file' => $fileName
+            ]);
+        } else {
+            Arsip::create([
+                'name' => $data['name'],
+                'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string))))),
+                'keterangan' => $data['keterangan'],
+                'kategori_id' => $kategori->id,
+                'pegawai_id' => $pegawai->id
+            ]);
+        }
+        $pagination = 5;
+        $data['pegawai'] = Uuzaa::where('rinku', $id)->first();
+        $data['arsip'] = Arsip::where('pegawai_id',$data['pegawai']['id'])->where('sutattsu','1')->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data['arsip']->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data['arsip'] as $items) {
+            $items['nomor'] = $count;
+            $items['kategori'] = $items->kategori->name;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+
 }

@@ -405,18 +405,14 @@ class Arsip extends Component {
         });
         const data = new FormData();
         // data.append('file', this.state.file);
-        data.append('asalSurat', this.state.asalSurat);
-        data.append('nomorSurat', this.state.nomorSurat);
-        data.append('tanggalSurat', this.state.tanggalSurat);
-        data.append('perihal', this.state.perihal);
-        data.append('tanggalNaik', this.state.tanggalNaik);
-        data.append('turunKe', this.state.turunKe);
-        data.append('tanggalTurun', this.state.tanggalTurun);
-        data.append('kodeBerkas', this.state.kodeBerkas);
-        data.append('rinku', this.state.url);
+        data.append('file', this.state.file);
+        data.append('kategoriName', this.state.kategoriName);
+        data.append('keterangan', this.state.keterangan);
+        data.append('name', this.state.name);
+        data.append('url', this.state.url);
         console.log(data);
         axios
-            .post(`/kanrisha/masuk/deeta/update`, data)
+            .post(`/admin/pegawai/arsip/update`, data)
             .then(response => {
                 this.setState({
                     data: response.data.data.data,
