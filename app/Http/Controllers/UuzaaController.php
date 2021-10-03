@@ -495,7 +495,7 @@ class UuzaaController extends Controller
         $data = $request->request->all();
         // dd($request);
         $file = $request->files->all();
-        $pegawai = Uuzaa::where('rinku', $data['pegawai_id'])->first();
+        $arsip = Arsip::where('rinku', $data['url'])->first();
         $kategori = ReferensiKategoriArsip::where('rinku', $data['kategoriName'])->first();
         if ($file) {
             $file = $request->file('file');
