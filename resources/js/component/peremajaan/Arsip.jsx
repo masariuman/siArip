@@ -323,7 +323,7 @@ class Arsip extends Component {
                     loading: false,
                     url: e,
                     filePath: response.data.data.file,
-                    fileUrl: response.data.data.file,
+                    fileUrl: response.data.data.fileurl,
                     file: null
                 });
             })

@@ -4911,7 +4911,7 @@ var Arsip = /*#__PURE__*/function (_Component) {
           loading: false,
           url: e,
           filePath: response.data.data.file,
-          fileUrl: response.data.data.file,
+          fileUrl: response.data.data.fileurl,
           file: null
         });
       })["catch"](function (error) {
