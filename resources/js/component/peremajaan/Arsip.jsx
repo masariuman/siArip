@@ -317,15 +317,13 @@ class Arsip extends Component {
             .then(response => {
                 console.log(response);
                 this.setState({
-                    kategori: [],
-                    kategoriName : "",
+                    kategoriName : response.data.data.kategori_name,
                     name : response.data.data.name,
                     keterangan : response.data.data.keterangan,
-                    arsip: [],
                     loading: false,
                     url: e,
-                    filePath: response.data.data.filePath,
-                    fileUrl: response.data.data.filePath,
+                    filePath: response.data.data.file,
+                    fileUrl: response.data.data.file,
                     file: null
                 });
             })
@@ -829,7 +827,7 @@ class Arsip extends Component {
                             </div>
                             <div className="col-sm-12">
                                 <div className="form-group text-center">
-                                    <button className="mr-2 mb-2 btn btn-primary" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Tambah Pegawai Baru</button>
+                                    <button className="mr-2 mb-2 btn btn-primary" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Tambah Arsip Baru</button>
                                 </div>
                             </div>
                             </div>
@@ -845,127 +843,54 @@ class Arsip extends Component {
     modalUbah() {
         return (
             <div aria-hidden="true" className="onboarding-modal modal fade animated" id="editModal" role="dialog" tabIndex="-1">
-                {/* <div className="modal-dialog modal-lg modal-centered" role="document">
+                <div className="modal-dialog modal-lg modal-centered" role="document">
                     <div className="modal-content text-center">
                     <button aria-label="Close" className="close" data-dismiss="modal" type="button"><span className="close-label">Tutup</span><span className="os-icon os-icon-close"></span></button>
                     <div className="onboarding-side-by-side">
                         <div className="onboarding-media">
-                        <img alt="" src="/iconModal/mailEdit.png" width="200px" />
+                        <img alt="" src="/iconModal/mailPlus.png" width="200px" />
                         </div>
                         <div className="onboarding-content with-gradient masariuman_width100percent">
                         <h4 className="onboarding-title">
-                            Ubah Data Pegawai
+                            Ubah Data Arsip
                         </h4>
                         <form onSubmit={this.handleEditSubmit}>
                             <div className="row">
-                            <div className="col-sm-12">
+                            <div className="col-sm-3">
                                 <div className="form-group">
-                                    <input
-                                        onChange={this.handleChangeAsalSurat}
-                                        value={this.state.asalSurat}
-                                        title="Asal Surat"
-                                        placeholder="Asal Surat.."
-                                        type="text"
-                                        className="form-control"
-                                    />
+                                    kategori :
                                 </div>
                             </div>
-                            <div className="col-sm-12">
-                                <div className="form-group">
-                                    <input
-                                        onChange={this.handleChangeNomorSurat}
-                                        value={this.state.nomorSurat}
-                                        title="Nomor Surat"
-                                        placeholder="Nomor Surat.."
-                                        type="text"
-                                        className="form-control"
-                                    />
-                                </div>
-                            </div>
-                            <div className="col-sm-12">
-                                <table className="masariuman_tableLabelTanggal">
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                Tanggal Surat :
-                                            </td>
-                                            <td className="form-group">
-                                                <input
-                                                    onChange={this.handleChangeTanggalSurat}
-                                                    value={this.state.tanggalSurat}
-                                                    title="Tanggal Surat"
-                                                    placeholder="Tanggal Surat.."
-                                                    type="date"
-                                                    className="form-control"
-                                                />
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div className="col-sm-12">
-                                <div className="form-group">
-                                    <textarea
-                                        onChange={this.handleChangePerihal}
-                                        value={this.state.perihal}
-                                        title="Perihal Surat"
-                                        placeholder="Perihal Surat.."
-                                        className="form-control"
-                                        rows="3" />
-                                </div>
-                            </div>
-                            <div className="col-sm-12">
-                                Tanggal Surat Naik Ke Kepala :
-                                <div className="form-group">
-                                    <input
-                                        onChange={this.handleChangeTanggalNaik}
-                                        value={this.state.tanggalNaik}
-                                        title="Tanggal Surat Naik Ke Kepala"
-                                        placeholder="Tanggal Surat Naik Ke Kepala.."
-                                        type="date"
-                                        className="form-control"
-                                    />
-                                </div>
-                            </div>
-                            <div className="col-sm-12">
+                            <div className="col-sm-9">
                                 <div className="form-group">
                                     <select
-                                        value={this.state.turunKe}
-                                        onChange={this.handleChangeTurunKe}
+                                        value={this.state.kategoriName}
+                                        onChange={this.handleChangeKategori}
                                         className="form-control"
                                     >
-                                        {this.renderSelect()}
+                                        {this.renderSelectKategori()}
                                     </select>
                                 </div>
                             </div>
                             <div className="col-sm-12">
-                                <table className="masariuman_tableLabelTanggal">
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                Tanggal Surat Turun :
-                                            </td>
-                                            <td className="form-group">
-                                                <input
-                                                    onChange={this.handleChangeTanggalTurun}
-                                                    value={this.state.tanggalTurun}
-                                                    title="Tanggal Surat"
-                                                    placeholder="Tanggal Surat.."
-                                                    type="date"
-                                                    className="form-control"
-                                                />
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div className="form-group">
+                                    <input
+                                        onChange={this.handleChangeName}
+                                        value={this.state.name}
+                                        title="Nama Berkas"
+                                        placeholder="Nama Berkas..."
+                                        type="text"
+                                        className="form-control"
+                                    />
+                                </div>
                             </div>
                             <div className="col-sm-12">
                                 <div className="form-group">
                                     <input
-                                        onChange={this.handleChangeKodeBerkas}
-                                        value={this.state.kodeBerkas}
-                                        title="Kode Berkas"
-                                        placeholder="Kode Berkas.."
+                                        onChange={this.handleChangeKeterangan}
+                                        value={this.state.keterangan}
+                                        title="keterangan"
+                                        placeholder="keterangan..."
                                         type="text"
                                         className="form-control"
                                     />
@@ -988,7 +913,7 @@ class Arsip extends Component {
                                     <tbody>
                                         <tr>
                                             <td className="masariuman_width110px">
-                                                <button className="mr-2 mb-2 btn btn-warning" type="button" onClick={this.handleButtonFile} >Upload File Baru</button>
+                                                <button className="mr-2 mb-2 btn btn-primary" type="button" onClick={this.handleButtonFile} >Upload File</button>
                                             </td>
                                             <td className="form-group">
                                                 <a target="_blank" href={this.state.fileUrl}>{this.state.filePath}</a>
@@ -999,7 +924,7 @@ class Arsip extends Component {
                             </div>
                             <div className="col-sm-12">
                                 <div className="form-group text-center">
-                                    <button className="mr-2 mb-2 btn btn-warning" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Ubah Data Pegawai</button>
+                                    <button className="mr-2 mb-2 btn btn-warning" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Ubah Arsip</button>
                                 </div>
                             </div>
                             </div>
@@ -1007,7 +932,7 @@ class Arsip extends Component {
                         </div>
                     </div>
                     </div>
-                </div> */}
+                </div>
             </div>
         );
     }

@@ -481,6 +481,7 @@ class UuzaaController extends Controller
     {
         //
         $data = Arsip::where('rinku', $id)->first();
+        $data['kategori_name'] = $data->kategori->rinku;
         // $data['heyaRinku'] = $data->heya->rinku;
         return response()->json([
             'data' => $data
