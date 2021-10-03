@@ -313,7 +313,7 @@ class Arsip extends Component {
 
     handleEditButton(e) {
         axios
-            .get(`/admin/pegawai/${this.props.match.params.url}/${e}`)
+            .get(`/admin/pegawai/arsip/${e}/edit`)
             .then(response => {
                 this.setState({
                     namaLengkap : response.data.data.pegawai.name,
