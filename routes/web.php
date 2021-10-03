@@ -218,6 +218,7 @@ Route::post('/admin/referensi/kategoriArsip/search', 'ReferensiController@katego
 
 Route::post('/admin/pegawai/arsip', 'UuzaaController@arsipPegawai');
 Route::post('/admin/pegawai/search', 'UuzaaController@arsipPegawaiSearch');
+Route::get('/admin/referensi/{urlPegawai}/{urlArsip}', 'UuzaaController@arsipPegawaiEdit');
 
 Route::resources([
     'kanrisha/heya/deeta' => 'HeyaController',

@@ -1,0 +1,17 @@
+-------------------- Auto-Git Log --------------------
+		Sun Oct 03 2021 14:09:02 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* public/js/app.js
+* resources/js/component/peremajaan/Arsip.jsx
+
+
+Created files:
+* .autogit/logs/log-2-9-2021-19-22-19.txt
+
+
+Deleted files:
+
+
+Renamed files:

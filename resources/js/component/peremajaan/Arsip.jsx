@@ -316,19 +316,13 @@ class Arsip extends Component {
             .get(`/admin/pegawai/${this.props.match.params.url}/${e}`)
             .then(response => {
                 this.setState({
-                    asalSurat: response.data.data.asalSurat,
-                    nomorSurat: response.data.data.nomorSurat,
-                    tanggalSurat: response.data.data.tanggalSurat,
-                    perihal: response.data.data.perihal,
-                    tanggalNaik: response.data.data.tanggalNaik,
-                    tanggalTurun: response.data.data.tanggalTurun,
-                    turunKe: response.data.data.subbid.rinku,
-                    turunKeName : response.data.data.subbid.asm,
-                    kodeBerkas: response.data.data.kodeBerkas,
+                    namaLengkap : response.data.data.pegawai.name,
+                    nip : response.data.data.pegawai.juugyouinBangou,
+                    gelarBelakang : response.data.data.pegawai.gelarBelakang,
+                    gelarDepan : response.data.data.pegawai.gelarDepan,
+                    arsip : response.data.data.arsip.data,
+                    loading: false,
                     url: e,
-                    uploader: response.data.data.uploader,
-                    uploaderNip: response.data.data.uploaderNip,
-                    uploaderSashin: response.data.data.uploaderSashin,
                     filePath: response.data.data.filePath,
                     fileUrl: response.data.data.filePath,
                     file: null
@@ -463,7 +457,7 @@ class Arsip extends Component {
         axios
             .get(`/admin/pegawai/${this.props.match.params.url}`)
             .then(response => {
-                console.log(response);
+                // console.log(response);
                 this.setState({
                     // data: response.data.data.data,
                     namaLengkap : response.data.data.pegawai.name,
