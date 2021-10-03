@@ -5197,7 +5197,6 @@ var Arsip = /*#__PURE__*/function (_Component) {
       }) : this.state.arsip.map(function (data) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
           className: "masariuman_table",
-          onClick: _this13.handleDetail.bind(_this13, data.rinku),
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("th", {
             scope: "row",
             className: "text-center",
@@ -5228,21 +5227,13 @@ var Arsip = /*#__PURE__*/function (_Component) {
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("td", {
             id: "downloadButton",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
               className: "text-center",
-              children: [data.file ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("a", {
+              children: data.file ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("a", {
                 href: "/zaFail/".concat(data.file),
                 className: "mr-2 mb-2 btn btn-outline-secondary",
                 children: "Download"
-              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-                "data-target": "#detailModal",
-                "data-toggle": "modal",
-                className: "mr-2 mb-2 btn btn-outline-info",
-                type: "button",
-                onClick: _this13.handleEditButton.bind(_this13, data.rinku),
-                id: 'detail' + data.nomor,
-                children: "Detail"
-              })]
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {})
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               className: "text-center",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {

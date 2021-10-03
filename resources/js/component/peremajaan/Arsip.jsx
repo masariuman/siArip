@@ -313,7 +313,7 @@ class Arsip extends Component {
 
     handleEditButton(e) {
         axios
-            .get(`/kanrisha/masuk/deeta/${e}`)
+            .get(`/admin/pegawai/${this.props.match.params.url}/${e}`)
             .then(response => {
                 this.setState({
                     asalSurat: response.data.data.asalSurat,
@@ -595,7 +595,7 @@ class Arsip extends Component {
     renderData() {
         return !this.state.arsip.length ? <tr><td colSpan="9" className="text-center">Data Tidak Ditemukan</td></tr> :
             this.state.arsip.map(data => (
-                <tr key={data.rinku} className="masariuman_table"  onClick={this.handleDetail.bind(this, data.rinku)}>
+                <tr key={data.rinku} className="masariuman_table">
                     <th scope="row" className="text-center">{data.nomor}</th>
                     <td className="text-center">
                         <Highlighter
@@ -628,7 +628,7 @@ class Arsip extends Component {
                             ) : (
                                 <span></span>
                             )}
-                            <button data-target="#detailModal" data-toggle="modal" className="mr-2 mb-2 btn btn-outline-info" type="button" onClick={this.handleEditButton.bind(this, data.rinku)} id={'detail'+data.nomor}>Detail</button>
+                            {/* <button data-target="#detailModal" data-toggle="modal" className="mr-2 mb-2 btn btn-outline-info" type="button" onClick={this.handleEditButton.bind(this, data.rinku)} id={'detail'+data.nomor}>Detail</button> */}
                         </div>
                         <div className="text-center">
                             <button data-target="#editModal" data-toggle="modal" className="mr-2 mb-2 btn btn-outline-warning" type="button" onClick={this.handleEditButton.bind(this, data.rinku)} id={'ubah'+data.nomor}>Ubah</button>
