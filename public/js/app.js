@@ -4995,26 +4995,29 @@ var Arsip = /*#__PURE__*/function (_Component) {
       });
       var data = new FormData(); // data.append('file', this.state.file);
 
-      data.append('asalSurat', this.state.asalSurat);
-      data.append('nomorSurat', this.state.nomorSurat);
-      data.append('tanggalSurat', this.state.tanggalSurat);
-      data.append('perihal', this.state.perihal);
-      data.append('tanggalNaik', this.state.tanggalNaik);
-      data.append('turunKe', this.state.turunKe);
-      data.append('tanggalTurun', this.state.tanggalTurun);
-      data.append('kodeBerkas', this.state.kodeBerkas);
-      data.append('rinku', this.state.url);
+      data.append('file', this.state.file);
+      data.append('kategoriName', this.state.kategoriName);
+      data.append('keterangan', this.state.keterangan);
+      data.append('name', this.state.name);
+      data.append('url', this.state.url);
       console.log(data);
-      axios.post("/kanrisha/masuk/deeta/update", data).then(function (response) {
+      axios.post("/admin/pegawai/arsip/update", data).then(function (response) {
         _this7.setState({
           data: response.data.data.data,
-          asalSurat: "",
-          nomorSurat: "",
-          tanggalSurat: "",
-          perihal: "",
-          tanggalNaik: "",
-          tanggalTurun: "",
-          kodeBerkas: "",
+          unorName: "",
+          bidangName: "",
+          subbidName: "",
+          kategoriName: "",
+          keterangan: "",
+          name: "",
+          agamaUser: "",
+          gelarBelakang: "",
+          gelarDepan: "",
+          nip: "",
+          nip9: "",
+          namaLengkap: "",
+          tempatLahir: "",
+          tanggalLahir: "",
           file: null,
           filePath: null,
           fileUrl: null,

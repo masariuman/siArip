@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Mon Oct 04 2021 13:09:59 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* resources/js/component/peremajaan/Arsip.jsx
+
+
+Created files:
+* .autogit/logs/log-4-9-2021-12-39-45.txt
+
+
+Deleted files:
+
+
+Renamed files:

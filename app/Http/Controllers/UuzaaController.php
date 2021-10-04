@@ -502,21 +502,17 @@ class UuzaaController extends Controller
             $fileExt = $file->getClientOriginalExtension();
             $fileName = $pegawai->juugyouinBangou."_".$kategori->name."_".date('YmdHis').".$fileExt";
             $request->file('file')->move("zaFail", $fileName);
-            Arsip::create([
+            $arsip->update([
                 'name' => $data['name'],
-                'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string))))),
                 'keterangan' => $data['keterangan'],
                 'kategori_id' => $kategori->id,
-                'pegawai_id' => $pegawai->id,
                 'file' => $fileName
             ]);
         } else {
-            Arsip::create([
+            $arsip->update([
                 'name' => $data['name'],
-                'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string))))),
                 'keterangan' => $data['keterangan'],
-                'kategori_id' => $kategori->id,
-                'pegawai_id' => $pegawai->id
+                'kategori_id' => $kategori->id
             ]);
         }
         $pagination = 5;
