@@ -447,14 +447,9 @@ class UuzaaController extends Controller
             ]);
         }
         $pagination = 5;
-        $data['pegawai'] = Uuzaa::where('rinku', $id)->first();
-        $data['arsip'] = Arsip::where('pegawai_id',$data['pegawai']['id'])->where('sutattsu','1')->orderBy("id", "DESC")->paginate($pagination);
-        $count = $data['arsip']->CurrentPage() * $pagination - ($pagination - 1);
-        foreach ($data['arsip'] as $items) {
-            $items['nomor'] = $count;
-            $items['kategori'] = $items->kategori->name;
-            $count++;
-        }
+        $data['arsip'] = Arsip::orderBy("id", "DESC")->first();
+        $data['arsip']['nomor'] = "BARU";
+        $data['arsip']['kategori'] = $data['arsip']->kategori->name;
         return response()->json([
             'data' => $data
         ]);
