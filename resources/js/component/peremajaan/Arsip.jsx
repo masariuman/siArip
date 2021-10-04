@@ -414,6 +414,7 @@ class Arsip extends Component {
         axios
             .post(`/admin/pegawai/arsip/update`, data)
             .then(response => {
+                console.log(response);
                 this.setState({
                     data: response.data.data.data,
                     unorName: "",

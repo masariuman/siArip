@@ -5002,6 +5002,8 @@ var Arsip = /*#__PURE__*/function (_Component) {
       data.append('url', this.state.url);
       console.log(data);
       axios.post("/admin/pegawai/arsip/update", data).then(function (response) {
+        console.log(response);
+
         _this7.setState({
           data: response.data.data.data,
           unorName: "",
