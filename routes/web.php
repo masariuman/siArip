@@ -221,6 +221,7 @@ Route::post('/admin/pegawai/search', 'UuzaaController@arsipPegawaiSearch');
 Route::get('/admin/pegawai/arsip/{url}/edit', 'UuzaaController@arsipPegawaiEdit');
 Route::post('/admin/pegawai/arsip/update', 'UuzaaController@arsipPegawaiUpdate');
 Route::post('/admin/pegawai/arsip/search', 'UuzaaController@arsipPegawaiArsipSearch');
+Route::delete('/admin/pegawai/arsip/{url}', 'UuzaaController@arsipPegawaiArsipDelete');
 
 Route::resources([
     'kanrisha/heya/deeta' => 'HeyaController',

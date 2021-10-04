@@ -4854,9 +4854,9 @@ var Arsip = /*#__PURE__*/function (_Component) {
     value: function handleDeleteButton(e) {
       var _this4 = this;
 
-      axios.get("/kanrisha/masuk/deeta/".concat(e)).then(function (response) {
+      axios.get("/admin/pegawai/arsip/".concat(e, "/edit")).then(function (response) {
         sweetalert__WEBPACK_IMPORTED_MODULE_5___default()({
-          title: "Yakin ingin menghapus surat dari ".concat(response.data.data.asalSurat, " dengan nomor surat ").concat(response.data.data.nomorSurat),
+          title: "Yakin ingin menghapus arsip ".concat(response.data.data.name, " ?"),
           text: "Kalau Terhapus, Hubungi Admin Untuk Mengembalikan Data yang Terhapus!",
           icon: "warning",
           buttons: true,
@@ -4867,11 +4867,11 @@ var Arsip = /*#__PURE__*/function (_Component) {
               loading: true
             });
 
-            axios["delete"]("/kanrisha/masuk/deeta/".concat(e), {
-              url: _this4.state.url
+            axios["delete"]("/admin/pegawai/arsip/".concat(e), {
+              url: e
             }).then(function (response) {
               _this4.setState({
-                data: response.data.data.data,
+                arsip: response.data.data.arsip.data,
                 loading: false
               });
 
@@ -5146,7 +5146,7 @@ var Arsip = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      axios.get("admin/pegawai/".concat(this.props.match.params.url, "/arsip?page=") + pageNumber).then(function (response) {
+      axios.get("/admin/pegawai/".concat(this.props.match.params.url, "?page=").concat(pageNumber)).then(function (response) {
         console.log(response);
 
         _this12.setState({

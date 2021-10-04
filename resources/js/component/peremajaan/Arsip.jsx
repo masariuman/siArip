@@ -264,10 +264,10 @@ class Arsip extends Component {
 
     handleDeleteButton(e) {
         axios
-            .get(`/kanrisha/masuk/deeta/${e}`)
+            .get(`/admin/pegawai/arsip/${e}/edit`)
             .then(response => {
                 swal({
-                    title: `Yakin ingin menghapus surat dari ${response.data.data.asalSurat} dengan nomor surat ${response.data.data.nomorSurat}`,
+                    title: `Yakin ingin menghapus arsip ${response.data.data.name} ?`,
                     text: "Kalau Terhapus, Hubungi Admin Untuk Mengembalikan Data yang Terhapus!",
                     icon: "warning",
                     buttons: true,
@@ -279,12 +279,12 @@ class Arsip extends Component {
                             loading: true
                         });
                         axios
-                            .delete(`/kanrisha/masuk/deeta/${e}`, {
-                                url: this.state.url
+                            .delete(`/admin/pegawai/arsip/${e}`, {
+                                url: e
                             })
                             .then(response => {
                                 this.setState({
-                                    data: response.data.data.data,
+                                    arsip : response.data.data.arsip.data,
                                     loading: false
                                 });
                                 swal("Sukses!", "Data Berhasil Dihapus!", "success");
@@ -553,7 +553,7 @@ class Arsip extends Component {
             loading: true
         });
         axios
-            .get(`admin/pegawai/${this.props.match.params.url}/arsip?page=${pageNumber}`)
+            .get(`/admin/pegawai/${this.props.match.params.url}?page=${pageNumber}`)
             .then(response => {
                 console.log(response);
                 this.setState({

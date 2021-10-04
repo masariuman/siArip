@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Mon Oct 04 2021 22:49:40 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/UuzaaController.php
+* public/js/app.js
+* resources/js/component/peremajaan/Arsip.jsx
+
+
+Created files:
+* .autogit/logs/log-4-9-2021-22-19-8.txt
+* "public/zaFail/123_SK CPNS_20211004224231.png"
+
+
+Deleted files:
+
+
+Renamed files:
