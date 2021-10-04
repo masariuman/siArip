@@ -524,4 +524,23 @@ class UuzaaController extends Controller
         ]);
     }
 
+    public function arsipPegawaiArsipSearch(Request $request)
+    {
+        //
+        $pagination = 5;
+        $kategori = ReferensiKategoriArsip::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")->first();
+        $data = Arsip::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
+            ->orWhere("keterangan", "like", "%" . $request->cari . "%")
+            ->orWhere("kategori_id", $kategori->id)
+            ->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+
 }

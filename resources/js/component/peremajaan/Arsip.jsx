@@ -245,13 +245,13 @@ class Arsip extends Component {
             cari: e.target.value
         });
         axios
-            .post(`/admin/pegawai/search`, {
+            .post(`/admin/pegawai/arsip/search`, {
                 cari: e.target.value
             })
             .then(response => {
                 // console.log(response.data);
                 this.setState({
-                    data: response.data.data.data,
+                    arsip: response.data.data.data,
                     loading: false,
                     activePage: response.data.data.current_page,
                     itemsCountPerPage: response.data.data.per_page,
@@ -362,7 +362,7 @@ class Arsip extends Component {
             .then(response => {
                 console.log(response);
                 this.setState({
-                    arsip: [response.data.data, ...this.state.data],
+                    arsip: [response.data.data.arsip, ...this.state.arsip],
                     // unorName: "",
                     // bidangName: "",
                     // subbidName: "",

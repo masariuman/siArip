@@ -4833,12 +4833,12 @@ var Arsip = /*#__PURE__*/function (_Component) {
       this.setState({
         cari: e.target.value
       });
-      axios.post("/admin/pegawai/search", {
+      axios.post("/admin/pegawai/arsip/search", {
         cari: e.target.value
       }).then(function (response) {
         // console.log(response.data);
         _this3.setState({
-          data: response.data.data.data,
+          arsip: response.data.data.data,
           loading: false,
           activePage: response.data.data.current_page,
           itemsCountPerPage: response.data.data.per_page,
@@ -4951,7 +4951,7 @@ var Arsip = /*#__PURE__*/function (_Component) {
         console.log(response);
 
         _this6.setState({
-          arsip: [response.data.data].concat(_toConsumableArray(_this6.state.data)),
+          arsip: [response.data.data.arsip].concat(_toConsumableArray(_this6.state.arsip)),
           // unorName: "",
           // bidangName: "",
           // subbidName: "",
