@@ -249,7 +249,7 @@ class Arsip extends Component {
                 cari: e.target.value
             })
             .then(response => {
-                // console.log(response.data);
+                console.log(response.data.data.data);
                 this.setState({
                     arsip: response.data.data.data,
                     loading: false,
@@ -462,10 +462,10 @@ class Arsip extends Component {
                     arsip : response.data.data.arsip.data,
                     // ubahPetunjukId: response.data.data.data[0].rinku,
                     loading: false,
-                    // activePage: response.data.data.current_page,
-                    // itemsCountPerPage: response.data.data.per_page,
-                    // totalItemsCount: response.data.data.total,
-                    // pageRangeDisplayed: 10
+                    activePage: response.data.data.arsip.current_page,
+                    itemsCountPerPage: response.data.data.arsip.per_page,
+                    totalItemsCount: response.data.data.arsip.total,
+                    pageRangeDisplayed: 10
                 });
                 $('#petunjuk').on('click',function() {
                     var enjoyhint_instance = new EnjoyHint({});
@@ -553,14 +553,16 @@ class Arsip extends Component {
             loading: true
         });
         axios
-            .get('/kanrisha/masuk/deeta?page='+pageNumber)
+            .get(`admin/pegawai/${this.props.match.params.url}/arsip?page=${pageNumber}`)
             .then(response => {
+                console.log(response);
                 this.setState({
-                    data: response.data.data.data,
+                    arsip : response.data.data.arsip.data,
+                    // data: response.data.data.arsip.data,
                     loading: false,
-                    activePage: response.data.data.current_page,
-                    itemsCountPerPage: response.data.data.per_page,
-                    totalItemsCount: response.data.data.total,
+                    activePage: response.data.data.arsip.current_page,
+                    itemsCountPerPage: response.data.data.arsip.per_page,
+                    totalItemsCount: response.data.data.arsip.total,
                     pageRangeDisplayed: 10
                 });
             })

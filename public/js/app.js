@@ -4836,7 +4836,8 @@ var Arsip = /*#__PURE__*/function (_Component) {
       axios.post("/admin/pegawai/arsip/search", {
         cari: e.target.value
       }).then(function (response) {
-        // console.log(response.data);
+        console.log(response.data.data.data);
+
         _this3.setState({
           arsip: response.data.data.data,
           loading: false,
@@ -5050,11 +5051,11 @@ var Arsip = /*#__PURE__*/function (_Component) {
           gelarDepan: response.data.data.pegawai.gelarDepan,
           arsip: response.data.data.arsip.data,
           // ubahPetunjukId: response.data.data.data[0].rinku,
-          loading: false // activePage: response.data.data.current_page,
-          // itemsCountPerPage: response.data.data.per_page,
-          // totalItemsCount: response.data.data.total,
-          // pageRangeDisplayed: 10
-
+          loading: false,
+          activePage: response.data.data.arsip.current_page,
+          itemsCountPerPage: response.data.data.arsip.per_page,
+          totalItemsCount: response.data.data.arsip.total,
+          pageRangeDisplayed: 10
         });
 
         jquery__WEBPACK_IMPORTED_MODULE_1___default()('#petunjuk').on('click', function () {
@@ -5145,13 +5146,16 @@ var Arsip = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      axios.get('/kanrisha/masuk/deeta?page=' + pageNumber).then(function (response) {
+      axios.get("admin/pegawai/".concat(this.props.match.params.url, "/arsip?page=") + pageNumber).then(function (response) {
+        console.log(response);
+
         _this12.setState({
-          data: response.data.data.data,
+          arsip: response.data.data.arsip.data,
+          // data: response.data.data.arsip.data,
           loading: false,
-          activePage: response.data.data.current_page,
-          itemsCountPerPage: response.data.data.per_page,
-          totalItemsCount: response.data.data.total,
+          activePage: response.data.data.arsip.current_page,
+          itemsCountPerPage: response.data.data.arsip.per_page,
+          totalItemsCount: response.data.data.arsip.total,
           pageRangeDisplayed: 10
         });
       })["catch"](function (error) {

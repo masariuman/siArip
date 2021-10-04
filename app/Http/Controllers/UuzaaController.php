@@ -491,6 +491,7 @@ class UuzaaController extends Controller
         // dd($request);
         $file = $request->files->all();
         $arsip = Arsip::where('rinku', $data['url'])->first();
+        $pegawai = Uuzaa::where('id',$arsip->pegawai_id)->first();
         $kategori = ReferensiKategoriArsip::where('rinku', $data['kategoriName'])->first();
         if ($file) {
             $file = $request->file('file');
@@ -529,13 +530,21 @@ class UuzaaController extends Controller
         //
         $pagination = 5;
         $kategori = ReferensiKategoriArsip::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")->first();
-        $data = Arsip::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
+        if ($kategori === null) {
+            $data = Arsip::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
+            ->orWhere("keterangan", "like", "%" . $request->cari . "%")
+            // ->orWhere("kategori_id", $kategori->id)
+            ->orderBy("id", "DESC")->paginate($pagination);
+        } else {
+            $data = Arsip::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
             ->orWhere("keterangan", "like", "%" . $request->cari . "%")
             ->orWhere("kategori_id", $kategori->id)
             ->orderBy("id", "DESC")->paginate($pagination);
+        }
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data as $items) {
             $items['nomor'] = $count;
+            $items['kategori'] = $items->kategori->name;
             $count++;
         }
         return response()->json([
