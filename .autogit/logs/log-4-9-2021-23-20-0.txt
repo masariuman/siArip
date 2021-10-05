@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Mon Oct 04 2021 23:20:00 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/UuzaaController.php
+* public/js/app.js
+* resources/js/component/peremajaan/Arsip.jsx
+* routes/web.php
+
+
+Created files:
+* .autogit/logs/log-4-9-2021-22-49-40.txt
+
+
+Deleted files:
+
+
+Renamed files:

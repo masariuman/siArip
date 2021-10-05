@@ -552,7 +552,7 @@ class UuzaaController extends Controller
         ]);
     }
 
-    public function arsipPegawaiDelete($id)
+    public function arsipPegawaiArsipDelete($id)
     {
         //
         $arsip = Arsip::where('rinku', $id)->first();
