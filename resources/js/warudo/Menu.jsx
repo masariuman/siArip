@@ -557,6 +557,29 @@ class Menu extends Component {
                             </div>
                         </div>
                     </li>
+                    <li className="has-sub-menu">
+                        <NavLink
+                            exact
+                            activeClassName="masariuman-active"
+                            to={`/arsip`}
+                        >
+                            <div className="icon-w">
+                                <div className="os-icon os-icon-layout"></div>
+                            </div>
+                            <span>Dashboard</span>
+                        </NavLink>
+                        <div className="sub-menu-w">
+                            <div className="sub-menu-header masariuman_colorWhite">
+                                DASHBOARD
+                            </div>
+                            <div className="sub-menu-icon">
+                                <i className="os-icon os-icon-layout"></i>
+                            </div>
+                            <div className="sub-menu-i masariuman_menuDescription">
+                                Laman ini adalah laman utama dari aplikasi ini. Laman ini memuat informasi berupa jumlah surat dan memiliki grafik untuk melihat perkembangan surat perharinya.
+                            </div>
+                        </div>
+                    </li>
                     {/* <li id="menu">
                         <NavLink
                             exact
