@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Tue Oct 05 2021 22:07:06 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* resources/js/reactRoute.jsx
+
+
+Created files:
+* .autogit/logs/log-5-9-2021-21-36-46.txt
+
+
+Deleted files:
+
+
+Renamed files:
