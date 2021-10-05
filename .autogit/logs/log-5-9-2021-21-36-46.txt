@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Tue Oct 05 2021 21:36:46 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* public/js/app.js
+* resources/js/warudo/Menu.jsx
+
+
+Created files:
+* .autogit/logs/log-5-9-2021-11-33-20.txt
+* resources/js/component/pegawai/Arsip.jsx
+
+
+Deleted files:
+
+
+Renamed files:

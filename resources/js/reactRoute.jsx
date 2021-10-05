@@ -38,6 +38,8 @@ import RefEselonJabatanIndex from "./component/referensi/EselonJabatan";
 import RefJenisJabatanIndex from "./component/referensi/JenisJabatan";
 import RefKategoriArsipIndex from "./component/referensi/KategoriArsip";
 
+import ArsipIndex from "./component/pegawai/Arsip";
+
 class ReactRoute extends Component {
     constructor(props) {
         super(props);
@@ -67,6 +69,14 @@ class ReactRoute extends Component {
                         path="/"
                         component={DashboardIndex}
                     />
+                    <Route
+                        exact
+                        path="/arsip"
+                        component={ArsipIndex}
+                    />
+
+
+
                     <Route
                         exact
                         path="/surat-keluar"
