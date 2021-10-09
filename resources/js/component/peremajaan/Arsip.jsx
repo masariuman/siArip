@@ -460,6 +460,7 @@ class Arsip extends Component {
                     gelarBelakang : response.data.data.pegawai.gelarBelakang,
                     gelarDepan : response.data.data.pegawai.gelarDepan,
                     arsip : response.data.data.arsip.data,
+                    sashin : response.data.data.pegawai.sashin,
                     // ubahPetunjukId: response.data.data.data[0].rinku,
                     loading: false,
                     activePage: response.data.data.arsip.current_page,
@@ -1149,10 +1150,10 @@ class Arsip extends Component {
                                     <div className="col-md-4">
                                         <div className="element-box masariuman_leftSide">
                                             <div className="masariuman_foto">
-                                                <img className="masariuman_width220px" alt="" src={"/sashin/avatar.jpg"} />
+                                                <img className="masariuman_width220px" alt="" src={`/sashin/${this.state.sashin}`} />
                                             </div>
                                             <div>
-                                                <span className="masariuman-bold">{this.state.gelarBelakang +". "+ this.state.namaLengkap +", "+this.state.gelarDepan}</span> <br/>
+                                                <span className="masariuman-bold">{this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang}</span> <br/>
                                                 <small>NIP. {this.state.nip}</small>
                                             </div>
                                             <br />
@@ -1209,7 +1210,7 @@ class Arsip extends Component {
                                     <div className="col-md-8">
                                         <div className="element-box">
                                             <h5 className="form-header">
-                                            Arsip {this.state.gelarBelakang +". "+ this.state.namaLengkap +", "+this.state.gelarDepan}
+                                            Arsip {this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang}
                                             </h5>
                                             <div className="form-desc">
                                                 Manajemen Arsip Pegawai

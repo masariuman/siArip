@@ -5725,7 +5725,7 @@ var Arsip = /*#__PURE__*/function (_Component) {
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("h5", {
                       className: "form-header",
                       children: ["Arsip ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("b", {
-                        children: this.state.gelarBelakang + this.state.namaLengkap + this.state.gelarDepan
+                        children: this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang
                       })]
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                       className: "form-desc",
@@ -6349,6 +6349,7 @@ var Arsip = /*#__PURE__*/function (_Component) {
           gelarBelakang: response.data.data.pegawai.gelarBelakang,
           gelarDepan: response.data.data.pegawai.gelarDepan,
           arsip: response.data.data.arsip.data,
+          sashin: response.data.data.pegawai.sashin,
           // ubahPetunjukId: response.data.data.data[0].rinku,
           loading: false,
           activePage: response.data.data.arsip.current_page,
@@ -7041,12 +7042,12 @@ var Arsip = /*#__PURE__*/function (_Component) {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
                         className: "masariuman_width220px",
                         alt: "",
-                        src: "/sashin/avatar.jpg"
+                        src: "/sashin/".concat(this.state.sashin)
                       })
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
                       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
                         className: "masariuman-bold",
-                        children: this.state.gelarBelakang + ". " + this.state.namaLengkap + ", " + this.state.gelarDepan
+                        children: this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang
                       }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("small", {
                         children: ["NIP. ", this.state.nip]
                       })]
@@ -7112,7 +7113,7 @@ var Arsip = /*#__PURE__*/function (_Component) {
                     className: "element-box",
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("h5", {
                       className: "form-header",
-                      children: ["Arsip ", this.state.gelarBelakang + ". " + this.state.namaLengkap + ", " + this.state.gelarDepan]
+                      children: ["Arsip ", this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang]
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                       className: "form-desc",
                       children: "Manajemen Arsip Pegawai"

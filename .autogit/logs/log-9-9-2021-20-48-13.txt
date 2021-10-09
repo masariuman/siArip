@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Sat Oct 09 2021 20:48:13 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/ArsipController.php
+* public/js/app.js
+* resources/js/component/pegawai/Arsip.jsx
+
+
+Created files:
+* .autogit/logs/log-9-9-2021-20-17-32.txt
+* public/zaFail/199603142020121003_Akta_20211009203532.pdf
+
+
+Deleted files:
+
+
+Renamed files:

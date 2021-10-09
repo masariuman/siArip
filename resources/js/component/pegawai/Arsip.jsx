@@ -245,7 +245,7 @@ class Arsip extends Component {
             cari: e.target.value
         });
         axios
-            .post(`/admin/pegawai/arsip/search`, {
+            .post(`/pegawai/arsip/search`, {
                 cari: e.target.value
             })
             .then(response => {
@@ -1135,7 +1135,7 @@ class Arsip extends Component {
                                     <div className="col-md-12">
                                         <div className="element-box">
                                             <h5 className="form-header">
-                                            Arsip <b>{this.state.gelarBelakang + this.state.namaLengkap + this.state.gelarDepan}</b>
+                                            Arsip <b>{this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang}</b>
                                             </h5>
                                             <div className="form-desc">
                                                 Manajemen Arsip Pegawai
