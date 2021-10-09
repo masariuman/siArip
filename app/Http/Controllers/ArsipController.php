@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Arsip;
+use Illuminate\Support\Facades\Auth;
+use App\Models\ReferensiKategoriArsip;
 
 class ArsipController extends Controller
 {
@@ -34,7 +37,40 @@ class ArsipController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->request->all();
+        // dd($request);
+        $file = $request->files->all();
+        $pegawai = Auth::user();
+        $kategori = ReferensiKategoriArsip::where('rinku', $data['kategoriName'])->first();
+        if ($file) {
+            $file = $request->file('file');
+            $fileExt = $file->getClientOriginalExtension();
+            $fileName = $pegawai->juugyouinBangou."_".$kategori->name."_".date('YmdHis').".$fileExt";
+            $request->file('file')->move("zaFail", $fileName);
+            Arsip::create([
+                'name' => $data['name'],
+                'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string))))),
+                'keterangan' => $data['keterangan'],
+                'kategori_id' => $kategori->id,
+                'pegawai_id' => $pegawai->id,
+                'file' => $fileName
+            ]);
+        } else {
+            Arsip::create([
+                'name' => $data['name'],
+                'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string))))),
+                'keterangan' => $data['keterangan'],
+                'kategori_id' => $kategori->id,
+                'pegawai_id' => $pegawai->id
+            ]);
+        }
+        $pagination = 5;
+        $data['arsip'] = Arsip::orderBy("id", "DESC")->first();
+        $data['arsip']['nomor'] = "BARU";
+        $data['arsip']['kategori'] = $data['arsip']->kategori->name;
+        return response()->json([
+            'data' => $data
+        ]);
     }
 
     /**

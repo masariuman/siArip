@@ -4947,25 +4947,11 @@ var Arsip = /*#__PURE__*/function (_Component) {
       data.append('keterangan', this.state.keterangan);
       data.append('name', this.state.name);
       data.append('pegawai_id', this.props.match.params.url);
-      axios.post("/admin/pegawai/arsip", data).then(function (response) {
+      axios.post("/pegawai/arsip", data).then(function (response) {
         console.log(response);
 
         _this6.setState({
           arsip: [response.data.data.arsip].concat(_toConsumableArray(_this6.state.arsip)),
-          // unorName: "",
-          // bidangName: "",
-          // subbidName: "",
-          // kategoriName: "",
-          // keterangan: "",
-          // name: "",
-          // agamaUser: "",
-          // gelarBelakang: "",
-          // gelarDepan: "",
-          // nip: "",
-          // nip9: "",
-          // namaLengkap: "",
-          // tempatLahir: "",
-          // tanggalLahir: "",
           file: null,
           filePath: null,
           fileUrl: null,

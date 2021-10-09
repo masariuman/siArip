@@ -223,9 +223,18 @@ Route::post('/admin/pegawai/arsip/update', 'UuzaaController@arsipPegawaiUpdate')
 Route::post('/admin/pegawai/arsip/search', 'UuzaaController@arsipPegawaiArsipSearch');
 Route::delete('/admin/pegawai/arsip/{url}', 'UuzaaController@arsipPegawaiArsipDelete');
 
+// Route::post('/pegawai/arsip', 'UuzaaController@arsipPegawai');
+// Route::post('/pegawai/search', 'UuzaaController@arsipPegawaiSearch');
+// Route::get('/pegawai/arsip/{url}/edit', 'UuzaaController@arsipPegawaiEdit');
+// Route::post('/pegawai/arsip/update', 'UuzaaController@arsipPegawaiUpdate');
+// Route::post('/pegawai/arsip/search', 'UuzaaController@arsipPegawaiArsipSearch');
+// Route::delete('/pegawai/arsip/{url}', 'UuzaaController@arsipPegawaiArsipDelete');
+
+
 Route::resources([
     'kanrisha/heya/deeta' => 'HeyaController',
     'admin/pegawai' => 'UuzaaController',
+    'pegawai/arsip' => 'ArsipController',
     'kanrisha/alhuqulAlfareia/deeta' => 'alhuqulAlfareiaController',
     'kanrisha/masuk/deeta' => 'suratMasukCOntroller',
     'kanrisha/keluar/deeta' => 'suratKeluarController',
