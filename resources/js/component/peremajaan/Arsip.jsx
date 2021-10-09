@@ -242,7 +242,8 @@ class Arsip extends Component {
 
     handleChangeCari(e) {
         this.setState({
-            cari: e.target.value
+            cari: e.target.value,
+            pegawai_id: this.props.match.params.url
         });
         axios
             .post(`/admin/pegawai/arsip/search`, {

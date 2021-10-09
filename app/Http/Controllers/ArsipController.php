@@ -151,18 +151,27 @@ class ArsipController extends Controller
     public function search(Request $request)
     {
         //
+        $cari = $request->cari;
         $data['pegawai'] = Auth::user();
         $pagination = 5;
         $kategori = ReferensiKategoriArsip::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")->first();
         if ($kategori === null) {
-            $data = Arsip::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
-            ->orWhere("keterangan", "like", "%" . $request->cari . "%")
+            $data = Arsip::where("pegawai_id", $data['pegawai']['id'])
+            ->where(function ($query) use ($cari) {
+                $query->where("name", "like", "%" . $cari . "%")
+                    ->orWhere("keterangan", "like", "%" . $cari . "%");
+            })
+            ->where("sutattsu", "1")
             // ->orWhere("kategori_id", $kategori->id)
             ->orderBy("id", "DESC")->paginate($pagination);
         } else {
-            $data = Arsip::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
-            ->orWhere("keterangan", "like", "%" . $request->cari . "%")
-            ->orWhere("kategori_id", $kategori->id)
+            $data = Arsip::where("pegawai_id", $data['pegawai']['id'])
+            ->where(function ($query) use ($cari,$kategori) {
+                $query->where("name", "like", "%" . $cari . "%")
+                    ->orWhere("keterangan", "like", "%" . $cari . "%")
+                    ->orWhere("kategori_id", $kategori->id);
+            })
+            ->where("sutattsu", "1")
             ->orderBy("id", "DESC")->paginate($pagination);
         }
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);

@@ -4832,7 +4832,7 @@ var Arsip = /*#__PURE__*/function (_Component) {
       this.setState({
         cari: e.target.value
       });
-      axios.post("/admin/pegawai/arsip/search", {
+      axios.post("/pegawai/arsip/search", {
         cari: e.target.value
       }).then(function (response) {
         console.log(response.data.data.data);

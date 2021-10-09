@@ -538,15 +538,22 @@ class UuzaaController extends Controller
     public function arsipPegawaiArsipSearch(Request $request)
     {
         //
+        $cari = $request->cari;
+        $pegawai = Uuzaa::where('rinku',$request->pegawai_id)->first();
         $pagination = 5;
         $kategori = ReferensiKategoriArsip::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")->first();
         if ($kategori === null) {
-            $data = Arsip::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
-            ->orWhere("keterangan", "like", "%" . $request->cari . "%")
+            $data = Arsip::where("pegawai_id", $pegawai['id'])
+            ->where(function ($query) use ($cari) {
+                $query->where("name", "like", "%" . $cari . "%")
+                    ->orWhere("keterangan", "like", "%" . $cari . "%");
+            })
+            ->where("sutattsu", "1")
             // ->orWhere("kategori_id", $kategori->id)
             ->orderBy("id", "DESC")->paginate($pagination);
         } else {
-            $data = Arsip::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
+            $data = Arsip::where("sutattsu", "1")
+            ->where("name", "like", "%" . $request->cari . "%")
             ->orWhere("keterangan", "like", "%" . $request->cari . "%")
             ->orWhere("kategori_id", $kategori->id)
             ->orderBy("id", "DESC")->paginate($pagination);
