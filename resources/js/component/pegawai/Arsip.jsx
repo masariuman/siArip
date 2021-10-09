@@ -1146,67 +1146,7 @@ class Arsip extends Component {
                             <div className="element-wrapper">
                                 {/* content here */}
                                 <div className="row">
-                                    <div className="col-md-4">
-                                        <div className="element-box masariuman_leftSide">
-                                            <div className="masariuman_foto">
-                                                <img className="masariuman_width220px" alt="" src={"/sashin/avatar.jpg"} />
-                                            </div>
-                                            <div>
-                                                <span className="masariuman-bold">{this.state.gelarBelakang +". "+ this.state.namaLengkap +", "+this.state.gelarDepan}</span> <br/>
-                                                <small>NIP. {this.state.nip}</small>
-                                            </div>
-                                            <br />
-                                            <div>
-                                                <Link
-                                                    to={`/admin/pegawai/${this.props.match.params.url}/arsip`}
-                                                    className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
-                                                >
-                                                    <span className="pe-7s-pen"> </span> Arsip
-                                                </Link>
-                                            </div>
-                                            <div>
-                                                <Link
-                                                    to={`/admin/pegawai/${this.props.match.params.url}/detail`}
-                                                    className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
-                                                >
-                                                    <span className="pe-7s-pen"> </span> Identitas
-                                                </Link>
-                                            </div>
-                                            <div>
-                                                <Link
-                                                    to={`/admin/pegawai/${this.props.match.params.url}/cpns`}
-                                                    className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
-                                                >
-                                                    <span className="pe-7s-pen"> </span> CPNS
-                                                </Link>
-                                            </div>
-                                            <div>
-                                                <Link
-                                                    to={`/admin/pegawai/${this.props.match.params.url}/pns`}
-                                                    className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
-                                                >
-                                                    <span className="pe-7s-pen"> </span> PNS
-                                                </Link>
-                                            </div>
-                                            <div>
-                                                <Link
-                                                    to={`/admin/pegawai/${this.props.match.params.url}/pangkatAkhir`}
-                                                    className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
-                                                >
-                                                    <span className="pe-7s-pen"> </span> Pangkat Akhir
-                                                </Link>
-                                            </div>
-                                            <div>
-                                                <Link
-                                                    to={`/admin/pegawai/${this.props.match.params.url}/jabatanAkhir`}
-                                                    className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
-                                                >
-                                                    <span className="pe-7s-pen"> </span> Jabatan Akhir
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-8">
+                                    <div className="col-md-12">
                                         <div className="element-box">
                                             <h5 className="form-header">
                                             Arsip {this.state.gelarBelakang +". "+ this.state.namaLengkap +", "+this.state.gelarDepan}
