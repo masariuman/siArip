@@ -313,7 +313,7 @@ class Arsip extends Component {
 
     handleEditButton(e) {
         axios
-            .get(`/admin/pegawai/arsip/${e}/edit`)
+            .get(`/pegawai/arsip/${e}/edit`)
             .then(response => {
                 console.log(response);
                 this.setState({
