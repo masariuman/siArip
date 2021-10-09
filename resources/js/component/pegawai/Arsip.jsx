@@ -358,25 +358,11 @@ class Arsip extends Component {
         data.append('name', this.state.name);
         data.append('pegawai_id', this.props.match.params.url);
         axios
-            .post(`/admin/pegawai/arsip`, data)
+            .post(`/pegawai/arsip`, data)
             .then(response => {
                 console.log(response);
                 this.setState({
                     arsip: [response.data.data.arsip, ...this.state.arsip],
-                    // unorName: "",
-                    // bidangName: "",
-                    // subbidName: "",
-                    // kategoriName: "",
-                    // keterangan: "",
-                    // name: "",
-                    // agamaUser: "",
-                    // gelarBelakang: "",
-                    // gelarDepan: "",
-                    // nip: "",
-                    // nip9: "",
-                    // namaLengkap: "",
-                    // tempatLahir: "",
-                    // tanggalLahir: "",
                     file: null,
                     filePath: null,
                     fileUrl: null,
