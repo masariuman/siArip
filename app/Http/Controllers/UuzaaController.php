@@ -540,7 +540,7 @@ class UuzaaController extends Controller
         //
         $cari = $request->cari;
         $pegawai = Uuzaa::where('rinku',$request->pegawai_id)->first();
-        dd($pegawai);
+        // dd($request);
         $pagination = 5;
         $kategori = ReferensiKategoriArsip::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")->first();
         if ($kategori === null) {

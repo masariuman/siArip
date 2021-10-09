@@ -6130,11 +6130,11 @@ var Arsip = /*#__PURE__*/function (_Component) {
       var _this3 = this;
 
       this.setState({
-        cari: e.target.value,
-        pegawai_id: this.props.match.params.url
+        cari: e.target.value
       });
       axios.post("/admin/pegawai/arsip/search", {
-        cari: e.target.value
+        cari: e.target.value,
+        pegawai_id: this.props.match.params.url
       }).then(function (response) {
         console.log(response.data.data.data);
 
