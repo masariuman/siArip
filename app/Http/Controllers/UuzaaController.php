@@ -540,6 +540,7 @@ class UuzaaController extends Controller
         //
         $cari = $request->cari;
         $pegawai = Uuzaa::where('rinku',$request->pegawai_id)->first();
+        dd($pegawai);
         $pagination = 5;
         $kategori = ReferensiKategoriArsip::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")->first();
         if ($kategori === null) {
@@ -552,10 +553,13 @@ class UuzaaController extends Controller
             // ->orWhere("kategori_id", $kategori->id)
             ->orderBy("id", "DESC")->paginate($pagination);
         } else {
-            $data = Arsip::where("sutattsu", "1")
-            ->where("name", "like", "%" . $request->cari . "%")
-            ->orWhere("keterangan", "like", "%" . $request->cari . "%")
-            ->orWhere("kategori_id", $kategori->id)
+            $data = Arsip::where("pegawai_id", $pegawai['id'])
+            ->where(function ($query) use ($cari,$kategori) {
+                $query->where("name", "like", "%" . $cari . "%")
+                    ->orWhere("keterangan", "like", "%" . $cari . "%")
+                    ->orWhere("kategori_id", $kategori->id);
+            })
+            ->where("sutattsu", "1")
             ->orderBy("id", "DESC")->paginate($pagination);
         }
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
