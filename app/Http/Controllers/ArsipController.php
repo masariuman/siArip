@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Arsip;
 use Illuminate\Support\Facades\Auth;
+use Uuid;
+use Illuminate\Support\Facades\Hash;
 use App\Models\ReferensiKategoriArsip;
 
 class ArsipController extends Controller
@@ -16,7 +18,19 @@ class ArsipController extends Controller
      */
     public function index()
     {
-        //
+        $pagination = 5;
+        $data['pegawai'] = Auth::user();
+        $data['arsip'] = Arsip::where('pegawai_id',$data['pegawai']['id'])->where('sutattsu','1')->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data['arsip']->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data['arsip'] as $items) {
+            $items['nomor'] = $count;
+            $items['kategori'] = $items->kategori->name;
+            $count++;
+        }
+        // $data['heyaRinku'] = $data->heya->rinku;
+        return response()->json([
+            'data' => $data
+        ]);
     }
 
     /**

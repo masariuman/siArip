@@ -5022,64 +5022,59 @@ var Arsip = /*#__PURE__*/function (_Component) {
   }, {
     key: "getData",
     value: function getData() {
+      var _this8 = this;
+
       this.setState({// loading: true
-      }); // axios
-      //     .get(`/admin/pegawai/${this.props.match.params.url}`)
-      //     .then(response => {
-      //         // console.log(response);
-      //         this.setState({
-      //             // data: response.data.data.data,
-      //             namaLengkap : response.data.data.pegawai.name,
-      //             nip : response.data.data.pegawai.juugyouinBangou,
-      //             gelarBelakang : response.data.data.pegawai.gelarBelakang,
-      //             gelarDepan : response.data.data.pegawai.gelarDepan,
-      //             arsip : response.data.data.arsip.data,
-      //             // ubahPetunjukId: response.data.data.data[0].rinku,
-      //             loading: false,
-      //             activePage: response.data.data.arsip.current_page,
-      //             itemsCountPerPage: response.data.data.arsip.per_page,
-      //             totalItemsCount: response.data.data.arsip.total,
-      //             pageRangeDisplayed: 10
-      //         });
-      //         $('#petunjuk').on('click',function() {
-      //             var enjoyhint_instance = new EnjoyHint({});
-      //             var enjoyhint_script_steps = [
-      //             {
-      //                 'next #buttonTambahModal' : 'Untuk Menambah Data Baru, Tekan Tombol Tambah Surat Masuk Baru'
-      //             },
-      //             {
-      //                 'next #ubah1' : 'Untuk Mengubah Data, Tekan Tombol Ubah Berikut'
-      //             },
-      //             {
-      //                 'next #hapus1' : 'Untuk Menghapus Data, Tekan Hapus Berikut'
-      //             },
-      //             {
-      //                 'next #detail1' : 'Untuk Menghapus Data, Tekan Hapus Berikut'
-      //             },
-      //             {
-      //                 'next #downloadButton' : "Apabila Anda Ada Melakukan Upload Data Ketika Menambahkan Data Baru <br> Atau Mengubah Data Baru, Maka Akan Muncul <br> Tombol <button class='mr-2 mb-2 btn btn-outline-secondary'>Download</button> Yang Dapat Digunakan Untuk Mendownload/Mengunduh Data"
-      //             },
-      //             {
-      //                 'next #pagination' : 'Untuk Melihat Data Berikutnya, Pilih Pada Angka Berikut Untuk Melihat Data Pada Halaman Selanjutnya'
-      //             },
-      //             {
-      //                 'next #cari' : 'Untuk Mencari Data, Ketikkan Pada Kolom Berikut Dan Tunggu Hasilnya Keluar'
-      //             },
-      //             {
-      //                 'next #userSetting' : "Arahkan Mouse Kesini Untuk Membuka Menu Pengaturan User. <br /><br /> <img src='/petunjuk/userSetting.png' class='masariuman_imgUserSetting' /> <br /><br /> Anda Dapat Mengubah Password Dan Mengubah Foto Profil Anda Dengan Menekan Tombol Pengaturan User Untuk Membuka Form <br /> Untuk Mengubah Data Password Atau Foto Profil Anda. <br/> <br/> Untuk Keluar Dari Aplikasi, Anda Dapat Menekan Tombol Logout."
-      //             },
-      //             {
-      //                 'next #meno' : 'Pilih Menu Pada Panel Berikut Untuk Membuka Halaman Sesuai Dengan Menu Yang Dipilih.'
-      //             }
-      //             ];
-      //             enjoyhint_instance.set(enjoyhint_script_steps);
-      //             enjoyhint_instance.run();
-      //         });
-      //     })
-      //     .catch(error => {
-      //         swal("Error!", "Terdapat Masalah, Silahkan Hubungi Admin!", "error");
-      //         this.setState({loading: false});
-      //     });
+      });
+      axios.get("pegawai/arsip").then(function (response) {
+        console.log(response);
+
+        _this8.setState({
+          // data: response.data.data.data,
+          namaLengkap: response.data.data.pegawai.name,
+          nip: response.data.data.pegawai.juugyouinBangou,
+          gelarBelakang: response.data.data.pegawai.gelarBelakang,
+          gelarDepan: response.data.data.pegawai.gelarDepan,
+          arsip: response.data.data.arsip.data,
+          // ubahPetunjukId: response.data.data.data[0].rinku,
+          loading: false,
+          activePage: response.data.data.arsip.current_page,
+          itemsCountPerPage: response.data.data.arsip.per_page,
+          totalItemsCount: response.data.data.arsip.total,
+          pageRangeDisplayed: 10
+        });
+
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()('#petunjuk').on('click', function () {
+          var enjoyhint_instance = new EnjoyHint({});
+          var enjoyhint_script_steps = [{
+            'next #buttonTambahModal': 'Untuk Menambah Data Baru, Tekan Tombol Tambah Surat Masuk Baru'
+          }, {
+            'next #ubah1': 'Untuk Mengubah Data, Tekan Tombol Ubah Berikut'
+          }, {
+            'next #hapus1': 'Untuk Menghapus Data, Tekan Hapus Berikut'
+          }, {
+            'next #detail1': 'Untuk Menghapus Data, Tekan Hapus Berikut'
+          }, {
+            'next #downloadButton': "Apabila Anda Ada Melakukan Upload Data Ketika Menambahkan Data Baru <br> Atau Mengubah Data Baru, Maka Akan Muncul <br> Tombol <button class='mr-2 mb-2 btn btn-outline-secondary'>Download</button> Yang Dapat Digunakan Untuk Mendownload/Mengunduh Data"
+          }, {
+            'next #pagination': 'Untuk Melihat Data Berikutnya, Pilih Pada Angka Berikut Untuk Melihat Data Pada Halaman Selanjutnya'
+          }, {
+            'next #cari': 'Untuk Mencari Data, Ketikkan Pada Kolom Berikut Dan Tunggu Hasilnya Keluar'
+          }, {
+            'next #userSetting': "Arahkan Mouse Kesini Untuk Membuka Menu Pengaturan User. <br /><br /> <img src='/petunjuk/userSetting.png' class='masariuman_imgUserSetting' /> <br /><br /> Anda Dapat Mengubah Password Dan Mengubah Foto Profil Anda Dengan Menekan Tombol Pengaturan User Untuk Membuka Form <br /> Untuk Mengubah Data Password Atau Foto Profil Anda. <br/> <br/> Untuk Keluar Dari Aplikasi, Anda Dapat Menekan Tombol Logout."
+          }, {
+            'next #meno': 'Pilih Menu Pada Panel Berikut Untuk Membuka Halaman Sesuai Dengan Menu Yang Dipilih.'
+          }];
+          enjoyhint_instance.set(enjoyhint_script_steps);
+          enjoyhint_instance.run();
+        });
+      })["catch"](function (error) {
+        sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Error!", "Terdapat Masalah, Silahkan Hubungi Admin!", "error");
+
+        _this8.setState({
+          loading: false
+        });
+      });
     }
   }, {
     key: "getSubbid",
@@ -5093,10 +5088,10 @@ var Arsip = /*#__PURE__*/function (_Component) {
   }, {
     key: "getAgama",
     value: function getAgama() {
-      var _this8 = this;
+      var _this9 = this;
 
       axios.get("/admin/referensi/agama/create").then(function (response) {
-        _this8.setState({
+        _this9.setState({
           agama: response.data.data,
           agamaUser: response.data.data[0].rinku
         });
@@ -5105,10 +5100,10 @@ var Arsip = /*#__PURE__*/function (_Component) {
   }, {
     key: "getKategori",
     value: function getKategori() {
-      var _this9 = this;
+      var _this10 = this;
 
       axios.get("/admin/referensi/kategoriArsip/create").then(function (response) {
-        _this9.setState({
+        _this10.setState({
           kategori: response.data.data,
           kategoriName: response.data.data[0].rinku
         });
@@ -5117,22 +5112,22 @@ var Arsip = /*#__PURE__*/function (_Component) {
   }, {
     key: "getUnor",
     value: function getUnor() {
-      var _this10 = this;
+      var _this11 = this;
 
       axios.get("/admin/referensi/unorBidang").then(function (response) {
-        var _this10$setState;
+        var _this11$setState;
 
-        _this10.setState((_this10$setState = {
+        _this11.setState((_this11$setState = {
           unor: response.data.data.unor,
           unorName: response.data.data.unor[0].rinku,
           bidang: response.data.data.bidang
-        }, _defineProperty(_this10$setState, "unorName", response.data.data.bidang[0].rinku), _defineProperty(_this10$setState, "subbid", response.data.data.subbid), _defineProperty(_this10$setState, "subbidName", response.data.data.subbid[0].rinku), _this10$setState));
+        }, _defineProperty(_this11$setState, "unorName", response.data.data.bidang[0].rinku), _defineProperty(_this11$setState, "subbid", response.data.data.subbid), _defineProperty(_this11$setState, "subbidName", response.data.data.subbid[0].rinku), _this11$setState));
       });
     }
   }, {
     key: "handlePageChange",
     value: function handlePageChange(pageNumber) {
-      var _this11 = this;
+      var _this12 = this;
 
       this.setState({
         loading: true
@@ -5140,7 +5135,7 @@ var Arsip = /*#__PURE__*/function (_Component) {
       axios.get("/admin/pegawai/".concat(this.props.match.params.url, "?page=").concat(pageNumber)).then(function (response) {
         console.log(response);
 
-        _this11.setState({
+        _this12.setState({
           arsip: response.data.data.arsip.data,
           // data: response.data.data.arsip.data,
           loading: false,
@@ -5152,7 +5147,7 @@ var Arsip = /*#__PURE__*/function (_Component) {
       })["catch"](function (error) {
         sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Error!", "Terdapat Masalah, Silahkan Hubungi Admin!", "error");
 
-        _this11.setState({
+        _this12.setState({
           loading: false
         });
       });
@@ -5172,7 +5167,7 @@ var Arsip = /*#__PURE__*/function (_Component) {
   }, {
     key: "renderData",
     value: function renderData() {
-      var _this12 = this;
+      var _this13 = this;
 
       return !this.state.arsip.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("tr", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
@@ -5191,7 +5186,7 @@ var Arsip = /*#__PURE__*/function (_Component) {
             className: "text-center",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
               highlightClassName: "YourHighlightClass",
-              searchWords: [_this12.state.cari],
+              searchWords: [_this13.state.cari],
               autoEscape: true,
               textToHighlight: data.kategori.name
             })
@@ -5199,7 +5194,7 @@ var Arsip = /*#__PURE__*/function (_Component) {
             className: "text-center",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
               highlightClassName: "YourHighlightClass",
-              searchWords: [_this12.state.cari],
+              searchWords: [_this13.state.cari],
               autoEscape: true,
               textToHighlight: data.name
             })
@@ -5207,7 +5202,7 @@ var Arsip = /*#__PURE__*/function (_Component) {
             className: "text-center",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
               highlightClassName: "YourHighlightClass",
-              searchWords: [_this12.state.cari],
+              searchWords: [_this13.state.cari],
               autoEscape: true,
               textToHighlight: data.keterangan
             })
@@ -5227,13 +5222,13 @@ var Arsip = /*#__PURE__*/function (_Component) {
                 "data-toggle": "modal",
                 className: "mr-2 mb-2 btn btn-outline-warning",
                 type: "button",
-                onClick: _this12.handleEditButton.bind(_this12, data.rinku),
+                onClick: _this13.handleEditButton.bind(_this13, data.rinku),
                 id: 'ubah' + data.nomor,
                 children: "Ubah"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
                 className: "mr-2 mb-2 btn btn-outline-danger",
                 type: "button",
-                onClick: _this12.handleDeleteButton.bind(_this12, data.rinku),
+                onClick: _this13.handleDeleteButton.bind(_this13, data.rinku),
                 id: 'hapus' + data.nomor,
                 children: "Hapus"
               })]

@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Sat Oct 09 2021 15:08:43 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/ArsipController.php
+* public/js/app.js
+* routes/web.php
+
+
+Created files:
+* .autogit/logs/log-9-9-2021-14-38-19.txt
+
+
+Deleted files:
+
+
+Renamed files:
