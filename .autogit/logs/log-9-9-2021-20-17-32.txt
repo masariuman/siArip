@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Sat Oct 09 2021 20:17:32 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* resources/js/component/pegawai/Arsip.jsx
+
+
+Created files:
+* .autogit/logs/log-9-9-2021-19-47-16.txt
+
+
+Deleted files:
+
+
+Renamed files:

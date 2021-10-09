@@ -4901,7 +4901,7 @@ var Arsip = /*#__PURE__*/function (_Component) {
     value: function handleEditButton(e) {
       var _this5 = this;
 
-      axios.get("/admin/pegawai/arsip/".concat(e, "/edit")).then(function (response) {
+      axios.get("/pegawai/arsip/".concat(e, "/edit")).then(function (response) {
         console.log(response);
 
         _this5.setState({
@@ -5027,8 +5027,7 @@ var Arsip = /*#__PURE__*/function (_Component) {
       this.setState({// loading: true
       });
       axios.get("pegawai/arsip").then(function (response) {
-        console.log(response);
-
+        // console.log(response);
         _this8.setState({
           // data: response.data.data.data,
           namaLengkap: response.data.data.pegawai.name,
@@ -5725,7 +5724,9 @@ var Arsip = /*#__PURE__*/function (_Component) {
                     className: "element-box",
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("h5", {
                       className: "form-header",
-                      children: ["Arsip ", this.state.gelarBelakang + ". " + this.state.namaLengkap + ", " + this.state.gelarDepan]
+                      children: ["Arsip ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("b", {
+                        children: this.state.gelarBelakang + this.state.namaLengkap + this.state.gelarDepan
+                      })]
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                       className: "form-desc",
                       children: "Manajemen Arsip Pegawai"

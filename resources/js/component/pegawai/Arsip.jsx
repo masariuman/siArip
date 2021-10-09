@@ -1135,7 +1135,7 @@ class Arsip extends Component {
                                     <div className="col-md-12">
                                         <div className="element-box">
                                             <h5 className="form-header">
-                                            Arsip {this.state.gelarBelakang +". "+ this.state.namaLengkap +", "+this.state.gelarDepan}
+                                            Arsip <b>{this.state.gelarBelakang + this.state.namaLengkap + this.state.gelarDepan}</b>
                                             </h5>
                                             <div className="form-desc">
                                                 Manajemen Arsip Pegawai

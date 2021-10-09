@@ -20,6 +20,16 @@ class ArsipController extends Controller
     {
         $pagination = 5;
         $data['pegawai'] = Auth::user();
+        if ($data['pegawai']['gelarDepan'] === null || $data['pegawai']['gelarDepan'] === "") {
+            $data['pegawai']['gelarDepan'] = "";
+        } else {
+            $data['pegawai']['gelarDepan'] = $data['pegawai']['gelarDepan'] . ". ";
+        }
+        if ($data['pegawai']['gelarBelakang'] === null || $data['pegawai']['gelarBelakang'] === "") {
+            $data['pegawai']['gelarBelakang'] = "";
+        } else {
+            $data['pegawai']['gelarBelakang'] = ", " . $data['pegawai']['gelarBelakang'];
+        }
         $data['arsip'] = Arsip::where('pegawai_id',$data['pegawai']['id'])->where('sutattsu','1')->orderBy("id", "DESC")->paginate($pagination);
         $count = $data['arsip']->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data['arsip'] as $items) {
@@ -106,7 +116,13 @@ class ArsipController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Arsip::where('rinku', $id)->first();
+        $data['kategori_name'] = $data->kategori->rinku;
+        $data['fileurl'] = '/zaFail/' . $data->file;
+        // $data['heyaRinku'] = $data->heya->rinku;
+        return response()->json([
+            'data' => $data
+        ]);
     }
 
     /**
