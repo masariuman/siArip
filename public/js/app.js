@@ -11544,7 +11544,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
 
       this.setState({// loading: true
       });
-      axios.get("/admin/pegawai/".concat(this.props.match.params.url)).then(function (response) {
+      axios.get("/admin/pengajuan/".concat(this.props.match.params.url)).then(function (response) {
         // console.log(response);
         _this8.setState({
           // data: response.data.data.data,
@@ -11724,33 +11724,19 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
               autoEscape: true,
               textToHighlight: data.keterangan
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("td", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             id: "downloadButton",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-              className: "text-center",
-              children: data.file ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("a", {
-                href: "/zaFail/".concat(data.file),
-                className: "mr-2 mb-2 btn btn-outline-secondary",
-                children: "Download"
-              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {})
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-              className: "text-center",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-                "data-target": "#editModal",
-                "data-toggle": "modal",
-                className: "mr-2 mb-2 btn btn-outline-warning",
-                type: "button",
-                onClick: _this13.handleEditButton.bind(_this13, data.rinku),
-                id: 'ubah' + data.nomor,
-                children: "Ubah"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-                className: "mr-2 mb-2 btn btn-outline-danger",
-                type: "button",
-                onClick: _this13.handleDeleteButton.bind(_this13, data.rinku),
-                id: 'hapus' + data.nomor,
-                children: "Hapus"
-              })]
-            })]
+            className: "text-center",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+              "class": data.statusClass,
+              type: "button",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
+                highlightClassName: "YourHighlightClass",
+                searchWords: [_this13.state.cari],
+                autoEscape: true,
+                textToHighlight: data.status
+              })
+            })
           })]
         }, data.rinku);
       });
@@ -12326,20 +12312,12 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
                     className: "element-box",
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("h5", {
                       className: "form-header",
-                      children: ["Arsip ", this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang]
+                      children: ["Pengajuan ", this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang]
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                       className: "form-desc",
-                      children: "Manajemen Arsip Pegawai"
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-                        className: "mr-2 mb-2 btn btn-primary",
-                        "data-target": "#tambahModal",
-                        "data-toggle": "modal",
-                        type: "button",
-                        id: "buttonTambahModal",
-                        onClick: this.handleTambahButton,
-                        children: "Tambah Arsip Baru"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                      children: "Manajemen Pengajuan"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                         className: "col-sm-4 float-right",
                         id: "cari",
                         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
@@ -12349,7 +12327,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
                           value: this.state.cari,
                           placeholder: "Cari Arsip..."
                         })
-                      })]
+                      })
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                       className: "table-responsive",
                       id: "ruanganTable",
@@ -12373,7 +12351,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
                               children: "Keterangan"
                             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("th", {
                               className: "text-center",
-                              children: "Aksi"
+                              children: "Status"
                             })]
                           })
                         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("tbody", {

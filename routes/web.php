@@ -236,6 +236,7 @@ Route::post('/pengajuan/arsip/search', 'PengajuanController@search');
 Route::resources([
     'kanrisha/heya/deeta' => 'HeyaController',
     'admin/pegawai' => 'UuzaaController',
+    'admin/pengajuan' => 'PengajuanAdminController',
     'pegawai/arsip' => 'ArsipController',
     'pengajuan/arsip' => 'PengajuanController',
     'kanrisha/alhuqulAlfareia/deeta' => 'alhuqulAlfareiaController',

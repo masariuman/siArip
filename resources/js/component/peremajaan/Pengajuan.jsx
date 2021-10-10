@@ -451,7 +451,7 @@ class Pengajuan extends Component {
             // loading: true
         });
         axios
-            .get(`/admin/pegawai/${this.props.match.params.url}`)
+            .get(`/admin/pengajuan/${this.props.match.params.url}`)
             .then(response => {
                 // console.log(response);
                 this.setState({
@@ -614,19 +614,15 @@ class Pengajuan extends Component {
                             textToHighlight={data.keterangan}
                         />
                     </td>
-                    <td id="downloadButton">
-                        <div className="text-center">
-                            {data.file ? (
-                                <a href={`/zaFail/${data.file}`} className="mr-2 mb-2 btn btn-outline-secondary">Download</a>
-                            ) : (
-                                <span></span>
-                            )}
-                            {/* <button data-target="#detailModal" data-toggle="modal" className="mr-2 mb-2 btn btn-outline-info" type="button" onClick={this.handleEditButton.bind(this, data.rinku)} id={'detail'+data.nomor}>Detail</button> */}
-                        </div>
-                        <div className="text-center">
-                            <button data-target="#editModal" data-toggle="modal" className="mr-2 mb-2 btn btn-outline-warning" type="button" onClick={this.handleEditButton.bind(this, data.rinku)} id={'ubah'+data.nomor}>Ubah</button>
-                            <button className="mr-2 mb-2 btn btn-outline-danger" type="button" onClick={this.handleDeleteButton.bind(this, data.rinku)} id={'hapus'+data.nomor}>Hapus</button>
-                        </div>
+                    <td id="downloadButton" className="text-center">
+                        <span class={data.statusClass} type="button">
+                            <Highlighter
+                                highlightClassName="YourHighlightClass"
+                                searchWords={[this.state.cari]}
+                                autoEscape={true}
+                                textToHighlight={data.status}
+                            />
+                        </span>
                     </td>
                 </tr>
             ));
