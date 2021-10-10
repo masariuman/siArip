@@ -1219,13 +1219,12 @@ class Pengajuan extends Component {
                                     <div className="col-md-8">
                                         <div className="element-box">
                                             <h5 className="form-header">
-                                            Arsip {this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang}
+                                            Pengajuan {this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang}
                                             </h5>
                                             <div className="form-desc">
-                                                Manajemen Arsip Pegawai
+                                                Manajemen Pengajuan
                                             </div>
                                             <div>
-                                                <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal" onClick={this.handleTambahButton}>Tambah Arsip Baru</button>
                                                 <div className="col-sm-4 float-right" id="cari">
                                                     <input type="text" className="form-control" onChange={this.handleChangeCari}
                                                         value={this.state.cari} placeholder="Cari Arsip..."></input>
@@ -1239,7 +1238,7 @@ class Pengajuan extends Component {
                                                             <th className="width50px text-center">Kategori</th>
                                                             <th className="text-center">Nama Arsip</th>
                                                             <th className="text-center">Keterangan</th>
-                                                            <th className="text-center">Aksi</th>
+                                                            <th className="text-center">Status</th>
                                                             {/* <th className="width250px text-center">ACTION</th> */}
                                                         </tr>
                                                     </thead>
