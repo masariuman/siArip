@@ -16,6 +16,7 @@ class Pengajuan extends Component {
         this.state = {
             status: 0,
             statusClass:"",
+            statusName:"",
 
             data: [],
             unor: [],
@@ -93,7 +94,7 @@ class Pengajuan extends Component {
     }
 
     renderSashinDetail() {
-        return !this.state.uploaderSashin || this.state.uploaderSashin === "" ? <img alt="" src="/warudo/dist/img/avatar.jpg" /> : <img alt="" src={"/sashin/"+this.state.uploaderSashin} />;
+        return !this.state.uploaderSashin || this.state.uploaderSashin === "" ? <img alt="" src="/warudo/dist/img/avatar.jpg" /> : <img alt="" src={`/sashin/${this.state.sashin}`} />;
     }
 
     renderVerifikasiButton() {
@@ -336,6 +337,7 @@ class Pengajuan extends Component {
                     kategoriName : response.data.data.kategori_name,
                     status: response.data.data.statusButton,
                     statusClass: response.data.data.statusClass,
+                    statusName: response.data.data.status,
                     name : response.data.data.name,
                     keterangan : response.data.data.keterangan,
                     loading: false,
@@ -478,7 +480,7 @@ class Pengajuan extends Component {
                     gelarBelakang : response.data.data.pegawai.gelarBelakang,
                     gelarDepan : response.data.data.pegawai.gelarDepan,
                     arsip : response.data.data.arsip.data,
-                    sashin : response.data.data.pegawai.sashin,
+                    sashin : '/sashin/'+response.data.data.pegawai.sashin,
                     // ubahPetunjukId: response.data.data.data[0].rinku,
                     loading: false,
                     activePage: response.data.data.arsip.current_page,
@@ -572,7 +574,7 @@ class Pengajuan extends Component {
             loading: true
         });
         axios
-            .get(`/admin/pegawai/${this.props.match.params.url}?page=${pageNumber}`)
+            .get(`/admin/pengajuan/${this.props.match.params.url}?page=${pageNumber}`)
             .then(response => {
                 console.log(response);
                 this.setState({
@@ -595,7 +597,7 @@ class Pengajuan extends Component {
         this.getData();
         // this.getAgama();
         // this.getUnor();
-        // this.getKategori();
+        this.getKategori();
     }
 
     componentDidUpdate() {
@@ -632,7 +634,7 @@ class Pengajuan extends Component {
                         />
                     </td>
                     <td id="downloadButton" className="text-center">
-                        <span data-target="#editModal" data-toggle="modal" class={data.statusClass} type="button" onClick={this.handleEditButton.bind(this, data.rinku)}>
+                        <span data-target="#editModal" data-toggle="modal" className={data.statusClass} type="button" onClick={this.handleEditButton.bind(this, data.rinku)}>
                             <Highlighter
                                 highlightClassName="YourHighlightClass"
                                 searchWords={[this.state.cari]}
@@ -935,23 +937,15 @@ class Pengajuan extends Component {
                                     </tbody>
                                 </table>
                             </div>
-                            <div className="col-sm-12">
-                                <table className="masariuman_tableFile">
-                                    <tbody>
-                                        <tr>
-                                            <td className="form-group">
-                                                <span class={this.state.statusClass}>
-                                                    <Highlighter
-                                                        highlightClassName="YourHighlightClass"
-                                                        searchWords={[this.state.cari]}
-                                                        autoEscape={true}
-                                                        textToHighlight={this.state.status}
-                                                    />
-                                                </span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div className="col-sm-12 text-center">
+                                <span className={this.state.statusClass}>
+                                    <Highlighter
+                                        highlightClassName="YourHighlightClass"
+                                        searchWords={[this.state.cari]}
+                                        autoEscape={true}
+                                        textToHighlight={this.state.statusName}
+                                    />
+                                </span>
                             </div>
                             {this.renderVerifikasiButton()}
                             </div>
@@ -1178,7 +1172,7 @@ class Pengajuan extends Component {
                                     <div className="col-md-4">
                                         <div className="element-box masariuman_leftSide">
                                             <div className="masariuman_foto">
-                                                <img className="masariuman_width220px" alt="" src={`/sashin/${this.state.sashin}`} />
+                                                <img className="masariuman_width220px" alt="" src={this.state.sashin} />
                                             </div>
                                             <div>
                                                 <span className="masariuman-bold">{this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang}</span> <br/>

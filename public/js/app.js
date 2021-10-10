@@ -6509,7 +6509,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
             id: "downloadButton",
             className: "text-center",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
-              "class": data.statusClass,
+              className: data.statusClass,
               type: "button",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
                 highlightClassName: "YourHighlightClass",
@@ -11098,6 +11098,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
     _this.state = {
       status: 0,
       statusClass: "",
+      statusName: "",
       data: [],
       unor: [],
       unorName: "",
@@ -11175,7 +11176,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
         src: "/warudo/dist/img/avatar.jpg"
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
         alt: "",
-        src: "/sashin/" + this.state.uploaderSashin
+        src: "/sashin/".concat(this.state.sashin)
       });
     }
   }, {
@@ -11437,6 +11438,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
           kategoriName: response.data.data.kategori_name,
           status: response.data.data.statusButton,
           statusClass: response.data.data.statusClass,
+          statusName: response.data.data.status,
           name: response.data.data.name,
           keterangan: response.data.data.keterangan,
           loading: false,
@@ -11580,7 +11582,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
           gelarBelakang: response.data.data.pegawai.gelarBelakang,
           gelarDepan: response.data.data.pegawai.gelarDepan,
           arsip: response.data.data.arsip.data,
-          sashin: response.data.data.pegawai.sashin,
+          sashin: '/sashin/' + response.data.data.pegawai.sashin,
           // ubahPetunjukId: response.data.data.data[0].rinku,
           loading: false,
           activePage: response.data.data.arsip.current_page,
@@ -11677,7 +11679,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      axios.get("/admin/pegawai/".concat(this.props.match.params.url, "?page=").concat(pageNumber)).then(function (response) {
+      axios.get("/admin/pengajuan/".concat(this.props.match.params.url, "?page=").concat(pageNumber)).then(function (response) {
         console.log(response);
 
         _this12.setState({
@@ -11702,7 +11704,8 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
     value: function componentDidMount() {
       this.getData(); // this.getAgama();
       // this.getUnor();
-      // this.getKategori();
+
+      this.getKategori();
     }
   }, {
     key: "componentDidUpdate",
@@ -11756,7 +11759,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
               "data-target": "#editModal",
               "data-toggle": "modal",
-              "class": data.statusClass,
+              className: data.statusClass,
               type: "button",
               onClick: _this13.handleEditButton.bind(_this13, data.rinku),
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
@@ -12091,24 +12094,14 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
                         })
                       })
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                      className: "col-sm-12",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("table", {
-                        className: "masariuman_tableFile",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("tbody", {
-                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("tr", {
-                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
-                              className: "form-group",
-                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
-                                "class": this.state.statusClass,
-                                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
-                                  highlightClassName: "YourHighlightClass",
-                                  searchWords: [this.state.cari],
-                                  autoEscape: true,
-                                  textToHighlight: this.state.status
-                                })
-                              })
-                            })
-                          })
+                      className: "col-sm-12 text-center",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                        className: this.state.statusClass,
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
+                          highlightClassName: "YourHighlightClass",
+                          searchWords: [this.state.cari],
+                          autoEscape: true,
+                          textToHighlight: this.state.statusName
                         })
                       })
                     }), this.renderVerifikasiButton()]
@@ -12262,7 +12255,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
                         className: "masariuman_width220px",
                         alt: "",
-                        src: "/sashin/".concat(this.state.sashin)
+                        src: this.state.sashin
                       })
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
                       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {

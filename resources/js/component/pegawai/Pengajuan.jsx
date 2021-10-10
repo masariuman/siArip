@@ -600,7 +600,7 @@ class Pengajuan extends Component {
                         />
                     </td>
                     <td id="downloadButton" className="text-center">
-                        <span class={data.statusClass} type="button">
+                        <span className={data.statusClass} type="button">
                             <Highlighter
                                 highlightClassName="YourHighlightClass"
                                 searchWords={[this.state.cari]}
