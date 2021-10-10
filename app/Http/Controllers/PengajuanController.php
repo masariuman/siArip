@@ -30,7 +30,7 @@ class PengajuanController extends Controller
         } else {
             $data['pegawai']['gelarBelakang'] = ", " . $data['pegawai']['gelarBelakang'];
         }
-        $data['arsip'] = Arsip::where('pegawai_id',$data['pegawai']['id'])->where('sutattsu','1')->orderBy("id", "DESC")->paginate($pagination);
+        $data['arsip'] = Arsip::where('pegawai_id',$data['pegawai']['id'])->whereIn('sutattsu',['2', '3', '4'])->orderBy("id", "DESC")->paginate($pagination);
         $count = $data['arsip']->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data['arsip'] as $items) {
             $items['nomor'] = $count;

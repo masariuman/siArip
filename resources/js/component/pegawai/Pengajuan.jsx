@@ -36,6 +36,7 @@ class Pengajuan extends Component {
             name : "",
             keterangan : "",
             arsip: [],
+            // status: "",
 
             dataEditInput: "",
             buttonTambahModal: "",
@@ -599,18 +600,12 @@ class Pengajuan extends Component {
                         />
                     </td>
                     <td id="downloadButton">
-                        <div className="text-center">
-                            {data.file ? (
-                                <a href={`/zaFail/${data.file}`} className="mr-2 mb-2 btn btn-outline-secondary">Download</a>
-                            ) : (
-                                <span></span>
-                            )}
-                            {/* <button data-target="#detailModal" data-toggle="modal" className="mr-2 mb-2 btn btn-outline-info" type="button" onClick={this.handleEditButton.bind(this, data.rinku)} id={'detail'+data.nomor}>Detail</button> */}
-                        </div>
-                        <div className="text-center">
-                            <button data-target="#editModal" data-toggle="modal" className="mr-2 mb-2 btn btn-outline-warning" type="button" onClick={this.handleEditButton.bind(this, data.rinku)} id={'ubah'+data.nomor}>Ubah</button>
-                            <button className="mr-2 mb-2 btn btn-outline-danger" type="button" onClick={this.handleDeleteButton.bind(this, data.rinku)} id={'hapus'+data.nomor}>Hapus</button>
-                        </div>
+                        <Highlighter
+                            highlightClassName="YourHighlightClass"
+                            searchWords={[this.state.cari]}
+                            autoEscape={true}
+                            textToHighlight={data.status}
+                        />
                     </td>
                 </tr>
             ));
@@ -1155,7 +1150,7 @@ class Pengajuan extends Component {
                                                             <th className="width50px text-center">Kategori</th>
                                                             <th className="text-center">Nama Arsip</th>
                                                             <th className="text-center">Keterangan</th>
-                                                            <th className="text-center">Aksi</th>
+                                                            <th className="text-center">Status</th>
                                                             {/* <th className="width250px text-center">ACTION</th> */}
                                                         </tr>
                                                     </thead>
