@@ -37,12 +37,15 @@ class PengajuanController extends Controller
             $items['kategori'] = $items->kategori->name;
             if ($items['sutattsu'] === '3') {
                 $items['status'] = 'Belum Terverifikasi';
+                $items['statusClass'] = 'mr-2 mb-2 btn btn-warning btn-rounded';
             }
             if ($items['sutattsu'] === '2') {
                 $items['status'] = 'Pengajuan Diterima';
+                $items['statusClass'] = 'mr-2 mb-2 btn btn-success btn-rounded';
             }
             if ($items['sutattsu'] === '4') {
                 $items['status'] = 'Pengajuan Ditolak';
+                $items['statusClass'] = 'mr-2 mb-2 btn btn-danger btn-rounded';
             }
             $count++;
         }

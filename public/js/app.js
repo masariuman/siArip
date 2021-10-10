@@ -6507,11 +6507,16 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             id: "downloadButton",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
-              highlightClassName: "YourHighlightClass",
-              searchWords: [_this13.state.cari],
-              autoEscape: true,
-              textToHighlight: data.status
+            className: "text-center",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+              "class": data.statusClass,
+              type: "button",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
+                highlightClassName: "YourHighlightClass",
+                searchWords: [_this13.state.cari],
+                autoEscape: true,
+                textToHighlight: data.status
+              })
             })
           })]
         }, data.rinku);

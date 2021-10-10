@@ -599,13 +599,15 @@ class Pengajuan extends Component {
                             textToHighlight={data.keterangan}
                         />
                     </td>
-                    <td id="downloadButton">
-                        <Highlighter
-                            highlightClassName="YourHighlightClass"
-                            searchWords={[this.state.cari]}
-                            autoEscape={true}
-                            textToHighlight={data.status}
-                        />
+                    <td id="downloadButton" className="text-center">
+                        <span class={data.statusClass} type="button">
+                            <Highlighter
+                                highlightClassName="YourHighlightClass"
+                                searchWords={[this.state.cari]}
+                                autoEscape={true}
+                                textToHighlight={data.status}
+                            />
+                        </span>
                     </td>
                 </tr>
             ));
