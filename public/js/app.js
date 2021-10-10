@@ -6431,7 +6431,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      axios.get("/admin/pegawai/".concat(this.props.match.params.url, "?page=").concat(pageNumber)).then(function (response) {
+      axios.get("/pengajuan/arsip?page=".concat(pageNumber)).then(function (response) {
         console.log(response);
 
         _this12.setState({

@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Sun Oct 10 2021 21:16:13 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/PengajuanController.php
+* public/js/app.js
+* resources/js/component/pegawai/Pengajuan.jsx
+
+
+Created files:
+* .autogit/logs/log-10-9-2021-20-45-54.txt
+
+
+Deleted files:
+
+
+Renamed files:

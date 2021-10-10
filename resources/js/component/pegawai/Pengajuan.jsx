@@ -540,7 +540,7 @@ class Pengajuan extends Component {
             loading: true
         });
         axios
-            .get(`/admin/pegawai/${this.props.match.params.url}?page=${pageNumber}`)
+            .get(`/pengajuan/arsip?page=${pageNumber}`)
             .then(response => {
                 console.log(response);
                 this.setState({

@@ -106,6 +106,18 @@ class PengajuanController extends Controller
         $data['arsip'] = Arsip::orderBy("id", "DESC")->first();
         $data['arsip']['nomor'] = "BARU";
         $data['arsip']['kategori'] = $data['arsip']->kategori->name;
+        if ($data['arsip']['sutattsu'] === '3') {
+            $data['arsip']['status'] = 'Belum Terverifikasi';
+            $data['arsip']['statusClass'] = 'mr-2 mb-2 btn btn-warning btn-rounded';
+        }
+        if ($data['arsip']['sutattsu'] === '2') {
+            $data['arsip']['status'] = 'Pengajuan Diterima';
+            $data['arsip']['statusClass'] = 'mr-2 mb-2 btn btn-success btn-rounded';
+        }
+        if ($data['arsip']['sutattsu'] === '4') {
+            $data['arsip']['status'] = 'Pengajuan Ditolak';
+            $data['arsip']['statusClass'] = 'mr-2 mb-2 btn btn-danger btn-rounded';
+        }
         return response()->json([
             'data' => $data
         ]);
