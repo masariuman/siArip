@@ -230,6 +230,8 @@ Route::post('/pegawai/arsip/update', 'ArsipController@apdet');
 Route::post('/pegawai/arsip/search', 'ArsipController@search');
 // Route::delete('/pegawai/arsip/{url}', 'UuzaaController@arsipPegawaiArsipDelete');
 
+Route::post('/pengajuan/arsip/search', 'PengajuanController@search');
+
 
 Route::resources([
     'kanrisha/heya/deeta' => 'HeyaController',

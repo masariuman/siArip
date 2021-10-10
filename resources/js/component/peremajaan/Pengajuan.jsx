@@ -10,7 +10,7 @@ import Highlighter from "react-highlight-words";
 // import { useHistory } from "react-router-dom";
 
 
-class Arsip extends Component {
+class Pengajuan extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -1274,4 +1274,4 @@ class Arsip extends Component {
     }
 }
 
-export default Arsip;
+export default Pengajuan;

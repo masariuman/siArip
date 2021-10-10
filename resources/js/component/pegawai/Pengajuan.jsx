@@ -246,7 +246,7 @@ class Pengajuan extends Component {
             cari: e.target.value
         });
         axios
-            .post(`/pegawai/arsip/search`, {
+            .post(`/pengajuan/arsip/search`, {
                 cari: e.target.value
             })
             .then(response => {

@@ -1,0 +1,20 @@
+-------------------- Auto-Git Log --------------------
+		Sun Oct 10 2021 21:46:37 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/PengajuanController.php
+* public/js/app.js
+* resources/js/component/pegawai/Pengajuan.jsx
+
+
+Created files:
+* .autogit/logs/log-10-9-2021-21-16-13.txt
+* public/zaFail/199603142020121003_Akta_20211010213518.pdf
+* public/zaFail/199603142020121003_KTP_20211010213629.pdf
+
+
+Deleted files:
+
+
+Renamed files:
