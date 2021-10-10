@@ -5914,6 +5914,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
       name: "",
       keterangan: "",
       arsip: [],
+      // status: "",
       dataEditInput: "",
       buttonTambahModal: "",
       cari: "",
@@ -6504,33 +6505,14 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
               autoEscape: true,
               textToHighlight: data.keterangan
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("td", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             id: "downloadButton",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-              className: "text-center",
-              children: data.file ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("a", {
-                href: "/zaFail/".concat(data.file),
-                className: "mr-2 mb-2 btn btn-outline-secondary",
-                children: "Download"
-              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {})
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-              className: "text-center",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-                "data-target": "#editModal",
-                "data-toggle": "modal",
-                className: "mr-2 mb-2 btn btn-outline-warning",
-                type: "button",
-                onClick: _this13.handleEditButton.bind(_this13, data.rinku),
-                id: 'ubah' + data.nomor,
-                children: "Ubah"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-                className: "mr-2 mb-2 btn btn-outline-danger",
-                type: "button",
-                onClick: _this13.handleDeleteButton.bind(_this13, data.rinku),
-                id: 'hapus' + data.nomor,
-                children: "Hapus"
-              })]
-            })]
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
+              highlightClassName: "YourHighlightClass",
+              searchWords: [_this13.state.cari],
+              autoEscape: true,
+              textToHighlight: data.status
+            })
           })]
         }, data.rinku);
       });
@@ -7072,7 +7054,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
                               children: "Keterangan"
                             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("th", {
                               className: "text-center",
-                              children: "Aksi"
+                              children: "Status"
                             })]
                           })
                         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("tbody", {

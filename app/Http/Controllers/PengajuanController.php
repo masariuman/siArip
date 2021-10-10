@@ -35,6 +35,15 @@ class PengajuanController extends Controller
         foreach ($data['arsip'] as $items) {
             $items['nomor'] = $count;
             $items['kategori'] = $items->kategori->name;
+            if ($items['sutattsu'] === '3') {
+                $items['status'] = 'Belum Terverifikasi';
+            }
+            if ($items['sutattsu'] === '2') {
+                $items['status'] = 'Pengajuan Diterima';
+            }
+            if ($items['sutattsu'] === '4') {
+                $items['status'] = 'Pengajuan Ditolak';
+            }
             $count++;
         }
         // $data['heyaRinku'] = $data->heya->rinku;
