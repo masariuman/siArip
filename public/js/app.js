@@ -6246,7 +6246,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
       data.append('keterangan', this.state.keterangan);
       data.append('name', this.state.name);
       data.append('pegawai_id', this.props.match.params.url);
-      axios.post("/pegawai/arsip", data).then(function (response) {
+      axios.post("/pengajuan/arsip", data).then(function (response) {
         console.log(response);
 
         _this6.setState({

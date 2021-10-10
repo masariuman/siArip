@@ -77,6 +77,7 @@ class PengajuanController extends Controller
                 'keterangan' => $data['keterangan'],
                 'kategori_id' => $kategori->id,
                 'pegawai_id' => $pegawai->id,
+                'sutattsu' => '3',
                 'file' => $fileName
             ]);
         } else {
@@ -85,6 +86,7 @@ class PengajuanController extends Controller
                 'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string))))),
                 'keterangan' => $data['keterangan'],
                 'kategori_id' => $kategori->id,
+                'sutattsu' => '3',
                 'pegawai_id' => $pegawai->id
             ]);
         }
