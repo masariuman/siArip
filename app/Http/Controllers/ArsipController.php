@@ -184,4 +184,45 @@ class ArsipController extends Controller
             'data' => $data
         ]);
     }
+
+    public function apdet(Request $request)
+    {
+        //
+        $data = $request->request->all();
+        // dd($request);
+        $file = $request->files->all();
+        $arsip = Arsip::where('rinku', $data['url'])->first();
+        $pegawai = Uuzaa::where('id',$arsip->pegawai_id)->first();
+        $kategori = ReferensiKategoriArsip::where('rinku', $data['kategoriName'])->first();
+        if ($file) {
+            $file = $request->file('file');
+            $fileExt = $file->getClientOriginalExtension();
+            $fileName = $pegawai->juugyouinBangou."_".$kategori->name."_".date('YmdHis').".$fileExt";
+            $request->file('file')->move("zaFail", $fileName);
+            $arsip->update([
+                'name' => $data['name'],
+                'keterangan' => $data['keterangan'],
+                'kategori_id' => $kategori->id,
+                'file' => $fileName
+            ]);
+        } else {
+            $arsip->update([
+                'name' => $data['name'],
+                'keterangan' => $data['keterangan'],
+                'kategori_id' => $kategori->id
+            ]);
+        }
+        $pagination = 5;
+        $data['pegawai'] = Uuzaa::where('rinku', $arsip->pegawai_id)->first();
+        $data['arsip'] = Arsip::where('pegawai_id',$arsip->pegawai_id)->where('sutattsu','1')->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data['arsip']->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data['arsip'] as $items) {
+            $items['nomor'] = $count;
+            $items['kategori'] = $items->kategori->name;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
 }

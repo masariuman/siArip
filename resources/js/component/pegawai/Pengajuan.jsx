@@ -10,7 +10,7 @@ import Highlighter from "react-highlight-words";
 // import { useHistory } from "react-router-dom";
 
 
-class Arsip extends Component {
+class Pengajuan extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -399,7 +399,7 @@ class Arsip extends Component {
         data.append('url', this.state.url);
         console.log(data);
         axios
-            .post(`/pegawai/arsip/update`, data)
+            .post(`/admin/pegawai/arsip/update`, data)
             .then(response => {
                 console.log(response);
                 this.setState({
@@ -1119,10 +1119,10 @@ class Arsip extends Component {
                 </div>
                 <ul className="breadcrumb">
                     <li className="breadcrumb-item">
-                        <a>Arsip Pegawai</a>
+                        <a>Pengajuan Data</a>
                     </li>
                     <li className="breadcrumb-item">
-                        <span>Manajemen Arsip Pegawai</span>
+                        <span>Manajemen Pengajuan Data</span>
                     </li>
                 </ul>
 
@@ -1135,13 +1135,13 @@ class Arsip extends Component {
                                     <div className="col-md-12">
                                         <div className="element-box">
                                             <h5 className="form-header">
-                                            Arsip <b>{this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang}</b>
+                                            Pengajuan Data <b>{this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang}</b>
                                             </h5>
                                             <div className="form-desc">
                                                 Manajemen Arsip Pegawai
                                             </div>
                                             <div>
-                                                <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal" onClick={this.handleTambahButton}>Tambah Arsip Baru</button>
+                                                <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal" onClick={this.handleTambahButton}>Tambah Pengajuan Baru</button>
                                                 <div className="col-sm-4 float-right" id="cari">
                                                     <input type="text" className="form-control" onChange={this.handleChangeCari}
                                                         value={this.state.cari} placeholder="Cari Arsip..."></input>
@@ -1190,4 +1190,4 @@ class Arsip extends Component {
     }
 }
 
-export default Arsip;
+export default Pengajuan;

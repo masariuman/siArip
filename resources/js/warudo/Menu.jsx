@@ -566,17 +566,40 @@ class Menu extends Component {
                             <div className="icon-w">
                                 <div className="os-icon os-icon-layout"></div>
                             </div>
-                            <span>Dashboard</span>
+                            <span>Arsip</span>
                         </NavLink>
                         <div className="sub-menu-w">
                             <div className="sub-menu-header masariuman_colorWhite">
-                                DASHBOARD
+                                ARSIP
                             </div>
                             <div className="sub-menu-icon">
                                 <i className="os-icon os-icon-layout"></i>
                             </div>
                             <div className="sub-menu-i masariuman_menuDescription">
-                                Laman ini adalah laman utama dari aplikasi ini. Laman ini memuat informasi berupa jumlah surat dan memiliki grafik untuk melihat perkembangan surat perharinya.
+                                Laman ini adalah laman Arsip. Laman ini memuat Arsip dari pegawai yang bersangkutan.
+                            </div>
+                        </div>
+                    </li>
+                    <li className="has-sub-menu">
+                        <NavLink
+                            exact
+                            activeClassName="masariuman-active"
+                            to={`/pengajuan`}
+                        >
+                            <div className="icon-w">
+                                <div className="os-icon os-icon-layout"></div>
+                            </div>
+                            <span>Pengajuan Data Baru / perubahan Data</span>
+                        </NavLink>
+                        <div className="sub-menu-w">
+                            <div className="sub-menu-header masariuman_colorWhite">
+                                PENGAJUAN DATA BARU / PERUBAHAN DATA
+                            </div>
+                            <div className="sub-menu-icon">
+                                <i className="os-icon os-icon-layout"></i>
+                            </div>
+                            <div className="sub-menu-i masariuman_menuDescription">
+                                Laman ini adalah laman Pengajuan. Laman ini adalah tempat untuk mengajukan data baru atau perubahan data yang telah ada yang didasarkan dengan bukti scan berkas yang berkaitan dengan pengajuan data yang ingin diajukan.
                             </div>
                         </div>
                     </li>

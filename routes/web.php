@@ -226,7 +226,7 @@ Route::delete('/admin/pegawai/arsip/{url}', 'UuzaaController@arsipPegawaiArsipDe
 // Route::post('/pegawai/arsip', 'UuzaaController@arsipPegawai');
 // Route::post('/pegawai/search', 'UuzaaController@arsipPegawaiSearch');
 // Route::get('/pegawai/arsip/{url}/edit', 'UuzaaController@arsipPegawaiEdit');
-// Route::post('/pegawai/arsip/update', 'UuzaaController@arsipPegawaiUpdate');
+Route::post('/pegawai/arsip/update', 'ArsipController@apdet');
 Route::post('/pegawai/arsip/search', 'ArsipController@search');
 // Route::delete('/pegawai/arsip/{url}', 'UuzaaController@arsipPegawaiArsipDelete');
 
