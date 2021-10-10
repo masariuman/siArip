@@ -1,0 +1,21 @@
+-------------------- Auto-Git Log --------------------
+		Sun Oct 10 2021 08:28:30 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/ArsipController.php
+* public/js/app.js
+* resources/js/component/pegawai/Arsip.jsx
+* resources/js/reactRoute.jsx
+* resources/js/warudo/Menu.jsx
+* routes/web.php
+
+
+Created files:
+* resources/js/component/pegawai/Pengajuan.jsx
+
+
+Deleted files:
+
+
+Renamed files:
