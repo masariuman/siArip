@@ -235,6 +235,7 @@ Route::resources([
     'kanrisha/heya/deeta' => 'HeyaController',
     'admin/pegawai' => 'UuzaaController',
     'pegawai/arsip' => 'ArsipController',
+    'pengajuan/arsip' => 'PengajuanController',
     'kanrisha/alhuqulAlfareia/deeta' => 'alhuqulAlfareiaController',
     'kanrisha/masuk/deeta' => 'suratMasukCOntroller',
     'kanrisha/keluar/deeta' => 'suratKeluarController',

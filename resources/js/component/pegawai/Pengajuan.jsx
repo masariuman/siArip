@@ -358,7 +358,7 @@ class Pengajuan extends Component {
         data.append('name', this.state.name);
         data.append('pegawai_id', this.props.match.params.url);
         axios
-            .post(`/pegawai/arsip`, data)
+            .post(`/pengajuan/arsip`, data)
             .then(response => {
                 console.log(response);
                 this.setState({
@@ -436,7 +436,7 @@ class Pengajuan extends Component {
             // loading: true
         });
         axios
-            .get(`pegawai/arsip`)
+            .get(`pengajuan/arsip`)
             .then(response => {
                 // console.log(response);
                 this.setState({

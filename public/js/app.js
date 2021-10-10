@@ -4989,7 +4989,7 @@ var Arsip = /*#__PURE__*/function (_Component) {
       data.append('name', this.state.name);
       data.append('url', this.state.url);
       console.log(data);
-      axios.post("/admin/pegawai/arsip/update", data).then(function (response) {
+      axios.post("/pegawai/arsip/update", data).then(function (response) {
         console.log(response);
 
         _this7.setState({
@@ -6325,7 +6325,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
 
       this.setState({// loading: true
       });
-      axios.get("pegawai/arsip").then(function (response) {
+      axios.get("pengajuan/arsip").then(function (response) {
         // console.log(response);
         _this8.setState({
           // data: response.data.data.data,
@@ -7023,7 +7023,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
                     className: "element-box",
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("h5", {
                       className: "form-header",
-                      children: ["Arsip ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("b", {
+                      children: ["Pengajuan Data ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("b", {
                         children: this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang
                       })]
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
