@@ -11096,6 +11096,8 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this, props);
     _this.state = {
+      status: 0,
+      statusClass: "",
       data: [],
       unor: [],
       unorName: "",
@@ -11161,6 +11163,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
     _this.handleButtonFile = _this.handleButtonFile.bind(_assertThisInitialized(_this));
     _this.handleTambahButton = _this.handleTambahButton.bind(_assertThisInitialized(_this));
     _this.renderSashinDetail = _this.renderSashinDetail.bind(_assertThisInitialized(_this));
+    _this.renderVerifikasiButton = _this.renderVerifikasiButton.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -11174,6 +11177,29 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
         alt: "",
         src: "/sashin/" + this.state.uploaderSashin
       });
+    }
+  }, {
+    key: "renderVerifikasiButton",
+    value: function renderVerifikasiButton() {
+      return this.state.status === 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+        className: "col-sm-12",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+          className: "form-group text-center",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+            className: "mr-2 mb-2 btn btn-success",
+            "data-target": "#onboardingWideFormModal",
+            "data-toggle": "modal",
+            type: "submit",
+            children: "Terima Pengajuan"
+          }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+            className: "mr-2 mb-2 btn btn-danger",
+            "data-target": "#onboardingWideFormModal",
+            "data-toggle": "modal",
+            type: "submit",
+            children: "Tolak Pengajuan"
+          })]
+        })
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {});
     }
   }, {
     key: "handleTambahButton",
@@ -11405,11 +11431,12 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
     value: function handleEditButton(e) {
       var _this5 = this;
 
-      axios.get("/admin/pegawai/arsip/".concat(e, "/edit")).then(function (response) {
-        console.log(response);
-
+      axios.get("/admin/pengajuan/".concat(e, "/edit")).then(function (response) {
+        // console.log(response);
         _this5.setState({
           kategoriName: response.data.data.kategori_name,
+          status: response.data.data.statusButton,
+          statusClass: response.data.data.statusClass,
           name: response.data.data.name,
           keterangan: response.data.data.keterangan,
           loading: false,
@@ -11673,10 +11700,9 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.getData();
-      this.getAgama();
-      this.getUnor();
-      this.getKategori();
+      this.getData(); // this.getAgama();
+      // this.getUnor();
+      // this.getKategori();
     }
   }, {
     key: "componentDidUpdate",
@@ -11728,8 +11754,11 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
             id: "downloadButton",
             className: "text-center",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+              "data-target": "#editModal",
+              "data-toggle": "modal",
               "class": data.statusClass,
               type: "button",
+              onClick: _this13.handleEditButton.bind(_this13, data.rinku),
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
                 highlightClassName: "YourHighlightClass",
                 searchWords: [_this13.state.cari],
@@ -11983,7 +12012,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
                 className: "onboarding-content with-gradient masariuman_width100percent",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h4", {
                   className: "onboarding-title",
-                  children: "Ubah Data Arsip"
+                  children: "Detail Pengajuan"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("form", {
                   onSubmit: this.handleEditSubmit,
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
@@ -12049,39 +12078,40 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("table", {
                         className: "masariuman_tableFile",
                         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("tbody", {
-                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
-                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
-                              className: "masariuman_width110px",
-                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-                                className: "mr-2 mb-2 btn btn-primary",
-                                type: "button",
-                                onClick: this.handleButtonFile,
-                                children: "Upload File"
-                              })
-                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("tr", {
+                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
                               className: "form-group",
                               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("a", {
                                 target: "_blank",
                                 href: this.state.fileUrl,
                                 children: this.state.filePath
                               })
-                            })]
+                            })
                           })
                         })
                       })
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                       className: "col-sm-12",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                        className: "form-group text-center",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-                          className: "mr-2 mb-2 btn btn-warning",
-                          "data-target": "#onboardingWideFormModal",
-                          "data-toggle": "modal",
-                          type: "submit",
-                          children: "Ubah Arsip"
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("table", {
+                        className: "masariuman_tableFile",
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("tbody", {
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("tr", {
+                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
+                              className: "form-group",
+                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                                "class": this.state.statusClass,
+                                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
+                                  highlightClassName: "YourHighlightClass",
+                                  searchWords: [this.state.cari],
+                                  autoEscape: true,
+                                  textToHighlight: this.state.status
+                                })
+                              })
+                            })
+                          })
                         })
                       })
-                    })]
+                    }), this.renderVerifikasiButton()]
                   })
                 })]
               })]

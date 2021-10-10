@@ -14,6 +14,9 @@ class Pengajuan extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            status: 0,
+            statusClass:"",
+
             data: [],
             unor: [],
             unorName: "",
@@ -85,10 +88,22 @@ class Pengajuan extends Component {
         this.handleButtonFile = this.handleButtonFile.bind(this);
         this.handleTambahButton = this.handleTambahButton.bind(this);
         this.renderSashinDetail = this.renderSashinDetail.bind(this);
+
+        this.renderVerifikasiButton = this.renderVerifikasiButton.bind(this);
     }
 
     renderSashinDetail() {
         return !this.state.uploaderSashin || this.state.uploaderSashin === "" ? <img alt="" src="/warudo/dist/img/avatar.jpg" /> : <img alt="" src={"/sashin/"+this.state.uploaderSashin} />;
+    }
+
+    renderVerifikasiButton() {
+        return this.state.status  === 1 ?
+        <div className="col-sm-12">
+            <div className="form-group text-center">
+                <button className="mr-2 mb-2 btn btn-success" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Terima Pengajuan</button> <button className="mr-2 mb-2 btn btn-danger" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Tolak Pengajuan</button>
+            </div>
+        </div>
+        : <br/>;
     }
 
 
@@ -314,11 +329,13 @@ class Pengajuan extends Component {
 
     handleEditButton(e) {
         axios
-            .get(`/admin/pegawai/arsip/${e}/edit`)
+            .get(`/admin/pengajuan/${e}/edit`)
             .then(response => {
-                console.log(response);
+                // console.log(response);
                 this.setState({
                     kategoriName : response.data.data.kategori_name,
+                    status: response.data.data.statusButton,
+                    statusClass: response.data.data.statusClass,
                     name : response.data.data.name,
                     keterangan : response.data.data.keterangan,
                     loading: false,
@@ -576,9 +593,9 @@ class Pengajuan extends Component {
 
     componentDidMount() {
         this.getData();
-        this.getAgama();
-        this.getUnor();
-        this.getKategori();
+        // this.getAgama();
+        // this.getUnor();
+        // this.getKategori();
     }
 
     componentDidUpdate() {
@@ -615,7 +632,7 @@ class Pengajuan extends Component {
                         />
                     </td>
                     <td id="downloadButton" className="text-center">
-                        <span class={data.statusClass} type="button">
+                        <span data-target="#editModal" data-toggle="modal" class={data.statusClass} type="button" onClick={this.handleEditButton.bind(this, data.rinku)}>
                             <Highlighter
                                 highlightClassName="YourHighlightClass"
                                 searchWords={[this.state.cari]}
@@ -848,7 +865,7 @@ class Pengajuan extends Component {
                         </div>
                         <div className="onboarding-content with-gradient masariuman_width100percent">
                         <h4 className="onboarding-title">
-                            Ubah Data Arsip
+                            Detail Pengajuan
                         </h4>
                         <form onSubmit={this.handleEditSubmit}>
                             <div className="row">
@@ -908,9 +925,9 @@ class Pengajuan extends Component {
                                 <table className="masariuman_tableFile">
                                     <tbody>
                                         <tr>
-                                            <td className="masariuman_width110px">
+                                            {/* <td className="masariuman_width110px">
                                                 <button className="mr-2 mb-2 btn btn-primary" type="button" onClick={this.handleButtonFile} >Upload File</button>
-                                            </td>
+                                            </td> */}
                                             <td className="form-group">
                                                 <a target="_blank" href={this.state.fileUrl}>{this.state.filePath}</a>
                                             </td>
@@ -919,10 +936,24 @@ class Pengajuan extends Component {
                                 </table>
                             </div>
                             <div className="col-sm-12">
-                                <div className="form-group text-center">
-                                    <button className="mr-2 mb-2 btn btn-warning" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Ubah Arsip</button>
-                                </div>
+                                <table className="masariuman_tableFile">
+                                    <tbody>
+                                        <tr>
+                                            <td className="form-group">
+                                                <span class={this.state.statusClass}>
+                                                    <Highlighter
+                                                        highlightClassName="YourHighlightClass"
+                                                        searchWords={[this.state.cari]}
+                                                        autoEscape={true}
+                                                        textToHighlight={this.state.status}
+                                                    />
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
+                            {this.renderVerifikasiButton()}
                             </div>
                         </form>
                         </div>

@@ -97,7 +97,28 @@ class PengajuanAdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Arsip::where('rinku', $id)->first();
+        $data['kategori_name'] = $data->kategori->rinku;
+        $data['fileurl'] = '/zaFail/' . $data->file;
+        if ($data['sutattsu'] === '3') {
+            $data['status'] = 'Belum Terverifikasi';
+            $data['statusButton'] = 1;
+            $data['statusClass'] = 'mr-2 mb-2 btn btn-warning btn-rounded';
+        }
+        if ($data['sutattsu'] === '2') {
+            $data['status'] = 'Pengajuan Diterima';
+            $data['statusButton'] = 0;
+            $data['statusClass'] = 'mr-2 mb-2 btn btn-success btn-rounded';
+        }
+        if ($data['sutattsu'] === '4') {
+            $data['status'] = 'Pengajuan Ditolak';
+            $data['statusButton'] = 0;
+            $data['statusClass'] = 'mr-2 mb-2 btn btn-danger btn-rounded';
+        }
+        // $data['heyaRinku'] = $data->heya->rinku;
+        return response()->json([
+            'data' => $data
+        ]);
     }
 
     /**
