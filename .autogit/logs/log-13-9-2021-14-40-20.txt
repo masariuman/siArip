@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Wed Oct 13 2021 14:40:20 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/PengajuanController.php
+* database/migrations/2021_09_30_213535_create_table_arsip.php
+* public/js/app.js
+* resources/js/component/peremajaan/Pengajuan.jsx
+
+
+Created files:
+* .autogit/logs/log-13-9-2021-13-53-56.txt
+
+
+Deleted files:
+
+
+Renamed files:

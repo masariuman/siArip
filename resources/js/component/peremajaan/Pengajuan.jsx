@@ -124,7 +124,7 @@ class Pengajuan extends Component {
         axios
             .post(`/admin/pengajuan/terima`, data)
             .then(response => {
-                console.log(response);
+                // console.log(response);
                 this.setState({
                     // data: response.data.data.data,
                     namaLengkap : response.data.data.pegawai.name,
@@ -163,25 +163,33 @@ class Pengajuan extends Component {
             loading: true
         });
         const data = new FormData();
-        data.append('file', this.state.file);
+        data.append('keteranganVerifikasi', this.state.alasanVerifikasi);
         data.append('url', this.state.url);
         axios
             .post(`/admin/pengajuan/tolak`, data)
             .then(response => {
-                console.log(response);
+                // console.log(response);
                 this.setState({
-                    arsip: [response.data.data.arsip, ...this.state.arsip],
-                    file: null,
-                    filePath: null,
-                    fileUrl: null,
-                    loading: false
+                    // data: response.data.data.data,
+                    namaLengkap : response.data.data.pegawai.name,
+                    nip : response.data.data.pegawai.juugyouinBangou,
+                    gelarBelakang : response.data.data.pegawai.gelarBelakang,
+                    gelarDepan : response.data.data.pegawai.gelarDepan,
+                    arsip : response.data.data.arsip.data,
+                    sashin : '/sashin/'+response.data.data.pegawai.sashin,
+                    // ubahPetunjukId: response.data.data.data[0].rinku,
+                    loading: false,
+                    activePage: response.data.data.arsip.current_page,
+                    itemsCountPerPage: response.data.data.arsip.per_page,
+                    totalItemsCount: response.data.data.arsip.total,
+                    pageRangeDisplayed: 10
                 });
-                $("#tambahModal").removeClass("in");
+                $("#editModal").removeClass("in");
                 $(".modal-backdrop").remove();
                 $('body').removeClass('modal-open');
                 $('body').css('padding-right', '');
-                $("#tambahModal").hide();
-                swal("Sukses!", "Data Baru Berhasil Ditambahkan!", "success");
+                $("#editModal").hide();
+                swal("Sukses!", "Verifikasi Berhasil Ditolak!", "success");
                 // console.log("from handle sumit", response);
             })
             .catch(error => {
