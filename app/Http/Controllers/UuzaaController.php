@@ -9,6 +9,7 @@ use App\Models\ReferensiSubBidang;
 use App\Models\Arsip;
 use App\Models\ReferensiKategoriArsip;
 use App\Models\IdentitasPegawai;
+use App\Models\ReferensiAgama;
 use Uuid;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -92,6 +93,7 @@ class UuzaaController extends Controller
         // dd($request->request);
         $data = $request->request->all();
         $subbid = ReferensiSubBidang::where('rinku', $data['subbidName'])->first();
+        $agama = ReferensiAgama::where('rinku',$data['agamaUser'])->first();
         // dd($subbid);
         Uuzaa::create([
             'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string))))),
@@ -109,7 +111,8 @@ class UuzaaController extends Controller
         $data = Uuzaa::orderBy("id", "DESC")->first();
         IdentitasPegawai::create([
             'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string))))),
-            'pegawai_id' => $data['id']
+            'pegawai_id' => $data['id'],
+            'agama_id' => $agama['id']
         ]);
         // $pagination = 5;
         // $data = Uuzaa::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);

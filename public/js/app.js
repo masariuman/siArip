@@ -9966,12 +9966,30 @@ var DetailEdit = /*#__PURE__*/function (_Component) {
     _this.modalDetail = _this.modalDetail.bind(_assertThisInitialized(_this));
     _this.modalUser = _this.modalUser.bind(_assertThisInitialized(_this));
     _this.handleChangeCari = _this.handleChangeCari.bind(_assertThisInitialized(_this));
-    _this.handleChangeAgama = _this.handleChangeAgama.bind(_assertThisInitialized(_this));
     _this.handleChangeNip = _this.handleChangeNip.bind(_assertThisInitialized(_this));
     _this.handleChangeNip9 = _this.handleChangeNip9.bind(_assertThisInitialized(_this));
     _this.handleChangeGelarDepan = _this.handleChangeGelarDepan.bind(_assertThisInitialized(_this));
     _this.handleChangeNamaLengkap = _this.handleChangeNamaLengkap.bind(_assertThisInitialized(_this));
     _this.handleChangeGelarBelakang = _this.handleChangeGelarBelakang.bind(_assertThisInitialized(_this));
+    _this.handleChangeAlamat = _this.handleChangeAlamat.bind(_assertThisInitialized(_this));
+    _this.handleChangeTelepon = _this.handleChangeTelepon.bind(_assertThisInitialized(_this));
+    _this.handleChangeHandphone = _this.handleChangeHandphone.bind(_assertThisInitialized(_this));
+    _this.handleChangeEmailDinas = _this.handleChangeEmailDinas.bind(_assertThisInitialized(_this));
+    _this.handleChangeEmailPribadi = _this.handleChangeEmailPribadi.bind(_assertThisInitialized(_this));
+    _this.handleChangeNik = _this.handleChangeNik.bind(_assertThisInitialized(_this));
+    _this.handleChangeNomorKK = _this.handleChangeNomorKK.bind(_assertThisInitialized(_this));
+    _this.handleChangeAgama = _this.handleChangeAgama.bind(_assertThisInitialized(_this));
+    _this.handleChangeLokasiKerja = _this.handleChangeLokasiKerja.bind(_assertThisInitialized(_this));
+    _this.handleChangeAkta = _this.handleChangeAkta.bind(_assertThisInitialized(_this));
+    _this.handleChangeNpwp = _this.handleChangeNpwp.bind(_assertThisInitialized(_this));
+    _this.handleChangeTanggalNpwp = _this.handleChangeTanggalNpwp.bind(_assertThisInitialized(_this));
+    _this.handleChangeBpjs = _this.handleChangeBpjs.bind(_assertThisInitialized(_this));
+    _this.handleChangeKaris = _this.handleChangeKaris.bind(_assertThisInitialized(_this));
+    _this.handleChangeTaspen = _this.handleChangeTaspen.bind(_assertThisInitialized(_this));
+    _this.handleChangeTanggalTaspen = _this.handleChangeTanggalTaspen.bind(_assertThisInitialized(_this));
+    _this.handleChangeTapera = _this.handleChangeTapera.bind(_assertThisInitialized(_this));
+    _this.handleChangeKppn = _this.handleChangeKppn.bind(_assertThisInitialized(_this));
+    _this.handleChangeKelasJabatan = _this.handleChangeKelasJabatan.bind(_assertThisInitialized(_this));
     _this.handleChangeUnor = _this.handleChangeUnor.bind(_assertThisInitialized(_this));
     _this.handleChangeBidang = _this.handleChangeBidang.bind(_assertThisInitialized(_this));
     _this.handleChangeSubbid = _this.handleChangeSubbid.bind(_assertThisInitialized(_this));
@@ -10017,13 +10035,6 @@ var DetailEdit = /*#__PURE__*/function (_Component) {
       this.refs.fileUploader.click(); // console.log(e.target.value);
     }
   }, {
-    key: "handleChangeAgama",
-    value: function handleChangeAgama(e) {
-      this.setState({
-        agamaUser: e.target.value
-      }); // console.log(e.target.value);
-    }
-  }, {
     key: "handleChangeNip",
     value: function handleChangeNip(e) {
       this.setState({
@@ -10035,27 +10046,6 @@ var DetailEdit = /*#__PURE__*/function (_Component) {
     value: function handleChangeNip9(e) {
       this.setState({
         nip9: e.target.value
-      }); // console.log(e.target.value);
-    }
-  }, {
-    key: "handleChangeGelarBelakang",
-    value: function handleChangeGelarBelakang(e) {
-      this.setState({
-        gelarBelakang: e.target.value
-      }); // console.log(e.target.value);
-    }
-  }, {
-    key: "handleChangeGelarDepan",
-    value: function handleChangeGelarDepan(e) {
-      this.setState({
-        gelarDepan: e.target.value
-      }); // console.log(e.target.value);
-    }
-  }, {
-    key: "handleChangeNamaLengkap",
-    value: function handleChangeNamaLengkap(e) {
-      this.setState({
-        namaLengkap: e.target.value
       }); // console.log(e.target.value);
     }
   }, {
@@ -11528,7 +11518,7 @@ var DetailEdit = /*#__PURE__*/function (_Component) {
                               value: this.state.tanggalNpwp,
                               title: "Tanggal NPWP",
                               placeholder: "Tanggal NPWP...",
-                              type: "text",
+                              type: "date",
                               className: "form-control"
                             })
                           })
@@ -11604,7 +11594,7 @@ var DetailEdit = /*#__PURE__*/function (_Component) {
                               value: this.state.tanggalTaspen,
                               title: "Tanggal Taspen",
                               placeholder: "Tanggal Taspen...",
-                              type: "text",
+                              type: "date",
                               className: "form-control"
                             })
                           })
@@ -11681,6 +11671,160 @@ var DetailEdit = /*#__PURE__*/function (_Component) {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_warudo_DarkMode__WEBPACK_IMPORTED_MODULE_3__.default, {})]
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_warudo_Footer__WEBPACK_IMPORTED_MODULE_2__.default, {}), this.modalTambah(), this.modalUbah(), this.modalDetail(), this.modalUser()]
+      });
+    }
+  }, {
+    key: "handleChangeGelarDepan",
+    value: function handleChangeGelarDepan(e) {
+      this.setState({
+        gelarDepan: e.target.value
+      }); // console.log(e.target.value);
+    }
+  }, {
+    key: "handleChangeNamaLengkap",
+    value: function handleChangeNamaLengkap(e) {
+      this.setState({
+        namaLengkap: e.target.value
+      }); // console.log(e.target.value);
+    }
+  }, {
+    key: "handleChangeGelarBelakang",
+    value: function handleChangeGelarBelakang(e) {
+      this.setState({
+        gelarBelakang: e.target.value
+      }); // console.log(e.target.value);
+    }
+  }, {
+    key: "handleChangeAlamat",
+    value: function handleChangeAlamat(e) {
+      this.setState({
+        alamat: e.target.value
+      });
+    }
+  }, {
+    key: "handleChangeTelepon",
+    value: function handleChangeTelepon(e) {
+      this.setState({
+        telepon: e.target.value
+      });
+    }
+  }, {
+    key: "handleChangeHandphone",
+    value: function handleChangeHandphone(e) {
+      this.setState({
+        handphone: e.target.value
+      });
+    }
+  }, {
+    key: "handleChangeEmailDinas",
+    value: function handleChangeEmailDinas(e) {
+      this.setState({
+        emailDinas: e.target.value
+      });
+    }
+  }, {
+    key: "handleChangeEmailPribadi",
+    value: function handleChangeEmailPribadi(e) {
+      this.setState({
+        emailPribadi: e.target.value
+      });
+    }
+  }, {
+    key: "handleChangeNik",
+    value: function handleChangeNik(e) {
+      this.setState({
+        nik: e.target.value
+      });
+    }
+  }, {
+    key: "handleChangeNomorKK",
+    value: function handleChangeNomorKK(e) {
+      this.setState({
+        nomorKK: e.target.value
+      });
+    }
+  }, {
+    key: "handleChangeAgama",
+    value: function handleChangeAgama(e) {
+      this.setState({
+        agamaUser: e.target.value
+      });
+    }
+  }, {
+    key: "handleChangeLokasiKerja",
+    value: function handleChangeLokasiKerja(e) {
+      this.setState({
+        lokasiKerja: e.target.value
+      });
+    }
+  }, {
+    key: "handleChangeAkta",
+    value: function handleChangeAkta(e) {
+      this.setState({
+        akta: e.target.value
+      });
+    }
+  }, {
+    key: "handleChangeNpwp",
+    value: function handleChangeNpwp(e) {
+      this.setState({
+        npwp: e.target.value
+      });
+    }
+  }, {
+    key: "handleChangeTanggalNpwp",
+    value: function handleChangeTanggalNpwp(e) {
+      this.setState({
+        tanggalNpwp: e.target.value
+      });
+    }
+  }, {
+    key: "handleChangeBpjs",
+    value: function handleChangeBpjs(e) {
+      this.setState({
+        bpjs: e.target.value
+      });
+    }
+  }, {
+    key: "handleChangeKaris",
+    value: function handleChangeKaris(e) {
+      this.setState({
+        karis: e.target.value
+      });
+    }
+  }, {
+    key: "handleChangeTaspen",
+    value: function handleChangeTaspen(e) {
+      this.setState({
+        taspen: e.target.value
+      });
+    }
+  }, {
+    key: "handleChangeTanggalTaspen",
+    value: function handleChangeTanggalTaspen(e) {
+      this.setState({
+        tanggalTaspen: e.target.value
+      });
+    }
+  }, {
+    key: "handleChangeTapera",
+    value: function handleChangeTapera(e) {
+      this.setState({
+        tapera: e.target.value
+      });
+    }
+  }, {
+    key: "handleChangeKppn",
+    value: function handleChangeKppn(e) {
+      this.setState({
+        kppn: e.target.value
+      });
+    }
+  }, {
+    key: "handleChangeKelasJabatan",
+    value: function handleChangeKelasJabatan(e) {
+      this.setState({
+        kelasJabatan: e.target.value
       });
     }
   }]);
