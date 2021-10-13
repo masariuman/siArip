@@ -7,7 +7,6 @@ use App\Models\Arsip;
 use Illuminate\Support\Facades\Auth;
 use Uuid;
 use Illuminate\Support\Facades\Hash;
-use App\Models\Uuzaa;
 use App\Models\ReferensiKategoriArsip;
 
 class PengajuanController extends Controller
@@ -46,6 +45,7 @@ class PengajuanController extends Controller
             }
             if ($items['sutattsu'] === '4') {
                 $items['status'] = 'Pengajuan Ditolak';
+                $items['keteranganTolak'] = '(Klik Untuk Melihat Keterangan)';
                 $items['statusClass'] = 'mr-2 mb-2 btn btn-danger btn-rounded';
             }
             $count++;
@@ -143,7 +143,17 @@ class PengajuanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Arsip::where('rinku', $id)->first();
+        if ($data['sutattsu'] === '3') {
+            $data['keteranganVerifikasi'] = "Belum Diverifikasi";
+        }
+        if ($data['sutattsu'] === '2') {
+            $data['keteranganVerifikasi'] = "Verifikasi Diterima";
+        }
+        // $data['heyaRinku'] = $data->heya->rinku;
+        return response()->json([
+            'data' => $data
+        ]);
     }
 
     /**
@@ -218,76 +228,5 @@ class PengajuanController extends Controller
         ]);
     }
 
-    public function terima(Request $request)
-    {
-        $data = $request->request->all();
-        // dd($request);
-        $file = $request->files->all();
-        $arsip = Arsip::where('rinku',$data['url'])->first();
-        // dd($arsip);
-        $arsip->update([
-            'sutattsu' => '2'
-        ]);
-        $data['pegawai'] = Uuzaa::where('id', $arsip->pegawai_id)->first();
-        $pagination = 5;
-        $data['arsip'] = Arsip::where('pegawai_id',$data['pegawai']['id'])->whereIn('sutattsu',['2', '3', '4'])->orderBy("id", "DESC")->paginate($pagination);
-        $count = $data['arsip']->CurrentPage() * $pagination - ($pagination - 1);
-        foreach ($data['arsip'] as $items) {
-            $items['nomor'] = $count;
-            $items['kategori'] = $items->kategori->name;
-            if ($items['sutattsu'] === '3') {
-                $items['status'] = 'Belum Terverifikasi';
-                $items['statusClass'] = 'mr-2 mb-2 btn btn-warning btn-rounded';
-            }
-            if ($items['sutattsu'] === '2') {
-                $items['status'] = 'Pengajuan Diterima';
-                $items['statusClass'] = 'mr-2 mb-2 btn btn-success btn-rounded';
-            }
-            if ($items['sutattsu'] === '4') {
-                $items['status'] = 'Pengajuan Ditolak';
-                $items['statusClass'] = 'mr-2 mb-2 btn btn-danger btn-rounded';
-            }
-            $count++;
-        }
-        return response()->json([
-            'data' => $data
-        ]);
-    }
 
-    public function tolak(Request $request)
-    {
-        $data = $request->request->all();
-        // dd($request);
-        $file = $request->files->all();
-        $arsip = Arsip::where('rinku',$data['url'])->first();
-        // dd($arsip);
-        $arsip->update([
-            'sutattsu' => '4',
-            'keteranganVerifikasi' => $data['keteranganVerifikasi']
-        ]);
-        $data['pegawai'] = Uuzaa::where('id', $arsip->pegawai_id)->first();
-        $pagination = 5;
-        $data['arsip'] = Arsip::where('pegawai_id',$data['pegawai']['id'])->whereIn('sutattsu',['2', '3', '4'])->orderBy("id", "DESC")->paginate($pagination);
-        $count = $data['arsip']->CurrentPage() * $pagination - ($pagination - 1);
-        foreach ($data['arsip'] as $items) {
-            $items['nomor'] = $count;
-            $items['kategori'] = $items->kategori->name;
-            if ($items['sutattsu'] === '3') {
-                $items['status'] = 'Belum Terverifikasi';
-                $items['statusClass'] = 'mr-2 mb-2 btn btn-warning btn-rounded';
-            }
-            if ($items['sutattsu'] === '2') {
-                $items['status'] = 'Pengajuan Diterima';
-                $items['statusClass'] = 'mr-2 mb-2 btn btn-success btn-rounded';
-            }
-            if ($items['sutattsu'] === '4') {
-                $items['status'] = 'Pengajuan Ditolak';
-                $items['statusClass'] = 'mr-2 mb-2 btn btn-danger btn-rounded';
-            }
-            $count++;
-        }
-        return response()->json([
-            'data' => $data
-        ]);
-    }
 }

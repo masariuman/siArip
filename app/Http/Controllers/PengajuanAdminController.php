@@ -112,6 +112,7 @@ class PengajuanAdminController extends Controller
         }
         if ($data['sutattsu'] === '4') {
             $data['status'] = 'Pengajuan Ditolak';
+            $data['keteranganVerifikasi'] = 'ALASAN DITOLAK : '.$data['keteranganVerifikasi'];
             $data['statusButton'] = 0;
             $data['statusClass'] = 'mr-2 mb-2 btn btn-danger btn-rounded';
         }
@@ -142,5 +143,78 @@ class PengajuanAdminController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function terima(Request $request)
+    {
+        $data = $request->request->all();
+        // dd($request);
+        $file = $request->files->all();
+        $arsip = Arsip::where('rinku',$data['url'])->first();
+        // dd($arsip);
+        $arsip->update([
+            'sutattsu' => '2'
+        ]);
+        $data['pegawai'] = Uuzaa::where('id', $arsip->pegawai_id)->first();
+        $pagination = 5;
+        $data['arsip'] = Arsip::where('pegawai_id',$data['pegawai']['id'])->whereIn('sutattsu',['2', '3', '4'])->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data['arsip']->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data['arsip'] as $items) {
+            $items['nomor'] = $count;
+            $items['kategori'] = $items->kategori->name;
+            if ($items['sutattsu'] === '3') {
+                $items['status'] = 'Belum Terverifikasi';
+                $items['statusClass'] = 'mr-2 mb-2 btn btn-warning btn-rounded';
+            }
+            if ($items['sutattsu'] === '2') {
+                $items['status'] = 'Pengajuan Diterima';
+                $items['statusClass'] = 'mr-2 mb-2 btn btn-success btn-rounded';
+            }
+            if ($items['sutattsu'] === '4') {
+                $items['status'] = 'Pengajuan Ditolak';
+                $items['statusClass'] = 'mr-2 mb-2 btn btn-danger btn-rounded';
+            }
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+
+    public function tolak(Request $request)
+    {
+        $data = $request->request->all();
+        // dd($request);
+        $file = $request->files->all();
+        $arsip = Arsip::where('rinku',$data['url'])->first();
+        // dd($arsip);
+        $arsip->update([
+            'sutattsu' => '4',
+            'keteranganVerifikasi' => $data['keteranganVerifikasi']
+        ]);
+        $data['pegawai'] = Uuzaa::where('id', $arsip->pegawai_id)->first();
+        $pagination = 5;
+        $data['arsip'] = Arsip::where('pegawai_id',$data['pegawai']['id'])->whereIn('sutattsu',['2', '3', '4'])->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data['arsip']->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data['arsip'] as $items) {
+            $items['nomor'] = $count;
+            $items['kategori'] = $items->kategori->name;
+            if ($items['sutattsu'] === '3') {
+                $items['status'] = 'Belum Terverifikasi';
+                $items['statusClass'] = 'mr-2 mb-2 btn btn-warning btn-rounded';
+            }
+            if ($items['sutattsu'] === '2') {
+                $items['status'] = 'Pengajuan Diterima';
+                $items['statusClass'] = 'mr-2 mb-2 btn btn-success btn-rounded';
+            }
+            if ($items['sutattsu'] === '4') {
+                $items['status'] = 'Pengajuan Ditolak';
+                $items['statusClass'] = 'mr-2 mb-2 btn btn-danger btn-rounded';
+            }
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
     }
 }

@@ -440,7 +440,7 @@ class Pengajuan extends Component {
         axios
             .get(`/admin/pengajuan/${e}/edit`)
             .then(response => {
-                // console.log(response);
+                console.log(response);
                 this.setState({
                     kategoriName : response.data.data.kategori_name,
                     status: response.data.data.statusButton,
@@ -451,6 +451,7 @@ class Pengajuan extends Component {
                     loading: false,
                     url: e,
                     alasanVerifikasi: "",
+                    alasanVerifikasiData:response.data.data.keteranganVerifikasi,
                     filePath: response.data.data.file,
                     fileUrl: response.data.data.fileurl,
                     file: null
@@ -1057,7 +1058,9 @@ class Pengajuan extends Component {
                                 </span>
                             </div>
                             <div className="col-sm-12 text-center">
-                                ALASAN : {this.state.alasanVerifikasiData}
+                                <span className="masariuman_alasanVerifikasiClass">
+                                    {this.state.alasanVerifikasiData}
+                                </span>
                             </div>
                             {this.renderVerifikasiButton()}
                             </div>

@@ -37,6 +37,7 @@ class Pengajuan extends Component {
             keterangan : "",
             arsip: [],
             // status: "",
+            keteranganVerifikasi: "",
 
             dataEditInput: "",
             buttonTambahModal: "",
@@ -314,18 +315,11 @@ class Pengajuan extends Component {
 
     handleEditButton(e) {
         axios
-            .get(`/pegawai/arsip/${e}/edit`)
+            .get(`/pengajuan/arsip/${e}/edit`)
             .then(response => {
-                console.log(response);
+                // console.log(response);
                 this.setState({
-                    kategoriName : response.data.data.kategori_name,
-                    name : response.data.data.name,
-                    keterangan : response.data.data.keterangan,
-                    loading: false,
-                    url: e,
-                    filePath: response.data.data.file,
-                    fileUrl: response.data.data.fileurl,
-                    file: null
+                    keteranganVerifikasi : response.data.data.keteranganVerifikasi
                 });
             })
             .catch(error => {
@@ -599,14 +593,10 @@ class Pengajuan extends Component {
                             textToHighlight={data.keterangan}
                         />
                     </td>
-                    <td id="downloadButton" className="text-center">
-                        <span className={data.statusClass} type="button">
-                            <Highlighter
-                                highlightClassName="YourHighlightClass"
-                                searchWords={[this.state.cari]}
-                                autoEscape={true}
-                                textToHighlight={data.status}
-                            />
+                    <td id="downloadButton" className="text-center" onClick={this.handleEditButton.bind(this, data.rinku)}>
+                        <span className={data.statusClass} type="button" data-target="#editModal" data-toggle="modal">
+                            {data.status} <br/>
+                            <small>{data.keteranganTolak}</small>
                         </span>
                     </td>
                 </tr>

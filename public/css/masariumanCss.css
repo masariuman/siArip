@@ -487,3 +487,14 @@ html {
     margin-bottom: 10px;
     margin-top: 10px;
 }
+
+.masariuman_alasanVerifikasiClass {
+    font-size: 17px;
+    color: #ffc107;
+    font-family: "Arial Black", Gadget, sans-serif;
+    text-shadow: 0px 0px 0 rgb(197,135,0),
+                 1px 1px  0 rgb(139,77,0),
+                 2px 2px 1px rgba(0,0,0,0.41),
+                 2px 2px 1px rgba(0,0,0,0.5),
+                 0px 0px 1px rgba(0,0,0,.2);
+}

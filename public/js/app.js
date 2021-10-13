@@ -6508,15 +6508,12 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             id: "downloadButton",
             className: "text-center",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("span", {
               className: data.statusClass,
               type: "button",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
-                highlightClassName: "YourHighlightClass",
-                searchWords: [_this13.state.cari],
-                autoEscape: true,
-                textToHighlight: data.status
-              })
+              children: [data.status, " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("small", {
+                children: data.keteranganTolak
+              })]
             })
           })]
         }, data.rinku);
@@ -11100,6 +11097,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
       statusClass: "",
       statusName: "",
       alasanVerifikasi: "",
+      alasanVerifikasiData: "",
       data: [],
       unor: [],
       unorName: "",
@@ -11544,7 +11542,8 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
       var _this7 = this;
 
       axios.get("/admin/pengajuan/".concat(e, "/edit")).then(function (response) {
-        // console.log(response);
+        console.log(response);
+
         _this7.setState({
           kategoriName: response.data.data.kategori_name,
           status: response.data.data.statusButton,
@@ -11555,6 +11554,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
           loading: false,
           url: e,
           alasanVerifikasi: "",
+          alasanVerifikasiData: response.data.data.keteranganVerifikasi,
           filePath: response.data.data.file,
           fileUrl: response.data.data.fileurl,
           file: null
@@ -12215,6 +12215,12 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
                           autoEscape: true,
                           textToHighlight: this.state.statusName
                         })
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                      className: "col-sm-12 text-center",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                        className: "masariuman_alasanVerifikasiClass",
+                        children: this.state.alasanVerifikasiData
                       })
                     }), this.renderVerifikasiButton()]
                   })

@@ -11,6 +11,7 @@ class Arsip extends Model
         'rinku',
         'name',
         'keterangan',
+        'keteranganVerifikasi',
         'pegawai_id',
         'kategori_id',
         'file',
