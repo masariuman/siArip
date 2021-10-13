@@ -18,6 +18,7 @@ class CreateTableArsip extends Migration
             $table->string('rinku')->nullable();
             $table->string('name')->nullable();
             $table->string('keterangan')->nullable();
+            $table->string('keteranganVerifikasi')->nullable();
             $table->unsignedBigInteger('pegawai_id');
             $table->foreign('pegawai_id')->references('id')->on('users');
             $table->unsignedBigInteger('kategori_id');

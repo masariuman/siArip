@@ -119,7 +119,7 @@ class Pengajuan extends Component {
             loading: true
         });
         const data = new FormData();
-        data.append('file', this.state.file);
+        // data.append('file', this.state.file);
         data.append('url', this.state.url);
         axios
             .post(`/admin/pengajuan/terima`, data)

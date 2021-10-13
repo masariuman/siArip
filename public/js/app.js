@@ -11219,8 +11219,8 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
       this.setState({
         loading: true
       });
-      var data = new FormData();
-      data.append('file', this.state.file);
+      var data = new FormData(); // data.append('file', this.state.file);
+
       data.append('url', this.state.url);
       axios.post("/admin/pengajuan/terima", data).then(function (response) {
         console.log(response);
