@@ -18,6 +18,7 @@ class Pengajuan extends Component {
             statusClass:"",
             statusName:"",
             alasanVerifikasi:"",
+            alasanVerifikasiData:"",
 
             data: [],
             unor: [],
@@ -115,89 +116,96 @@ class Pengajuan extends Component {
 
     handleTerimaPengajuan(e) {
         e.preventDefault();
-        this.setState({
-            loading: true
-        });
-        const data = new FormData();
-        // data.append('file', this.state.file);
-        data.append('url', this.state.url);
-        axios
-            .post(`/admin/pengajuan/terima`, data)
-            .then(response => {
-                // console.log(response);
-                this.setState({
-                    // data: response.data.data.data,
-                    namaLengkap : response.data.data.pegawai.name,
-                    nip : response.data.data.pegawai.juugyouinBangou,
-                    gelarBelakang : response.data.data.pegawai.gelarBelakang,
-                    gelarDepan : response.data.data.pegawai.gelarDepan,
-                    arsip : response.data.data.arsip.data,
-                    sashin : '/sashin/'+response.data.data.pegawai.sashin,
-                    // ubahPetunjukId: response.data.data.data[0].rinku,
-                    loading: false,
-                    activePage: response.data.data.arsip.current_page,
-                    itemsCountPerPage: response.data.data.arsip.per_page,
-                    totalItemsCount: response.data.data.arsip.total,
-                    pageRangeDisplayed: 10
-                });
-                $("#editModal").removeClass("in");
-                $(".modal-backdrop").remove();
-                $('body').removeClass('modal-open');
-                $('body').css('padding-right', '');
-                $("#editModal").hide();
-                swal("Sukses!", "Verifikasi Berhasil Diterima!", "success");
-                // console.log("from handle sumit", response);
-            })
-            .catch(error => {
-                this.setState({
-                    loading: false
-                });
-                swal("Error!", "Gagal Memasukkan Data Baru, Silahkan Hubungi Admin!", "error");
+            this.setState({
+                loading: true
             });
+            const data = new FormData();
+            // data.append('file', this.state.file);
+            data.append('url', this.state.url);
+            axios
+                .post(`/admin/pengajuan/terima`, data)
+                .then(response => {
+                    // console.log(response);
+                    this.setState({
+                        // data: response.data.data.data,
+                        namaLengkap : response.data.data.pegawai.name,
+                        nip : response.data.data.pegawai.juugyouinBangou,
+                        gelarBelakang : response.data.data.pegawai.gelarBelakang,
+                        gelarDepan : response.data.data.pegawai.gelarDepan,
+                        arsip : response.data.data.arsip.data,
+                        sashin : '/sashin/'+response.data.data.pegawai.sashin,
+                        // ubahPetunjukId: response.data.data.data[0].rinku,
+                        loading: false,
+                        alasanVerifikasi: "",
+                        activePage: response.data.data.arsip.current_page,
+                        itemsCountPerPage: response.data.data.arsip.per_page,
+                        totalItemsCount: response.data.data.arsip.total,
+                        pageRangeDisplayed: 10
+                    });
+                    $("#editModal").removeClass("in");
+                    $(".modal-backdrop").remove();
+                    $('body').removeClass('modal-open');
+                    $('body').css('padding-right', '');
+                    $("#editModal").hide();
+                    swal("Sukses!", "Verifikasi Berhasil Diterima!", "success");
+                    // console.log("from handle sumit", response);
+                })
+                .catch(error => {
+                    this.setState({
+                        loading: false
+                    });
+                    swal("Error!", "Gagal Memasukkan Data Baru, Silahkan Hubungi Admin!", "error");
+                });
         // console.log(this.state.create);
     }
 
     handleTolakPengajuan(e) {
         e.preventDefault();
-        this.setState({
-            loading: true
-        });
-        const data = new FormData();
-        data.append('keteranganVerifikasi', this.state.alasanVerifikasi);
-        data.append('url', this.state.url);
-        axios
-            .post(`/admin/pengajuan/tolak`, data)
-            .then(response => {
-                // console.log(response);
-                this.setState({
-                    // data: response.data.data.data,
-                    namaLengkap : response.data.data.pegawai.name,
-                    nip : response.data.data.pegawai.juugyouinBangou,
-                    gelarBelakang : response.data.data.pegawai.gelarBelakang,
-                    gelarDepan : response.data.data.pegawai.gelarDepan,
-                    arsip : response.data.data.arsip.data,
-                    sashin : '/sashin/'+response.data.data.pegawai.sashin,
-                    // ubahPetunjukId: response.data.data.data[0].rinku,
-                    loading: false,
-                    activePage: response.data.data.arsip.current_page,
-                    itemsCountPerPage: response.data.data.arsip.per_page,
-                    totalItemsCount: response.data.data.arsip.total,
-                    pageRangeDisplayed: 10
-                });
-                $("#editModal").removeClass("in");
-                $(".modal-backdrop").remove();
-                $('body').removeClass('modal-open');
-                $('body').css('padding-right', '');
-                $("#editModal").hide();
-                swal("Sukses!", "Verifikasi Berhasil Ditolak!", "success");
-                // console.log("from handle sumit", response);
-            })
-            .catch(error => {
-                this.setState({
-                    loading: false
-                });
-                swal("Error!", "Gagal Memasukkan Data Baru, Silahkan Hubungi Admin!", "error");
+
+        if (this.state.alasanVerifikasi === "" || this.state.alasanVerifikasi === null ) {
+            swal("Error!", "Alasan Penolakan Harus Ada Dan Tidak Boleh Kosong !", "error");
+        } else {
+            this.setState({
+                loading: true
             });
+            const data = new FormData();
+            data.append('keteranganVerifikasi', this.state.alasanVerifikasi);
+            data.append('url', this.state.url);
+            axios
+                .post(`/admin/pengajuan/tolak`, data)
+                .then(response => {
+                    // console.log(response);
+                    this.setState({
+                        // data: response.data.data.data,
+                        namaLengkap : response.data.data.pegawai.name,
+                        nip : response.data.data.pegawai.juugyouinBangou,
+                        gelarBelakang : response.data.data.pegawai.gelarBelakang,
+                        gelarDepan : response.data.data.pegawai.gelarDepan,
+                        arsip : response.data.data.arsip.data,
+                        sashin : '/sashin/'+response.data.data.pegawai.sashin,
+                        // ubahPetunjukId: response.data.data.data[0].rinku,
+                        loading: false,
+                        activePage: response.data.data.arsip.current_page,
+                        itemsCountPerPage: response.data.data.arsip.per_page,
+                        totalItemsCount: response.data.data.arsip.total,
+                        alasanVerifikasi: "",
+                        pageRangeDisplayed: 10
+                    });
+                    $("#editModal").removeClass("in");
+                    $(".modal-backdrop").remove();
+                    $('body').removeClass('modal-open');
+                    $('body').css('padding-right', '');
+                    $("#editModal").hide();
+                    swal("Sukses!", "Verifikasi Berhasil Ditolak!", "success");
+                    // console.log("from handle sumit", response);
+                })
+                .catch(error => {
+                    this.setState({
+                        loading: false
+                    });
+                    swal("Error!", "Gagal Memasukkan Data Baru, Silahkan Hubungi Admin!", "error");
+                });
+        }
         // console.log(this.state.create);
     }
 
@@ -225,7 +233,7 @@ class Pengajuan extends Component {
         this.setState({
             alasanVerifikasi: e.target.value
         });
-        console.log(e.target.value);
+        // console.log(e.target.value);
     }
 
     handleChangeAgama(e) {
@@ -1047,6 +1055,9 @@ class Pengajuan extends Component {
                                         textToHighlight={this.state.statusName}
                                     />
                                 </span>
+                            </div>
+                            <div className="col-sm-12 text-center">
+                                ALASAN : {this.state.alasanVerifikasiData}
                             </div>
                             {this.renderVerifikasiButton()}
                             </div>

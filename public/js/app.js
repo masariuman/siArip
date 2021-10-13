@@ -11223,8 +11223,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
 
       data.append('url', this.state.url);
       axios.post("/admin/pengajuan/terima", data).then(function (response) {
-        console.log(response);
-
+        // console.log(response);
         _this2.setState({
           // data: response.data.data.data,
           namaLengkap: response.data.data.pegawai.name,
@@ -11235,6 +11234,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
           sashin: '/sashin/' + response.data.data.pegawai.sashin,
           // ubahPetunjukId: response.data.data.data[0].rinku,
           loading: false,
+          alasanVerifikasi: "",
           activePage: response.data.data.arsip.current_page,
           itemsCountPerPage: response.data.data.arsip.per_page,
           totalItemsCount: response.data.data.arsip.total,
@@ -11261,36 +11261,50 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
       var _this3 = this;
 
       e.preventDefault();
-      this.setState({
-        loading: true
-      });
-      var data = new FormData();
-      data.append('file', this.state.file);
-      data.append('url', this.state.url);
-      axios.post("/admin/pengajuan/tolak", data).then(function (response) {
-        console.log(response);
 
-        _this3.setState({
-          arsip: [response.data.data.arsip].concat(_toConsumableArray(_this3.state.arsip)),
-          file: null,
-          filePath: null,
-          fileUrl: null,
-          loading: false
+      if (this.state.alasanVerifikasi === "" || this.state.alasanVerifikasi === null) {
+        sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Error!", "Alasan Penolakan Harus Ada Dan Tidak Boleh Kosong !", "error");
+      } else {
+        this.setState({
+          loading: true
         });
+        var data = new FormData();
+        data.append('keteranganVerifikasi', this.state.alasanVerifikasi);
+        data.append('url', this.state.url);
+        axios.post("/admin/pengajuan/tolak", data).then(function (response) {
+          // console.log(response);
+          _this3.setState({
+            // data: response.data.data.data,
+            namaLengkap: response.data.data.pegawai.name,
+            nip: response.data.data.pegawai.juugyouinBangou,
+            gelarBelakang: response.data.data.pegawai.gelarBelakang,
+            gelarDepan: response.data.data.pegawai.gelarDepan,
+            arsip: response.data.data.arsip.data,
+            sashin: '/sashin/' + response.data.data.pegawai.sashin,
+            // ubahPetunjukId: response.data.data.data[0].rinku,
+            loading: false,
+            activePage: response.data.data.arsip.current_page,
+            itemsCountPerPage: response.data.data.arsip.per_page,
+            totalItemsCount: response.data.data.arsip.total,
+            alasanVerifikasi: "",
+            pageRangeDisplayed: 10
+          });
 
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()("#tambahModal").removeClass("in");
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()(".modal-backdrop").remove();
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()('body').removeClass('modal-open');
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()('body').css('padding-right', '');
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()("#tambahModal").hide();
-        sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Sukses!", "Data Baru Berhasil Ditambahkan!", "success"); // console.log("from handle sumit", response);
-      })["catch"](function (error) {
-        _this3.setState({
-          loading: false
+          jquery__WEBPACK_IMPORTED_MODULE_1___default()("#editModal").removeClass("in");
+          jquery__WEBPACK_IMPORTED_MODULE_1___default()(".modal-backdrop").remove();
+          jquery__WEBPACK_IMPORTED_MODULE_1___default()('body').removeClass('modal-open');
+          jquery__WEBPACK_IMPORTED_MODULE_1___default()('body').css('padding-right', '');
+          jquery__WEBPACK_IMPORTED_MODULE_1___default()("#editModal").hide();
+          sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Sukses!", "Verifikasi Berhasil Ditolak!", "success"); // console.log("from handle sumit", response);
+        })["catch"](function (error) {
+          _this3.setState({
+            loading: false
+          });
+
+          sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Error!", "Gagal Memasukkan Data Baru, Silahkan Hubungi Admin!", "error");
         });
+      } // console.log(this.state.create);
 
-        sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Error!", "Gagal Memasukkan Data Baru, Silahkan Hubungi Admin!", "error");
-      }); // console.log(this.state.create);
     }
   }, {
     key: "handleTambahButton",
@@ -11318,8 +11332,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
     value: function handleChangeAlasanVerifikasi(e) {
       this.setState({
         alasanVerifikasi: e.target.value
-      });
-      console.log(e.target.value);
+      }); // console.log(e.target.value);
     }
   }, {
     key: "handleChangeAgama",
