@@ -73,6 +73,8 @@ class Pengajuan extends Component {
         this.handleChangeName = this.handleChangeName.bind(this);
         this.handleChangeKeterangan = this.handleChangeKeterangan.bind(this);
 
+        this.handleChangeAlasanVerifikasi = this.handleChangeAlasanVerifikasi.bind(this);
+
 
         this.handleChangeNip = this.handleChangeNip.bind(this);
         this.handleChangeNip9 = this.handleChangeNip9.bind(this);
@@ -92,6 +94,8 @@ class Pengajuan extends Component {
         this.renderSashinDetail = this.renderSashinDetail.bind(this);
 
         this.renderVerifikasiButton = this.renderVerifikasiButton.bind(this);
+        this.handleTerimaPengajuan = this.handleTerimaPengajuan.bind(this);
+        this.handleTolakPengajuan = this.handleTolakPengajuan.bind(this);
     }
 
     renderSashinDetail() {
@@ -102,13 +106,90 @@ class Pengajuan extends Component {
         return this.state.status  === 1 ?
         <div className="col-sm-12">
             <div className="form-group text-center">
-                <textarea value={this.state.alasanVerifikasi} onChange={this.handleChangeAlasanVerifikasi} class="form-control masariuman_alasanVerifikator" rows="3" placeholder="Alasan Verifikasi (Jika Ditolak)"></textarea>
-                <button className="mr-2 mb-2 btn btn-success" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Terima Pengajuan</button> <button className="mr-2 mb-2 btn btn-danger" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Tolak Pengajuan</button>
+                <textarea value={this.state.alasanVerifikasi} onChange={this.handleChangeAlasanVerifikasi} className="form-control masariuman_alasanVerifikator" rows="3" placeholder="Alasan Verifikasi (Jika Ditolak)"></textarea>
+                <button className="mr-2 mb-2 btn btn-success" type="button" onClick={this.handleTerimaPengajuan}>Terima Pengajuan</button> <button className="mr-2 mb-2 btn btn-danger" type="button" onClick={this.handleTolakPengajuan}>Tolak Pengajuan</button>
             </div>
         </div>
         : <br/>;
     }
 
+    handleTerimaPengajuan(e) {
+        e.preventDefault();
+        this.setState({
+            loading: true
+        });
+        const data = new FormData();
+        data.append('file', this.state.file);
+        data.append('kategoriName', this.state.kategoriName);
+        data.append('keterangan', this.state.keterangan);
+        data.append('name', this.state.name);
+        data.append('pegawai_id', this.props.match.params.url);
+        axios
+            .post(`/admin/pegawai/arsip`, data)
+            .then(response => {
+                console.log(response);
+                this.setState({
+                    arsip: [response.data.data.arsip, ...this.state.arsip],
+                    file: null,
+                    filePath: null,
+                    fileUrl: null,
+                    loading: false
+                });
+                $("#tambahModal").removeClass("in");
+                $(".modal-backdrop").remove();
+                $('body').removeClass('modal-open');
+                $('body').css('padding-right', '');
+                $("#tambahModal").hide();
+                swal("Sukses!", "Data Baru Berhasil Ditambahkan!", "success");
+                // console.log("from handle sumit", response);
+            })
+            .catch(error => {
+                this.setState({
+                    loading: false
+                });
+                swal("Error!", "Gagal Memasukkan Data Baru, Silahkan Hubungi Admin!", "error");
+            });
+        // console.log(this.state.create);
+    }
+
+    handleTolakPengajuan(e) {
+        e.preventDefault();
+        this.setState({
+            loading: true
+        });
+        const data = new FormData();
+        data.append('file', this.state.file);
+        data.append('kategoriName', this.state.kategoriName);
+        data.append('keterangan', this.state.keterangan);
+        data.append('name', this.state.name);
+        data.append('pegawai_id', this.props.match.params.url);
+        axios
+            .post(`/admin/pegawai/arsip`, data)
+            .then(response => {
+                console.log(response);
+                this.setState({
+                    arsip: [response.data.data.arsip, ...this.state.arsip],
+                    file: null,
+                    filePath: null,
+                    fileUrl: null,
+                    loading: false
+                });
+                $("#tambahModal").removeClass("in");
+                $(".modal-backdrop").remove();
+                $('body').removeClass('modal-open');
+                $('body').css('padding-right', '');
+                $("#tambahModal").hide();
+                swal("Sukses!", "Data Baru Berhasil Ditambahkan!", "success");
+                // console.log("from handle sumit", response);
+            })
+            .catch(error => {
+                this.setState({
+                    loading: false
+                });
+                swal("Error!", "Gagal Memasukkan Data Baru, Silahkan Hubungi Admin!", "error");
+            });
+        // console.log(this.state.create);
+    }
 
     handleTambahButton(e) {
         this.setState({
@@ -128,6 +209,13 @@ class Pengajuan extends Component {
     handleButtonFile(e) {
         this.refs.fileUploader.click();
         // console.log(e.target.value);
+    }
+
+    handleChangeAlasanVerifikasi(e) {
+        this.setState({
+            alasanVerifikasi: e.target.value
+        });
+        console.log(e.target.value);
     }
 
     handleChangeAgama(e) {
@@ -344,6 +432,7 @@ class Pengajuan extends Component {
                     keterangan : response.data.data.keterangan,
                     loading: false,
                     url: e,
+                    alasanVerifikasi: "",
                     filePath: response.data.data.file,
                     fileUrl: response.data.data.fileurl,
                     file: null

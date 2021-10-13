@@ -11099,6 +11099,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
       status: 0,
       statusClass: "",
       statusName: "",
+      alasanVerifikasi: "",
       data: [],
       unor: [],
       unorName: "",
@@ -11150,6 +11151,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
     _this.handleChangeKategori = _this.handleChangeKategori.bind(_assertThisInitialized(_this));
     _this.handleChangeName = _this.handleChangeName.bind(_assertThisInitialized(_this));
     _this.handleChangeKeterangan = _this.handleChangeKeterangan.bind(_assertThisInitialized(_this));
+    _this.handleChangeAlasanVerifikasi = _this.handleChangeAlasanVerifikasi.bind(_assertThisInitialized(_this));
     _this.handleChangeNip = _this.handleChangeNip.bind(_assertThisInitialized(_this));
     _this.handleChangeNip9 = _this.handleChangeNip9.bind(_assertThisInitialized(_this));
     _this.handleChangeGelarDepan = _this.handleChangeGelarDepan.bind(_assertThisInitialized(_this));
@@ -11187,20 +11189,20 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: "form-group text-center",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("textarea", {
-            "class": "form-control masariuman_alasanVerifikator",
+            value: this.state.alasanVerifikasi,
+            onChange: this.handleChangeAlasanVerifikasi,
+            className: "form-control masariuman_alasanVerifikator",
             rows: "3",
             placeholder: "Alasan Verifikasi (Jika Ditolak)"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
             className: "mr-2 mb-2 btn btn-success",
-            "data-target": "#onboardingWideFormModal",
-            "data-toggle": "modal",
-            type: "submit",
+            type: "button",
+            onClick: this.handleTerimaPengajuan,
             children: "Terima Pengajuan"
           }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
             className: "mr-2 mb-2 btn btn-danger",
-            "data-target": "#onboardingWideFormModal",
-            "data-toggle": "modal",
-            type: "submit",
+            type: "button",
+            onClick: this.handleTolakPengajuan,
             children: "Tolak Pengajuan"
           })]
         })
@@ -11226,6 +11228,14 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
     key: "handleButtonFile",
     value: function handleButtonFile(e) {
       this.refs.fileUploader.click(); // console.log(e.target.value);
+    }
+  }, {
+    key: "handleChangeAlasanVerifikasi",
+    value: function handleChangeAlasanVerifikasi(e) {
+      this.setState({
+        alasanVerifikasi: e.target.value
+      });
+      console.log(e.target.value);
     }
   }, {
     key: "handleChangeAgama",
@@ -11447,6 +11457,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
           keterangan: response.data.data.keterangan,
           loading: false,
           url: e,
+          alasanVerifikasi: "",
           filePath: response.data.data.file,
           fileUrl: response.data.data.fileurl,
           file: null
