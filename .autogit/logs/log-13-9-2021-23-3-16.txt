@@ -1,0 +1,22 @@
+-------------------- Auto-Git Log --------------------
+		Wed Oct 13 2021 23:03:16 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* public/js/app.js
+* resources/js/component/peremajaan/Arsip.jsx
+* resources/js/component/peremajaan/Detail.jsx
+* resources/js/component/peremajaan/Pengajuan.jsx
+* resources/js/reactRoute.jsx
+
+
+Created files:
+* .autogit/logs/log-13-9-2021-22-32-44.txt
+* app/Http/Controllers/IdentitasPegawaiAdminController.php
+* resources/js/component/peremajaan/DetailEdit.jsx
+
+
+Deleted files:
+
+
+Renamed files:

@@ -597,10 +597,37 @@ class DetailEdit extends Component {
             <tbody>
                 <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
+                        Gelar Depan
+                    </td>
+                    <td className="masariuman_tdContent">
+                        <div className="col-sm-12">
+                            <div className="form-group">
+                                <input
+                                    onChange={this.handleChangeGelarDepan}
+                                    value={this.state.gelarDepan}
+                                    title="Gelar Depan"
+                                    placeholder="Gelar Depan..."
+                                    type="text"
+                                    className="form-control"
+                                />
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr className="masariuman_table">
+                    <td className="masariuman_tdTitle">
                         Nama
                     </td>
                     <td className="masariuman_tdContent">
-                        {this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang}
+                        {this.state.namaLengkap}
+                    </td>
+                </tr>
+                <tr className="masariuman_table">
+                    <td className="masariuman_tdTitle">
+                        Gelar Belakang
+                    </td>
+                    <td className="masariuman_tdContent">
+                        {this.state.gelarBelakang}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
