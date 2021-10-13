@@ -234,6 +234,7 @@ Route::post('/pengajuan/arsip/search', 'PengajuanController@search');
 
 Route::post('/admin/pengajuan/terima', 'PengajuanAdminController@terima');
 Route::post('/admin/pengajuan/tolak', 'PengajuanAdminController@tolak');
+Route::post('/admin/pengajuan/search', 'PengajuanAdminController@search');
 
 
 Route::resources([

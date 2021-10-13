@@ -823,83 +823,15 @@ class Pengajuan extends Component {
                         </div>
                         <div className="onboarding-content with-gradient masariuman_width100percent">
                         <h4 className="onboarding-title">
-                            Ubah Data Arsip
+                            Keterangan Pengajuan
                         </h4>
-                        <form onSubmit={this.handleEditSubmit}>
                             <div className="row">
-                            <div className="col-sm-3">
-                                <div className="form-group">
-                                    kategori :
-                                </div>
-                            </div>
-                            <div className="col-sm-9">
-                                <div className="form-group">
-                                    <select
-                                        value={this.state.kategoriName}
-                                        onChange={this.handleChangeKategori}
-                                        className="form-control"
-                                    >
-                                        {this.renderSelectKategori()}
-                                    </select>
-                                </div>
-                            </div>
-                            <div className="col-sm-12">
-                                <div className="form-group">
-                                    <input
-                                        onChange={this.handleChangeName}
-                                        value={this.state.name}
-                                        title="Nama Berkas"
-                                        placeholder="Nama Berkas..."
-                                        type="text"
-                                        className="form-control"
-                                    />
-                                </div>
-                            </div>
-                            <div className="col-sm-12">
-                                <div className="form-group">
-                                    <input
-                                        onChange={this.handleChangeKeterangan}
-                                        value={this.state.keterangan}
-                                        title="keterangan"
-                                        placeholder="keterangan..."
-                                        type="text"
-                                        className="form-control"
-                                    />
-                                </div>
-                            </div>
-                            <div className="col-sm-12">
-                                <div className="form-group">
-                                    <input
-                                        onChange={this.handleChangeFile}
-                                        title="File"
-                                        placeholder="File.."
-                                        type="file"
-                                        className="form-control masariuman_displayNone"
-                                        ref="fileUploader"
-                                    />
-                                </div>
-                            </div>
-                            <div className="col-sm-12">
-                                <table className="masariuman_tableFile">
-                                    <tbody>
-                                        <tr>
-                                            <td className="masariuman_width110px">
-                                                <button className="mr-2 mb-2 btn btn-primary" type="button" onClick={this.handleButtonFile} >Upload File</button>
-                                            </td>
-                                            <td className="form-group">
-                                                <a target="_blank" href={this.state.fileUrl}>{this.state.filePath}</a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
                             <div className="col-sm-12">
                                 <div className="form-group text-center">
-                                    <button className="mr-2 mb-2 btn btn-warning" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Ubah Arsip</button>
+                                     <span className="masariuman_alasanVerifikasiClass">{this.state.keteranganVerifikasi}</span>
                                 </div>
                             </div>
                             </div>
-                        </form>
                         </div>
                     </div>
                     </div>

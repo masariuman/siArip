@@ -434,7 +434,7 @@ class Detail extends Component {
         axios
             .get(`/admin/pegawai/${this.props.match.params.url}`)
             .then(response => {
-                // console.log(response.data.data);
+                console.log(response);
                 this.setState({
                     // data: response.data.data.data,
                     namaLengkap : response.data.data.name,
@@ -1320,13 +1320,13 @@ class Detail extends Component {
                             <div className="element-wrapper">
                                 {/* content here */}
                                 <div className="row">
-                                    <div className="col-md-4">
+                                <div className="col-md-4">
                                         <div className="element-box masariuman_leftSide">
                                             <div className="masariuman_foto">
-                                                <img className="masariuman_width220px" alt="" src={"/sashin/avatar.jpg"} />
+                                                <img className="masariuman_width220px" alt="" src={this.state.sashin} />
                                             </div>
                                             <div>
-                                                <span className="masariuman-bold">{this.state.gelarBelakang +". "+ this.state.namaLengkap +", "+this.state.gelarDepan}</span> <br/>
+                                                <span className="masariuman-bold">{this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang}</span> <br/>
                                                 <small>NIP. {this.state.nip}</small>
                                             </div>
                                             <br />
@@ -1336,6 +1336,14 @@ class Detail extends Component {
                                                     className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
                                                 >
                                                     <span className="pe-7s-pen"> </span> Arsip
+                                                </Link>
+                                            </div>
+                                            <div>
+                                                <Link
+                                                    to={`/admin/pegawai/${this.props.match.params.url}/pengajuan`}
+                                                    className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
+                                                >
+                                                    <span className="pe-7s-pen"> </span> Pengajuan
                                                 </Link>
                                             </div>
                                             <div>

@@ -369,18 +369,24 @@ class Pengajuan extends Component {
             cari: e.target.value
         });
         axios
-            .post(`/admin/pegawai/arsip/search`, {
+            .post(`/admin/pengajuan/search`, {
                 cari: e.target.value,
                 pegawai_id: this.props.match.params.url
             })
             .then(response => {
                 console.log(response.data.data.data);
                 this.setState({
-                    arsip: response.data.data.data,
+                    namaLengkap : response.data.data.pegawai.name,
+                    nip : response.data.data.pegawai.juugyouinBangou,
+                    gelarBelakang : response.data.data.pegawai.gelarBelakang,
+                    gelarDepan : response.data.data.pegawai.gelarDepan,
+                    arsip : response.data.data.arsip.data,
+                    sashin : '/sashin/'+response.data.data.pegawai.sashin,
+                    // ubahPetunjukId: response.data.data.data[0].rinku,
                     loading: false,
-                    activePage: response.data.data.current_page,
-                    itemsCountPerPage: response.data.data.per_page,
-                    totalItemsCount: response.data.data.total,
+                    activePage: response.data.data.arsip.current_page,
+                    itemsCountPerPage: response.data.data.arsip.per_page,
+                    totalItemsCount: response.data.data.arsip.total,
                     pageRangeDisplayed: 10
                 });
                 // console.log(this.state.tag);
