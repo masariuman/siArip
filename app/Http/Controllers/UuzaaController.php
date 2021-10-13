@@ -198,12 +198,35 @@ class UuzaaController extends Controller
      */
     public function edit($id)
     {
-        //
-        // $data = Uuzaa::where('rinku', $id)->first();
-        // // $data['heyaRinku'] = $data->heya->rinku;
-        // return response()->json([
-        //     'data' => $data
-        // ]);
+        $pagination = 5;
+        $data['pegawai'] = Uuzaa::where('rinku', $id)->first();
+        if ($data['pegawai']['gelarDepan'] === null || $data['pegawai']['gelarDepan'] === "") {
+            $data['pegawai']['gelarDepan'] = "";
+        } else {
+            $data['pegawai']['gelarDepan'] = $data['pegawai']['gelarDepan'] . ". ";
+        }
+        if ($data['pegawai']['gelarBelakang'] === null || $data['pegawai']['gelarBelakang'] === "") {
+            $data['pegawai']['gelarBelakang'] = "";
+        } else {
+            $data['pegawai']['gelarBelakang'] = ", " . $data['pegawai']['gelarBelakang'];
+        }
+        $data['arsip'] = Arsip::where('pegawai_id',$data['pegawai']['id'])->whereIn('sutattsu',['1', '2'])->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data['arsip']->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data['arsip'] as $items) {
+            $items['nomor'] = $count;
+            $items['kategori'] = $items->kategori->name;
+            $count++;
+        }
+        $data['identitasPegawai'] = IdentitasPegawai::where('pegawai_id', $data['pegawai']['id'])->first();
+        if ($data['identitasPegawai']['agama'] === null || $data['identitasPegawai']['agama'] === "") {
+            $data['identitasPegawai']['agamaUser'] = "";
+        } else {
+            $data['identitasPegawai']['agamaUser'] = $data['identitasPegawai']->agama->name;
+        }
+        // $data['heyaRinku'] = $data->heya->rinku;
+        return response()->json([
+            'data' => $data
+        ]);
     }
 
     /**

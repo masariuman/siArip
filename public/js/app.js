@@ -10341,7 +10341,7 @@ var DetailEdit = /*#__PURE__*/function (_Component) {
 
       this.setState({// loading: true
       });
-      axios.get("/admin/pegawai/".concat(this.props.match.params.url)).then(function (response) {
+      axios.get("/admin/pegawai/".concat(this.props.match.params.url, "/edit")).then(function (response) {
         console.log(response);
 
         _this8.setState({

@@ -449,7 +449,7 @@ class DetailEdit extends Component {
             // loading: true
         });
         axios
-            .get(`/admin/pegawai/${this.props.match.params.url}`)
+            .get(`/admin/pegawai/${this.props.match.params.url}/edit`)
             .then(response => {
                 console.log(response);
                 this.setState({
