@@ -564,7 +564,7 @@ class Detail extends Component {
                         prikitiw
                     </td>
                 </tr>
-                <tr>
+                <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
                         NIP
                     </td>
@@ -572,7 +572,7 @@ class Detail extends Component {
                         prikitiw
                     </td>
                 </tr>
-                <tr>
+                <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
                         Alamat Domisili
                     </td>
@@ -580,7 +580,7 @@ class Detail extends Component {
                         prikitiw
                     </td>
                 </tr>
-                <tr>
+                <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
                         Nomor Telepon
                     </td>
@@ -588,7 +588,7 @@ class Detail extends Component {
                         prikitiw
                     </td>
                 </tr>
-                <tr>
+                <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
                         Nomor Handphone
                     </td>
@@ -596,7 +596,7 @@ class Detail extends Component {
                         prikitiw
                     </td>
                 </tr>
-                <tr>
+                <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
                         Email Dinas
                     </td>
@@ -604,7 +604,7 @@ class Detail extends Component {
                         prikitiw
                     </td>
                 </tr>
-                <tr>
+                <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
                         Email Pribadi
                     </td>
@@ -612,7 +612,7 @@ class Detail extends Component {
                         prikitiw
                     </td>
                 </tr>
-                <tr>
+                <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
                         NIK
                     </td>
@@ -620,7 +620,7 @@ class Detail extends Component {
                         prikitiw
                     </td>
                 </tr>
-                <tr>
+                <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
                         Nomor KK
                     </td>
@@ -628,7 +628,7 @@ class Detail extends Component {
                         prikitiw
                     </td>
                 </tr>
-                <tr>
+                <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
                         Agama
                     </td>
@@ -636,7 +636,7 @@ class Detail extends Component {
                         prikitiw
                     </td>
                 </tr>
-                <tr>
+                <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
                         Lokasi Kerja (Setingkat Kecamatan)
                     </td>
@@ -644,7 +644,7 @@ class Detail extends Component {
                         prikitiw
                     </td>
                 </tr>
-                <tr>
+                <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
                         Nomor Akta Kelahiran
                     </td>
@@ -652,7 +652,7 @@ class Detail extends Component {
                         prikitiw
                     </td>
                 </tr>
-                <tr>
+                <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
                         Nomor NPWP
                     </td>
@@ -660,7 +660,7 @@ class Detail extends Component {
                         prikitiw
                     </td>
                 </tr>
-                <tr>
+                <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
                         Tanggal NPWP
                     </td>
@@ -668,7 +668,7 @@ class Detail extends Component {
                         prikitiw
                     </td>
                 </tr>
-                <tr>
+                <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
                         Nomor BPJS / Kartu Indonesia Sehat
                     </td>
@@ -676,7 +676,7 @@ class Detail extends Component {
                         prikitiw
                     </td>
                 </tr>
-                <tr>
+                <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
                         Nomor Karis / Karsu
                     </td>
@@ -684,7 +684,7 @@ class Detail extends Component {
                         prikitiw
                     </td>
                 </tr>
-                <tr>
+                <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
                         Nomor TASPEN
                     </td>
@@ -692,7 +692,7 @@ class Detail extends Component {
                         prikitiw
                     </td>
                 </tr>
-                <tr>
+                <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
                         Tanggal TASPEN
                     </td>
@@ -700,7 +700,7 @@ class Detail extends Component {
                         prikitiw
                     </td>
                 </tr>
-                <tr>
+                <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
                         Nomor TAPERA
                     </td>
@@ -708,7 +708,7 @@ class Detail extends Component {
                         prikitiw
                     </td>
                 </tr>
-                <tr>
+                <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
                         KPPN/Kantor Pembayaran Gaji
                     </td>
@@ -716,7 +716,7 @@ class Detail extends Component {
                         prikitiw
                     </td>
                 </tr>
-                <tr>
+                <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
                         Kelas Jabatan (angka)
                     </td>
@@ -1492,25 +1492,25 @@ class Detail extends Component {
                                     </div>
                                     <div className="col-md-8">
                                         <div className="element-box">
-                                            <h5 className="form-header">
-                                            Identitas Pegawai
-                                            </h5>
-                                            <div className="form-desc">
-                                                Manajemen Identitas Pegawai
+                                            <div className="masariuman_marginBottom50px">
+                                                <div className="float-left">
+                                                    <h5 className="form-header">
+                                                        Identitas Pegawai
+                                                    </h5>
+                                                </div>
+                                                <div className="float-right">
+                                                    <button className="mr-2 mb-2 btn btn-warning" type="button">Ubah Identitas Pegawai</button>
+                                                </div>
                                             </div>
+                                            <hr/>
                                             <div className="table-responsive" id="ruanganTable">
                                                 <table id="tabeldata" width="100%" className="table table-striped table-lightfont">
                                                     {this.renderData()}
                                                 </table>
                                             </div>
-                                            <div className="d-flex justify-content-center" id="pagination">
-                                                <Pagination
-                                                    activePage={this.state.activePage}
-                                                    itemsCountPerPage={this.state.itemsCountPerPage}
-                                                    totalItemsCount={this.state.totalItemsCount}
-                                                    pageRangeDisplayed={this.state.pageRangeDisplayed}
-                                                    onChange={this.handlePageChange}
-                                                />
+                                            <br />
+                                            <div className="form-desc text-center">
+                                                <button className="mr-2 mb-2 btn btn-warning" type="button">Ubah Identitas Pegawai</button>
                                             </div>
                                         </div>
 

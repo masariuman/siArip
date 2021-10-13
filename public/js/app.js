@@ -9045,6 +9045,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "prikitiw"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
+          className: "masariuman_table",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdTitle",
             children: "NIP"
@@ -9053,6 +9054,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "prikitiw"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
+          className: "masariuman_table",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdTitle",
             children: "Alamat Domisili"
@@ -9061,6 +9063,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "prikitiw"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
+          className: "masariuman_table",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdTitle",
             children: "Nomor Telepon"
@@ -9069,6 +9072,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "prikitiw"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
+          className: "masariuman_table",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdTitle",
             children: "Nomor Handphone"
@@ -9077,6 +9081,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "prikitiw"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
+          className: "masariuman_table",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdTitle",
             children: "Email Dinas"
@@ -9085,6 +9090,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "prikitiw"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
+          className: "masariuman_table",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdTitle",
             children: "Email Pribadi"
@@ -9093,6 +9099,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "prikitiw"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
+          className: "masariuman_table",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdTitle",
             children: "NIK"
@@ -9101,6 +9108,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "prikitiw"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
+          className: "masariuman_table",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdTitle",
             children: "Nomor KK"
@@ -9109,6 +9117,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "prikitiw"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
+          className: "masariuman_table",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdTitle",
             children: "Agama"
@@ -9117,6 +9126,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "prikitiw"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
+          className: "masariuman_table",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdTitle",
             children: "Lokasi Kerja (Setingkat Kecamatan)"
@@ -9125,6 +9135,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "prikitiw"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
+          className: "masariuman_table",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdTitle",
             children: "Nomor Akta Kelahiran"
@@ -9133,6 +9144,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "prikitiw"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
+          className: "masariuman_table",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdTitle",
             children: "Nomor NPWP"
@@ -9141,6 +9153,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "prikitiw"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
+          className: "masariuman_table",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdTitle",
             children: "Tanggal NPWP"
@@ -9149,6 +9162,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "prikitiw"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
+          className: "masariuman_table",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdTitle",
             children: "Nomor BPJS / Kartu Indonesia Sehat"
@@ -9157,6 +9171,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "prikitiw"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
+          className: "masariuman_table",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdTitle",
             children: "Nomor Karis / Karsu"
@@ -9165,6 +9180,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "prikitiw"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
+          className: "masariuman_table",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdTitle",
             children: "Nomor TASPEN"
@@ -9173,6 +9189,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "prikitiw"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
+          className: "masariuman_table",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdTitle",
             children: "Tanggal TASPEN"
@@ -9181,6 +9198,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "prikitiw"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
+          className: "masariuman_table",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdTitle",
             children: "Nomor TAPERA"
@@ -9189,6 +9207,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "prikitiw"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
+          className: "masariuman_table",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdTitle",
             children: "KPPN/Kantor Pembayaran Gaji"
@@ -9197,6 +9216,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "prikitiw"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
+          className: "masariuman_table",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdTitle",
             children: "Kelas Jabatan (angka)"
@@ -9716,13 +9736,23 @@ var Detail = /*#__PURE__*/function (_Component) {
                   className: "col-md-8",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
                     className: "element-box",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h5", {
-                      className: "form-header",
-                      children: "Identitas Pegawai"
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                      className: "form-desc",
-                      children: "Manajemen Identitas Pegawai"
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                      className: "masariuman_marginBottom50px",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                        className: "float-left",
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h5", {
+                          className: "form-header",
+                          children: "Identitas Pegawai"
+                        })
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                        className: "float-right",
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+                          className: "mr-2 mb-2 btn btn-warning",
+                          type: "button",
+                          children: "Ubah Identitas Pegawai"
+                        })
+                      })]
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                       className: "table-responsive",
                       id: "ruanganTable",
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("table", {
@@ -9731,15 +9761,12 @@ var Detail = /*#__PURE__*/function (_Component) {
                         className: "table table-striped table-lightfont",
                         children: this.renderData()
                       })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                      className: "d-flex justify-content-center",
-                      id: "pagination",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_js_pagination__WEBPACK_IMPORTED_MODULE_6__.default, {
-                        activePage: this.state.activePage,
-                        itemsCountPerPage: this.state.itemsCountPerPage,
-                        totalItemsCount: this.state.totalItemsCount,
-                        pageRangeDisplayed: this.state.pageRangeDisplayed,
-                        onChange: this.handlePageChange
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                      className: "form-desc text-center",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+                        className: "mr-2 mb-2 btn btn-warning",
+                        type: "button",
+                        children: "Ubah Identitas Pegawai"
                       })
                     })]
                   })
