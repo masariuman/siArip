@@ -437,10 +437,11 @@ class Detail extends Component {
                 console.log(response);
                 this.setState({
                     // data: response.data.data.data,
-                    namaLengkap : response.data.data.name,
-                    nip : response.data.data.juugyouinBangou,
-                    gelarBelakang : response.data.data.gelarBelakang,
-                    gelarDepan : response.data.data.gelarDepan,
+                    namaLengkap : response.data.data.pegawai.name,
+                    nip : response.data.data.pegawai.juugyouinBangou,
+                    gelarBelakang : response.data.data.pegawai.gelarBelakang,
+                    gelarDepan : response.data.data.pegawai.gelarDepan,
+                    sashin : '/sashin/'+response.data.data.pegawai.sashin,
                     // ubahPetunjukId: response.data.data.data[0].rinku,
                     loading: false,
                     // activePage: response.data.data.current_page,
@@ -553,77 +554,178 @@ class Detail extends Component {
     }
 
     renderData() {
-        return !this.state.data.length ? <tr><td colSpan="9" className="text-center">Data Tidak Ditemukan</td></tr> :
-            this.state.data.map(data => (
-                <tr key={data.rinku} className="masariuman_table"  onClick={this.handleDetail.bind(this, data.rinku)}>
-                    <th scope="row" className="text-center">{data.nomor}</th>
-                    <td className="text-center">
-                        <img className="masariuman_width70px" alt="" src={"/sashin/"+data.sashin} />
+        return (
+            <tbody>
+                <tr className="masariuman_table">
+                    <td className="masariuman_tdTitle">
+                        Nama
                     </td>
-                    <td className="text-center">
-                        <Highlighter
-                            highlightClassName="YourHighlightClass"
-                            searchWords={[this.state.cari]}
-                            autoEscape={true}
-                            textToHighlight={data.juugyouinBangou}
-                        />
+                    <td className="masariuman_tdContent">
+                        prikitiw
                     </td>
-                    <td className="text-center">
-                        <Highlighter
-                            highlightClassName="YourHighlightClass"
-                            searchWords={[this.state.cari]}
-                            autoEscape={true}
-                            textToHighlight={data.name}
-                        />
-                    </td>
-                    <td className="text-center">
-                        <Highlighter
-                            highlightClassName="YourHighlightClass"
-                            searchWords={[this.state.cari]}
-                            autoEscape={true}
-                            textToHighlight={data.tempatLahir}
-                        />, {data.tanggalLahirText}
-                    </td>
-                    <td className="text-center">
-                        <Highlighter
-                            highlightClassName="YourHighlightClass"
-                            searchWords={[this.state.cari]}
-                            autoEscape={true}
-                            textToHighlight={data.usia}
-                        />
-                    </td>
-                    <td className="text-center">
-                        <Highlighter
-                            highlightClassName="YourHighlightClass"
-                            searchWords={[this.state.cari]}
-                            autoEscape={true}
-                            textToHighlight="gol"
-                        />
-                    </td>
-                    <td className="text-center">
-                        <Highlighter
-                            highlightClassName="YourHighlightClass"
-                            searchWords={[this.state.cari]}
-                            autoEscape={true}
-                            textToHighlight="ruang"
-                        />
-                    </td>
-                    {/* <td id="downloadButton">
-                        <div className="text-center">
-                            {data.file ? (
-                                <a href={`/zaFail/${data.file}`} className="mr-2 mb-2 btn btn-outline-secondary">Download</a>
-                            ) : (
-                                <span></span>
-                            )}
-                            <button data-target="#detailModal" data-toggle="modal" className="mr-2 mb-2 btn btn-outline-info" type="button" onClick={this.handleEditButton.bind(this, data.rinku)} id={'detail'+data.nomor}>Detail</button>
-                        </div>
-                        <div className="text-center">
-                            <button data-target="#editModal" data-toggle="modal" className="mr-2 mb-2 btn btn-outline-warning" type="button" onClick={this.handleEditButton.bind(this, data.rinku)} id={'ubah'+data.nomor}>Ubah</button>
-                            <button className="mr-2 mb-2 btn btn-outline-danger" type="button" onClick={this.handleDeleteButton.bind(this, data.rinku)} id={'hapus'+data.nomor}>Hapus</button>
-                        </div>
-                    </td> */}
                 </tr>
-            ));
+                <tr>
+                    <td className="masariuman_tdTitle">
+                        NIP
+                    </td>
+                    <td className="masariuman_tdContent">
+                        prikitiw
+                    </td>
+                </tr>
+                <tr>
+                    <td className="masariuman_tdTitle">
+                        Alamat Domisili
+                    </td>
+                    <td className="masariuman_tdContent">
+                        prikitiw
+                    </td>
+                </tr>
+                <tr>
+                    <td className="masariuman_tdTitle">
+                        Nomor Telepon
+                    </td>
+                    <td className="masariuman_tdContent">
+                        prikitiw
+                    </td>
+                </tr>
+                <tr>
+                    <td className="masariuman_tdTitle">
+                        Nomor Handphone
+                    </td>
+                    <td className="masariuman_tdContent">
+                        prikitiw
+                    </td>
+                </tr>
+                <tr>
+                    <td className="masariuman_tdTitle">
+                        Email Dinas
+                    </td>
+                    <td className="masariuman_tdContent">
+                        prikitiw
+                    </td>
+                </tr>
+                <tr>
+                    <td className="masariuman_tdTitle">
+                        Email Pribadi
+                    </td>
+                    <td className="masariuman_tdContent">
+                        prikitiw
+                    </td>
+                </tr>
+                <tr>
+                    <td className="masariuman_tdTitle">
+                        NIK
+                    </td>
+                    <td className="masariuman_tdContent">
+                        prikitiw
+                    </td>
+                </tr>
+                <tr>
+                    <td className="masariuman_tdTitle">
+                        Nomor KK
+                    </td>
+                    <td className="masariuman_tdContent">
+                        prikitiw
+                    </td>
+                </tr>
+                <tr>
+                    <td className="masariuman_tdTitle">
+                        Agama
+                    </td>
+                    <td className="masariuman_tdContent">
+                        prikitiw
+                    </td>
+                </tr>
+                <tr>
+                    <td className="masariuman_tdTitle">
+                        Lokasi Kerja (Setingkat Kecamatan)
+                    </td>
+                    <td className="masariuman_tdContent">
+                        prikitiw
+                    </td>
+                </tr>
+                <tr>
+                    <td className="masariuman_tdTitle">
+                        Nomor Akta Kelahiran
+                    </td>
+                    <td className="masariuman_tdContent">
+                        prikitiw
+                    </td>
+                </tr>
+                <tr>
+                    <td className="masariuman_tdTitle">
+                        Nomor NPWP
+                    </td>
+                    <td className="masariuman_tdContent">
+                        prikitiw
+                    </td>
+                </tr>
+                <tr>
+                    <td className="masariuman_tdTitle">
+                        Tanggal NPWP
+                    </td>
+                    <td className="masariuman_tdContent">
+                        prikitiw
+                    </td>
+                </tr>
+                <tr>
+                    <td className="masariuman_tdTitle">
+                        Nomor BPJS / Kartu Indonesia Sehat
+                    </td>
+                    <td className="masariuman_tdContent">
+                        prikitiw
+                    </td>
+                </tr>
+                <tr>
+                    <td className="masariuman_tdTitle">
+                        Nomor Karis / Karsu
+                    </td>
+                    <td className="masariuman_tdContent">
+                        prikitiw
+                    </td>
+                </tr>
+                <tr>
+                    <td className="masariuman_tdTitle">
+                        Nomor TASPEN
+                    </td>
+                    <td className="masariuman_tdContent">
+                        prikitiw
+                    </td>
+                </tr>
+                <tr>
+                    <td className="masariuman_tdTitle">
+                        Tanggal TASPEN
+                    </td>
+                    <td className="masariuman_tdContent">
+                        prikitiw
+                    </td>
+                </tr>
+                <tr>
+                    <td className="masariuman_tdTitle">
+                        Nomor TAPERA
+                    </td>
+                    <td className="masariuman_tdContent">
+                        prikitiw
+                    </td>
+                </tr>
+                <tr>
+                    <td className="masariuman_tdTitle">
+                        KPPN/Kantor Pembayaran Gaji
+                    </td>
+                    <td className="masariuman_tdContent">
+                        prikitiw
+                    </td>
+                </tr>
+                <tr>
+                    <td className="masariuman_tdTitle">
+                        Kelas Jabatan (angka)
+                    </td>
+                    <td className="masariuman_tdContent">
+                        prikitiw
+                    </td>
+                </tr>
+            </tbody>
+            );
     }
 
     renderSelect() {
@@ -1320,7 +1422,7 @@ class Detail extends Component {
                             <div className="element-wrapper">
                                 {/* content here */}
                                 <div className="row">
-                                <div className="col-md-4">
+                                    <div className="col-md-4">
                                         <div className="element-box masariuman_leftSide">
                                             <div className="masariuman_foto">
                                                 <img className="masariuman_width220px" alt="" src={this.state.sashin} />
@@ -1391,34 +1493,14 @@ class Detail extends Component {
                                     <div className="col-md-8">
                                         <div className="element-box">
                                             <h5 className="form-header">
-                                            Daftar Pegawai
+                                            Identitas Pegawai
                                             </h5>
                                             <div className="form-desc">
-                                                Manajemen Data Pegawai
-                                            </div>
-                                            <div>
-                                                <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal" onClick={this.handleTambahButton}>Tambah Pegawai Baru</button>
-                                                <div className="col-sm-4 float-right" id="cari">
-                                                    <input type="text" className="form-control" onChange={this.handleChangeCari}
-                                                        value={this.state.cari} placeholder="Cari NIP / Nama..."></input>
-                                                </div>
+                                                Manajemen Identitas Pegawai
                                             </div>
                                             <div className="table-responsive" id="ruanganTable">
                                                 <table id="tabeldata" width="100%" className="table table-striped table-lightfont">
-                                                    <thead>
-                                                        <tr>
-                                                            <th className="width50px text-center">NO</th>
-                                                            <th className="width50px text-center">Foto</th>
-                                                            <th className="text-center">NIP</th>
-                                                            <th className="text-center">Nama</th>
-                                                            <th className="text-center">Tempat, Tanggal Lahir</th>
-                                                            <th className="text-center">Usia</th>
-                                                            <th className="text-center">Gol. Ruang</th>
-                                                            <th className="text-center">TMT Pangkat</th>
-                                                            {/* <th className="width250px text-center">ACTION</th> */}
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>{this.renderData()}</tbody>
+                                                    {this.renderData()}
                                                 </table>
                                             </div>
                                             <div className="d-flex justify-content-center" id="pagination">

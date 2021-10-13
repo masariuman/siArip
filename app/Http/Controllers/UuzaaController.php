@@ -150,7 +150,7 @@ class UuzaaController extends Controller
         } else {
             $data['pegawai']['gelarBelakang'] = ", " . $data['pegawai']['gelarBelakang'];
         }
-        $data['arsip'] = Arsip::where('pegawai_id',$data['pegawai']['id'])->where('sutattsu','1')->orderBy("id", "DESC")->paginate($pagination);
+        $data['arsip'] = Arsip::where('pegawai_id',$data['pegawai']['id'])->whereIn('sutattsu',['1', '2'])->orderBy("id", "DESC")->paginate($pagination);
         $count = $data['arsip']->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data['arsip'] as $items) {
             $items['nomor'] = $count;
@@ -549,7 +549,7 @@ class UuzaaController extends Controller
                 $query->where("name", "like", "%" . $cari . "%")
                     ->orWhere("keterangan", "like", "%" . $cari . "%");
             })
-            ->where("sutattsu", "1")
+            ->whereIn('sutattsu',['1', '2'])
             // ->orWhere("kategori_id", $kategori->id)
             ->orderBy("id", "DESC")->paginate($pagination);
         } else {
@@ -559,7 +559,7 @@ class UuzaaController extends Controller
                     ->orWhere("keterangan", "like", "%" . $cari . "%")
                     ->orWhere("kategori_id", $kategori->id);
             })
-            ->where("sutattsu", "1")
+            ->whereIn('sutattsu',['1', '2'])
             ->orderBy("id", "DESC")->paginate($pagination);
         }
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
