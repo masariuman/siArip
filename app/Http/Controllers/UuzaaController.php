@@ -120,6 +120,19 @@ class UuzaaController extends Controller
         // }
         $data['nomor'] = "BARU";
         $data['subbidName'] = $data->ref_subbid->name;
+
+        $data['tanggalLahirText'] = date("d F Y", strtotime($data['tanggalLahir']));
+        $dateNow = getdate();
+        $tahunLahir = date("Y", strtotime($data['tanggalLahir']));
+        $bulanLahir = date("m", strtotime($data['tanggalLahir']));
+        $tahunNow = $dateNow['year'];
+        $bulanNow = $dateNow['mon'];
+        // dd($tahunNow - $tahunLahir);
+        $dateLahirr = date_create($tahunLahir . '-' . $bulanLahir . '-01');
+        $datenow = date_create($tahunNow . '-' . $bulanNow . '-01');
+        $interval = date_diff($dateLahirr, $datenow);
+        $data['usia'] = $interval->y." Tahun ".$interval->m." Bulan";
+
         if ($data['reberu'] === "3") {
             $data['level'] = "User";
         } else if ($itdataems['reberu'] === "2") {
@@ -161,6 +174,12 @@ class UuzaaController extends Controller
             $items['nomor'] = $count;
             $items['kategori'] = $items->kategori->name;
             $count++;
+        }
+        $data['identitasPegawai'] = IdentitasPegawai::where('pegawai_id', $data['pegawai']['id'])->first();
+        if ($data['identitasPegawai']['agama'] === null || $data['identitasPegawai']['agama'] === "") {
+            $data['identitasPegawai']['agamaUser'] = "";
+        } else {
+            $data['identitasPegawai']['agamaUser'] = $data['identitasPegawai']->agama->name;
         }
         // $data['heyaRinku'] = $data->heya->rinku;
         return response()->json([

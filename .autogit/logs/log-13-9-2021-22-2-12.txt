@@ -1,0 +1,22 @@
+-------------------- Auto-Git Log --------------------
+		Wed Oct 13 2021 22:02:12 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/UuzaaController.php
+* app/Models/ReferensiAgama.php
+* app/Models/Uuzaa.php
+* public/js/app.js
+* resources/js/component/peremajaan/Detail.jsx
+
+
+Created files:
+* .autogit/logs/log-13-9-2021-21-31-49.txt
+* app/Models/IdentitasPegawai.php
+* database/migrations/2021_10_13_213753_create_table_identitas_pegawai.php
+
+
+Deleted files:
+
+
+Renamed files:

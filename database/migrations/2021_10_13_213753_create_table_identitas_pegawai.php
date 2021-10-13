@@ -32,6 +32,7 @@ class CreateTableIdentitasPegawai extends Migration
             $table->foreign('agama_id')->references('id')->on('ref_agama');
 
             $table->string('lokasiKerja')->nullable()->default('');
+            $table->string('akta')->nullable()->default('');
             $table->string('npwp')->nullable()->default('');
             $table->date('tanggalNpwp')->nullable();
             $table->string('bpjs')->nullable()->default('');

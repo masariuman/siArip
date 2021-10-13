@@ -32,6 +32,28 @@ class Detail extends Component {
             tanggalLahir : "",
             sashin : "",
 
+
+            alamat:"",
+            telepon:"",
+            handphone:"",
+            emailDinas:"",
+            emailPribadi:"",
+            nik:"",
+            nomorKK:"",
+            lokasiKerja:"",
+            akta:"",
+            npwp:"",
+            tanggalNpwp:"",
+            bpjs:"",
+            karis:"",
+            taspen:"",
+            tanggalTaspen:"",
+            tapera:"",
+            kppn:"",
+            kelasJabatan:"",
+
+
+
             dataEditInput: "",
             buttonTambahModal: "",
             cari: "",
@@ -443,6 +465,25 @@ class Detail extends Component {
                     gelarDepan : response.data.data.pegawai.gelarDepan,
                     sashin : '/sashin/'+response.data.data.pegawai.sashin,
                     // ubahPetunjukId: response.data.data.data[0].rinku,
+                    alamat:response.data.data.identitasPegawai.alamat,
+                    telepon:response.data.data.identitasPegawai.telepon,
+                    handphone:response.data.data.identitasPegawai.handphone,
+                    emailDinas:response.data.data.identitasPegawai.emailDinas,
+                    emailPribadi:response.data.data.identitasPegawai.emailPribadi,
+                    nik:response.data.data.identitasPegawai.nik,
+                    nomorKK:response.data.data.identitasPegawai.nomorKK,
+                    agamaUser:response.data.data.identitasPegawai.agamaUser,
+                    lokasiKerja:response.data.data.identitasPegawai.lokasiKerja,
+                    akta:response.data.data.identitasPegawai.akta,
+                    npwp:response.data.data.identitasPegawai.npwp,
+                    tanggalNpwp:response.data.data.identitasPegawai.tanggalNpwp,
+                    bpjs:response.data.data.identitasPegawai.bpjs,
+                    karis:response.data.data.identitasPegawai.karis,
+                    taspen:response.data.data.identitasPegawai.taspen,
+                    tanggalTaspen:response.data.data.identitasPegawai.tanggalTaspen,
+                    tapera:response.data.data.identitasPegawai.tapera,
+                    kppn:response.data.data.identitasPegawai.kppn,
+                    kelasJabatan:response.data.data.identitasPegawai.kelasJabatan,
                     loading: false,
                     // activePage: response.data.data.current_page,
                     // itemsCountPerPage: response.data.data.per_page,
@@ -545,8 +586,6 @@ class Detail extends Component {
 
     componentDidMount() {
         this.getData();
-        this.getAgama();
-        this.getUnor();
     }
 
     componentDidUpdate() {
@@ -561,7 +600,7 @@ class Detail extends Component {
                         Nama
                     </td>
                     <td className="masariuman_tdContent">
-                        prikitiw
+                        {this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -569,7 +608,7 @@ class Detail extends Component {
                         NIP
                     </td>
                     <td className="masariuman_tdContent">
-                        prikitiw
+                        {this.state.nip}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -577,7 +616,7 @@ class Detail extends Component {
                         Alamat Domisili
                     </td>
                     <td className="masariuman_tdContent">
-                        prikitiw
+                        {this.state.alamat}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -585,7 +624,7 @@ class Detail extends Component {
                         Nomor Telepon
                     </td>
                     <td className="masariuman_tdContent">
-                        prikitiw
+                        {this.state.telepon}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -593,7 +632,7 @@ class Detail extends Component {
                         Nomor Handphone
                     </td>
                     <td className="masariuman_tdContent">
-                        prikitiw
+                        {this.state.handphone}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -601,7 +640,7 @@ class Detail extends Component {
                         Email Dinas
                     </td>
                     <td className="masariuman_tdContent">
-                        prikitiw
+                        {this.state.emailDinas}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -609,7 +648,7 @@ class Detail extends Component {
                         Email Pribadi
                     </td>
                     <td className="masariuman_tdContent">
-                        prikitiw
+                        {this.state.emailPribadi}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -617,7 +656,7 @@ class Detail extends Component {
                         NIK
                     </td>
                     <td className="masariuman_tdContent">
-                        prikitiw
+                        {this.state.nik}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -625,7 +664,7 @@ class Detail extends Component {
                         Nomor KK
                     </td>
                     <td className="masariuman_tdContent">
-                        prikitiw
+                        {this.state.nomorKK}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -633,7 +672,7 @@ class Detail extends Component {
                         Agama
                     </td>
                     <td className="masariuman_tdContent">
-                        prikitiw
+                        {this.state.agamaUser}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -641,7 +680,7 @@ class Detail extends Component {
                         Lokasi Kerja (Setingkat Kecamatan)
                     </td>
                     <td className="masariuman_tdContent">
-                        prikitiw
+                        {this.state.lokasiKerja}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -649,7 +688,7 @@ class Detail extends Component {
                         Nomor Akta Kelahiran
                     </td>
                     <td className="masariuman_tdContent">
-                        prikitiw
+                        {this.state.akta}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -657,7 +696,7 @@ class Detail extends Component {
                         Nomor NPWP
                     </td>
                     <td className="masariuman_tdContent">
-                        prikitiw
+                        {this.state.npwp}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -665,7 +704,7 @@ class Detail extends Component {
                         Tanggal NPWP
                     </td>
                     <td className="masariuman_tdContent">
-                        prikitiw
+                        {this.state.tanggalNpwp}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -673,7 +712,7 @@ class Detail extends Component {
                         Nomor BPJS / Kartu Indonesia Sehat
                     </td>
                     <td className="masariuman_tdContent">
-                        prikitiw
+                        {this.state.bpjs}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -681,7 +720,7 @@ class Detail extends Component {
                         Nomor Karis / Karsu
                     </td>
                     <td className="masariuman_tdContent">
-                        prikitiw
+                        {this.state.karis}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -689,7 +728,7 @@ class Detail extends Component {
                         Nomor TASPEN
                     </td>
                     <td className="masariuman_tdContent">
-                        prikitiw
+                        {this.state.taspen}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -697,7 +736,7 @@ class Detail extends Component {
                         Tanggal TASPEN
                     </td>
                     <td className="masariuman_tdContent">
-                        prikitiw
+                        {this.state.tanggalTaspen}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -705,7 +744,7 @@ class Detail extends Component {
                         Nomor TAPERA
                     </td>
                     <td className="masariuman_tdContent">
-                        prikitiw
+                        {this.state.taspen}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -713,7 +752,7 @@ class Detail extends Component {
                         KPPN/Kantor Pembayaran Gaji
                     </td>
                     <td className="masariuman_tdContent">
-                        prikitiw
+                        {this.state.kppn}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -721,7 +760,7 @@ class Detail extends Component {
                         Kelas Jabatan (angka)
                     </td>
                     <td className="masariuman_tdContent">
-                        prikitiw
+                        {this.state.kelasJabatan}
                     </td>
                 </tr>
             </tbody>
@@ -1451,7 +1490,7 @@ class Detail extends Component {
                                             <div>
                                                 <Link
                                                     to={`/admin/pegawai/${this.props.match.params.url}/detail`}
-                                                    className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
+                                                    className="mr-2 mb-2 btn btn-primary masariuman_width100percent masariuman_borderleftright0px"
                                                 >
                                                     <span className="pe-7s-pen"> </span> Identitas
                                                 </Link>

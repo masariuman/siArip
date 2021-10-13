@@ -8499,6 +8499,24 @@ var Detail = /*#__PURE__*/function (_Component) {
       tempatLahir: "",
       tanggalLahir: "",
       sashin: "",
+      alamat: "",
+      telepon: "",
+      handphone: "",
+      emailDinas: "",
+      emailPribadi: "",
+      nik: "",
+      nomorKK: "",
+      lokasiKerja: "",
+      akta: "",
+      npwp: "",
+      tanggalNpwp: "",
+      bpjs: "",
+      karis: "",
+      taspen: "",
+      tanggalTaspen: "",
+      tapera: "",
+      kppn: "",
+      kelasJabatan: "",
       dataEditInput: "",
       buttonTambahModal: "",
       cari: "",
@@ -8920,6 +8938,25 @@ var Detail = /*#__PURE__*/function (_Component) {
           gelarDepan: response.data.data.pegawai.gelarDepan,
           sashin: '/sashin/' + response.data.data.pegawai.sashin,
           // ubahPetunjukId: response.data.data.data[0].rinku,
+          alamat: response.data.data.identitasPegawai.alamat,
+          telepon: response.data.data.identitasPegawai.telepon,
+          handphone: response.data.data.identitasPegawai.handphone,
+          emailDinas: response.data.data.identitasPegawai.emailDinas,
+          emailPribadi: response.data.data.identitasPegawai.emailPribadi,
+          nik: response.data.data.identitasPegawai.nik,
+          nomorKK: response.data.data.identitasPegawai.nomorKK,
+          agamaUser: response.data.data.identitasPegawai.agamaUser,
+          lokasiKerja: response.data.data.identitasPegawai.lokasiKerja,
+          akta: response.data.data.identitasPegawai.akta,
+          npwp: response.data.data.identitasPegawai.npwp,
+          tanggalNpwp: response.data.data.identitasPegawai.tanggalNpwp,
+          bpjs: response.data.data.identitasPegawai.bpjs,
+          karis: response.data.data.identitasPegawai.karis,
+          taspen: response.data.data.identitasPegawai.taspen,
+          tanggalTaspen: response.data.data.identitasPegawai.tanggalTaspen,
+          tapera: response.data.data.identitasPegawai.tapera,
+          kppn: response.data.data.identitasPegawai.kppn,
+          kelasJabatan: response.data.data.identitasPegawai.kelasJabatan,
           loading: false // activePage: response.data.data.current_page,
           // itemsCountPerPage: response.data.data.per_page,
           // totalItemsCount: response.data.data.total,
@@ -9024,8 +9061,6 @@ var Detail = /*#__PURE__*/function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.getData();
-      this.getAgama();
-      this.getUnor();
     }
   }, {
     key: "componentDidUpdate",
@@ -9042,7 +9077,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "Nama"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdContent",
-            children: "prikitiw"
+            children: this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
           className: "masariuman_table",
@@ -9051,7 +9086,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "NIP"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdContent",
-            children: "prikitiw"
+            children: this.state.nip
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
           className: "masariuman_table",
@@ -9060,7 +9095,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "Alamat Domisili"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdContent",
-            children: "prikitiw"
+            children: this.state.alamat
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
           className: "masariuman_table",
@@ -9069,7 +9104,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "Nomor Telepon"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdContent",
-            children: "prikitiw"
+            children: this.state.telepon
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
           className: "masariuman_table",
@@ -9078,7 +9113,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "Nomor Handphone"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdContent",
-            children: "prikitiw"
+            children: this.state.handphone
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
           className: "masariuman_table",
@@ -9087,7 +9122,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "Email Dinas"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdContent",
-            children: "prikitiw"
+            children: this.state.emailDinas
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
           className: "masariuman_table",
@@ -9096,7 +9131,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "Email Pribadi"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdContent",
-            children: "prikitiw"
+            children: this.state.emailPribadi
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
           className: "masariuman_table",
@@ -9105,7 +9140,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "NIK"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdContent",
-            children: "prikitiw"
+            children: this.state.nik
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
           className: "masariuman_table",
@@ -9114,7 +9149,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "Nomor KK"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdContent",
-            children: "prikitiw"
+            children: this.state.nomorKK
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
           className: "masariuman_table",
@@ -9123,7 +9158,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "Agama"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdContent",
-            children: "prikitiw"
+            children: this.state.agamaUser
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
           className: "masariuman_table",
@@ -9132,7 +9167,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "Lokasi Kerja (Setingkat Kecamatan)"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdContent",
-            children: "prikitiw"
+            children: this.state.lokasiKerja
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
           className: "masariuman_table",
@@ -9141,7 +9176,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "Nomor Akta Kelahiran"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdContent",
-            children: "prikitiw"
+            children: this.state.akta
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
           className: "masariuman_table",
@@ -9150,7 +9185,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "Nomor NPWP"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdContent",
-            children: "prikitiw"
+            children: this.state.npwp
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
           className: "masariuman_table",
@@ -9159,7 +9194,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "Tanggal NPWP"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdContent",
-            children: "prikitiw"
+            children: this.state.tanggalNpwp
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
           className: "masariuman_table",
@@ -9168,7 +9203,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "Nomor BPJS / Kartu Indonesia Sehat"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdContent",
-            children: "prikitiw"
+            children: this.state.bpjs
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
           className: "masariuman_table",
@@ -9177,7 +9212,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "Nomor Karis / Karsu"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdContent",
-            children: "prikitiw"
+            children: this.state.karis
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
           className: "masariuman_table",
@@ -9186,7 +9221,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "Nomor TASPEN"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdContent",
-            children: "prikitiw"
+            children: this.state.taspen
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
           className: "masariuman_table",
@@ -9195,7 +9230,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "Tanggal TASPEN"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdContent",
-            children: "prikitiw"
+            children: this.state.tanggalTaspen
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
           className: "masariuman_table",
@@ -9204,7 +9239,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "Nomor TAPERA"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdContent",
-            children: "prikitiw"
+            children: this.state.taspen
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
           className: "masariuman_table",
@@ -9213,7 +9248,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "KPPN/Kantor Pembayaran Gaji"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdContent",
-            children: "prikitiw"
+            children: this.state.kppn
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("tr", {
           className: "masariuman_table",
@@ -9222,7 +9257,7 @@ var Detail = /*#__PURE__*/function (_Component) {
             children: "Kelas Jabatan (angka)"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "masariuman_tdContent",
-            children: "prikitiw"
+            children: this.state.kelasJabatan
           })]
         })]
       });
@@ -9688,7 +9723,7 @@ var Detail = /*#__PURE__*/function (_Component) {
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, {
                         to: "/admin/pegawai/".concat(this.props.match.params.url, "/detail"),
-                        className: "btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px",
+                        className: "mr-2 mb-2 btn btn-primary masariuman_width100percent",
                         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
                           className: "pe-7s-pen",
                           children: " "
