@@ -224,6 +224,13 @@ class PengajuanController extends Controller
         $file = $request->files->all();
         $arsip = Arsip::where('rinku',$data['url']);
         dd($arsip);
+        $arsip->update([
+            'name' => $data['name'],
+            'keterangan' => $data['keterangan'],
+            'kategori_id' => $kategori->id,
+            'file' => $fileName
+        ]);
+
         if ($file) {
             $file = $request->file('file');
             $fileExt = $file->getClientOriginalExtension();
