@@ -11186,7 +11186,11 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
         className: "col-sm-12",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: "form-group text-center",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("textarea", {
+            "class": "form-control masariuman_alasanVerifikator",
+            rows: "3",
+            placeholder: "Alasan Verifikasi (Jika Ditolak)"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
             className: "mr-2 mb-2 btn btn-success",
             "data-target": "#onboardingWideFormModal",
             "data-toggle": "modal",
@@ -12077,7 +12081,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
                         })
                       })
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                      className: "col-sm-12",
+                      className: "col-sm-12 text-center",
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("table", {
                         className: "masariuman_tableFile",
                         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("tbody", {
@@ -12104,20 +12108,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
                           textToHighlight: this.state.statusName
                         })
                       })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                      className: "col-sm-12 text-center",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                        className: "form-group",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
-                          onChange: this.handleChangeKeterangan,
-                          value: this.state.keterangan,
-                          title: "keterangan",
-                          placeholder: "keterangan...",
-                          type: "text",
-                          className: "form-control"
-                        })
-                      }), this.renderVerifikasiButton()]
-                    })]
+                    }), this.renderVerifikasiButton()]
                   })
                 })]
               })]

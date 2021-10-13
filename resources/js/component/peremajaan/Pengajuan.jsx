@@ -17,6 +17,7 @@ class Pengajuan extends Component {
             status: 0,
             statusClass:"",
             statusName:"",
+            alasanVerifikasi:"",
 
             data: [],
             unor: [],
@@ -101,6 +102,7 @@ class Pengajuan extends Component {
         return this.state.status  === 1 ?
         <div className="col-sm-12">
             <div className="form-group text-center">
+                <textarea value={this.state.alasanVerifikasi} onChange={this.handleChangeAlasanVerifikasi} class="form-control masariuman_alasanVerifikator" rows="3" placeholder="Alasan Verifikasi (Jika Ditolak)"></textarea>
                 <button className="mr-2 mb-2 btn btn-success" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Terima Pengajuan</button> <button className="mr-2 mb-2 btn btn-danger" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Tolak Pengajuan</button>
             </div>
         </div>
@@ -923,7 +925,7 @@ class Pengajuan extends Component {
                                     />
                                 </div>
                             </div>
-                            <div className="col-sm-12">
+                            <div className="col-sm-12 text-center">
                                 <table className="masariuman_tableFile">
                                     <tbody>
                                         <tr>
