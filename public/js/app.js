@@ -11167,6 +11167,8 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
     _this.handleTambahButton = _this.handleTambahButton.bind(_assertThisInitialized(_this));
     _this.renderSashinDetail = _this.renderSashinDetail.bind(_assertThisInitialized(_this));
     _this.renderVerifikasiButton = _this.renderVerifikasiButton.bind(_assertThisInitialized(_this));
+    _this.handleTerimaPengajuan = _this.handleTerimaPengajuan.bind(_assertThisInitialized(_this));
+    _this.handleTolakPengajuan = _this.handleTolakPengajuan.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -11207,6 +11209,88 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
           })]
         })
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {});
+    }
+  }, {
+    key: "handleTerimaPengajuan",
+    value: function handleTerimaPengajuan(e) {
+      var _this2 = this;
+
+      e.preventDefault();
+      this.setState({
+        loading: true
+      });
+      var data = new FormData();
+      data.append('file', this.state.file);
+      data.append('url', this.state.url);
+      axios.post("/admin/pengajuan/terima", data).then(function (response) {
+        console.log(response);
+
+        _this2.setState({
+          // data: response.data.data.data,
+          namaLengkap: response.data.data.pegawai.name,
+          nip: response.data.data.pegawai.juugyouinBangou,
+          gelarBelakang: response.data.data.pegawai.gelarBelakang,
+          gelarDepan: response.data.data.pegawai.gelarDepan,
+          arsip: response.data.data.arsip.data,
+          sashin: '/sashin/' + response.data.data.pegawai.sashin,
+          // ubahPetunjukId: response.data.data.data[0].rinku,
+          loading: false,
+          activePage: response.data.data.arsip.current_page,
+          itemsCountPerPage: response.data.data.arsip.per_page,
+          totalItemsCount: response.data.data.arsip.total,
+          pageRangeDisplayed: 10
+        });
+
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()("#editModal").removeClass("in");
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()(".modal-backdrop").remove();
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()('body').removeClass('modal-open');
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()('body').css('padding-right', '');
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()("#editModal").hide();
+        sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Sukses!", "Verifikasi Berhasil Diterima!", "success"); // console.log("from handle sumit", response);
+      })["catch"](function (error) {
+        _this2.setState({
+          loading: false
+        });
+
+        sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Error!", "Gagal Memasukkan Data Baru, Silahkan Hubungi Admin!", "error");
+      }); // console.log(this.state.create);
+    }
+  }, {
+    key: "handleTolakPengajuan",
+    value: function handleTolakPengajuan(e) {
+      var _this3 = this;
+
+      e.preventDefault();
+      this.setState({
+        loading: true
+      });
+      var data = new FormData();
+      data.append('file', this.state.file);
+      data.append('url', this.state.url);
+      axios.post("/admin/pengajuan/tolak", data).then(function (response) {
+        console.log(response);
+
+        _this3.setState({
+          arsip: [response.data.data.arsip].concat(_toConsumableArray(_this3.state.arsip)),
+          file: null,
+          filePath: null,
+          fileUrl: null,
+          loading: false
+        });
+
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()("#tambahModal").removeClass("in");
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()(".modal-backdrop").remove();
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()('body').removeClass('modal-open');
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()('body').css('padding-right', '');
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()("#tambahModal").hide();
+        sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Sukses!", "Data Baru Berhasil Ditambahkan!", "success"); // console.log("from handle sumit", response);
+      })["catch"](function (error) {
+        _this3.setState({
+          loading: false
+        });
+
+        sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Error!", "Gagal Memasukkan Data Baru, Silahkan Hubungi Admin!", "error");
+      }); // console.log(this.state.create);
     }
   }, {
     key: "handleTambahButton",
@@ -11317,14 +11401,14 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
   }, {
     key: "handleChangeUnor",
     value: function handleChangeUnor(e) {
-      var _this2 = this;
+      var _this4 = this;
 
       this.setState({
         unorName: e.target.value
       });
       axios.get("/admin/referensi/unorBidang/".concat(e.target.value)).then(function (response) {
         // console.log(response);
-        _this2.setState({
+        _this4.setState({
           bidang: response.data.data.bidang.data,
           bidangName: response.data.data.bidang.data[0].url,
           subbid: response.data.data.subbid,
@@ -11371,7 +11455,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
   }, {
     key: "handleChangeCari",
     value: function handleChangeCari(e) {
-      var _this3 = this;
+      var _this5 = this;
 
       this.setState({
         cari: e.target.value
@@ -11382,7 +11466,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
       }).then(function (response) {
         console.log(response.data.data.data);
 
-        _this3.setState({
+        _this5.setState({
           arsip: response.data.data.data,
           loading: false,
           activePage: response.data.data.current_page,
@@ -11396,7 +11480,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
   }, {
     key: "handleDeleteButton",
     value: function handleDeleteButton(e) {
-      var _this4 = this;
+      var _this6 = this;
 
       axios.get("/admin/pegawai/arsip/".concat(e, "/edit")).then(function (response) {
         sweetalert__WEBPACK_IMPORTED_MODULE_5___default()({
@@ -11407,21 +11491,21 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
           dangerMode: true
         }).then(function (willDelete) {
           if (willDelete) {
-            _this4.setState({
+            _this6.setState({
               loading: true
             });
 
             axios["delete"]("/admin/pegawai/arsip/".concat(e), {
               url: e
             }).then(function (response) {
-              _this4.setState({
+              _this6.setState({
                 arsip: response.data.data.arsip.data,
                 loading: false
               });
 
               sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Sukses!", "Data Berhasil Dihapus!", "success"); // console.log("from handle sumit", response);
             })["catch"](function (error) {
-              _this4.setState({
+              _this6.setState({
                 loading: false
               });
 
@@ -11444,11 +11528,11 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
   }, {
     key: "handleEditButton",
     value: function handleEditButton(e) {
-      var _this5 = this;
+      var _this7 = this;
 
       axios.get("/admin/pengajuan/".concat(e, "/edit")).then(function (response) {
         // console.log(response);
-        _this5.setState({
+        _this7.setState({
           kategoriName: response.data.data.kategori_name,
           status: response.data.data.statusButton,
           statusClass: response.data.data.statusClass,
@@ -11483,7 +11567,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      var _this6 = this;
+      var _this8 = this;
 
       e.preventDefault();
       this.setState({
@@ -11498,8 +11582,8 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
       axios.post("/admin/pegawai/arsip", data).then(function (response) {
         console.log(response);
 
-        _this6.setState({
-          arsip: [response.data.data.arsip].concat(_toConsumableArray(_this6.state.arsip)),
+        _this8.setState({
+          arsip: [response.data.data.arsip].concat(_toConsumableArray(_this8.state.arsip)),
           // unorName: "",
           // bidangName: "",
           // subbidName: "",
@@ -11527,7 +11611,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
         jquery__WEBPACK_IMPORTED_MODULE_1___default()("#tambahModal").hide();
         sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Sukses!", "Data Baru Berhasil Ditambahkan!", "success"); // console.log("from handle sumit", response);
       })["catch"](function (error) {
-        _this6.setState({
+        _this8.setState({
           loading: false
         });
 
@@ -11537,7 +11621,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
   }, {
     key: "handleEditSubmit",
     value: function handleEditSubmit(e) {
-      var _this7 = this;
+      var _this9 = this;
 
       e.preventDefault();
       this.setState({
@@ -11554,7 +11638,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
       axios.post("/admin/pegawai/arsip/update", data).then(function (response) {
         console.log(response);
 
-        _this7.setState({
+        _this9.setState({
           arsip: response.data.data.arsip.data,
           // namaLengkap : response.data.data.pegawai.name,
           // nip : response.data.data.pegawai.juugyouinBangou,
@@ -11574,7 +11658,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
         jquery__WEBPACK_IMPORTED_MODULE_1___default()("#editModal").hide();
         sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Sukses!", "Data Berhasil Diubah!", "success"); // console.log("from handle sumit", response);
       })["catch"](function (error) {
-        _this7.setState({
+        _this9.setState({
           loading: false
         });
 
@@ -11584,13 +11668,13 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
   }, {
     key: "getData",
     value: function getData() {
-      var _this8 = this;
+      var _this10 = this;
 
       this.setState({// loading: true
       });
       axios.get("/admin/pengajuan/".concat(this.props.match.params.url)).then(function (response) {
         // console.log(response);
-        _this8.setState({
+        _this10.setState({
           // data: response.data.data.data,
           namaLengkap: response.data.data.pegawai.name,
           nip: response.data.data.pegawai.juugyouinBangou,
@@ -11633,7 +11717,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
       })["catch"](function (error) {
         sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Error!", "Terdapat Masalah, Silahkan Hubungi Admin!", "error");
 
-        _this8.setState({
+        _this10.setState({
           loading: false
         });
       });
@@ -11650,10 +11734,10 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
   }, {
     key: "getAgama",
     value: function getAgama() {
-      var _this9 = this;
+      var _this11 = this;
 
       axios.get("/admin/referensi/agama/create").then(function (response) {
-        _this9.setState({
+        _this11.setState({
           agama: response.data.data,
           agamaUser: response.data.data[0].rinku
         });
@@ -11662,10 +11746,10 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
   }, {
     key: "getKategori",
     value: function getKategori() {
-      var _this10 = this;
+      var _this12 = this;
 
       axios.get("/admin/referensi/kategoriArsip/create").then(function (response) {
-        _this10.setState({
+        _this12.setState({
           kategori: response.data.data,
           kategoriName: response.data.data[0].rinku
         });
@@ -11674,22 +11758,22 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
   }, {
     key: "getUnor",
     value: function getUnor() {
-      var _this11 = this;
+      var _this13 = this;
 
       axios.get("/admin/referensi/unorBidang").then(function (response) {
-        var _this11$setState;
+        var _this13$setState;
 
-        _this11.setState((_this11$setState = {
+        _this13.setState((_this13$setState = {
           unor: response.data.data.unor,
           unorName: response.data.data.unor[0].rinku,
           bidang: response.data.data.bidang
-        }, _defineProperty(_this11$setState, "unorName", response.data.data.bidang[0].rinku), _defineProperty(_this11$setState, "subbid", response.data.data.subbid), _defineProperty(_this11$setState, "subbidName", response.data.data.subbid[0].rinku), _this11$setState));
+        }, _defineProperty(_this13$setState, "unorName", response.data.data.bidang[0].rinku), _defineProperty(_this13$setState, "subbid", response.data.data.subbid), _defineProperty(_this13$setState, "subbidName", response.data.data.subbid[0].rinku), _this13$setState));
       });
     }
   }, {
     key: "handlePageChange",
     value: function handlePageChange(pageNumber) {
-      var _this12 = this;
+      var _this14 = this;
 
       this.setState({
         loading: true
@@ -11697,7 +11781,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
       axios.get("/admin/pengajuan/".concat(this.props.match.params.url, "?page=").concat(pageNumber)).then(function (response) {
         console.log(response);
 
-        _this12.setState({
+        _this14.setState({
           arsip: response.data.data.arsip.data,
           // data: response.data.data.arsip.data,
           loading: false,
@@ -11709,7 +11793,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
       })["catch"](function (error) {
         sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Error!", "Terdapat Masalah, Silahkan Hubungi Admin!", "error");
 
-        _this12.setState({
+        _this14.setState({
           loading: false
         });
       });
@@ -11729,7 +11813,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
   }, {
     key: "renderData",
     value: function renderData() {
-      var _this13 = this;
+      var _this15 = this;
 
       return !this.state.arsip.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("tr", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
@@ -11748,7 +11832,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
             className: "text-center",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
               highlightClassName: "YourHighlightClass",
-              searchWords: [_this13.state.cari],
+              searchWords: [_this15.state.cari],
               autoEscape: true,
               textToHighlight: data.kategori.name
             })
@@ -11756,7 +11840,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
             className: "text-center",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
               highlightClassName: "YourHighlightClass",
-              searchWords: [_this13.state.cari],
+              searchWords: [_this15.state.cari],
               autoEscape: true,
               textToHighlight: data.name
             })
@@ -11764,7 +11848,7 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
             className: "text-center",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
               highlightClassName: "YourHighlightClass",
-              searchWords: [_this13.state.cari],
+              searchWords: [_this15.state.cari],
               autoEscape: true,
               textToHighlight: data.keterangan
             })
@@ -11776,10 +11860,10 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
               "data-toggle": "modal",
               className: data.statusClass,
               type: "button",
-              onClick: _this13.handleEditButton.bind(_this13, data.rinku),
+              onClick: _this15.handleEditButton.bind(_this15, data.rinku),
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
                 highlightClassName: "YourHighlightClass",
-                searchWords: [_this13.state.cari],
+                searchWords: [_this15.state.cari],
                 autoEscape: true,
                 textToHighlight: data.status
               })

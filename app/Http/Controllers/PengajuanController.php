@@ -216,4 +216,108 @@ class PengajuanController extends Controller
             'data' => $data
         ]);
     }
+
+    public function terima(Request $request)
+    {
+        $data = $request->request->all();
+        // dd($request);
+        $file = $request->files->all();
+        $arsip = Arsip::where('rinku',$data['url']);
+        dd($arsip);
+        if ($file) {
+            $file = $request->file('file');
+            $fileExt = $file->getClientOriginalExtension();
+            $fileName = $pegawai->juugyouinBangou."_".$kategori->name."_".date('YmdHis').".$fileExt";
+            $request->file('file')->move("zaFail", $fileName);
+            Arsip::create([
+                'name' => $data['name'],
+                'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string))))),
+                'keterangan' => $data['keterangan'],
+                'kategori_id' => $kategori->id,
+                'pegawai_id' => $pegawai->id,
+                'sutattsu' => '3',
+                'file' => $fileName
+            ]);
+        } else {
+            Arsip::create([
+                'name' => $data['name'],
+                'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string))))),
+                'keterangan' => $data['keterangan'],
+                'kategori_id' => $kategori->id,
+                'sutattsu' => '3',
+                'pegawai_id' => $pegawai->id
+            ]);
+        }
+        $pagination = 5;
+        $data['arsip'] = Arsip::orderBy("id", "DESC")->first();
+        $data['arsip']['nomor'] = "BARU";
+        $data['arsip']['kategori'] = $data['arsip']->kategori->name;
+        if ($data['arsip']['sutattsu'] === '3') {
+            $data['arsip']['status'] = 'Belum Terverifikasi';
+            $data['arsip']['statusClass'] = 'mr-2 mb-2 btn btn-warning btn-rounded';
+        }
+        if ($data['arsip']['sutattsu'] === '2') {
+            $data['arsip']['status'] = 'Pengajuan Diterima';
+            $data['arsip']['statusClass'] = 'mr-2 mb-2 btn btn-success btn-rounded';
+        }
+        if ($data['arsip']['sutattsu'] === '4') {
+            $data['arsip']['status'] = 'Pengajuan Ditolak';
+            $data['arsip']['statusClass'] = 'mr-2 mb-2 btn btn-danger btn-rounded';
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+
+    public function tolak(Request $request)
+    {
+        $data = $request->request->all();
+        // dd($request);
+        $file = $request->files->all();
+        $arsip = Arsip::where('rinku',$data['url']);
+        dd($arsip);
+        if ($file) {
+            $file = $request->file('file');
+            $fileExt = $file->getClientOriginalExtension();
+            $fileName = $pegawai->juugyouinBangou."_".$kategori->name."_".date('YmdHis').".$fileExt";
+            $request->file('file')->move("zaFail", $fileName);
+            Arsip::create([
+                'name' => $data['name'],
+                'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string))))),
+                'keterangan' => $data['keterangan'],
+                'kategori_id' => $kategori->id,
+                'pegawai_id' => $pegawai->id,
+                'sutattsu' => '3',
+                'file' => $fileName
+            ]);
+        } else {
+            Arsip::create([
+                'name' => $data['name'],
+                'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string))))),
+                'keterangan' => $data['keterangan'],
+                'kategori_id' => $kategori->id,
+                'sutattsu' => '3',
+                'pegawai_id' => $pegawai->id
+            ]);
+        }
+        $pagination = 5;
+        $data['arsip'] = Arsip::orderBy("id", "DESC")->first();
+        $data['arsip']['nomor'] = "BARU";
+        $data['arsip']['kategori'] = $data['arsip']->kategori->name;
+        if ($data['arsip']['sutattsu'] === '3') {
+            $data['arsip']['status'] = 'Belum Terverifikasi';
+            $data['arsip']['statusClass'] = 'mr-2 mb-2 btn btn-warning btn-rounded';
+        }
+        if ($data['arsip']['sutattsu'] === '2') {
+            $data['arsip']['status'] = 'Pengajuan Diterima';
+            $data['arsip']['statusClass'] = 'mr-2 mb-2 btn btn-success btn-rounded';
+        }
+        if ($data['arsip']['sutattsu'] === '4') {
+            $data['arsip']['status'] = 'Pengajuan Ditolak';
+            $data['arsip']['statusClass'] = 'mr-2 mb-2 btn btn-danger btn-rounded';
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
 }
