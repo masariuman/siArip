@@ -10,7 +10,7 @@ import Highlighter from "react-highlight-words";
 // import { useHistory } from "react-router-dom";
 
 
-class Detail extends Component {
+class DetailEdit extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -1534,12 +1534,12 @@ class Detail extends Component {
                                             <div className="masariuman_marginBottom50px">
                                                 <div className="float-left">
                                                     <h5 className="form-header">
-                                                        Identitas Pegawai
+                                                        Ubah Identitas Pegawai
                                                     </h5>
                                                 </div>
                                                 <div className="float-right">
-                                                    <Link to={`/admin/pegawai/${this.props.match.params.url}/detail/edit`} className="mr-2 mb-2 btn btn-warning">
-                                                        Ubah Identitas Pegawai
+                                                    <Link to={`/admin/pegawai/${this.props.match.params.url}/edit`} className="mr-2 mb-2 btn btn-success">
+                                                        Simpan Perubahan Identitas Pegawai
                                                     </Link>
                                                 </div>
                                             </div>
@@ -1551,8 +1551,8 @@ class Detail extends Component {
                                             </div>
                                             <br />
                                             <div className="form-desc text-center">
-                                                <Link to={`/admin/pegawai/${this.props.match.params.url}/detail/edit`} className="mr-2 mb-2 btn btn-warning">
-                                                    Ubah Identitas Pegawai
+                                                <Link to={`/admin/pegawai/${this.props.match.params.url}/edit`} className="mr-2 mb-2 btn btn-success">
+                                                    Simpan Perubahan Identitas Pegawai
                                                 </Link>
                                             </div>
                                         </div>
@@ -1574,4 +1574,4 @@ class Detail extends Component {
     }
 }
 
-export default Detail;
+export default DetailEdit;

@@ -7,10 +7,12 @@ import {
 import Empatkosongempat from "./warudo/Empatkosongempat";
 import DashboardIndex from "./component/dashboard/Index";
 import KeluarIndex from "./component/keluar/Index";
+
 import PeremajaanData from "./component/peremajaan/Index";
-import DetailPegawai from "./component/peremajaan/Detail";
-import ArsipPegawai from "./component/peremajaan/Arsip";
-import PengajuanPegawai from "./component/peremajaan/Pengajuan";
+import AdminDetailPegawai from "./component/peremajaan/Detail";
+import AdminDetailPegawaiEdit from "./component/peremajaan/DetailEdit";
+import AdminArsipPegawai from "./component/peremajaan/Arsip";
+import AdminPengajuanPegawai from "./component/peremajaan/Pengajuan";
 
 
 import UuzaaIndex from "./component/uuzaa/Index";
@@ -86,11 +88,7 @@ class ReactRoute extends Component {
 
 
 
-                    <Route
-                        exact
-                        path="/surat-keluar"
-                        component={KeluarIndex}
-                    />
+
                     <Route
                         exact
                         path="/peremajaanData"
@@ -98,14 +96,25 @@ class ReactRoute extends Component {
                     />
                     <Route
                         exact
-                        path="/kanrisha/uuzaa"
-                        component={UuzaaIndex}
+                        path="/admin/pegawai/:url/detail"
+                        component={AdminDetailPegawai}
                     />
                     <Route
                         exact
-                        path="/kanrisha/heya"
-                        component={HeyaIndex}
+                        path="/admin/pegawai/:url/detail/edit"
+                        component={AdminDetailPegawaiEdit}
                     />
+                    <Route
+                        exact
+                        path="/admin/pegawai/:url/arsip"
+                        component={AdminArsipPegawai}
+                    />
+                    <Route
+                        exact
+                        path="/admin/pegawai/:url/pengajuan"
+                        component={AdminPengajuanPegawai}
+                    />
+
 
 
                     <Route
@@ -232,21 +241,6 @@ class ReactRoute extends Component {
                         exact
                         path="/admin/referensi/kategoriArsip"
                         component={RefKategoriArsipIndex}
-                    />
-                    <Route
-                        exact
-                        path="/admin/pegawai/:url/detail"
-                        component={DetailPegawai}
-                    />
-                    <Route
-                        exact
-                        path="/admin/pegawai/:url/arsip"
-                        component={ArsipPegawai}
-                    />
-                    <Route
-                        exact
-                        path="/admin/pegawai/:url/pengajuan"
-                        component={PengajuanPegawai}
                     />
                     <Empatkosongempat />
                 </Switch>

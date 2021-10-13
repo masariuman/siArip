@@ -1161,7 +1161,7 @@ class Arsip extends Component {
                                             <div>
                                                 <Link
                                                     to={`/admin/pegawai/${this.props.match.params.url}/arsip`}
-                                                    className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
+                                                    className="btn btn-primary masariuman_width100percent masariuman_borderleftright0px"
                                                 >
                                                     <span className="pe-7s-pen"> </span> Arsip
                                                 </Link>
