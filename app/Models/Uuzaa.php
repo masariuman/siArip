@@ -33,4 +33,8 @@ class Uuzaa extends Model
     {
         return $this->hasMany('App\Models\Arsip', 'pegawai_id');
     }
+    public function identitasPegawai()
+    {
+        return $this->hasMany('App\Models\IdentitasPegawai', 'pegawai_id');
+    }
 }

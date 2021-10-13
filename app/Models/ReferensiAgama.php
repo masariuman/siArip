@@ -14,4 +14,9 @@ class ReferensiAgama extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function identitasPegawai()
+    {
+        return $this->hasMany('App\Models\IdentitasPegawai', 'agama_id');
+    }
 }

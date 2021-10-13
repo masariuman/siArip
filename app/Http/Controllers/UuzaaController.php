@@ -8,6 +8,7 @@ use App\Models\Heya;
 use App\Models\ReferensiSubBidang;
 use App\Models\Arsip;
 use App\Models\ReferensiKategoriArsip;
+use App\Models\IdentitasPegawai;
 use Uuid;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -105,6 +106,11 @@ class UuzaaController extends Controller
             'subBidang_id' => $subbid->id,
             'password' => Hash::make($request->nip)
         ]);
+        $data = Uuzaa::orderBy("id", "DESC")->first();
+        IdentitasPegawai::create([
+            'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string))))),
+            'pegawai_id' => $data['id']
+        ]);
         // $pagination = 5;
         // $data = Uuzaa::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
         // $count = $data->CurrentPage() * $pagination - ($pagination - 1);
@@ -112,7 +118,6 @@ class UuzaaController extends Controller
         //     $items['nomor'] = $count;
         //     $count++;
         // }
-        $data = Uuzaa::orderBy("id", "DESC")->first();
         $data['nomor'] = "BARU";
         $data['subbidName'] = $data->ref_subbid->name;
         if ($data['reberu'] === "3") {

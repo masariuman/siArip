@@ -1499,7 +1499,9 @@ class Detail extends Component {
                                                     </h5>
                                                 </div>
                                                 <div className="float-right">
-                                                    <button className="mr-2 mb-2 btn btn-warning" type="button">Ubah Identitas Pegawai</button>
+                                                    <Link to={`/admin/pegawai/${this.props.match.params.url}/edit`} className="mr-2 mb-2 btn btn-warning">
+                                                        Ubah Identitas Pegawai
+                                                    </Link>
                                                 </div>
                                             </div>
                                             <hr/>
@@ -1510,7 +1512,9 @@ class Detail extends Component {
                                             </div>
                                             <br />
                                             <div className="form-desc text-center">
-                                                <button className="mr-2 mb-2 btn btn-warning" type="button">Ubah Identitas Pegawai</button>
+                                                <Link to={`/admin/pegawai/${this.props.match.params.url}/edit`} className="mr-2 mb-2 btn btn-warning">
+                                                    Ubah Identitas Pegawai
+                                                </Link>
                                             </div>
                                         </div>
 

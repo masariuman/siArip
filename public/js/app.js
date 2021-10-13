@@ -9746,9 +9746,9 @@ var Detail = /*#__PURE__*/function (_Component) {
                         })
                       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                         className: "float-right",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, {
+                          to: "/admin/pegawai/".concat(this.props.match.params.url, "/edit"),
                           className: "mr-2 mb-2 btn btn-warning",
-                          type: "button",
                           children: "Ubah Identitas Pegawai"
                         })
                       })]
@@ -9763,9 +9763,9 @@ var Detail = /*#__PURE__*/function (_Component) {
                       })
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                       className: "form-desc text-center",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, {
+                        to: "/admin/pegawai/".concat(this.props.match.params.url, "/edit"),
                         className: "mr-2 mb-2 btn btn-warning",
-                        type: "button",
                         children: "Ubah Identitas Pegawai"
                       })
                     })]
