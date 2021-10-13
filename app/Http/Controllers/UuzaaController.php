@@ -200,6 +200,16 @@ class UuzaaController extends Controller
     {
         $pagination = 5;
         $data['pegawai'] = Uuzaa::where('rinku', $id)->first();
+        if ($data['pegawai']['gelarDepan'] === null || $data['pegawai']['gelarDepan'] === "") {
+            $data['pegawai']['gelarDepanText'] = "";
+        } else {
+            $data['pegawai']['gelarDepanText'] = $data['pegawai']['gelarDepan'] . ". ";
+        }
+        if ($data['pegawai']['gelarBelakang'] === null || $data['pegawai']['gelarBelakang'] === "") {
+            $data['pegawai']['gelarBelakangText'] = "";
+        } else {
+            $data['pegawai']['gelarBelakangText'] = ", " . $data['pegawai']['gelarBelakang'];
+        }
         $data['arsip'] = Arsip::where('pegawai_id',$data['pegawai']['id'])->whereIn('sutattsu',['1', '2'])->orderBy("id", "DESC")->paginate($pagination);
         $count = $data['arsip']->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data['arsip'] as $items) {

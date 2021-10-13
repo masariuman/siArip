@@ -29,6 +29,8 @@ class DetailEdit extends Component {
             sashin : "",
 
             identitasId:"",
+            gelarBelakangText:"",
+            gelarDepanText:"",
 
 
             gelarBelakang : "",
@@ -477,6 +479,9 @@ class DetailEdit extends Component {
                     kppn:response.data.data.identitasPegawai.kppn,
                     kelasJabatan:response.data.data.identitasPegawai.kelasJabatan,
                     identitasId:response.data.data.identitasPegawai.rinku,
+
+                    gelarDepanText:response.data.data.pegawai.gelarDepanText,
+                    gelarBelakangText:response.data.data.pegawai.gelarBelakangText,
                     loading: false,
                     // activePage: response.data.data.current_page,
                     // itemsCountPerPage: response.data.data.per_page,
@@ -843,6 +848,7 @@ class DetailEdit extends Component {
                         <h4 className="onboarding-title">
                             Tambah Data Pegawai
                         </h4>
+
                         <form onSubmit={this.handleSubmit}>
                             <div className="row">
                             <div className="col-sm-6">
@@ -1488,7 +1494,7 @@ class DetailEdit extends Component {
                                                 <img className="masariuman_width220px" alt="" src={this.state.sashin} />
                                             </div>
                                             <div>
-                                                <span className="masariuman-bold">{this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang}</span> <br/>
+                                                <span className="masariuman-bold">{this.state.gelarDepanText + this.state.namaLengkap + this.state.gelarBelakangText}</span> <br/>
                                                 <small>NIP. {this.state.nip}</small>
                                             </div>
                                             <br />
@@ -1550,7 +1556,6 @@ class DetailEdit extends Component {
                                             </div>
                                         </div>
                                     </div>
-                                    <form onSubmit={this.handleEditSubmit}>
                                         <div className="col-md-8">
                                             <div className="element-box">
                                                 <div className="masariuman_marginBottom50px">
@@ -1560,7 +1565,7 @@ class DetailEdit extends Component {
                                                         </h5>
                                                     </div>
                                                     <div className="float-right">
-                                                        <button type='submit' className="mr-2 mb-2 btn btn-success">
+                                                        <button type='button' className="mr-2 mb-2 btn btn-success" onClick={this.handleEditSubmit}>
                                                             Simpan Perubahan Identitas Pegawai
                                                         </button>
                                                     </div>
@@ -1948,14 +1953,13 @@ class DetailEdit extends Component {
                                                 </div>
                                                 <br />
                                                 <div className="form-desc text-center">
-                                                    <button type="submit" className="mr-2 mb-2 btn btn-success">
+                                                    <button type="button" className="mr-2 mb-2 btn btn-success" onClick={this.handleEditSubmit}>
                                                         Simpan Perubahan Identitas Pegawai
                                                     </button>
                                                 </div>
                                             </div>
 
                                         </div>
-                                    </form>
                                 </div>
                                 {/* end content here */}
                             </div>
