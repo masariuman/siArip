@@ -12104,7 +12104,20 @@ var Pengajuan = /*#__PURE__*/function (_Component) {
                           textToHighlight: this.state.statusName
                         })
                       })
-                    }), this.renderVerifikasiButton()]
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                      className: "col-sm-12 text-center",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                        className: "form-group",
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
+                          onChange: this.handleChangeKeterangan,
+                          value: this.state.keterangan,
+                          title: "keterangan",
+                          placeholder: "keterangan...",
+                          type: "text",
+                          className: "form-control"
+                        })
+                      }), this.renderVerifikasiButton()]
+                    })]
                   })
                 })]
               })]
