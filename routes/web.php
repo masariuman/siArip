@@ -248,6 +248,7 @@ Route::resources([
     'admin/pengajuan' => 'PengajuanAdminController',
     'pegawai/arsip' => 'ArsipController',
     'pengajuan/arsip' => 'PengajuanController',
+    'identitasPegawai/deeta' => 'IdentitasPegawaiController',
     'kanrisha/alhuqulAlfareia/deeta' => 'alhuqulAlfareiaController',
     'kanrisha/masuk/deeta' => 'suratMasukCOntroller',
     'kanrisha/keluar/deeta' => 'suratKeluarController',

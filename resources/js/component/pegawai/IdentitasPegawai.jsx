@@ -436,22 +436,41 @@ class IdentitasPegawai extends Component {
             // loading: true
         });
         axios
-            .get(`pegawai/arsip`)
+            .get(`/identitasPegawai/deeta`)
             .then(response => {
-                // console.log(response);
+                console.log(response);
                 this.setState({
                     // data: response.data.data.data,
                     namaLengkap : response.data.data.pegawai.name,
                     nip : response.data.data.pegawai.juugyouinBangou,
                     gelarBelakang : response.data.data.pegawai.gelarBelakang,
                     gelarDepan : response.data.data.pegawai.gelarDepan,
-                    arsip : response.data.data.arsip.data,
+                    sashin : '/sashin/'+response.data.data.pegawai.sashin,
                     // ubahPetunjukId: response.data.data.data[0].rinku,
+                    alamat:response.data.data.identitasPegawai.alamat,
+                    telepon:response.data.data.identitasPegawai.telepon,
+                    handphone:response.data.data.identitasPegawai.handphone,
+                    emailDinas:response.data.data.identitasPegawai.emailDinas,
+                    emailPribadi:response.data.data.identitasPegawai.emailPribadi,
+                    nik:response.data.data.identitasPegawai.nik,
+                    nomorKK:response.data.data.identitasPegawai.nomorKK,
+                    agamaUser:response.data.data.identitasPegawai.agamaUser,
+                    lokasiKerja:response.data.data.identitasPegawai.lokasiKerja,
+                    akta:response.data.data.identitasPegawai.akta,
+                    npwp:response.data.data.identitasPegawai.npwp,
+                    tanggalNpwp:response.data.data.identitasPegawai.tanggalNpwp,
+                    bpjs:response.data.data.identitasPegawai.bpjs,
+                    karis:response.data.data.identitasPegawai.karis,
+                    taspen:response.data.data.identitasPegawai.taspen,
+                    tanggalTaspen:response.data.data.identitasPegawai.tanggalTaspen,
+                    tapera:response.data.data.identitasPegawai.tapera,
+                    kppn:response.data.data.identitasPegawai.kppn,
+                    kelasJabatan:response.data.data.identitasPegawai.kelasJabatan,
                     loading: false,
-                    activePage: response.data.data.arsip.current_page,
-                    itemsCountPerPage: response.data.data.arsip.per_page,
-                    totalItemsCount: response.data.data.arsip.total,
-                    pageRangeDisplayed: 10
+                    // activePage: response.data.data.current_page,
+                    // itemsCountPerPage: response.data.data.per_page,
+                    // totalItemsCount: response.data.data.total,
+                    // pageRangeDisplayed: 10
                 });
                 $('#petunjuk').on('click',function() {
                     var enjoyhint_instance = new EnjoyHint({});
@@ -1119,10 +1138,10 @@ class IdentitasPegawai extends Component {
                 </div>
                 <ul className="breadcrumb">
                     <li className="breadcrumb-item">
-                        <a>Arsip Pegawai</a>
+                        <a>Identitas Pegawai</a>
                     </li>
                     <li className="breadcrumb-item">
-                        <span>Manajemen Arsip Pegawai</span>
+                        <span>Manajemen Identitas Pegawai</span>
                     </li>
                 </ul>
 
