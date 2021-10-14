@@ -12098,8 +12098,7 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
         bidangName: e.target.value
       });
       axios.get("/admin/referensi/bidangSubbid/".concat(e.target.value)).then(function (response) {
-        console.log(response);
-
+        // console.log(response);
         _this3.setState({
           subbid: response.data.data.subbid.data,
           subbidName: response.data.data.subbid.data[0].rinku
@@ -33387,14 +33386,14 @@ var Menu = /*#__PURE__*/function (_Component) {
       if (this.state.newPass != this.state.newPassConfirm) {
         sweetalert__WEBPACK_IMPORTED_MODULE_1___default()("Error!", "Password Baru dan Konfirmasi Password Baru Tidak Sama", "error");
       } else {
-        axios.put("/kanrisha/uuzaa/deeta/".concat(this.state.rinku), {
+        axios.put("/admin/pegawai/".concat(this.state.rinku), {
           newPass: this.state.newPass,
           newPassConfirm: this.state.newPassConfirm,
           oldPass: this.state.oldPass
         }).then(function (response) {
           console.log(response);
 
-          if (!response.data.data.data.oldPassConfirm) {
+          if (!response.data.data.oldPassConfirm) {
             sweetalert__WEBPACK_IMPORTED_MODULE_1___default()("Error!", "Password Lama Salah", "error");
           } else {
             _this2.setState({

@@ -67,14 +67,14 @@ class Menu extends Component {
             swal("Error!", "Password Baru dan Konfirmasi Password Baru Tidak Sama", "error");
         } else {
             axios
-            .put(`/kanrisha/uuzaa/deeta/${this.state.rinku}`, {
+            .put(`/admin/pegawai/${this.state.rinku}`, {
                 newPass: this.state.newPass,
                 newPassConfirm: this.state.newPassConfirm,
                 oldPass: this.state.oldPass
             })
             .then(response => {
                 console.log(response);
-                if(!response.data.data.data.oldPassConfirm) {
+                if(!response.data.data.oldPassConfirm) {
                     swal("Error!", "Password Lama Salah", "error");
                 } else {
                     this.setState({

@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Thu Oct 14 2021 20:32:24 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* resources/js/component/peremajaan/Index.jsx
+
+
+Created files:
+* .autogit/logs/log-14-9-2021-20-2-9.txt
+
+
+Deleted files:
+
+
+Renamed files:
