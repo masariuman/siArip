@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Thu Oct 14 2021 10:57:13 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* database/migrations/2021_10_13_213753_create_table_identitas_pegawai.php
+
+
+Created files:
+* .autogit/logs/log-14-9-2021-10-26-57.txt
+
+
+Deleted files:
+
+
+Renamed files:

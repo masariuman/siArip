@@ -49,6 +49,64 @@ class IdentitasPegawaiAdminController extends Controller
         $identitasPegawai = IdentitasPegawai::where('rinku', $data['identitasId'])->first();
         $pegawai = Uuzaa::where('id', $identitasPegawai['pegawai_id'])->first();
         $agama = ReferensiAgama::where('rinku',$data['agamaUser'])->first();
+        if ($data['alamat']===null) {
+            $data['alamat']="";
+        }
+        if ($data['telepon']===null) {
+            $data['telepon']="";
+        }
+        if ($data['handphone']===null) {
+            $data['handphone']="";
+        }
+        if ($data['emailDinas']===null) {
+            $data['emailDinas']="";
+        }
+        if ($data['emailPribadi']===null) {
+            $data['emailPribadi']="";
+        }
+        if ($data['nik']===null) {
+            $data['nik']="";
+        }
+        if ($data['nomorKK']===null) {
+            $data['nomorKK']="";
+        }
+        if ($data['lokasiKerja']===null) {
+            $data['lokasiKerja']="";
+        }
+        if ($data['akta']===null) {
+            $data['akta']="";
+        }
+        if ($data['npwp']===null) {
+            $data['npwp']="";
+        }
+        if ($data['kelasJabatan']===null) {
+            $data['kelasJabatan']="";
+        }
+        if ($data['bpjs']===null) {
+            $data['bpjs']="";
+        }
+        if ($data['karis']===null) {
+            $data['karis']="";
+        }
+        if ($data['taspen']===null) {
+            $data['taspen']="";
+        }
+        if ($data['tapera']===null) {
+            $data['tapera']="";
+        }
+        if ($data['kppn']===null) {
+            $data['kppn']="";
+        }
+        if ($data['namaLengkap']===null) {
+            $data['namaLengkap']="";
+        }
+        if ($data['gelarDepan']===null) {
+            $data['gelarDepan']="";
+        }
+        if ($data['gelarBelakang']===null) {
+            $data['gelarBelakang']="";
+        }
+
         // dd($subbid);
         $identitasPegawai->update([
             'alamat' => $data['alamat'],
