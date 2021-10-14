@@ -217,7 +217,7 @@ Route::delete('/admin/referensi/kategoriArsip/{url}', 'ReferensiController@kateg
 Route::post('/admin/referensi/kategoriArsip/search', 'ReferensiController@kategoriArsipSearch');
 
 Route::post('/admin/pegawai/arsip', 'UuzaaController@arsipPegawai');
-Route::post('/admin/pegawai/search', 'UuzaaController@arsipPegawaiSearch');
+Route::post('/admin/pegawai/arsip/search', 'UuzaaController@arsipPegawaiSearch');
 Route::get('/admin/pegawai/arsip/{url}/edit', 'UuzaaController@arsipPegawaiEdit');
 Route::post('/admin/pegawai/arsip/update', 'UuzaaController@arsipPegawaiUpdate');
 Route::post('/admin/pegawai/arsip/search', 'UuzaaController@arsipPegawaiArsipSearch');
@@ -237,6 +237,8 @@ Route::post('/admin/pengajuan/tolak', 'PengajuanAdminController@tolak');
 Route::post('/admin/pengajuan/search', 'PengajuanAdminController@search');
 
 Route::post('/admin/pegawai/detail/update', 'IdentitasPegawaiAdminController@store');
+
+Route::post('/admin/pegawai/search', 'UuzaaController@pegawaiSearch');
 
 
 Route::resources([

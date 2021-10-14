@@ -50,116 +50,27 @@ class IdentitasPegawaiAdminController extends Controller
         $pegawai = Uuzaa::where('id', $identitasPegawai['pegawai_id'])->first();
         $agama = ReferensiAgama::where('rinku',$data['agamaUser'])->first();
         // dd($subbid);
-        if ($data['tanggalNpwp'] === null) {
-            if ($data['tanggalTaspen'] === null) {
-                $identitasPegawai->update([
-                    'alamat' => $data['alamat'],
-                    'telepon' => $data['telepon'],
-                    'handphone' => $data['handphone'],
-                    'emailDinas' => $data['emailDinas'],
-                    'emailPribadi' => $data['emailPribadi'],
-                    'nik' => $data['nik'],
-                    'nomorKK' => $data['nomorKK'],
-                    'agama_id' => $agama->id,
-                    'lokasiKerja' => $data['lokasiKerja'],
-                    'akta' => $data['akta'],
-                    'npwp' => $data['npwp'],
-                    'bpjs' => $data['bpjs'],
-                    'karis' => $data['karis'],
-                    'taspen' => $data['taspen'],
-                    'tapera' => $data['tapera'],
-                    'kppn' => $data['kppn'],
-                    'kelasJabatan' => $data['kelasJabatan']
-                ]);
-            } else {
-                $identitasPegawai->update([
-                    'alamat' => $data['alamat'],
-                    'telepon' => $data['telepon'],
-                    'handphone' => $data['handphone'],
-                    'emailDinas' => $data['emailDinas'],
-                    'emailPribadi' => $data['emailPribadi'],
-                    'nik' => $data['nik'],
-                    'nomorKK' => $data['nomorKK'],
-                    'agama_id' => $agama->id,
-                    'lokasiKerja' => $data['lokasiKerja'],
-                    'akta' => $data['akta'],
-                    'npwp' => $data['npwp'],
-                    'bpjs' => $data['bpjs'],
-                    'karis' => $data['karis'],
-                    'taspen' => $data['taspen'],
-                    'tanggalTaspen' => $data['tanggalTaspen'],
-                    'tapera' => $data['tapera'],
-                    'kppn' => $data['kppn'],
-                    'kelasJabatan' => $data['kelasJabatan']
-                ]);
-            }
-        } else {
-            if ($data['tanggalTaspen'] === null) {
-                $identitasPegawai->update([
-                    'alamat' => $data['alamat'],
-                    'telepon' => $data['telepon'],
-                    'handphone' => $data['handphone'],
-                    'emailDinas' => $data['emailDinas'],
-                    'emailPribadi' => $data['emailPribadi'],
-                    'nik' => $data['nik'],
-                    'nomorKK' => $data['nomorKK'],
-                    'agama_id' => $agama->id,
-                    'lokasiKerja' => $data['lokasiKerja'],
-                    'akta' => $data['akta'],
-                    'npwp' => $data['npwp'],
-                    'tanggalNpwp' => $data['tanggalNpwp'],
-                    'bpjs' => $data['bpjs'],
-                    'karis' => $data['karis'],
-                    'taspen' => $data['taspen'],
-                    'tapera' => $data['tapera'],
-                    'kppn' => $data['kppn'],
-                    'kelasJabatan' => $data['kelasJabatan']
-                ]);
-            } else {
-                $identitasPegawai->update([
-                    'alamat' => $data['alamat'],
-                    'telepon' => $data['telepon'],
-                    'handphone' => $data['handphone'],
-                    'emailDinas' => $data['emailDinas'],
-                    'emailPribadi' => $data['emailPribadi'],
-                    'nik' => $data['nik'],
-                    'nomorKK' => $data['nomorKK'],
-                    'agama_id' => $agama->id,
-                    'lokasiKerja' => $data['lokasiKerja'],
-                    'akta' => $data['akta'],
-                    'npwp' => $data['npwp'],
-                    'tanggalNpwp' => $data['tanggalNpwp'],
-                    'bpjs' => $data['bpjs'],
-                    'karis' => $data['karis'],
-                    'taspen' => $data['taspen'],
-                    'tanggalTaspen' => $data['tanggalTaspen'],
-                    'tapera' => $data['tapera'],
-                    'kppn' => $data['kppn'],
-                    'kelasJabatan' => $data['kelasJabatan']
-                ]);
-            }
-        }
-        // $identitasPegawai->update([
-        //     'alamat' => $data['alamat'],
-        //     'telepon' => $data['telepon'],
-        //     'handphone' => $data['handphone'],
-        //     'emailDinas' => $data['emailDinas'],
-        //     'emailPribadi' => $data['emailPribadi'],
-        //     'nik' => $data['nik'],
-        //     'nomorKK' => $data['nomorKK'],
-        //     'agama_id' => $agama->id,
-        //     'lokasiKerja' => $data['lokasiKerja'],
-        //     'akta' => $data['akta'],
-        //     'npwp' => $data['npwp'],
-        //     'tanggalNpwp' => $data['tanggalNpwp'],
-        //     'bpjs' => $data['bpjs'],
-        //     'karis' => $data['karis'],
-        //     'taspen' => $data['taspen'],
-        //     'tanggalTaspen' => $data['tanggalTaspen'],
-        //     'tapera' => $data['tapera'],
-        //     'kppn' => $data['kppn'],
-        //     'kelasJabatan' => $data['kelasJabatan']
-        // ]);
+        $identitasPegawai->update([
+            'alamat' => $data['alamat'],
+            'telepon' => $data['telepon'],
+            'handphone' => $data['handphone'],
+            'emailDinas' => $data['emailDinas'],
+            'emailPribadi' => $data['emailPribadi'],
+            'nik' => $data['nik'],
+            'nomorKK' => $data['nomorKK'],
+            'agama_id' => $agama->id,
+            'lokasiKerja' => $data['lokasiKerja'],
+            'akta' => $data['akta'],
+            'npwp' => $data['npwp'],
+            'tanggalNpwp' => $data['tanggalNpwp'],
+            'bpjs' => $data['bpjs'],
+            'karis' => $data['karis'],
+            'taspen' => $data['taspen'],
+            'tanggalTaspen' => $data['tanggalTaspen'],
+            'tapera' => $data['tapera'],
+            'kppn' => $data['kppn'],
+            'kelasJabatan' => $data['kelasJabatan']
+        ]);
         $pegawai->update([
             'name' => $data['namaLengkap'],
             'gelarDepan' => $data['gelarDepan'],

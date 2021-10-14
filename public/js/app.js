@@ -8710,7 +8710,7 @@ var Detail = /*#__PURE__*/function (_Component) {
       this.setState({
         cari: e.target.value
       });
-      axios.post("/admin/pegawai/search", {
+      axios.post("/admin/pegawai/arsip/search", {
         cari: e.target.value
       }).then(function (response) {
         // console.log(response.data);

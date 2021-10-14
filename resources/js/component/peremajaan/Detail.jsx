@@ -236,7 +236,7 @@ class Detail extends Component {
             cari: e.target.value
         });
         axios
-            .post(`/admin/pegawai/search`, {
+            .post(`/admin/pegawai/arsip/search`, {
                 cari: e.target.value
             })
             .then(response => {

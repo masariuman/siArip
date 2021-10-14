@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Thu Oct 14 2021 02:05:46 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/IdentitasPegawaiAdminController.php
+* app/Http/Controllers/UuzaaController.php
+* public/js/app.js
+* resources/js/component/peremajaan/DetailEdit.jsx
+
+
+Created files:
+* .autogit/logs/log-14-9-2021-1-35-22.txt
+
+
+Deleted files:
+
+
+Renamed files:

@@ -112,6 +112,8 @@ class UuzaaController extends Controller
         IdentitasPegawai::create([
             'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string))))),
             'pegawai_id' => $data['id'],
+            'tanggalNpwp' => date(),
+            'tanggalTaspen' => date(),
             'agama_id' => $agama['id']
         ]);
         // $pagination = 5;
@@ -179,11 +181,14 @@ class UuzaaController extends Controller
             $count++;
         }
         $data['identitasPegawai'] = IdentitasPegawai::where('pegawai_id', $data['pegawai']['id'])->first();
-        if ($data['identitasPegawai']['agama'] === null || $data['identitasPegawai']['agama'] === "") {
-            $data['identitasPegawai']['agamaUser'] = "";
-        } else {
-            $data['identitasPegawai']['agamaUser'] = $data['identitasPegawai']->agama->name;
+        if ($data['identitasPegawai'] != null) {
+            if ($data['identitasPegawai']['agama'] === null || $data['identitasPegawai']['agama'] === "") {
+                $data['identitasPegawai']['agamaUser'] = "";
+            } else {
+                $data['identitasPegawai']['agamaUser'] = $data['identitasPegawai']->agama->name;
+            }
         }
+
         // $data['heyaRinku'] = $data->heya->rinku;
         return response()->json([
             'data' => $data
@@ -470,6 +475,23 @@ class UuzaaController extends Controller
             'sashin' => $fileName
         ]);
         $data['data'] = $uuzaa;
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+
+    public function pegawaiSearch(Request $request)
+    {
+        //
+        $pagination = 5;
+        $data = Uuzaa::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
+            ->orWhere("juugyouinBangou", "like", "%" . $request->cari . "%")
+            ->orderBy("id", "DESC")->paginate($pagination);
+        $count = $data->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data as $items) {
+            $items['nomor'] = $count;
+            $count++;
+        }
         return response()->json([
             'data' => $data
         ]);
