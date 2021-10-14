@@ -73,7 +73,7 @@ class Menu extends Component {
                 oldPass: this.state.oldPass
             })
             .then(response => {
-                console.log(response);
+                // console.log(response);
                 if(!response.data.data.oldPassConfirm) {
                     swal("Error!", "Password Lama Salah", "error");
                 } else {
@@ -556,6 +556,42 @@ class Menu extends Component {
                                 Laman ini adalah laman utama dari aplikasi ini. Laman ini memuat informasi berupa jumlah surat dan memiliki grafik untuk melihat perkembangan surat perharinya.
                             </div>
                         </div>
+                    </li>
+                    <li className="has-sub-menu">
+                        <NavLink
+                            exact
+                            activeClassName="masariuman-active"
+                            to={`/arsip`}
+                        >
+                            <div className="icon-w">
+                                <div className="os-icon os-icon-layout"></div>
+                            </div>
+                            <span>Data Pegawai</span>
+                        </NavLink>
+                        <div className="sub-menu-w">
+                    <div className="sub-menu-header">
+                        REFERENSI
+                    </div>
+                    <div className="sub-menu-icon">
+                        <i className="os-icon os-icon-aperture"></i>
+                    </div>
+                    <div className="sub-menu-i">
+                        <ul className="sub-menu">
+                            <li>
+                                <Link to={`/admin/referensi/pangkatGolonganRuang`}>
+                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Pangkat / Golongan Ruang
+                                </Link>
+                            </li>
+                        </ul>
+                        <ul className="sub-menu">
+                            <li>
+                                <Link to={`/admin/referensi/tingkatPendidikan`}>
+                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Tingkat Pendidikan
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                     </li>
                     <li className="has-sub-menu">
                         <NavLink
