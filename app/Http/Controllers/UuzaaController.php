@@ -94,6 +94,12 @@ class UuzaaController extends Controller
         $data = $request->request->all();
         $subbid = ReferensiSubBidang::where('rinku', $data['subbidName'])->first();
         $agama = ReferensiAgama::where('rinku',$data['agamaUser'])->first();
+        if ($data['gelarDepan']===null) {
+            $data['gelarDepan']="";
+        }
+        if ($data['gelarBelakang']===null) {
+            $data['gelarBelakang']="";
+        }
         // dd($subbid);
         Uuzaa::create([
             'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string))))),
@@ -490,6 +496,28 @@ class UuzaaController extends Controller
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data as $items) {
             $items['nomor'] = $count;
+            $items['tanggalLahirText'] = date("d F Y", strtotime($items['tanggalLahir']));
+            $dateNow = getdate();
+            $tahunLahir = date("Y", strtotime($items['tanggalLahir']));
+            $bulanLahir = date("m", strtotime($items['tanggalLahir']));
+            $tahunNow = $dateNow['year'];
+            $bulanNow = $dateNow['mon'];
+            // dd($tahunNow - $tahunLahir);
+            $dateLahirr = date_create($tahunLahir . '-' . $bulanLahir . '-01');
+            $datenow = date_create($tahunNow . '-' . $bulanNow . '-01');
+            $interval = date_diff($dateLahirr, $datenow);
+            $items['usia'] = $interval->y." Tahun ".$interval->m." Bulan";
+            // dd($usia);
+            $items['subbidName'] = $items->ref_subbid->name;
+            if ($items['reberu'] === "3") {
+                $items['level'] = "User";
+            } else if ($items['reberu'] === "2") {
+                $items['level'] = "Admin";
+            } else if ($items['reberu'] === "1") {
+                $items['level'] = "Super Admin";
+            } else {
+                $items['level'] = "Legendary Admin";
+            }
             $count++;
         }
         return response()->json([

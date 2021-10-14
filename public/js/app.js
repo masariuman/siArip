@@ -12517,12 +12517,7 @@ var Peremajaan = /*#__PURE__*/function (_Component) {
             }), ", ", data.tanggalLahirText]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "text-center",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {
-              highlightClassName: "YourHighlightClass",
-              searchWords: [_this12.state.cari],
-              autoEscape: true,
-              textToHighlight: data.usia
-            })
+            children: data.usia
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("td", {
             className: "text-center",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_highlight_words__WEBPACK_IMPORTED_MODULE_7___default()), {

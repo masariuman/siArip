@@ -580,12 +580,7 @@ class Peremajaan extends Component {
                         />, {data.tanggalLahirText}
                     </td>
                     <td className="text-center">
-                        <Highlighter
-                            highlightClassName="YourHighlightClass"
-                            searchWords={[this.state.cari]}
-                            autoEscape={true}
-                            textToHighlight={data.usia}
-                        />
+                        {data.usia}
                     </td>
                     <td className="text-center">
                         <Highlighter
