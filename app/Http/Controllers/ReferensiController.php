@@ -387,6 +387,23 @@ class ReferensiController extends Controller
             'data' => $data
         ]);
     }
+    public function bidangSubbidOnChange($id)
+    {
+        //
+        $bidang = ReferensiBidang::where("rinku", $id)->first();
+        $subbid = ReferensiSubBidang::where('refBidang_id', $bidang['id'])->where("sutattsu", "1")->orderBy("name", "ASC")->get();
+        $data['subbid'] = [];
+        $x = 0;
+        foreach ($subbid as $value) {
+            $data['subbid']['data'][$x]['name'] = $value->name;
+            $data['subbid']['data'][$x]['rinku'] = $value->rinku;
+            $x = $x + 1;
+        }
+
+        return response()->json([
+            'data' => $data
+        ]);
+    }
     public function unorBidang()
     {
         $data['unor'] = ReferensiUnor::where("sutattsu", "1")->orderBy("id", "DESC")->get();

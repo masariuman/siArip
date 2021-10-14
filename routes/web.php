@@ -60,6 +60,7 @@ Route::delete('/admin/referensi/bidang/{url}', 'ReferensiController@bidangDestro
 Route::post('/admin/referensi/bidang/search', 'ReferensiController@bidangSearch');
 Route::get('/admin/referensi/unorBidang', 'ReferensiController@unorBidang');
 Route::get('/admin/referensi/unorBidang/{url}', 'ReferensiController@unorBidangOnChange');
+Route::get('/admin/referensi/bidangSubbid/{url}', 'ReferensiController@bidangSubbidOnChange');
 
 Route::get('/admin/referensi/subBidang/deeta', 'ReferensiController@subBidang');
 Route::post('/admin/referensi/subBidang', 'ReferensiController@subBidangStore');

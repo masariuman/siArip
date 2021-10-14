@@ -178,12 +178,13 @@ class Peremajaan extends Component {
         this.setState({
             bidangName: e.target.value
         });
-        // axios.get(`/admin/referensi/unorBidang/${e.target.value}`).then((response) => {
-        //     this.setState({
-        //         bidang: response.data.data.data,
-        //         bidangName: response.data.data.data[0].url,
-        //     });
-        // });
+        axios.get(`/admin/referensi/bidangSubbid/${e.target.value}`).then((response) => {
+            console.log(response);
+            this.setState({
+                subbid: response.data.data.subbid.data,
+                subbidName: response.data.data.subbid.data[0].rinku,
+            });
+        });
         // console.log(e.target.value);
     }
 

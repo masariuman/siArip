@@ -100,6 +100,12 @@ class UuzaaController extends Controller
         if ($data['gelarBelakang']===null) {
             $data['gelarBelakang']="";
         }
+        if ($data['nip']===null) {
+            $data['nip']="";
+        }
+        if ($data['nip9']===null) {
+            $data['nip9']="";
+        }
         // dd($subbid);
         Uuzaa::create([
             'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string))))),
