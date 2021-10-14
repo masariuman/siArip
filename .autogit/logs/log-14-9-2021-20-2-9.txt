@@ -1,0 +1,20 @@
+-------------------- Auto-Git Log --------------------
+		Thu Oct 14 2021 20:02:09 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/ReferensiController.php
+* app/Http/Controllers/UuzaaController.php
+* public/js/app.js
+* resources/js/component/peremajaan/Index.jsx
+* routes/web.php
+
+
+Created files:
+* .autogit/logs/log-14-9-2021-15-37-37.txt
+
+
+Deleted files:
+
+
+Renamed files:

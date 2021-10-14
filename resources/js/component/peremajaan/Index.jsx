@@ -179,7 +179,7 @@ class Peremajaan extends Component {
             bidangName: e.target.value
         });
         axios.get(`/admin/referensi/bidangSubbid/${e.target.value}`).then((response) => {
-            console.log(response);
+            // console.log(response);
             this.setState({
                 subbid: response.data.data.subbid.data,
                 subbidName: response.data.data.subbid.data[0].rinku,
