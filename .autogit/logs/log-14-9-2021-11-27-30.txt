@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Thu Oct 14 2021 11:27:30 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/IdentitasPegawaiAdminController.php
+
+
+Created files:
+* .autogit/logs/log-14-9-2021-10-57-13.txt
+
+
+Deleted files:
+
+
+Renamed files:
