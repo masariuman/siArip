@@ -561,7 +561,7 @@ class Menu extends Component {
                         <NavLink
                             exact
                             activeClassName="masariuman-active"
-                            to={`/arsip`}
+                            to={`/identitasPegawai`}
                         >
                             <div className="icon-w">
                                 <div className="os-icon os-icon-layout"></div>
@@ -570,7 +570,7 @@ class Menu extends Component {
                         </NavLink>
                         <div className="sub-menu-w">
                     <div className="sub-menu-header">
-                        REFERENSI
+                        INFO PEGAWAI
                     </div>
                     <div className="sub-menu-icon">
                         <i className="os-icon os-icon-aperture"></i>
@@ -578,8 +578,8 @@ class Menu extends Component {
                     <div className="sub-menu-i">
                         <ul className="sub-menu">
                             <li>
-                                <Link to={`/admin/referensi/pangkatGolonganRuang`}>
-                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Pangkat / Golongan Ruang
+                                <Link to={`/identitasPegawai`}>
+                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Identitas Pegawai
                                 </Link>
                             </li>
                         </ul>

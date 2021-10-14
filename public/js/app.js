@@ -34013,7 +34013,7 @@ var Menu = /*#__PURE__*/function (_Component) {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.NavLink, {
               exact: true,
               activeClassName: "masariuman-active",
-              to: "/arsip",
+              to: "/identitasPegawai",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                 className: "icon-w",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -34026,7 +34026,7 @@ var Menu = /*#__PURE__*/function (_Component) {
               className: "sub-menu-w",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                 className: "sub-menu-header",
-                children: "REFERENSI"
+                children: "INFO PEGAWAI"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                 className: "sub-menu-icon",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
@@ -34038,10 +34038,10 @@ var Menu = /*#__PURE__*/function (_Component) {
                   className: "sub-menu",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
-                      to: "/admin/referensi/pangkatGolonganRuang",
+                      to: "/identitasPegawai",
                       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
                         className: "fa fa-sitemap"
-                      }), " \xA0\xA0\xA0Pangkat / Golongan Ruang"]
+                      }), " \xA0\xA0\xA0Identitas Pegawai"]
                     })
                   })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
