@@ -31,11 +31,28 @@ class IdentitasPegawai extends Component {
             tempatLahir : "",
             tanggalLahir : "",
             sashin : "",
-            kategori: [],
-            kategoriName : "",
-            name : "",
-            keterangan : "",
-            arsip: [],
+
+
+            alamat:"",
+            telepon:"",
+            handphone:"",
+            emailDinas:"",
+            emailPribadi:"",
+            nik:"",
+            nomorKK:"",
+            lokasiKerja:"",
+            akta:"",
+            npwp:"",
+            tanggalNpwp:"",
+            bpjs:"",
+            karis:"",
+            taspen:"",
+            tanggalTaspen:"",
+            tapera:"",
+            kppn:"",
+            kelasJabatan:"",
+
+
 
             dataEditInput: "",
             buttonTambahModal: "",
@@ -523,34 +540,34 @@ class IdentitasPegawai extends Component {
     }
 
     getAgama() {
-        axios.get("/admin/referensi/agama/create").then((response) => {
-            this.setState({
-                agama: response.data.data,
-                agamaUser: response.data.data[0].rinku,
-            });
-        });
+        // axios.get("/admin/referensi/agama/create").then((response) => {
+        //     this.setState({
+        //         agama: response.data.data,
+        //         agamaUser: response.data.data[0].rinku,
+        //     });
+        // });
     }
 
     getKategori() {
-        axios.get("/admin/referensi/kategoriArsip/create").then((response) => {
-            this.setState({
-                kategori: response.data.data,
-                kategoriName: response.data.data[0].rinku,
-            });
-        });
+        // axios.get("/admin/referensi/kategoriArsip/create").then((response) => {
+        //     this.setState({
+        //         kategori: response.data.data,
+        //         kategoriName: response.data.data[0].rinku,
+        //     });
+        // });
     }
 
     getUnor() {
-        axios.get("/admin/referensi/unorBidang").then((response) => {
-            this.setState({
-                unor: response.data.data.unor,
-                unorName: response.data.data.unor[0].rinku,
-                bidang: response.data.data.bidang,
-                unorName: response.data.data.bidang[0].rinku,
-                subbid: response.data.data.subbid,
-                subbidName: response.data.data.subbid[0].rinku,
-            });
-        });
+        // axios.get("/admin/referensi/unorBidang").then((response) => {
+        //     this.setState({
+        //         unor: response.data.data.unor,
+        //         unorName: response.data.data.unor[0].rinku,
+        //         bidang: response.data.data.bidang,
+        //         unorName: response.data.data.bidang[0].rinku,
+        //         subbid: response.data.data.subbid,
+        //         subbidName: response.data.data.subbid[0].rinku,
+        //     });
+        // });
     }
 
     handlePageChange(pageNumber) {
@@ -579,9 +596,9 @@ class IdentitasPegawai extends Component {
 
     componentDidMount() {
         this.getData();
-        this.getAgama();
-        this.getUnor();
-        this.getKategori();
+        // this.getAgama();
+        // this.getUnor();
+        // this.getKategori();
     }
 
     componentDidUpdate() {
@@ -589,50 +606,222 @@ class IdentitasPegawai extends Component {
     }
 
     renderData() {
-        return !this.state.arsip.length ? <tr><td colSpan="9" className="text-center">Data Tidak Ditemukan</td></tr> :
-            this.state.arsip.map(data => (
-                <tr key={data.rinku} className="masariuman_table">
-                    <th scope="row" className="text-center">{data.nomor}</th>
-                    <td className="text-center">
-                        <Highlighter
-                            highlightClassName="YourHighlightClass"
-                            searchWords={[this.state.cari]}
-                            autoEscape={true}
-                            textToHighlight={data.kategori.name}
-                        />
+        // return !this.state.arsip.length ? <tr><td colSpan="9" className="text-center">Data Tidak Ditemukan</td></tr> :
+        //     this.state.arsip.map(data => (
+        //         <tr key={data.rinku} className="masariuman_table">
+        //             <th scope="row" className="text-center">{data.nomor}</th>
+        //             <td className="text-center">
+        //                 <Highlighter
+        //                     highlightClassName="YourHighlightClass"
+        //                     searchWords={[this.state.cari]}
+        //                     autoEscape={true}
+        //                     textToHighlight={data.kategori.name}
+        //                 />
+        //             </td>
+        //             <td className="text-center">
+        //                 <Highlighter
+        //                     highlightClassName="YourHighlightClass"
+        //                     searchWords={[this.state.cari]}
+        //                     autoEscape={true}
+        //                     textToHighlight={data.name}
+        //                 />
+        //             </td>
+        //             <td className="text-center">
+        //                 <Highlighter
+        //                     highlightClassName="YourHighlightClass"
+        //                     searchWords={[this.state.cari]}
+        //                     autoEscape={true}
+        //                     textToHighlight={data.keterangan}
+        //                 />
+        //             </td>
+        //             <td id="downloadButton">
+        //                 <div className="text-center">
+        //                     {data.file ? (
+        //                         <a href={`/zaFail/${data.file}`} className="mr-2 mb-2 btn btn-outline-secondary">Download</a>
+        //                     ) : (
+        //                         <span></span>
+        //                     )}
+        //                     {/* <button data-target="#detailModal" data-toggle="modal" className="mr-2 mb-2 btn btn-outline-info" type="button" onClick={this.handleEditButton.bind(this, data.rinku)} id={'detail'+data.nomor}>Detail</button> */}
+        //                 </div>
+        //                 <div className="text-center">
+        //                     <button data-target="#editModal" data-toggle="modal" className="mr-2 mb-2 btn btn-outline-warning" type="button" onClick={this.handleEditButton.bind(this, data.rinku)} id={'ubah'+data.nomor}>Ubah</button>
+        //                     <button className="mr-2 mb-2 btn btn-outline-danger" type="button" onClick={this.handleDeleteButton.bind(this, data.rinku)} id={'hapus'+data.nomor}>Hapus</button>
+        //                 </div>
+        //             </td>
+        //         </tr>
+        //     ));
+        return (
+            <tbody>
+                <tr className="masariuman_table">
+                    <td className="masariuman_tdTitle">
+                        Nama
                     </td>
-                    <td className="text-center">
-                        <Highlighter
-                            highlightClassName="YourHighlightClass"
-                            searchWords={[this.state.cari]}
-                            autoEscape={true}
-                            textToHighlight={data.name}
-                        />
-                    </td>
-                    <td className="text-center">
-                        <Highlighter
-                            highlightClassName="YourHighlightClass"
-                            searchWords={[this.state.cari]}
-                            autoEscape={true}
-                            textToHighlight={data.keterangan}
-                        />
-                    </td>
-                    <td id="downloadButton">
-                        <div className="text-center">
-                            {data.file ? (
-                                <a href={`/zaFail/${data.file}`} className="mr-2 mb-2 btn btn-outline-secondary">Download</a>
-                            ) : (
-                                <span></span>
-                            )}
-                            {/* <button data-target="#detailModal" data-toggle="modal" className="mr-2 mb-2 btn btn-outline-info" type="button" onClick={this.handleEditButton.bind(this, data.rinku)} id={'detail'+data.nomor}>Detail</button> */}
-                        </div>
-                        <div className="text-center">
-                            <button data-target="#editModal" data-toggle="modal" className="mr-2 mb-2 btn btn-outline-warning" type="button" onClick={this.handleEditButton.bind(this, data.rinku)} id={'ubah'+data.nomor}>Ubah</button>
-                            <button className="mr-2 mb-2 btn btn-outline-danger" type="button" onClick={this.handleDeleteButton.bind(this, data.rinku)} id={'hapus'+data.nomor}>Hapus</button>
-                        </div>
+                    <td className="masariuman_tdContent">
+                        {this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang}
                     </td>
                 </tr>
-            ));
+                <tr className="masariuman_table">
+                    <td className="masariuman_tdTitle">
+                        NIP
+                    </td>
+                    <td className="masariuman_tdContent">
+                        {this.state.nip}
+                    </td>
+                </tr>
+                <tr className="masariuman_table">
+                    <td className="masariuman_tdTitle">
+                        Alamat Domisili
+                    </td>
+                    <td className="masariuman_tdContent">
+                        {this.state.alamat}
+                    </td>
+                </tr>
+                <tr className="masariuman_table">
+                    <td className="masariuman_tdTitle">
+                        Nomor Telepon
+                    </td>
+                    <td className="masariuman_tdContent">
+                        {this.state.telepon}
+                    </td>
+                </tr>
+                <tr className="masariuman_table">
+                    <td className="masariuman_tdTitle">
+                        Nomor Handphone
+                    </td>
+                    <td className="masariuman_tdContent">
+                        {this.state.handphone}
+                    </td>
+                </tr>
+                <tr className="masariuman_table">
+                    <td className="masariuman_tdTitle">
+                        Email Dinas
+                    </td>
+                    <td className="masariuman_tdContent">
+                        {this.state.emailDinas}
+                    </td>
+                </tr>
+                <tr className="masariuman_table">
+                    <td className="masariuman_tdTitle">
+                        Email Pribadi
+                    </td>
+                    <td className="masariuman_tdContent">
+                        {this.state.emailPribadi}
+                    </td>
+                </tr>
+                <tr className="masariuman_table">
+                    <td className="masariuman_tdTitle">
+                        NIK
+                    </td>
+                    <td className="masariuman_tdContent">
+                        {this.state.nik}
+                    </td>
+                </tr>
+                <tr className="masariuman_table">
+                    <td className="masariuman_tdTitle">
+                        Nomor KK
+                    </td>
+                    <td className="masariuman_tdContent">
+                        {this.state.nomorKK}
+                    </td>
+                </tr>
+                <tr className="masariuman_table">
+                    <td className="masariuman_tdTitle">
+                        Agama
+                    </td>
+                    <td className="masariuman_tdContent">
+                        {this.state.agamaUser}
+                    </td>
+                </tr>
+                <tr className="masariuman_table">
+                    <td className="masariuman_tdTitle">
+                        Lokasi Kerja (Setingkat Kecamatan)
+                    </td>
+                    <td className="masariuman_tdContent">
+                        {this.state.lokasiKerja}
+                    </td>
+                </tr>
+                <tr className="masariuman_table">
+                    <td className="masariuman_tdTitle">
+                        Nomor Akta Kelahiran
+                    </td>
+                    <td className="masariuman_tdContent">
+                        {this.state.akta}
+                    </td>
+                </tr>
+                <tr className="masariuman_table">
+                    <td className="masariuman_tdTitle">
+                        Nomor NPWP
+                    </td>
+                    <td className="masariuman_tdContent">
+                        {this.state.npwp}
+                    </td>
+                </tr>
+                <tr className="masariuman_table">
+                    <td className="masariuman_tdTitle">
+                        Tanggal NPWP
+                    </td>
+                    <td className="masariuman_tdContent">
+                        {this.state.tanggalNpwp}
+                    </td>
+                </tr>
+                <tr className="masariuman_table">
+                    <td className="masariuman_tdTitle">
+                        Nomor BPJS / Kartu Indonesia Sehat
+                    </td>
+                    <td className="masariuman_tdContent">
+                        {this.state.bpjs}
+                    </td>
+                </tr>
+                <tr className="masariuman_table">
+                    <td className="masariuman_tdTitle">
+                        Nomor Karis / Karsu
+                    </td>
+                    <td className="masariuman_tdContent">
+                        {this.state.karis}
+                    </td>
+                </tr>
+                <tr className="masariuman_table">
+                    <td className="masariuman_tdTitle">
+                        Nomor TASPEN
+                    </td>
+                    <td className="masariuman_tdContent">
+                        {this.state.taspen}
+                    </td>
+                </tr>
+                <tr className="masariuman_table">
+                    <td className="masariuman_tdTitle">
+                        Tanggal TASPEN
+                    </td>
+                    <td className="masariuman_tdContent">
+                        {this.state.tanggalTaspen}
+                    </td>
+                </tr>
+                <tr className="masariuman_table">
+                    <td className="masariuman_tdTitle">
+                        Nomor TAPERA
+                    </td>
+                    <td className="masariuman_tdContent">
+                        {this.state.taspen}
+                    </td>
+                </tr>
+                <tr className="masariuman_table">
+                    <td className="masariuman_tdTitle">
+                        KPPN/Kantor Pembayaran Gaji
+                    </td>
+                    <td className="masariuman_tdContent">
+                        {this.state.kppn}
+                    </td>
+                </tr>
+                <tr className="masariuman_table">
+                    <td className="masariuman_tdTitle">
+                        Kelas Jabatan (angka)
+                    </td>
+                    <td className="masariuman_tdContent">
+                        {this.state.kelasJabatan}
+                    </td>
+                </tr>
+            </tbody>
+            );
     }
 
     renderSelect() {
@@ -644,43 +833,43 @@ class IdentitasPegawai extends Component {
     }
 
     renderSelectAgama() {
-        return this.state.agama.map((data) => (
-            <option value={data.rinku} key={data.rinku}>
-                {data.name}
-            </option>
-        ));
+        // return this.state.agama.map((data) => (
+        //     <option value={data.rinku} key={data.rinku}>
+        //         {data.name}
+        //     </option>
+        // ));
     }
 
     renderSelectKategori() {
-        return this.state.kategori.map((data) => (
-            <option value={data.rinku} key={data.rinku}>
-                {data.name}
-            </option>
-        ));
+        // return this.state.kategori.map((data) => (
+        //     <option value={data.rinku} key={data.rinku}>
+        //         {data.name}
+        //     </option>
+        // ));
     }
 
     renderSelectUnor() {
-        return this.state.unor.map((data) => (
-            <option value={data.rinku} key={data.rinku}>
-                {data.name}
-            </option>
-        ));
+        // return this.state.unor.map((data) => (
+        //     <option value={data.rinku} key={data.rinku}>
+        //         {data.name}
+        //     </option>
+        // ));
     }
 
     renderSelectBidang() {
-        return this.state.bidang.map((data) => (
-            <option value={data.rinku} key={data.rinku}>
-                {data.name}
-            </option>
-        ));
+        // return this.state.bidang.map((data) => (
+        //     <option value={data.rinku} key={data.rinku}>
+        //         {data.name}
+        //     </option>
+        // ));
     }
 
     renderSelectSubbid() {
-        return this.state.subbid.map((data) => (
-            <option value={data.rinku} key={data.rinku}>
-                {data.name}
-            </option>
-        ));
+        // return this.state.subbid.map((data) => (
+        //     <option value={data.rinku} key={data.rinku}>
+        //         {data.name}
+        //     </option>
+        // ));
     }
 
     modalTambah() {
@@ -698,143 +887,6 @@ class IdentitasPegawai extends Component {
                         <h4 className="onboarding-title">
                             Tambah Arsip Baru
                         </h4>
-                        <form onSubmit={this.handleSubmit}>
-                            <div className="row">
-                            <div className="col-sm-3">
-                                <div className="form-group">
-                                    kategori :
-                                </div>
-                            </div>
-                            <div className="col-sm-9">
-                                <div className="form-group">
-                                    <select
-                                        value={this.state.kategoriName}
-                                        onChange={this.handleChangeKategori}
-                                        className="form-control"
-                                    >
-                                        {this.renderSelectKategori()}
-                                    </select>
-                                </div>
-                            </div>
-                            <div className="col-sm-12">
-                                <div className="form-group">
-                                    <input
-                                        onChange={this.handleChangeName}
-                                        value={this.state.name}
-                                        title="Nama Berkas"
-                                        placeholder="Nama Berkas..."
-                                        type="text"
-                                        className="form-control"
-                                    />
-                                </div>
-                            </div>
-                            <div className="col-sm-12">
-                                <div className="form-group">
-                                    <input
-                                        onChange={this.handleChangeKeterangan}
-                                        value={this.state.keterangan}
-                                        title="keterangan"
-                                        placeholder="keterangan..."
-                                        type="text"
-                                        className="form-control"
-                                    />
-                                </div>
-                            </div>
-                            {/* <div className="col-sm-4">
-                                <div className="form-group">
-                                    Jenis Jabatan :
-                                </div>
-                            </div>
-                            <div className="col-sm-8">
-                                <div className="form-group">
-                                    <select
-                                        value={this.state.turunKe}
-                                        onChange={this.handleChangeTurunKe}
-                                        className="form-control"
-                                    >
-                                        {this.renderSelect()}
-                                    </select>
-                                </div>
-                            </div>
-                            <div className="col-sm-4">
-                                <div className="form-group">
-                                    Nama Jabatan :
-                                </div>
-                            </div>
-                            <div className="col-sm-8">
-                                <div className="form-group">
-                                    <input
-                                        onChange={this.handleChangeKodeBerkas}
-                                        value={this.state.kodeBerkas}
-                                        title="Nama Jabatan"
-                                        placeholder="Nama Jabatan.."
-                                        type="text"
-                                        className="form-control"
-                                    />
-                                </div>
-                            </div>
-                            <div className="col-sm-5">
-                                <div className="form-group">
-                                    TMT. Jabatan :
-                                </div>
-                            </div>
-                            <div className="col-sm-7">
-                                <div className="form-group">
-                                    <input
-                                        onChange={this.handleChangeTanggalSurat}
-                                        value={this.state.tanggalSurat}
-                                        title="Tanggal Surat"
-                                        placeholder="Tanggal Surat.."
-                                        type="date"
-                                        className="form-control"
-                                    />
-                                </div>
-                            </div>
-                            <div className="col-sm-12">
-                                <div className="form-group">
-                                    <input
-                                        onChange={this.handleChangeKodeBerkas}
-                                        value={this.state.kodeBerkas}
-                                        title="Kode Berkas"
-                                        placeholder="Kode Berkas.."
-                                        type="text"
-                                        className="form-control"
-                                    />
-                                </div>
-                            </div> */}
-                            <div className="col-sm-12">
-                                <div className="form-group">
-                                    <input
-                                        onChange={this.handleChangeFile}
-                                        title="File"
-                                        placeholder="File.."
-                                        type="file"
-                                        className="form-control masariuman_displayNone"
-                                        ref="fileUploader"
-                                    />
-                                </div>
-                            </div>
-                            <div className="col-sm-12">
-                                <table className="masariuman_tableFile">
-                                    <tbody>
-                                        <tr>
-                                            <td className="masariuman_width110px">
-                                                <button className="mr-2 mb-2 btn btn-primary" type="button" onClick={this.handleButtonFile} >Upload File</button>
-                                            </td>
-                                            <td className="form-group">
-                                                <a target="_blank" href={this.state.fileUrl}>{this.state.filePath}</a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div className="col-sm-12">
-                                <div className="form-group text-center">
-                                    <button className="mr-2 mb-2 btn btn-primary" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Tambah Arsip Baru</button>
-                                </div>
-                            </div>
-                            </div>
-                        </form>
                         </div>
                     </div>
                     </div>
@@ -1152,43 +1204,30 @@ class IdentitasPegawai extends Component {
                                 {/* content here */}
                                 <div className="row">
                                     <div className="col-md-12">
-                                        <div className="element-box">
-                                            <h5 className="form-header">
-                                            Arsip <b>{this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang}</b>
-                                            </h5>
-                                            <div className="form-desc">
-                                                Manajemen Arsip Pegawai
-                                            </div>
-                                            <div>
-                                                <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal" onClick={this.handleTambahButton}>Tambah Arsip Baru</button>
-                                                <div className="col-sm-4 float-right" id="cari">
-                                                    <input type="text" className="form-control" onChange={this.handleChangeCari}
-                                                        value={this.state.cari} placeholder="Cari Arsip..."></input>
+                                    <div className="element-box">
+                                            <div className="masariuman_marginBottom50px">
+                                                <div className="float-left">
+                                                    <h5 className="form-header">
+                                                        Identitas Pegawai
+                                                    </h5>
+                                                </div>
+                                                <div className="float-right">
+                                                    <Link to={`/admin/pegawai/${this.props.match.params.url}/detail/edit`} className="mr-2 mb-2 btn btn-warning">
+                                                        Ubah Identitas Pegawai
+                                                    </Link>
                                                 </div>
                                             </div>
+                                            <hr/>
                                             <div className="table-responsive" id="ruanganTable">
                                                 <table id="tabeldata" width="100%" className="table table-striped table-lightfont">
-                                                    <thead>
-                                                        <tr>
-                                                            <th className="width50px text-center">NO</th>
-                                                            <th className="width50px text-center">Kategori</th>
-                                                            <th className="text-center">Nama Arsip</th>
-                                                            <th className="text-center">Keterangan</th>
-                                                            <th className="text-center">Aksi</th>
-                                                            {/* <th className="width250px text-center">ACTION</th> */}
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>{this.renderData()}</tbody>
+                                                    {this.renderData()}
                                                 </table>
                                             </div>
-                                            <div className="d-flex justify-content-center" id="pagination">
-                                                <Pagination
-                                                    activePage={this.state.activePage}
-                                                    itemsCountPerPage={this.state.itemsCountPerPage}
-                                                    totalItemsCount={this.state.totalItemsCount}
-                                                    pageRangeDisplayed={this.state.pageRangeDisplayed}
-                                                    onChange={this.handlePageChange}
-                                                />
+                                            <br />
+                                            <div className="form-desc text-center">
+                                                <Link to={`/admin/pegawai/${this.props.match.params.url}/detail/edit`} className="mr-2 mb-2 btn btn-warning">
+                                                    Ubah Identitas Pegawai
+                                                </Link>
                                             </div>
                                         </div>
 
