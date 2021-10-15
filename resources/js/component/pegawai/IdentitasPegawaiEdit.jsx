@@ -148,49 +148,49 @@ class IdentitasPegawaiEdit extends Component {
 
     handleButtonFile(e) {
         this.refs.fileUploader.click();
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
     handleChangeAgama(e) {
         this.setState({
             agamaUser: e.target.value
         });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
     handleChangeKategori(e) {
         this.setState({
             kategoriName: e.target.value
         });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
     handleChangeName(e) {
         this.setState({
             name: e.target.value
         });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
     handleChangeKeterangan(e) {
         this.setState({
             keterangan: e.target.value
         });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
     handleChangeNip(e) {
         this.setState({
             nip: e.target.value
         });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
     handleChangeNip9(e) {
         this.setState({
             nip9: e.target.value
         });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
 
@@ -198,14 +198,14 @@ class IdentitasPegawaiEdit extends Component {
         this.setState({
             tempatLahir: e.target.value
         });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
     handleChangeTanggalLahir(e) {
         this.setState({
             tanggalLahir: e.target.value
         });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
     handleChangeUnor(e) {
@@ -213,7 +213,7 @@ class IdentitasPegawaiEdit extends Component {
             unorName: e.target.value
         });
         axios.get(`/admin/referensi/unorBidang/${e.target.value}`).then((response) => {
-            // console.log(response);
+            // // console.log(response);
             this.setState({
                 bidang: response.data.data.bidang.data,
                 bidangName: response.data.data.bidang.data[0].url,
@@ -221,7 +221,7 @@ class IdentitasPegawaiEdit extends Component {
                 subbidName: response.data.data.subbid[0].rinku,
             });
         });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
     handleChangeBidang(e) {
@@ -234,7 +234,7 @@ class IdentitasPegawaiEdit extends Component {
         //         bidangName: response.data.data.data[0].url,
         //     });
         // });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
     handleChangeSubbid(e) {
@@ -247,11 +247,11 @@ class IdentitasPegawaiEdit extends Component {
         //         bidangName: response.data.data.data[0].url,
         //     });
         // });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
     handleChangeFile(e) {
-        // console.log(e.target.files[0]);
+        // // console.log(e.target.files[0]);
         this.setState({
             file: e.target.files[0],
             filePath: e.target.value,
@@ -268,7 +268,7 @@ class IdentitasPegawaiEdit extends Component {
                 cari: e.target.value
             })
             .then(response => {
-                console.log(response.data.data.data);
+                //// console.log(response.data.data.data);
                 this.setState({
                     arsip: response.data.data.data,
                     loading: false,
@@ -277,7 +277,7 @@ class IdentitasPegawaiEdit extends Component {
                     totalItemsCount: response.data.data.total,
                     pageRangeDisplayed: 10
                 });
-                // console.log(this.state.tag);
+                // // console.log(this.state.tag);
             });
     }
 
@@ -307,7 +307,7 @@ class IdentitasPegawaiEdit extends Component {
                                     loading: false
                                 });
                                 swal("Sukses!", "Data Berhasil Dihapus!", "success");
-                                // console.log("from handle sumit", response);
+                                // // console.log("from handle sumit", response);
                             })
                             .catch(error => {
                                 this.setState({
@@ -334,7 +334,7 @@ class IdentitasPegawaiEdit extends Component {
         axios
             .get(`/pegawai/arsip/${e}/edit`)
             .then(response => {
-                console.log(response);
+                //// console.log(response);
                 this.setState({
                     kategoriName : response.data.data.kategori_name,
                     name : response.data.data.name,
@@ -355,14 +355,14 @@ class IdentitasPegawaiEdit extends Component {
         this.setState({
             create: e.target.value
         });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
     handleEditInputChange(e) {
         this.setState({
             dataEditInput: e.target.value
         });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
     handleSubmit(e) {
@@ -379,7 +379,7 @@ class IdentitasPegawaiEdit extends Component {
         axios
             .post(`/pegawai/arsip`, data)
             .then(response => {
-                console.log(response);
+                // console.log(response);
                 this.setState({
                     arsip: [response.data.data.arsip, ...this.state.arsip],
                     file: null,
@@ -393,7 +393,7 @@ class IdentitasPegawaiEdit extends Component {
                 $('body').css('padding-right', '');
                 $("#tambahModal").hide();
                 swal("Sukses!", "Data Baru Berhasil Ditambahkan!", "success");
-                // console.log("from handle sumit", response);
+                // // console.log("from handle sumit", response);
             })
             .catch(error => {
                 this.setState({
@@ -401,16 +401,10 @@ class IdentitasPegawaiEdit extends Component {
                 });
                 swal("Error!", "Gagal Memasukkan Data Baru, Silahkan Hubungi Admin!", "error");
             });
-        // console.log(this.state.create);
+        // // console.log(this.state.create);
     }
 
     handleEditSubmit(e) {
-        e.preventDefault();
-        this.setState({
-            loading: true
-        });
-        const data = new FormData();
-        // data.append('file', this.state.file);
         e.preventDefault();
         this.setState({
             loading: true
@@ -439,31 +433,13 @@ class IdentitasPegawaiEdit extends Component {
         data.append('tapera', this.state.tapera);
         data.append('kppn', this.state.kppn);
         data.append('kelasJabatan', this.state.kelasJabatan);
-        data.append('identitasId', this.state.identitasId);
-        // console.log(data);
+        data.append('identitasId', this.props.match.params.url);
+        // // console.log(data);
         axios
-            .post(`/identitasPegawai/deeta/update`, data)
+            .post(`/identitasPegawai/deeta`, data)
             .then(response => {
-                console.log(response);
-                this.setState({
-                    arsip : response.data.data.arsip.data,
-                    // namaLengkap : response.data.data.pegawai.name,
-                    // nip : response.data.data.pegawai.juugyouinBangou,
-                    // gelarBelakang : response.data.data.pegawai.gelarBelakang,
-                    // gelarDepan : response.data.data.pegawai.gelarDepan,
-                    // arsip : response.data.data.arsip.data,
-                    file: null,
-                    filePath: null,
-                    fileUrl: null,
-                    loading: false
-                });
-                $("#editModal").removeClass("in");
-                $(".modal-backdrop").remove();
-                $('body').removeClass('modal-open');
-                $('body').css('padding-right', '');
-                $("#editModal").hide();
                 swal("Sukses!", "Data Berhasil Diubah!", "success");
-                // console.log("from handle sumit", response);
+                this.props.history.push(`/identitasPegawai`);
             })
             .catch(error => {
                 this.setState({
@@ -471,7 +447,7 @@ class IdentitasPegawaiEdit extends Component {
                 });
                 swal("Error!", "Gagal Mengubah Data, Silahkan Hubungi Admin!", "error");
             });
-        // console.log(this.state.create);
+        // // console.log(this.state.create);
     }
 
     getData() {
@@ -481,7 +457,7 @@ class IdentitasPegawaiEdit extends Component {
         axios
             .get(`/identitasPegawai/deeta/${this.props.match.params.url}/edit`)
             .then(response => {
-                console.log(response);
+                //// console.log(response);
                 this.setState({
                     // data: response.data.data.data,
                     namaLengkap : response.data.data.pegawai.name,
@@ -604,7 +580,7 @@ class IdentitasPegawaiEdit extends Component {
         axios
             .get(`/admin/pegawai/${this.props.match.params.url}?page=${pageNumber}`)
             .then(response => {
-                console.log(response);
+                //// console.log(response);
                 this.setState({
                     arsip : response.data.data.arsip.data,
                     // data: response.data.data.arsip.data,
@@ -900,7 +876,7 @@ class IdentitasPegawaiEdit extends Component {
     }
 
     modalTambah() {
-        // console.log(this.state.agama);
+        // // console.log(this.state.agama);
         return (
             <div aria-hidden="true" className="onboarding-modal modal fade animated" id="tambahModal" role="dialog" tabIndex="-1">
                 <div className="modal-dialog modal-lg modal-centered" role="document">
@@ -1658,19 +1634,19 @@ class IdentitasPegawaiEdit extends Component {
         this.setState({
             gelarDepan: e.target.value
         });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
     handleChangeNamaLengkap(e) {
         this.setState({
             namaLengkap: e.target.value
         });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
     handleChangeGelarBelakang(e) {
         this.setState({
             gelarBelakang: e.target.value
         });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
     handleChangeAlamat(e) {
         this.setState({

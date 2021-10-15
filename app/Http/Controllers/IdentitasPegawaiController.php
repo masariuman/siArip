@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Uuzaa;
 use App\Models\IdentitasPegawai;
+use App\Models\ReferensiAgama;
 use Illuminate\Support\Facades\Auth;
 
 class IdentitasPegawaiController extends Controller

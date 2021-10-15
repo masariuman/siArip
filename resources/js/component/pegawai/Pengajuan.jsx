@@ -111,84 +111,84 @@ class Pengajuan extends Component {
 
     handleButtonFile(e) {
         this.refs.fileUploader.click();
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
     handleChangeAgama(e) {
         this.setState({
             agamaUser: e.target.value
         });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
     handleChangeKategori(e) {
         this.setState({
             kategoriName: e.target.value
         });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
     handleChangeName(e) {
         this.setState({
             name: e.target.value
         });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
     handleChangeKeterangan(e) {
         this.setState({
             keterangan: e.target.value
         });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
     handleChangeNip(e) {
         this.setState({
             nip: e.target.value
         });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
     handleChangeNip9(e) {
         this.setState({
             nip9: e.target.value
         });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
     handleChangeGelarBelakang(e) {
         this.setState({
             gelarBelakang: e.target.value
         });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
     handleChangeGelarDepan(e) {
         this.setState({
             gelarDepan: e.target.value
         });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
     handleChangeNamaLengkap(e) {
         this.setState({
             namaLengkap: e.target.value
         });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
     handleChangeTempatLahir(e) {
         this.setState({
             tempatLahir: e.target.value
         });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
     handleChangeTanggalLahir(e) {
         this.setState({
             tanggalLahir: e.target.value
         });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
     handleChangeUnor(e) {
@@ -196,7 +196,7 @@ class Pengajuan extends Component {
             unorName: e.target.value
         });
         axios.get(`/admin/referensi/unorBidang/${e.target.value}`).then((response) => {
-            // console.log(response);
+            // // console.log(response);
             this.setState({
                 bidang: response.data.data.bidang.data,
                 bidangName: response.data.data.bidang.data[0].url,
@@ -204,7 +204,7 @@ class Pengajuan extends Component {
                 subbidName: response.data.data.subbid[0].rinku,
             });
         });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
     handleChangeBidang(e) {
@@ -217,7 +217,7 @@ class Pengajuan extends Component {
         //         bidangName: response.data.data.data[0].url,
         //     });
         // });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
     handleChangeSubbid(e) {
@@ -230,11 +230,11 @@ class Pengajuan extends Component {
         //         bidangName: response.data.data.data[0].url,
         //     });
         // });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
     handleChangeFile(e) {
-        // console.log(e.target.files[0]);
+        // // console.log(e.target.files[0]);
         this.setState({
             file: e.target.files[0],
             filePath: e.target.value,
@@ -251,7 +251,7 @@ class Pengajuan extends Component {
                 cari: e.target.value
             })
             .then(response => {
-                console.log(response.data.data.data);
+                // console.log(response.data.data.data);
                 this.setState({
                     arsip: response.data.data.data,
                     loading: false,
@@ -260,7 +260,7 @@ class Pengajuan extends Component {
                     totalItemsCount: response.data.data.total,
                     pageRangeDisplayed: 10
                 });
-                // console.log(this.state.tag);
+                // // console.log(this.state.tag);
             });
     }
 
@@ -290,7 +290,7 @@ class Pengajuan extends Component {
                                     loading: false
                                 });
                                 swal("Sukses!", "Data Berhasil Dihapus!", "success");
-                                // console.log("from handle sumit", response);
+                                // // console.log("from handle sumit", response);
                             })
                             .catch(error => {
                                 this.setState({
@@ -317,7 +317,7 @@ class Pengajuan extends Component {
         axios
             .get(`/pengajuan/arsip/${e}/edit`)
             .then(response => {
-                // console.log(response);
+                // // console.log(response);
                 this.setState({
                     keteranganVerifikasi : response.data.data.keteranganVerifikasi
                 });
@@ -331,14 +331,14 @@ class Pengajuan extends Component {
         this.setState({
             create: e.target.value
         });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
     handleEditInputChange(e) {
         this.setState({
             dataEditInput: e.target.value
         });
-        // console.log(e.target.value);
+        // // console.log(e.target.value);
     }
 
     handleSubmit(e) {
@@ -355,7 +355,7 @@ class Pengajuan extends Component {
         axios
             .post(`/pengajuan/arsip`, data)
             .then(response => {
-                console.log(response);
+                // console.log(response);
                 this.setState({
                     arsip: [response.data.data.arsip, ...this.state.arsip],
                     file: null,
@@ -369,7 +369,7 @@ class Pengajuan extends Component {
                 $('body').css('padding-right', '');
                 $("#tambahModal").hide();
                 swal("Sukses!", "Data Baru Berhasil Ditambahkan!", "success");
-                // console.log("from handle sumit", response);
+                // // console.log("from handle sumit", response);
             })
             .catch(error => {
                 this.setState({
@@ -377,7 +377,7 @@ class Pengajuan extends Component {
                 });
                 swal("Error!", "Gagal Memasukkan Data Baru, Silahkan Hubungi Admin!", "error");
             });
-        // console.log(this.state.create);
+        // // console.log(this.state.create);
     }
 
     handleEditSubmit(e) {
@@ -392,11 +392,11 @@ class Pengajuan extends Component {
         data.append('keterangan', this.state.keterangan);
         data.append('name', this.state.name);
         data.append('url', this.state.url);
-        console.log(data);
+        // console.log(data);
         axios
             .post(`/admin/pegawai/arsip/update`, data)
             .then(response => {
-                console.log(response);
+                // console.log(response);
                 this.setState({
                     arsip : response.data.data.arsip.data,
                     // namaLengkap : response.data.data.pegawai.name,
@@ -415,7 +415,7 @@ class Pengajuan extends Component {
                 $('body').css('padding-right', '');
                 $("#editModal").hide();
                 swal("Sukses!", "Data Berhasil Diubah!", "success");
-                // console.log("from handle sumit", response);
+                // // console.log("from handle sumit", response);
             })
             .catch(error => {
                 this.setState({
@@ -423,7 +423,7 @@ class Pengajuan extends Component {
                 });
                 swal("Error!", "Gagal Mengubah Data, Silahkan Hubungi Admin!", "error");
             });
-        // console.log(this.state.create);
+        // // console.log(this.state.create);
     }
 
     getData() {
@@ -433,7 +433,7 @@ class Pengajuan extends Component {
         axios
             .get(`pengajuan/arsip`)
             .then(response => {
-                // console.log(response);
+                // // console.log(response);
                 this.setState({
                     // data: response.data.data.data,
                     namaLengkap : response.data.data.pegawai.name,
@@ -536,7 +536,7 @@ class Pengajuan extends Component {
         axios
             .get(`/pengajuan/arsip?page=${pageNumber}`)
             .then(response => {
-                console.log(response);
+                // console.log(response);
                 this.setState({
                     arsip : response.data.data.arsip.data,
                     // data: response.data.data.arsip.data,
@@ -652,7 +652,7 @@ class Pengajuan extends Component {
     }
 
     modalTambah() {
-        // console.log(this.state.agama);
+        // // console.log(this.state.agama);
         return (
             <div aria-hidden="true" className="onboarding-modal modal fade animated" id="tambahModal" role="dialog" tabIndex="-1">
                 <div className="modal-dialog modal-lg modal-centered" role="document">
