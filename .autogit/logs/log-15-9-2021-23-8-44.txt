@@ -1,0 +1,17 @@
+-------------------- Auto-Git Log --------------------
+		Fri Oct 15 2021 23:08:44 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* resources/js/component/pegawai/IdentitasPegawaiEdit.jsx
+* routes/web.php
+
+
+Created files:
+* .autogit/logs/log-15-9-2021-22-38-28.txt
+
+
+Deleted files:
+
+
+Renamed files:
