@@ -83,7 +83,9 @@ class IdentitasPegawaiController extends Controller
     public function edit($id)
     {
         $pagination = 5;
-        $data['pegawai'] = Uuzaa::where('rinku', $id)->first();
+        $data['identitasPegawai'] = IdentitasPegawai::where('rinku', $id)->first();
+        $data['pegawai'] = Uuzaa::where('id', $data['identitasPegawai']['pegawai_id'])->first();
+        // dd($data);
         if ($data['pegawai']['gelarDepan'] === null || $data['pegawai']['gelarDepan'] === "") {
             $data['pegawai']['gelarDepanText'] = "";
         } else {
@@ -94,14 +96,7 @@ class IdentitasPegawaiController extends Controller
         } else {
             $data['pegawai']['gelarBelakangText'] = ", " . $data['pegawai']['gelarBelakang'];
         }
-        $data['arsip'] = Arsip::where('pegawai_id',$data['pegawai']['id'])->whereIn('sutattsu',['1', '2'])->orderBy("id", "DESC")->paginate($pagination);
-        $count = $data['arsip']->CurrentPage() * $pagination - ($pagination - 1);
-        foreach ($data['arsip'] as $items) {
-            $items['nomor'] = $count;
-            $items['kategori'] = $items->kategori->name;
-            $count++;
-        }
-        $data['identitasPegawai'] = IdentitasPegawai::where('pegawai_id', $data['pegawai']['id'])->first();
+        // $data['identitasPegawai'] = IdentitasPegawai::where('pegawai_id', $data['pegawai']['id'])->first();
         if ($data['identitasPegawai']['agama'] === null || $data['identitasPegawai']['agama'] === "") {
             $data['identitasPegawai']['agamaUser'] = "";
         } else {

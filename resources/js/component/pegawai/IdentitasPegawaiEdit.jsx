@@ -88,9 +88,31 @@ class IdentitasPegawaiEdit extends Component {
 
         this.handleChangeNip = this.handleChangeNip.bind(this);
         this.handleChangeNip9 = this.handleChangeNip9.bind(this);
+
         this.handleChangeGelarDepan = this.handleChangeGelarDepan.bind(this);
         this.handleChangeNamaLengkap = this.handleChangeNamaLengkap.bind(this);
         this.handleChangeGelarBelakang = this.handleChangeGelarBelakang.bind(this);
+        this.handleChangeAlamat = this.handleChangeAlamat.bind(this);
+        this.handleChangeTelepon = this.handleChangeTelepon.bind(this);
+        this.handleChangeHandphone = this.handleChangeHandphone.bind(this);
+        this.handleChangeEmailDinas = this.handleChangeEmailDinas.bind(this);
+        this.handleChangeEmailPribadi = this.handleChangeEmailPribadi.bind(this);
+        this.handleChangeNik = this.handleChangeNik.bind(this);
+        this.handleChangeNomorKK = this.handleChangeNomorKK.bind(this);
+        this.handleChangeAgama = this.handleChangeAgama.bind(this);
+        this.handleChangeLokasiKerja = this.handleChangeLokasiKerja.bind(this);
+        this.handleChangeAkta = this.handleChangeAkta.bind(this);
+        this.handleChangeNpwp = this.handleChangeNpwp.bind(this);
+        this.handleChangeTanggalNpwp = this.handleChangeTanggalNpwp.bind(this);
+        this.handleChangeBpjs = this.handleChangeBpjs.bind(this);
+        this.handleChangeKaris = this.handleChangeKaris.bind(this);
+        this.handleChangeTaspen = this.handleChangeTaspen.bind(this);
+        this.handleChangeTanggalTaspen = this.handleChangeTanggalTaspen.bind(this);
+        this.handleChangeTapera = this.handleChangeTapera.bind(this);
+        this.handleChangeKppn = this.handleChangeKppn.bind(this);
+        this.handleChangeKelasJabatan = this.handleChangeKelasJabatan.bind(this);
+
+
         this.handleChangeUnor = this.handleChangeUnor.bind(this);
         this.handleChangeBidang = this.handleChangeBidang.bind(this);
         this.handleChangeSubbid = this.handleChangeSubbid.bind(this);
@@ -171,26 +193,6 @@ class IdentitasPegawaiEdit extends Component {
         // console.log(e.target.value);
     }
 
-    handleChangeGelarBelakang(e) {
-        this.setState({
-            gelarBelakang: e.target.value
-        });
-        // console.log(e.target.value);
-    }
-
-    handleChangeGelarDepan(e) {
-        this.setState({
-            gelarDepan: e.target.value
-        });
-        // console.log(e.target.value);
-    }
-
-    handleChangeNamaLengkap(e) {
-        this.setState({
-            namaLengkap: e.target.value
-        });
-        // console.log(e.target.value);
-    }
 
     handleChangeTempatLahir(e) {
         this.setState({
@@ -541,12 +543,12 @@ class IdentitasPegawaiEdit extends Component {
     }
 
     getAgama() {
-        // axios.get("/admin/referensi/agama/create").then((response) => {
-        //     this.setState({
-        //         agama: response.data.data,
-        //         agamaUser: response.data.data[0].rinku,
-        //     });
-        // });
+        axios.get("/admin/referensi/agama/create").then((response) => {
+            this.setState({
+                agama: response.data.data,
+                // agamaUser: response.data.data[0].rinku,
+            });
+        });
     }
 
     getKategori() {
@@ -597,7 +599,7 @@ class IdentitasPegawaiEdit extends Component {
 
     componentDidMount() {
         this.getData();
-        // this.getAgama();
+        this.getAgama();
         // this.getUnor();
         // this.getKategori();
     }
@@ -822,7 +824,7 @@ class IdentitasPegawaiEdit extends Component {
         //             </td>
         //         </tr>
         //     </tbody>
-            );
+            // );
     }
 
     renderSelect() {
@@ -834,11 +836,11 @@ class IdentitasPegawaiEdit extends Component {
     }
 
     renderSelectAgama() {
-        // return this.state.agama.map((data) => (
-        //     <option value={data.rinku} key={data.rinku}>
-        //         {data.name}
-        //     </option>
-        // ));
+        return this.state.agama.map((data) => (
+            <option value={data.rinku} key={data.rinku}>
+                {data.name}
+            </option>
+        ));
     }
 
     renderSelectKategori() {
@@ -1621,6 +1623,125 @@ class IdentitasPegawaiEdit extends Component {
                 {this.modalUser()}
             </div>
         );
+    }
+
+
+
+
+
+
+    handleChangeGelarDepan(e) {
+        this.setState({
+            gelarDepan: e.target.value
+        });
+        // console.log(e.target.value);
+    }
+    handleChangeNamaLengkap(e) {
+        this.setState({
+            namaLengkap: e.target.value
+        });
+        // console.log(e.target.value);
+    }
+    handleChangeGelarBelakang(e) {
+        this.setState({
+            gelarBelakang: e.target.value
+        });
+        // console.log(e.target.value);
+    }
+    handleChangeAlamat(e) {
+        this.setState({
+            alamat: e.target.value
+        });
+    }
+    handleChangeTelepon(e) {
+        this.setState({
+            telepon: e.target.value
+        });
+    }
+    handleChangeHandphone(e) {
+        this.setState({
+            handphone: e.target.value
+        });
+    }
+    handleChangeEmailDinas(e) {
+        this.setState({
+            emailDinas: e.target.value
+        });
+    }
+    handleChangeEmailPribadi(e) {
+        this.setState({
+            emailPribadi: e.target.value
+        });
+    }
+    handleChangeNik(e) {
+        this.setState({
+            nik: e.target.value
+        });
+    }
+    handleChangeNomorKK(e) {
+        this.setState({
+            nomorKK: e.target.value
+        });
+    }
+    handleChangeAgama(e) {
+        this.setState({
+            agamaUser: e.target.value
+        });
+    }
+    handleChangeLokasiKerja(e) {
+        this.setState({
+            lokasiKerja: e.target.value
+        });
+    }
+    handleChangeAkta(e) {
+        this.setState({
+            akta: e.target.value
+        });
+    }
+    handleChangeNpwp(e) {
+        this.setState({
+            npwp: e.target.value
+        });
+    }
+    handleChangeTanggalNpwp(e) {
+        this.setState({
+            tanggalNpwp: e.target.value
+        });
+    }
+    handleChangeBpjs(e) {
+        this.setState({
+            bpjs: e.target.value
+        });
+    }
+    handleChangeKaris(e) {
+        this.setState({
+            karis: e.target.value
+        });
+    }
+    handleChangeTaspen(e) {
+        this.setState({
+            taspen: e.target.value
+        });
+    }
+    handleChangeTanggalTaspen(e) {
+        this.setState({
+            tanggalTaspen: e.target.value
+        });
+    }
+    handleChangeTapera(e) {
+        this.setState({
+            tapera: e.target.value
+        });
+    }
+    handleChangeKppn(e) {
+        this.setState({
+            kppn: e.target.value
+        });
+    }
+    handleChangeKelasJabatan(e) {
+        this.setState({
+            kelasJabatan: e.target.value
+        });
     }
 }
 
