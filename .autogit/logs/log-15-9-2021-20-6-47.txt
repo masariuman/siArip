@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Fri Oct 15 2021 20:06:47 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* public/js/app.js
+* resources/js/component/pegawai/IdentitasPegawai.jsx
+* resources/js/reactRoute.jsx
+
+
+Created files:
+* .autogit/logs/log-15-9-2021-19-36-31.txt
+* resources/js/component/pegawai/IdentitasPegawaiEdit.jsx
+
+
+Deleted files:
+
+
+Renamed files:

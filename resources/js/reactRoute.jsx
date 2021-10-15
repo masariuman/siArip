@@ -94,7 +94,7 @@ class ReactRoute extends Component {
                     />
                     <Route
                         exact
-                        path="/identitasPegawai/:url/arsip"
+                        path="/identitasPegawai/:url/edit"
                         component={IdentitasPegawaiEditIndex}
                     />
 
