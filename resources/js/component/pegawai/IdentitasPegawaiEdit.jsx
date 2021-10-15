@@ -411,14 +411,38 @@ class IdentitasPegawaiEdit extends Component {
         });
         const data = new FormData();
         // data.append('file', this.state.file);
-        data.append('file', this.state.file);
-        data.append('kategoriName', this.state.kategoriName);
-        data.append('keterangan', this.state.keterangan);
-        data.append('name', this.state.name);
-        data.append('url', this.state.url);
-        console.log(data);
+        e.preventDefault();
+        this.setState({
+            loading: true
+        });
+        const data = new FormData();
+        // data.append('file', this.state.file);
+        data.append('gelarBelakang', this.state.gelarBelakang);
+        data.append('namaLengkap', this.state.namaLengkap);
+        data.append('gelarDepan', this.state.gelarDepan);
+        data.append('alamat', this.state.alamat);
+        data.append('telepon', this.state.telepon);
+        data.append('handphone', this.state.handphone);
+        data.append('emailDinas', this.state.emailDinas);
+        data.append('emailPribadi', this.state.emailPribadi);
+        data.append('nik', this.state.nik);
+        data.append('nomorKK', this.state.nomorKK);
+        data.append('agamaUser', this.state.agamaUser);
+        data.append('lokasiKerja', this.state.lokasiKerja);
+        data.append('akta', this.state.akta);
+        data.append('npwp', this.state.npwp);
+        data.append('tanggalNpwp', this.state.tanggalNpwp);
+        data.append('bpjs', this.state.bpjs);
+        data.append('karis', this.state.karis);
+        data.append('taspen', this.state.taspen);
+        data.append('tanggalTaspen', this.state.tanggalTaspen);
+        data.append('tapera', this.state.tapera);
+        data.append('kppn', this.state.kppn);
+        data.append('kelasJabatan', this.state.kelasJabatan);
+        data.append('identitasId', this.state.identitasId);
+        // console.log(data);
         axios
-            .post(`/pegawai/arsip/update`, data)
+            .post(`/identitasPegawai/deeta/update`, data)
             .then(response => {
                 console.log(response);
                 this.setState({
