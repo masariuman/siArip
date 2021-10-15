@@ -484,6 +484,7 @@ class IdentitasPegawai extends Component {
                     kppn:response.data.data.identitasPegawai.kppn,
                     kelasJabatan:response.data.data.identitasPegawai.kelasJabatan,
                     loading: false,
+                    url: response.data.data.identitasPegawai.rinku,
                     // activePage: response.data.data.current_page,
                     // itemsCountPerPage: response.data.data.per_page,
                     // totalItemsCount: response.data.data.total,
@@ -1212,7 +1213,7 @@ class IdentitasPegawai extends Component {
                                                     </h5>
                                                 </div>
                                                 <div className="float-right">
-                                                    <Link to={`/admin/pegawai/${this.props.match.params.url}/detail/edit`} className="mr-2 mb-2 btn btn-warning">
+                                                    <Link to={`/identitasPegawai/${this.state.url}/edit`} className="mr-2 mb-2 btn btn-warning">
                                                         Ubah Identitas Pegawai
                                                     </Link>
                                                 </div>
@@ -1225,7 +1226,7 @@ class IdentitasPegawai extends Component {
                                             </div>
                                             <br />
                                             <div className="form-desc text-center">
-                                                <Link to={`/admin/pegawai/${this.props.match.params.url}/detail/edit`} className="mr-2 mb-2 btn btn-warning">
+                                                <Link to={`/identitasPegawai/${this.state.url}/detail/edit`} className="mr-2 mb-2 btn btn-warning">
                                                     Ubah Identitas Pegawai
                                                 </Link>
                                             </div>
