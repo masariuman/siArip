@@ -73,86 +73,73 @@ class CPNSPNSAdminController extends Controller
             $data['skCpns']="";
         }
         if ($data['tanggalSkCpns']===null) {
-            $data['tanggalSkCpns']="";
+            $data['tanggalSkCpns']=date('Y-m-d', time());
         }
         if ($data['tanggalSkCpns']===null) {
-            $data['tanggalSkCpns']="";
+            $data['tanggalSkCpns']=date('Y-m-d', time());
         }
         if ($data['tmtCpns']===null) {
-            $data['tmtCpns']="";
+            $data['tmtCpns']=date('Y-m-d', time());
         }
-        if ($data['emailPribadi']===null) {
-            $data['emailPribadi']="";
+        if ($data['pejabatPenetapCpns']===null) {
+            $data['pejabatPenetapCpns']="";
         }
-        if ($data['nik']===null) {
-            $data['nik']="";
+        if ($data['skPns']===null) {
+            $data['skPns']="";
         }
-        if ($data['nomorKK']===null) {
-            $data['nomorKK']="";
+        if ($data['tanggalSkPns']===null) {
+            $data['tanggalSkPns']=date('Y-m-d', time());
         }
-        if ($data['lokasiKerja']===null) {
-            $data['lokasiKerja']="";
+        if ($data['tmtPns']===null) {
+            $data['tmtPns']=date('Y-m-d', time());
         }
-        if ($data['akta']===null) {
-            $data['akta']="";
+        if ($data['nomorSttpl']===null) {
+            $data['nomorSttpl']="";
         }
-        if ($data['npwp']===null) {
-            $data['npwp']="";
+        if ($data['tanggalSttpl']===null) {
+            $data['tanggalSttpl']=date('Y-m-d', time());
         }
-        if ($data['kelasJabatan']===null) {
-            $data['kelasJabatan']="";
+        if ($data['nomorSpmt']===null) {
+            $data['nomorSpmt']="";
         }
-        if ($data['bpjs']===null) {
-            $data['bpjs']="";
+        if ($data['tanggalSpmt']===null) {
+            $data['tanggalSpmt']=date('Y-m-d', time());
         }
-        if ($data['karis']===null) {
-            $data['karis']="";
+        if ($data['nomorPertekC2th']===null) {
+            $data['nomorPertekC2th']="";
         }
-        if ($data['taspen']===null) {
-            $data['taspen']="";
+        if ($data['tanggalPertekC2th']===null) {
+            $data['tanggalPertekC2th']=date('Y-m-d', time());
         }
-        if ($data['tapera']===null) {
-            $data['tapera']="";
+        if ($data['nomorSkd']===null) {
+            $data['nomorSkd']="";
         }
-        if ($data['kppn']===null) {
-            $data['kppn']="";
+        if ($data['tanggalSkd']===null) {
+            $data['tanggalSkd']=date('Y-m-d', time());
         }
-        if ($data['namaLengkap']===null) {
-            $data['namaLengkap']="";
-        }
-        if ($data['gelarDepan']===null) {
-            $data['gelarDepan']="";
-        }
-        if ($data['gelarBelakang']===null) {
-            $data['gelarBelakang']="";
+        if ($data['karpeg']===null) {
+            $data['karpeg']="";
         }
 
         // dd($subbid);
-        $identitasPegawai->update([
-            'alamat' => $data['alamat'],
-            'telepon' => $data['telepon'],
-            'handphone' => $data['handphone'],
-            'emailDinas' => $data['emailDinas'],
-            'emailPribadi' => $data['emailPribadi'],
-            'nik' => $data['nik'],
-            'nomorKK' => $data['nomorKK'],
-            'agama_id' => $agama->id,
-            'lokasiKerja' => $data['lokasiKerja'],
-            'akta' => $data['akta'],
-            'npwp' => $data['npwp'],
-            'tanggalNpwp' => $data['tanggalNpwp'],
-            'bpjs' => $data['bpjs'],
-            'karis' => $data['karis'],
-            'taspen' => $data['taspen'],
-            'tanggalTaspen' => $data['tanggalTaspen'],
-            'tapera' => $data['tapera'],
-            'kppn' => $data['kppn'],
-            'kelasJabatan' => $data['kelasJabatan']
-        ]);
-        $pegawai->update([
-            'name' => $data['namaLengkap'],
-            'gelarDepan' => $data['gelarDepan'],
-            'gelarBelakang' => $data['gelarBelakang']
+        $cpns->update([
+            'statusKepegawaian_id' => $statusKepegawaian->id,
+            'nomorSkCpns' => $data['skCpns'],
+            'tanggalSkCpns' => $data['tanggalSkCpns'],
+            'tmtCpns' => $data['tmtCpns'],
+            'namaPejabatPenetapCpns' => $data['pejabatPenetapCpns'],
+            'nomorSkPns' => $data['skPns'],
+            'tanggalSkPns' => $data['tanggalSkPns'],
+            'tmtPns' => $data['tmtPns'],
+            'nomorSttpl' => $data['nomorSttpl'],
+            'tanggalSttpl' => $data['tanggalSttpl'],
+            'nomorSpmt' => $data['nomorSpmt'],
+            'tanggalSpmt' => $data['tanggalSpmt'],
+            'nomorPertekC2th' => $data['nomorPertekC2th'],
+            'tanggalPertekC2th' => $data['tanggalPertekC2th'],
+            'nomorSkd' => $data['nomorSkd'],
+            'tanggalSkd' => $data['tanggalSkd'],
+            'karpeg' => $data['karpeg']
         ]);
         return response()->json([
             'data' => $pegawai
