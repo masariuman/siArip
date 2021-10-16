@@ -69,10 +69,12 @@ class CPNSPNSAdminController extends Controller
         $cpns = CPNSPNS::where('rinku', $data['url'])->first();
         $pegawai = Uuzaa::where('id', $cpns['pegawai_id'])->first();
         $statusKepegawaian = ReferensiStatusKepegawaian::where('rinku',$data['statusKepegawaianText'])->first();
+        dd($data);
         if ($data['skCpns']===null) {
             $data['skCpns']="";
         }
-        if ($data['tanggalSkCpns']===null) {
+        if ($data['tanggalSkCpns'] === null) {
+            // dd('asd');
             $data['tanggalSkCpns']=date('Y-m-d', time());
         }
         if ($data['tanggalSkCpns']===null) {
