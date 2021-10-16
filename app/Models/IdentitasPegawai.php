@@ -28,6 +28,7 @@ class IdentitasPegawai extends Model
         'tapera',
         'kppn',
         'kelasJabatan',
+        'sutattsu',
         'created_at',
         'updated_at'
     ];

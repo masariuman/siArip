@@ -14,4 +14,9 @@ class ReferensiStatusKepegawaian extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function cpnspns()
+    {
+        return $this->hasMany('App\Models\CPNSPNS', 'statusKepegawaian_id');
+    }
 }

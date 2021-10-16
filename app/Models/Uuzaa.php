@@ -37,4 +37,8 @@ class Uuzaa extends Model
     {
         return $this->hasMany('App\Models\IdentitasPegawai', 'pegawai_id');
     }
+    public function cpnspns()
+    {
+        return $this->hasMany('App\Models\CPNSPNS', 'pegawai_id');
+    }
 }

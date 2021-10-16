@@ -42,6 +42,8 @@ class CreateTableIdentitasPegawai extends Migration
             $table->string('tapera')->default('');
             $table->string('kppn')->default('');
             $table->string('kelasJabatan')->default('');
+
+            $table->enum('sutattsu', ['1', '0'])->default('1');
             $table->timestamps();
         });
     }
