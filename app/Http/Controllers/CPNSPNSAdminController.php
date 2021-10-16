@@ -33,8 +33,10 @@ class CPNSPNSAdminController extends Controller
         if ($data['cpnspns'] != null) {
             if ($data['cpnspns']['statusKepegawaian_id'] === null || $data['cpnspns']['statusKepegawaian_id'] === "") {
                 $data['cpnspns']['statusKepegawaianText'] = "";
+                $data['cpnspns']['statusKepegawaianrinku'] = "";
             } else {
                 $data['cpnspns']['statusKepegawaianText'] = $data['cpnspns']->statusKepegawaian->name;
+                $data['cpnspns']['statusKepegawaianrinku'] = $data['cpnspns']->statusKepegawaian->rinku;
             }
         }
 

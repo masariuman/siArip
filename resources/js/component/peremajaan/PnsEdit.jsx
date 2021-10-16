@@ -439,7 +439,7 @@ class PnsEdit extends Component {
             // loading: true
         });
         axios
-            .get(`/admin/pegawai/${this.props.match.params.url}/edit`)
+            .get(`/admin/pegawai/${this.props.match.params.url}/pns/deeta`)
             .then(response => {
                 console.log(response);
                 this.setState({
@@ -450,26 +450,23 @@ class PnsEdit extends Component {
                     gelarDepan : response.data.data.pegawai.gelarDepan,
                     sashin : '/sashin/'+response.data.data.pegawai.sashin,
                     // ubahPetunjukId: response.data.data.data[0].rinku,
-                    alamat:response.data.data.identitasPegawai.alamat,
-                    telepon:response.data.data.identitasPegawai.telepon,
-                    handphone:response.data.data.identitasPegawai.handphone,
-                    emailDinas:response.data.data.identitasPegawai.emailDinas,
-                    emailPribadi:response.data.data.identitasPegawai.emailPribadi,
-                    nik:response.data.data.identitasPegawai.nik,
-                    nomorKK:response.data.data.identitasPegawai.nomorKK,
-                    agamaUser:response.data.data.identitasPegawai.agamaUser,
-                    lokasiKerja:response.data.data.identitasPegawai.lokasiKerja,
-                    akta:response.data.data.identitasPegawai.akta,
-                    npwp:response.data.data.identitasPegawai.npwp,
-                    tanggalNpwp:response.data.data.identitasPegawai.tanggalNpwp,
-                    bpjs:response.data.data.identitasPegawai.bpjs,
-                    karis:response.data.data.identitasPegawai.karis,
-                    taspen:response.data.data.identitasPegawai.taspen,
-                    tanggalTaspen:response.data.data.identitasPegawai.tanggalTaspen,
-                    tapera:response.data.data.identitasPegawai.tapera,
-                    kppn:response.data.data.identitasPegawai.kppn,
-                    kelasJabatan:response.data.data.identitasPegawai.kelasJabatan,
-                    identitasId:response.data.data.identitasPegawai.rinku,
+                    statusKepegawaianText:response.data.data.cpnspns.statusKepegawaianrinku,
+                    skCpns:response.data.data.cpnspns.skCpns,
+                    tanggalSkCpns:response.data.data.cpnspns.tanggalSkCpns,
+                    tmtCpns:response.data.data.cpnspns.tmtCpns,
+                    pejabatPenetapCpns:response.data.data.cpnspns.pejabatPenetapCpns,
+                    skPns:response.data.data.cpnspns.skPns,
+                    tanggalSkPns:response.data.data.cpnspns.tanggalSkPns,
+                    tmtPns:response.data.data.cpnspns.tmtPns,
+                    nomorSttpl:response.data.data.cpnspns.nomorSttpl,
+                    tanggalSttpl:response.data.data.cpnspns.tanggalSttpl,
+                    nomorSpmt:response.data.data.cpnspns.nomorSpmt,
+                    tanggalSpmt:response.data.data.cpnspns.tanggalSpmt,
+                    nomorPertekC2th:response.data.data.cpnspns.nomorPertekC2th,
+                    tanggalPertekC2th:response.data.data.cpnspns.tanggalPertekC2th,
+                    nomorSkd:response.data.data.cpnspns.nomorSkd,
+                    tanggalSkd:response.data.data.cpnspns.tanggalSkd,
+                    karpeg:response.data.data.cpnspns.karpeg,
 
                     gelarDepanText:response.data.data.pegawai.gelarDepanText,
                     gelarBelakangText:response.data.data.pegawai.gelarBelakangText,
@@ -543,7 +540,7 @@ class PnsEdit extends Component {
             console.log(response);
             this.setState({
                 statusKepegawaian: response.data.data,
-                statusKepegawaianText: response.data.data[0].rinku,
+                // statusKepegawaianText: response.data.data[0].rinku,
             });
         });
     }
