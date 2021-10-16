@@ -1,0 +1,23 @@
+-------------------- Auto-Git Log --------------------
+		Sat Oct 16 2021 10:08:06 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* public/js/app.js
+* resources/js/reactRoute.jsx
+
+
+Created files:
+* .autogit/logs/log-16-9-2021-9-37-48.txt
+* resources/js/component/peremajaan/Cpns.jsx
+* resources/js/component/peremajaan/CpnsEdit.jsx
+* resources/js/component/peremajaan/Jabatan.jsx
+* resources/js/component/peremajaan/Pangkat.jsx
+* resources/js/component/peremajaan/Pns.jsx
+* resources/js/component/peremajaan/PnsEdit.jsx
+
+
+Deleted files:
+
+
+Renamed files:

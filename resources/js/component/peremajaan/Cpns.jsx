@@ -1451,7 +1451,7 @@ class Cpns extends Component {
                         <a>Pegawai</a>
                     </li>
                     <li className="breadcrumb-item">
-                        <span>Manajemen pegawai</span>
+                        <span>Manajemen Data CPNS</span>
                     </li>
                 </ul>
 
@@ -1490,7 +1490,7 @@ class Cpns extends Component {
                                             <div>
                                                 <Link
                                                     to={`/admin/pegawai/${this.props.match.params.url}/detail`}
-                                                    className="btn btn-primary masariuman_width100percent masariuman_borderleftright0px"
+                                                    className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
                                                 >
                                                     <span className="pe-7s-pen"> </span> Identitas
                                                 </Link>
@@ -1498,7 +1498,7 @@ class Cpns extends Component {
                                             <div>
                                                 <Link
                                                     to={`/admin/pegawai/${this.props.match.params.url}/cpns`}
-                                                    className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
+                                                    className="btn btn-primary masariuman_width100percent masariuman_borderleftright0px"
                                                 >
                                                     <span className="pe-7s-pen"> </span> CPNS
                                                 </Link>
@@ -1538,8 +1538,8 @@ class Cpns extends Component {
                                                     </h5>
                                                 </div>
                                                 <div className="float-right">
-                                                    <Link to={`/admin/pegawai/${this.props.match.params.url}/detail/edit`} className="mr-2 mb-2 btn btn-warning">
-                                                        Ubah Identitas Pegawai
+                                                    <Link to={`/admin/pegawai/${this.props.match.params.url}/cpns/edit`} className="mr-2 mb-2 btn btn-warning">
+                                                        Ubah Data CPNS Pegawai
                                                     </Link>
                                                 </div>
                                             </div>
@@ -1551,8 +1551,8 @@ class Cpns extends Component {
                                             </div>
                                             <br />
                                             <div className="form-desc text-center">
-                                                <Link to={`/admin/pegawai/${this.props.match.params.url}/detail/edit`} className="mr-2 mb-2 btn btn-warning">
-                                                    Ubah Identitas Pegawai
+                                                <Link to={`/admin/pegawai/${this.props.match.params.url}/cpns/edit`} className="mr-2 mb-2 btn btn-warning">
+                                                    Ubah Data CPNS Pegawai
                                                 </Link>
                                             </div>
                                         </div>
