@@ -13,6 +13,12 @@ import AdminDetailPegawai from "./component/peremajaan/Detail";
 import AdminDetailPegawaiEdit from "./component/peremajaan/DetailEdit";
 import AdminArsipPegawai from "./component/peremajaan/Arsip";
 import AdminPengajuanPegawai from "./component/peremajaan/Pengajuan";
+import AdminCpnsPegawai from "./component/peremajaan/Cpns";
+import AdminCpnsPegawaiEdit from "./component/peremajaan/CpnsEdit";
+import AdminPnsPegawai from "./component/peremajaan/Pns";
+import AdminPnsPegawaiEdit from "./component/peremajaan/PnsEdit";
+import AdminJabatanPegawai from "./component/peremajaan/Jabatan";
+import AdminPangkatPegawai from "./component/peremajaan/Pangkat";
 
 
 import UuzaaIndex from "./component/uuzaa/Index";
@@ -126,6 +132,37 @@ class ReactRoute extends Component {
                         path="/admin/pegawai/:url/pengajuan"
                         component={AdminPengajuanPegawai}
                     />
+                    <Route
+                        exact
+                        path="/admin/pegawai/:url/cpns"
+                        component={AdminCpnsPegawai}
+                    />
+                    <Route
+                        exact
+                        path="/admin/pegawai/:url/cpns/edit"
+                        component={AdminCpnsPegawaiEdit}
+                    />
+                    <Route
+                        exact
+                        path="/admin/pegawai/:url/pns"
+                        component={AdminPnsPegawai}
+                    />
+                    <Route
+                        exact
+                        path="/admin/pegawai/:url/pns/edit"
+                        component={AdminPnsPegawaiEdit}
+                    />
+                    <Route
+                        exact
+                        path="/admin/pegawai/:url/jabatan"
+                        component={AdminJabatanPegawai}
+                    />
+                    <Route
+                        exact
+                        path="/admin/pegawai/:url/pangkat"
+                        component={AdminPangkatPegawai}
+                    />
+
 
 
 
