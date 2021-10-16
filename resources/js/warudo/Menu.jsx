@@ -585,8 +585,8 @@ class Menu extends Component {
                         </ul>
                         <ul className="sub-menu">
                             <li>
-                                <Link to={`/admin/referensi/tingkatPendidikan`}>
-                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Tingkat Pendidikan
+                                <Link to={`/pns`}>
+                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Data CPNS / PNS
                                 </Link>
                             </li>
                         </ul>

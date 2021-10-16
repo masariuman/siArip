@@ -53,6 +53,7 @@ import ArsipIndex from "./component/pegawai/Arsip";
 import PengajuanIndex from "./component/pegawai/Pengajuan";
 import IdentitasPegawaiIndex from "./component/pegawai/IdentitasPegawai";
 import IdentitasPegawaiEditIndex from "./component/pegawai/IdentitasPegawaiEdit";
+import PnsIndex from "./component/pegawai/Pns";
 
 class ReactRoute extends Component {
     constructor(props) {
@@ -102,6 +103,11 @@ class ReactRoute extends Component {
                         exact
                         path="/identitasPegawai/:url/edit"
                         component={IdentitasPegawaiEditIndex}
+                    />
+                    <Route
+                        exact
+                        path="/pns"
+                        component={PnsIndex}
                     />
 
 

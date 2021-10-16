@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Sat Oct 16 2021 22:46:18 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/CPNSPNSAdminController.php
+* database/migrations/2021_10_13_213753_create_table_identitas_pegawai.php
+* public/js/app.js
+* resources/js/component/peremajaan/Pns.jsx
+
+
+Created files:
+* .autogit/logs/log-16-9-2021-22-15-55.txt
+
+
+Deleted files:
+
+
+Renamed files:
