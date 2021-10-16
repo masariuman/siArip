@@ -231,6 +231,13 @@ Route::post('/pegawai/arsip/update', 'ArsipController@apdet');
 Route::post('/pegawai/arsip/search', 'ArsipController@search');
 // Route::delete('/pegawai/arsip/{url}', 'UuzaaController@arsipPegawaiArsipDelete');
 
+Route::get('/admin/pegawai/{url}/pns/deeta', 'CPNSPNSAdminController@index');
+// Route::post('/admin/pegawai/arsip/search', 'UuzaaController@arsipPegawaiSearch');
+// Route::get('/admin/pegawai/arsip/{url}/edit', 'UuzaaController@arsipPegawaiEdit');
+// Route::post('/admin/pegawai/arsip/update', 'UuzaaController@arsipPegawaiUpdate');
+// Route::post('/admin/pegawai/arsip/search', 'UuzaaController@arsipPegawaiArsipSearch');
+// Route::delete('/admin/pegawai/arsip/{url}', 'UuzaaController@arsipPegawaiArsipDelete');
+
 Route::post('/pengajuan/arsip/search', 'PengajuanController@search');
 
 Route::post('/admin/pengajuan/terima', 'PengajuanAdminController@terima');

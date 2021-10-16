@@ -33,24 +33,23 @@ class Pns extends Component {
             sashin : "",
 
 
-            alamat:"",
-            telepon:"",
-            handphone:"",
-            emailDinas:"",
-            emailPribadi:"",
-            nik:"",
-            nomorKK:"",
-            lokasiKerja:"",
-            akta:"",
-            npwp:"",
-            tanggalNpwp:"",
-            bpjs:"",
-            karis:"",
-            taspen:"",
-            tanggalTaspen:"",
-            tapera:"",
-            kppn:"",
-            kelasJabatan:"",
+            statusKepegawaian : "",
+            skCpns : "",
+            tanggalSkCpns : "",
+            tmtCpns : "",
+            pejabatPenetapCpns : "",
+            skPns : "",
+            tanggalSkPns : "",
+            tmtPns : "",
+            nomorSttpl : "",
+            tanggalSttpl : "",
+            nomorSpmt : "",
+            tanggalSpmt : "",
+            nomorPertekC2th : "",
+            tanggalPertekC2th : "",
+            nomorSkd : "",
+            tanggalSkd : "",
+            karpeg : "",
 
 
 
@@ -454,7 +453,7 @@ class Pns extends Component {
             // loading: true
         });
         axios
-            .get(`/admin/pegawai/${this.props.match.params.url}`)
+            .get(`/admin/pegawai/${this.props.match.params.url}/pns/deeta`)
             .then(response => {
                 console.log(response);
                 this.setState({
@@ -465,25 +464,24 @@ class Pns extends Component {
                     gelarDepan : response.data.data.pegawai.gelarDepan,
                     sashin : '/sashin/'+response.data.data.pegawai.sashin,
                     // ubahPetunjukId: response.data.data.data[0].rinku,
-                    alamat:response.data.data.identitasPegawai.alamat,
-                    telepon:response.data.data.identitasPegawai.telepon,
-                    handphone:response.data.data.identitasPegawai.handphone,
-                    emailDinas:response.data.data.identitasPegawai.emailDinas,
-                    emailPribadi:response.data.data.identitasPegawai.emailPribadi,
-                    nik:response.data.data.identitasPegawai.nik,
-                    nomorKK:response.data.data.identitasPegawai.nomorKK,
-                    agamaUser:response.data.data.identitasPegawai.agamaUser,
-                    lokasiKerja:response.data.data.identitasPegawai.lokasiKerja,
-                    akta:response.data.data.identitasPegawai.akta,
-                    npwp:response.data.data.identitasPegawai.npwp,
-                    tanggalNpwp:response.data.data.identitasPegawai.tanggalNpwp,
-                    bpjs:response.data.data.identitasPegawai.bpjs,
-                    karis:response.data.data.identitasPegawai.karis,
-                    taspen:response.data.data.identitasPegawai.taspen,
-                    tanggalTaspen:response.data.data.identitasPegawai.tanggalTaspen,
-                    tapera:response.data.data.identitasPegawai.tapera,
-                    kppn:response.data.data.identitasPegawai.kppn,
-                    kelasJabatan:response.data.data.identitasPegawai.kelasJabatan,
+                    statusKepegawaian:response.data.data.cpnspns.statusKepegawaianText,
+                    skCpns:response.data.data.cpnspns.skCpns,
+                    tanggalSkCpns:response.data.data.cpnspns.tanggalSkCpns,
+                    tmtCpns:response.data.data.cpnspns.tmtCpns,
+                    pejabatPenetapCpns:response.data.data.cpnspns.pejabatPenetapCpns,
+                    skPns:response.data.data.cpnspns.skPns,
+                    tanggalSkPns:response.data.data.cpnspns.tanggalSkPns,
+                    tmtPns:response.data.data.cpnspns.tmtPns,
+                    nomorSttpl:response.data.data.cpnspns.nomorSttpl,
+                    tanggalSttpl:response.data.data.cpnspns.tanggalSttpl,
+                    nomorSpmt:response.data.data.cpnspns.nomorSpmt,
+                    tanggalSpmt:response.data.data.cpnspns.tanggalSpmt,
+                    nomorPertekC2th:response.data.data.cpnspns.nomorPertekC2th,
+                    tanggalPertekC2th:response.data.data.cpnspns.tanggalPertekC2th,
+                    nomorSkd:response.data.data.cpnspns.nomorSkd,
+                    tanggalSkd:response.data.data.cpnspns.tanggalSkd,
+                    karpeg:response.data.data.cpnspns.karpeg,
+
                     loading: false,
                     // activePage: response.data.data.current_page,
                     // itemsCountPerPage: response.data.data.per_page,
@@ -600,7 +598,7 @@ class Pns extends Component {
                         Status Kepegawaian
                     </td>
                     <td className="masariuman_tdContent">
-                        {this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang}
+                        {this.state.statusKepegawaian}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -608,7 +606,7 @@ class Pns extends Component {
                         Nomor Surat Keputusan CPNS
                     </td>
                     <td className="masariuman_tdContent">
-                        {this.state.nip}
+                        {this.state.skCpns}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -616,7 +614,7 @@ class Pns extends Component {
                         Tanggal Surat keputusan CPNS
                     </td>
                     <td className="masariuman_tdContent">
-                        {this.state.alamat}
+                        {this.state.tanggalSkCpns}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -624,7 +622,7 @@ class Pns extends Component {
                         Tanggal Mulai Tugas (TMT) CPNS
                     </td>
                     <td className="masariuman_tdContent">
-                        {this.state.telepon}
+                        {this.state.tmtCpns}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -632,7 +630,7 @@ class Pns extends Component {
                         Nama Pejabat Penetap CPNS
                     </td>
                     <td className="masariuman_tdContent">
-                        {this.state.handphone}
+                        {this.state.pejabatPenetapCpns}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -640,7 +638,7 @@ class Pns extends Component {
                         Nomor Surat Keputusan PNS
                     </td>
                     <td className="masariuman_tdContent">
-                        {this.state.emailDinas}
+                        {this.state.skPns}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -648,7 +646,7 @@ class Pns extends Component {
                         Tanggal Surat Keputusan PNS
                     </td>
                     <td className="masariuman_tdContent">
-                        {this.state.emailPribadi}
+                        {this.state.tanggalSkPns}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -656,7 +654,7 @@ class Pns extends Component {
                         Tanggal Mulai Tugas (TMT) PNS
                     </td>
                     <td className="masariuman_tdContent">
-                        {this.state.nik}
+                        {this.state.tmtPns}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -664,7 +662,7 @@ class Pns extends Component {
                         Nomor STTPL
                     </td>
                     <td className="masariuman_tdContent">
-                        {this.state.nomorKK}
+                        {this.state.nomorSttpl}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -672,7 +670,7 @@ class Pns extends Component {
                         Tanggal STTPL
                     </td>
                     <td className="masariuman_tdContent">
-                        {this.state.agamaUser}
+                        {this.state.tanggalSttpl}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -680,7 +678,7 @@ class Pns extends Component {
                         Nomor SPMT
                     </td>
                     <td className="masariuman_tdContent">
-                        {this.state.lokasiKerja}
+                        {this.state.nomorSpmt}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -688,7 +686,7 @@ class Pns extends Component {
                         Tanggal SPMT
                     </td>
                     <td className="masariuman_tdContent">
-                        {this.state.akta}
+                        {this.state.tanggalSpmt}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -696,7 +694,7 @@ class Pns extends Component {
                         Nomor Pertek C2TH
                     </td>
                     <td className="masariuman_tdContent">
-                        {this.state.npwp}
+                        {this.state.nomorPertekC2th}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -704,7 +702,7 @@ class Pns extends Component {
                         Tanggal Pertek C2TH
                     </td>
                     <td className="masariuman_tdContent">
-                        {this.state.tanggalNpwp}
+                        {this.state.tanggalPertekC2th}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -712,7 +710,7 @@ class Pns extends Component {
                         Nomor Surat Keterangan Dokter
                     </td>
                     <td className="masariuman_tdContent">
-                        {this.state.bpjs}
+                        {this.state.nomorSkd}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -720,7 +718,7 @@ class Pns extends Component {
                         Tanggal Surat Keterangan Dokter
                     </td>
                     <td className="masariuman_tdContent">
-                        {this.state.karis}
+                        {this.state.tanggalSkd}
                     </td>
                 </tr>
                 <tr className="masariuman_table">
@@ -728,7 +726,7 @@ class Pns extends Component {
                         Nomor Karpeg
                     </td>
                     <td className="masariuman_tdContent">
-                        {this.state.taspen}
+                        {this.state.karpeg}
                     </td>
                 </tr>
             </tbody>
