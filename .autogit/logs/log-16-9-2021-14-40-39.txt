@@ -1,0 +1,21 @@
+-------------------- Auto-Git Log --------------------
+		Sat Oct 16 2021 14:40:39 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Models/IdentitasPegawai.php
+* app/Models/ReferensiStatusKepegawaian.php
+* app/Models/Uuzaa.php
+* database/migrations/2021_10_13_213753_create_table_identitas_pegawai.php
+* database/migrations/2021_10_16_114131_create_table_cpnspns.php
+
+
+Created files:
+* .autogit/logs/log-16-9-2021-14-10-24.txt
+* app/Models/CPNSPNS.php
+
+
+Deleted files:
+
+
+Renamed files:

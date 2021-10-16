@@ -597,7 +597,7 @@ class Pns extends Component {
             <tbody>
                 <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
-                        Nama
+                        Status Kepegawaian
                     </td>
                     <td className="masariuman_tdContent">
                         {this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang}
@@ -605,7 +605,7 @@ class Pns extends Component {
                 </tr>
                 <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
-                        NIP
+                        Nomor Surat Keputusan CPNS
                     </td>
                     <td className="masariuman_tdContent">
                         {this.state.nip}
@@ -613,7 +613,7 @@ class Pns extends Component {
                 </tr>
                 <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
-                        Alamat Domisili
+                        Tanggal Surat keputusan CPNS
                     </td>
                     <td className="masariuman_tdContent">
                         {this.state.alamat}
@@ -621,7 +621,7 @@ class Pns extends Component {
                 </tr>
                 <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
-                        Nomor Telepon
+                        Tanggal Mulai Tugas (TMT) CPNS
                     </td>
                     <td className="masariuman_tdContent">
                         {this.state.telepon}
@@ -629,7 +629,7 @@ class Pns extends Component {
                 </tr>
                 <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
-                        Nomor Handphone
+                        Nama Pejabat Penetap CPNS
                     </td>
                     <td className="masariuman_tdContent">
                         {this.state.handphone}
@@ -637,7 +637,7 @@ class Pns extends Component {
                 </tr>
                 <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
-                        Email Dinas
+                        Nomor Surat Keputusan PNS
                     </td>
                     <td className="masariuman_tdContent">
                         {this.state.emailDinas}
@@ -645,7 +645,7 @@ class Pns extends Component {
                 </tr>
                 <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
-                        Email Pribadi
+                        Tanggal Surat Keputusan PNS
                     </td>
                     <td className="masariuman_tdContent">
                         {this.state.emailPribadi}
@@ -653,7 +653,7 @@ class Pns extends Component {
                 </tr>
                 <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
-                        NIK
+                        Tanggal Mulai Tugas (TMT) PNS
                     </td>
                     <td className="masariuman_tdContent">
                         {this.state.nik}
@@ -661,7 +661,7 @@ class Pns extends Component {
                 </tr>
                 <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
-                        Nomor KK
+                        Nomor STTPL
                     </td>
                     <td className="masariuman_tdContent">
                         {this.state.nomorKK}
@@ -669,7 +669,7 @@ class Pns extends Component {
                 </tr>
                 <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
-                        Agama
+                        Tanggal STTPL
                     </td>
                     <td className="masariuman_tdContent">
                         {this.state.agamaUser}
@@ -677,7 +677,7 @@ class Pns extends Component {
                 </tr>
                 <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
-                        Lokasi Kerja (Setingkat Kecamatan)
+                        Nomor SPMT
                     </td>
                     <td className="masariuman_tdContent">
                         {this.state.lokasiKerja}
@@ -685,7 +685,7 @@ class Pns extends Component {
                 </tr>
                 <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
-                        Nomor Akta Kelahiran
+                        Tanggal SPMT
                     </td>
                     <td className="masariuman_tdContent">
                         {this.state.akta}
@@ -693,7 +693,7 @@ class Pns extends Component {
                 </tr>
                 <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
-                        Nomor NPWP
+                        Nomor Pertek C2TH
                     </td>
                     <td className="masariuman_tdContent">
                         {this.state.npwp}
@@ -701,7 +701,7 @@ class Pns extends Component {
                 </tr>
                 <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
-                        Tanggal NPWP
+                        Tanggal Pertek C2TH
                     </td>
                     <td className="masariuman_tdContent">
                         {this.state.tanggalNpwp}
@@ -709,7 +709,7 @@ class Pns extends Component {
                 </tr>
                 <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
-                        Nomor BPJS / Kartu Indonesia Sehat
+                        Nomor Surat Keterangan Dokter
                     </td>
                     <td className="masariuman_tdContent">
                         {this.state.bpjs}
@@ -717,7 +717,7 @@ class Pns extends Component {
                 </tr>
                 <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
-                        Nomor Karis / Karsu
+                        Tanggal Surat Keterangan Dokter
                     </td>
                     <td className="masariuman_tdContent">
                         {this.state.karis}
@@ -725,42 +725,10 @@ class Pns extends Component {
                 </tr>
                 <tr className="masariuman_table">
                     <td className="masariuman_tdTitle">
-                        Nomor TASPEN
+                        Nomor Karpeg
                     </td>
                     <td className="masariuman_tdContent">
                         {this.state.taspen}
-                    </td>
-                </tr>
-                <tr className="masariuman_table">
-                    <td className="masariuman_tdTitle">
-                        Tanggal TASPEN
-                    </td>
-                    <td className="masariuman_tdContent">
-                        {this.state.tanggalTaspen}
-                    </td>
-                </tr>
-                <tr className="masariuman_table">
-                    <td className="masariuman_tdTitle">
-                        Nomor TAPERA
-                    </td>
-                    <td className="masariuman_tdContent">
-                        {this.state.taspen}
-                    </td>
-                </tr>
-                <tr className="masariuman_table">
-                    <td className="masariuman_tdTitle">
-                        KPPN/Kantor Pembayaran Gaji
-                    </td>
-                    <td className="masariuman_tdContent">
-                        {this.state.kppn}
-                    </td>
-                </tr>
-                <tr className="masariuman_table">
-                    <td className="masariuman_tdTitle">
-                        Kelas Jabatan (angka)
-                    </td>
-                    <td className="masariuman_tdContent">
-                        {this.state.kelasJabatan}
                     </td>
                 </tr>
             </tbody>
@@ -1490,7 +1458,7 @@ class Pns extends Component {
                                             <div>
                                                 <Link
                                                     to={`/admin/pegawai/${this.props.match.params.url}/detail`}
-                                                    className="btn btn-primary masariuman_width100percent masariuman_borderleftright0px"
+                                                    className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
                                                 >
                                                     <span className="pe-7s-pen"> </span> Identitas
                                                 </Link>
@@ -1506,7 +1474,7 @@ class Pns extends Component {
                                             <div>
                                                 <Link
                                                     to={`/admin/pegawai/${this.props.match.params.url}/pns`}
-                                                    className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
+                                                    className="btn btn-primary masariuman_width100percent masariuman_borderleftright0px"
                                                 >
                                                     <span className="pe-7s-pen"> </span> PNS
                                                 </Link>
@@ -1534,12 +1502,12 @@ class Pns extends Component {
                                             <div className="masariuman_marginBottom50px">
                                                 <div className="float-left">
                                                     <h5 className="form-header">
-                                                        Identitas Pegawai
+                                                        Data CPNS/PNS
                                                     </h5>
                                                 </div>
                                                 <div className="float-right">
-                                                    <Link to={`/admin/pegawai/${this.props.match.params.url}/detail/edit`} className="mr-2 mb-2 btn btn-warning">
-                                                        Ubah Identitas Pegawai
+                                                    <Link to={`/admin/pegawai/${this.props.match.params.url}/pns/edit`} className="mr-2 mb-2 btn btn-warning">
+                                                        Ubah Data CPNS/PNS Pegawai
                                                     </Link>
                                                 </div>
                                             </div>
@@ -1551,8 +1519,8 @@ class Pns extends Component {
                                             </div>
                                             <br />
                                             <div className="form-desc text-center">
-                                                <Link to={`/admin/pegawai/${this.props.match.params.url}/detail/edit`} className="mr-2 mb-2 btn btn-warning">
-                                                    Ubah Identitas Pegawai
+                                                <Link to={`/admin/pegawai/${this.props.match.params.url}/pns/edit`} className="mr-2 mb-2 btn btn-warning">
+                                                        Ubah Data CPNS/PNS Pegawai
                                                 </Link>
                                             </div>
                                         </div>
