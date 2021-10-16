@@ -20,27 +20,27 @@ class CreateTableIdentitasPegawai extends Migration
             $table->unsignedBigInteger('pegawai_id');
             $table->foreign('pegawai_id')->references('id')->on('users');
 
-            $table->text('alamat')->default('');
-            $table->string('telepon')->default('');
-            $table->string('handphone')->default('');
-            $table->string('emailDinas')->default('');
-            $table->string('emailPribadi')->default('');
-            $table->string('nik')->default('');
-            $table->string('nomorKK')->default('');
+            $table->text('alamat')->default('')->nullable();
+            $table->string('telepon')->default('')->nullable();
+            $table->string('handphone')->default('')->nullable();
+            $table->string('emailDinas')->default('')->nullable();
+            $table->string('emailPribadi')->default('')->nullable();
+            $table->string('nik')->default('')->nullable();
+            $table->string('nomorKK')->default('')->nullable();
 
             $table->unsignedBigInteger('agama_id')->nullable();
             $table->foreign('agama_id')->references('id')->on('ref_agama');
 
-            $table->string('lokasiKerja')->default('');
-            $table->string('akta')->default('');
-            $table->string('npwp')->default('');
-            $table->date('tanggalNpwp')->nullable();
-            $table->string('bpjs')->default('');
-            $table->string('karis')->default('');
-            $table->string('taspen')->default('');
+            $table->string('lokasiKerja')->default('')->nullable();
+            $table->string('akta')->default('')->nullable();
+            $table->string('npwp')->default('')->nullable();
+            $table->date('tanggalNpwp')->nullable()->nullable();
+            $table->string('bpjs')->default('')->nullable();
+            $table->string('karis')->default('')->nullable();
+            $table->string('taspen')->default('')->nullable();
             $table->date('tanggalTaspen')->nullable();
-            $table->string('tapera')->default('');
-            $table->string('kppn')->default('');
+            $table->string('tapera')->default('')->nullable();
+            $table->string('kppn')->default('')->nullable();
             $table->string('kelasJabatan')->default('');
 
             $table->enum('sutattsu', ['1', '0'])->default('1');

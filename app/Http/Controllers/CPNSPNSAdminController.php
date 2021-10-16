@@ -71,55 +71,56 @@ class CPNSPNSAdminController extends Controller
         $statusKepegawaian = ReferensiStatusKepegawaian::where('rinku',$data['statusKepegawaianText'])->first();
         // dd($data);
         if ($data['skCpns']===null || $data['skCpns']==='null' || $data['skCpns']==='undefined') {
+            // dd('asd');
             $data['skCpns']="";
         }
         if ($data['tanggalSkCpns'] === null || $data['tanggalSkCpns']==='null' || $data['tanggalSkCpns']==='undefined') {
-            dd('asd');
+            // dd('asd');
             $data['tanggalSkCpns']=date('Y-m-d', time());
         }
-        if ($data['tanggalSkCpns']===null) {
+        if ($data['tanggalSkCpns']===null ||  $data['tanggalSkCpns']==='null' || $data['tanggalSkCpns']==='undefined') {
             $data['tanggalSkCpns']=date('Y-m-d', time());
         }
-        if ($data['tmtCpns']===null) {
+        if ($data['tmtCpns']===null ||  $data['tmtCpns']==='null' ||$data['tmtCpns']==='undefined' ) {
             $data['tmtCpns']=date('Y-m-d', time());
         }
-        if ($data['pejabatPenetapCpns']===null) {
+        if ($data['pejabatPenetapCpns']===null || $data['pejabatPenetapCpns']==='null'  || $data['pejabatPenetapCpns']==='undefined') {
             $data['pejabatPenetapCpns']="";
         }
-        if ($data['skPns']===null) {
+        if ($data['skPns']===null || $data['skPns']==='null'  ||$data['skPns']==='undefined') {
             $data['skPns']="";
         }
-        if ($data['tanggalSkPns']===null) {
+        if ($data['tanggalSkPns']===null ||$data['tanggalSkPns']==='null'   ||$data['tanggalSkPns']==='undefined') {
             $data['tanggalSkPns']=date('Y-m-d', time());
         }
-        if ($data['tmtPns']===null) {
+        if ($data['tmtPns']===null ||  $data['tmtPns']==='null' ||$data['tmtPns']==='undefined') {
             $data['tmtPns']=date('Y-m-d', time());
         }
-        if ($data['nomorSttpl']===null) {
+        if ($data['nomorSttpl']===null || $data['nomorSttpl']==='null'  ||$data['nomorSttpl']==='undefined') {
             $data['nomorSttpl']="";
         }
-        if ($data['tanggalSttpl']===null) {
+        if ($data['tanggalSttpl']===null || $data['tanggalSttpl']==='null'  ||$data['tanggalSttpl']==='undefined' ) {
             $data['tanggalSttpl']=date('Y-m-d', time());
         }
-        if ($data['nomorSpmt']===null) {
+        if ($data['nomorSpmt']===null ||  $data['nomorSpmt']==='null' ||$data['nomorSpmt']==='undefined' ) {
             $data['nomorSpmt']="";
         }
-        if ($data['tanggalSpmt']===null) {
+        if ($data['tanggalSpmt']===null ||  $data['tanggalSpmt']==='null' || $data['tanggalSpmt']==='undefined') {
             $data['tanggalSpmt']=date('Y-m-d', time());
         }
-        if ($data['nomorPertekC2th']===null) {
+        if ($data['nomorPertekC2th']===null || $data['nomorPertekC2th']==='null'  ||$data['nomorPertekC2th']==='undefined' ) {
             $data['nomorPertekC2th']="";
         }
-        if ($data['tanggalPertekC2th']===null) {
+        if ($data['tanggalPertekC2th']===null || $data['tanggalPertekC2th']==='null'  || $data['tanggalPertekC2th']==='undefined') {
             $data['tanggalPertekC2th']=date('Y-m-d', time());
         }
-        if ($data['nomorSkd']===null) {
+        if ($data['nomorSkd']===null || $data['nomorSkd']==='null'  || $data['nomorSkd']==='undefined') {
             $data['nomorSkd']="";
         }
-        if ($data['tanggalSkd']===null) {
+        if ($data['tanggalSkd']===null || $data['tanggalSkd']=== 'null' ||$data['tanggalSkd']==='undefined' ) {
             $data['tanggalSkd']=date('Y-m-d', time());
         }
-        if ($data['karpeg']===null) {
+        if ($data['karpeg']===null ||  $data['karpeg']==='null' || $data['karpeg']==='undefined') {
             $data['karpeg']="";
         }
 
