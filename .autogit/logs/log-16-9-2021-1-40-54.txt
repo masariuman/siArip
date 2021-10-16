@@ -1,0 +1,21 @@
+-------------------- Auto-Git Log --------------------
+		Sat Oct 16 2021 01:40:54 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/IdentitasPegawaiController.php
+* public/js/app.js
+* resources/js/component/pegawai/Arsip.jsx
+* resources/js/component/pegawai/IdentitasPegawai.jsx
+* resources/js/component/pegawai/IdentitasPegawaiEdit.jsx
+* resources/js/component/pegawai/Pengajuan.jsx
+
+
+Created files:
+* .autogit/logs/log-16-9-2021-1-10-25.txt
+
+
+Deleted files:
+
+
+Renamed files:
