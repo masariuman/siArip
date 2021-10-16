@@ -574,7 +574,7 @@ class PnsEdit extends Component {
     }
 
     componentDidMount() {
-        this.getAgama();
+        // this.getAgama();
         this.getData();
     }
 
@@ -799,6 +799,15 @@ class PnsEdit extends Component {
             </option>
         ));
     }
+
+    renderSelectStatusKepegawaian() {
+        return this.state.agama.map((data) => (
+            <option value={data.rinku} key={data.rinku}>
+                {data.name}
+            </option>
+        ));
+    }
+
 
     renderSelectUnor() {
         return this.state.unor.map((data) => (
@@ -1596,8 +1605,8 @@ class PnsEdit extends Component {
                                                             <input
                                                                 onChange={this.handleChangeSkCpns}
                                                                 value={this.state.skCpns}
-                                                                title="Nama"
-                                                                placeholder="Nama..."
+                                                                title="Nomor Surat Keputusan CPNS"
+                                                                placeholder="Nomor Surat Keputusan CPNS..."
                                                                 type="text"
                                                                 className="form-control"
                                                             />
@@ -1613,8 +1622,8 @@ class PnsEdit extends Component {
                                                             <input
                                                                 onChange={this.handleChangeTanggalSkCpns}
                                                                 value={this.state.tanggalSkCpns}
-                                                                title="Tanggal Taspen"
-                                                                placeholder="Tanggal Taspen..."
+                                                                title="Tanggal Surat keputusan CPNS"
+                                                                placeholder="Tanggal Surat keputusan CPNS..."
                                                                 type="date"
                                                                 className="form-control"
                                                             />
@@ -1630,8 +1639,8 @@ class PnsEdit extends Component {
                                                             <input
                                                                 onChange={this.handleChangeTmtCpns}
                                                                 value={this.state.tmtCpns}
-                                                                title="Tanggal Taspen"
-                                                                placeholder="Tanggal Taspen..."
+                                                                title="Tanggal Mulai Tugas (TMT) CPNS"
+                                                                placeholder="Tanggal Mulai Tugas (TMT) CPNS..."
                                                                 type="date"
                                                                 className="form-control"
                                                             />
@@ -1647,8 +1656,8 @@ class PnsEdit extends Component {
                                                             <input
                                                                 onChange={this.handleChangePejabatPenetapCpns}
                                                                 value={this.state.pejabatPenetapCpns}
-                                                                title="Telepn"
-                                                                placeholder="Telepon..."
+                                                                title="Nama Pejabat Penetap CPNS"
+                                                                placeholder="Nama Pejabat Penetap CPNS..."
                                                                 type="text"
                                                                 className="form-control"
                                                             />
@@ -1664,8 +1673,8 @@ class PnsEdit extends Component {
                                                             <input
                                                                 onChange={this.handleChangeSkPns}
                                                                 value={this.state.skPns}
-                                                                title="Handphone"
-                                                                placeholder="Handphone..."
+                                                                title="Nomor Surat Keputusan PNS"
+                                                                placeholder="Nomor Surat Keputusan PNS..."
                                                                 type="text"
                                                                 className="form-control"
                                                             />
@@ -1681,8 +1690,8 @@ class PnsEdit extends Component {
                                                             <input
                                                                 onChange={this.handleChangeTanggalSkPns}
                                                                 value={this.state.tanggalSkPns}
-                                                                title="Tanggal Taspen"
-                                                                placeholder="Tanggal Taspen..."
+                                                                title="Tanggal Surat Keputusan PNS"
+                                                                placeholder="Tanggal Surat Keputusan PNS..."
                                                                 type="date"
                                                                 className="form-control"
                                                             />
@@ -1698,8 +1707,8 @@ class PnsEdit extends Component {
                                                             <input
                                                                 onChange={this.handleChangeTmtPns}
                                                                 value={this.state.tmtPns}
-                                                                title="Tanggal Taspen"
-                                                                placeholder="Tanggal Taspen..."
+                                                                title="Tanggal Mulai Tugas (TMT) PNS"
+                                                                placeholder="Tanggal Mulai Tugas (TMT) PNS..."
                                                                 type="date"
                                                                 className="form-control"
                                                             />
@@ -1715,8 +1724,8 @@ class PnsEdit extends Component {
                                                             <input
                                                                 onChange={this.handleChangeNomorSttpl}
                                                                 value={this.state.nomorSttpl}
-                                                                title="NIK"
-                                                                placeholder="NIK..."
+                                                                title="Nomor STTPL"
+                                                                placeholder="Nomor STTPL..."
                                                                 type="text"
                                                                 className="form-control"
                                                             />
@@ -1732,8 +1741,8 @@ class PnsEdit extends Component {
                                                             <input
                                                                 onChange={this.handleChangeTanggalSttpl}
                                                                 value={this.state.tanggalSttpl}
-                                                                title="Tanggal Taspen"
-                                                                placeholder="Tanggal Taspen..."
+                                                                title="Tanggal STTPL"
+                                                                placeholder="Tanggal STTPL..."
                                                                 type="date"
                                                                 className="form-control"
                                                             />
@@ -1749,8 +1758,8 @@ class PnsEdit extends Component {
                                                             <input
                                                                 onChange={this.handleChangeNomorSpmt}
                                                                 value={this.state.nomorSpmt}
-                                                                title="Nama"
-                                                                placeholder="Nama..."
+                                                                title="Nomor SPMT"
+                                                                placeholder="Nomor SPMT..."
                                                                 type="text"
                                                                 className="form-control"
                                                             />
@@ -1766,8 +1775,8 @@ class PnsEdit extends Component {
                                                             <input
                                                                 onChange={this.handleChangeTanggalSpmt}
                                                                 value={this.state.tanggalSpmt}
-                                                                title="Tanggal Taspen"
-                                                                placeholder="Tanggal Taspen..."
+                                                                title="Tanggal SPMT"
+                                                                placeholder="Tanggal SPMT..."
                                                                 type="date"
                                                                 className="form-control"
                                                             />
@@ -1783,8 +1792,8 @@ class PnsEdit extends Component {
                                                             <input
                                                                 onChange={this.handleChangeNomorPertekC2th}
                                                                 value={this.state.nomorPertekC2th}
-                                                                title="Akta Kelahiran"
-                                                                placeholder="Akta Kelahiran..."
+                                                                title="Nomor Pertek C2TH"
+                                                                placeholder="Nomor Pertek C2TH..."
                                                                 type="text"
                                                                 className="form-control"
                                                             />
@@ -1800,8 +1809,8 @@ class PnsEdit extends Component {
                                                             <input
                                                                 onChange={this.handleChangeTanggalPertekC2th}
                                                                 value={this.state.tanggalPertekC2th}
-                                                                title="Tanggal Taspen"
-                                                                placeholder="Tanggal Taspen..."
+                                                                title="Tanggal Pertek C2TH"
+                                                                placeholder="Tanggal Pertek C2TH..."
                                                                 type="date"
                                                                 className="form-control"
                                                             />
@@ -1817,8 +1826,8 @@ class PnsEdit extends Component {
                                                             <input
                                                                 onChange={this.handleChangeNomorSkd}
                                                                 value={this.state.nomorSkd}
-                                                                title="Tanggal NPWP"
-                                                                placeholder="Tanggal NPWP..."
+                                                                title="Nomor Surat Keterangan Dokter"
+                                                                placeholder="Nomor Surat Keterangan Dokter..."
                                                                 type="date"
                                                                 className="form-control"
                                                             />
@@ -1834,8 +1843,8 @@ class PnsEdit extends Component {
                                                             <input
                                                                 onChange={this.handleChangeTanggalSkd}
                                                                 value={this.state.tanggalSkd}
-                                                                title="Tanggal Taspen"
-                                                                placeholder="Tanggal Taspen..."
+                                                                title="Tanggal Surat Keterangan Dokter"
+                                                                placeholder="Tanggal Surat Keterangan Dokter..."
                                                                 type="date"
                                                                 className="form-control"
                                                             />
@@ -1851,8 +1860,8 @@ class PnsEdit extends Component {
                                                             <input
                                                                 onChange={this.handleChangeKarpeg}
                                                                 value={this.state.karpeg}
-                                                                title="Karis / Karsu"
-                                                                placeholder="Karis / Karsu..."
+                                                                title="Karpeg"
+                                                                placeholder="Karpeg..."
                                                                 type="text"
                                                                 className="form-control"
                                                             />

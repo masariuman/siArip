@@ -70,6 +70,7 @@ Route::delete('/admin/referensi/subBidang/{url}', 'ReferensiController@subBidang
 Route::post('/admin/referensi/subBidang/search', 'ReferensiController@subBidangSearch');
 
 Route::get('/admin/referensi/statusKepegawaian/deeta', 'ReferensiController@statusKepegawaian');
+Route::get('/admin/referensi/statusKepegawaian/create', 'ReferensiController@statusKepegawaianCreate');
 Route::post('/admin/referensi/statusKepegawaian', 'ReferensiController@statusKepegawaianStore');
 Route::get('/admin/referensi/statusKepegawaian/{url}', 'ReferensiController@statusKepegawaianEdit');
 Route::put('/admin/referensi/statusKepegawaian/{url}', 'ReferensiController@statusKepegawaianUpdate');

@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Sat Oct 16 2021 17:12:17 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* resources/js/component/peremajaan/PnsEdit.jsx
+
+
+Created files:
+* .autogit/logs/log-16-9-2021-16-41-58.txt
+
+
+Deleted files:
+
+
+Renamed files:
