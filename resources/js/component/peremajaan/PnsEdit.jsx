@@ -1494,7 +1494,7 @@ class PnsEdit extends Component {
                                                 <img className="masariuman_width220px" alt="" src={this.state.sashin} />
                                             </div>
                                             <div>
-                                                <span className="masariuman-bold">{this.state.gelarDepanText + this.state.namaLengkap + this.state.gelarBelakangText}</span> <br/>
+                                                <span className="masariuman-bold">{this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang}</span> <br/>
                                                 <small>NIP. {this.state.nip}</small>
                                             </div>
                                             <br />
@@ -1517,7 +1517,7 @@ class PnsEdit extends Component {
                                             <div>
                                                 <Link
                                                     to={`/admin/pegawai/${this.props.match.params.url}/detail`}
-                                                    className="btn btn-primary masariuman_width100percent masariuman_borderleftright0px"
+                                                    className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
                                                 >
                                                     <span className="pe-7s-pen"> </span> Identitas
                                                 </Link>
@@ -1533,7 +1533,7 @@ class PnsEdit extends Component {
                                             <div>
                                                 <Link
                                                     to={`/admin/pegawai/${this.props.match.params.url}/pns`}
-                                                    className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
+                                                    className="btn btn-primary masariuman_width100percent masariuman_borderleftright0px"
                                                 >
                                                     <span className="pe-7s-pen"> </span> PNS
                                                 </Link>
@@ -1561,16 +1561,19 @@ class PnsEdit extends Component {
                                                 <div className="masariuman_marginBottom50px">
                                                     <div className="float-left">
                                                         <h5 className="form-header">
-                                                            Ubah Identitas Pegawai
+                                                            Ubah Data CPNS/PNS
                                                         </h5>
                                                     </div>
                                                     <div className="float-right">
                                                         <button type='button' className="mr-2 mb-2 btn btn-success" onClick={this.handleEditSubmit}>
-                                                            Simpan Perubahan Identitas Pegawai
+                                                            Simpan Perubahan Data CPNS/PNS
                                                         </button>
                                                     </div>
                                                 </div>
                                                 <hr/>
+
+
+
                                                 <div className="table-responsive" id="ruanganTable">
                                                     {/* <table id="tabeldata" width="100%" className="table table-striped table-lightfont">
                                                         {this.renderData()}
@@ -1951,10 +1954,13 @@ class PnsEdit extends Component {
                                                     </div>
                                                     </div>
                                                 </div>
+
+
+
                                                 <br />
                                                 <div className="form-desc text-center">
                                                     <button type="button" className="mr-2 mb-2 btn btn-success" onClick={this.handleEditSubmit}>
-                                                        Simpan Perubahan Identitas Pegawai
+                                                        Simpan Perubahan Data CPNS/PNS
                                                     </button>
                                                 </div>
                                             </div>
