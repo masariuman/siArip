@@ -22,39 +22,35 @@ class PnsEdit extends Component {
             subbid: [],
             subbidName: "",
             agama: [],
+            agamaUser: "",
+            gelarBelakang : "",
+            gelarDepan : "",
             nip : "",
             nip9 : "",
+            namaLengkap : "",
             tempatLahir : "",
             tanggalLahir : "",
             sashin : "",
 
-            identitasId:"",
-            gelarBelakangText:"",
-            gelarDepanText:"",
 
-
-            gelarBelakang : "",
-            namaLengkap : "",
-            gelarDepan : "",
-            alamat:"",
-            telepon:"",
-            handphone:"",
-            emailDinas:"",
-            emailPribadi:"",
-            nik:"",
-            nomorKK:"",
-            agamaUser: "",
-            lokasiKerja:"",
-            akta:"",
-            npwp:"",
-            tanggalNpwp:"",
-            bpjs:"",
-            karis:"",
-            taspen:"",
-            tanggalTaspen:"",
-            tapera:"",
-            kppn:"",
-            kelasJabatan:"",
+            statusKepegawaian : [],
+            statusKepegawaianText : "",
+            skCpns : "",
+            tanggalSkCpns : "",
+            tmtCpns : "",
+            pejabatPenetapCpns : "",
+            skPns : "",
+            tanggalSkPns : "",
+            tmtPns : "",
+            nomorSttpl : "",
+            tanggalSttpl : "",
+            nomorSpmt : "",
+            tanggalSpmt : "",
+            nomorPertekC2th : "",
+            tanggalPertekC2th : "",
+            nomorSkd : "",
+            tanggalSkd : "",
+            karpeg : "",
 
 
 
@@ -1581,24 +1577,23 @@ class PnsEdit extends Component {
                                                     <div className="row">
                                                     <div className="col-sm-4">
                                                         <div className="form-group">
-                                                            Gelar Depan
+                                                            Status Kepegawaian
                                                         </div>
                                                     </div>
                                                     <div className="col-sm-8">
                                                         <div className="form-group">
-                                                            <input
-                                                                onChange={this.handleChangeGelarDepan}
-                                                                value={this.state.gelarDepan}
-                                                                title="Gelar Depan"
-                                                                placeholder="Gelar Depan..."
-                                                                type="text"
+                                                            <select
+                                                                value={this.state.agamaUser}
+                                                                onChange={this.handleChangeAgama}
                                                                 className="form-control"
-                                                            />
+                                                            >
+                                                                {this.renderSelectStatusKepegawaian()}
+                                                            </select>
                                                         </div>
                                                     </div>
                                                     <div className="col-sm-4">
                                                         <div className="form-group">
-                                                            Nama
+                                                            Nomor Surat Keputusan CPNS
                                                         </div>
                                                     </div>
                                                     <div className="col-sm-8">
@@ -1615,278 +1610,7 @@ class PnsEdit extends Component {
                                                     </div>
                                                     <div className="col-sm-4">
                                                         <div className="form-group">
-                                                            Gelar Belakang
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-8">
-                                                        <div className="form-group">
-                                                            <input
-                                                                onChange={this.handleChangeGelarBelakang}
-                                                                value={this.state.gelarBelakang}
-                                                                title="Gelar Belakang"
-                                                                placeholder="Gelar Belakang..."
-                                                                type="text"
-                                                                className="form-control"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-4">
-                                                        <div className="form-group">
-                                                            Alamat Domisili
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-8">
-                                                        <div className="form-group">
-                                                            <input
-                                                                onChange={this.handleChangeAlamat}
-                                                                value={this.state.alamat}
-                                                                title="Alamat"
-                                                                placeholder="Alamat..."
-                                                                type="text"
-                                                                className="form-control"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-4">
-                                                        <div className="form-group">
-                                                            Nomor Telepon
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-8">
-                                                        <div className="form-group">
-                                                            <input
-                                                                onChange={this.handleChangeTelepon}
-                                                                value={this.state.telepon}
-                                                                title="Telepn"
-                                                                placeholder="Telepon..."
-                                                                type="text"
-                                                                className="form-control"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-4">
-                                                        <div className="form-group">
-                                                            Nomor Handphone
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-8">
-                                                        <div className="form-group">
-                                                            <input
-                                                                onChange={this.handleChangeHandphone}
-                                                                value={this.state.handphone}
-                                                                title="Handphone"
-                                                                placeholder="Handphone..."
-                                                                type="text"
-                                                                className="form-control"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-4">
-                                                        <div className="form-group">
-                                                            Email Dinas
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-8">
-                                                        <div className="form-group">
-                                                            <input
-                                                                onChange={this.handleChangeEmailDinas}
-                                                                value={this.state.emailDinas}
-                                                                title="Email Dinas"
-                                                                placeholder="Email Dinas..."
-                                                                type="text"
-                                                                className="form-control"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-4">
-                                                        <div className="form-group">
-                                                            Email Pribadi
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-8">
-                                                        <div className="form-group">
-                                                            <input
-                                                                onChange={this.handleChangeEmailPribadi}
-                                                                value={this.state.emailPribadi}
-                                                                title="Email Pribadi"
-                                                                placeholder="Email Pribadi..."
-                                                                type="text"
-                                                                className="form-control"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-4">
-                                                        <div className="form-group">
-                                                            NIK
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-8">
-                                                        <div className="form-group">
-                                                            <input
-                                                                onChange={this.handleChangeNik}
-                                                                value={this.state.nik}
-                                                                title="NIK"
-                                                                placeholder="NIK..."
-                                                                type="text"
-                                                                className="form-control"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-4">
-                                                        <div className="form-group">
-                                                            Nomor KK
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-8">
-                                                        <div className="form-group">
-                                                            <input
-                                                                onChange={this.handleChangeNomorKK}
-                                                                value={this.state.nomorKK}
-                                                                title="Nomor KK"
-                                                                placeholder="Nomor KK..."
-                                                                type="text"
-                                                                className="form-control"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-4">
-                                                        <div className="form-group">
-                                                            Agama
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-8">
-                                                        <div className="form-group">
-                                                            <select
-                                                                value={this.state.agamaUser}
-                                                                onChange={this.handleChangeAgama}
-                                                                className="form-control"
-                                                            >
-                                                                {this.renderSelectAgama()}
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-4">
-                                                        <div className="form-group">
-                                                            Lokasi Kerja (Setingkat Kecamatan)
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-8">
-                                                        <div className="form-group">
-                                                            <input
-                                                                onChange={this.handleChangeLokasiKerja}
-                                                                value={this.state.lokasiKerja}
-                                                                title="Lokasi Kerja"
-                                                                placeholder="Lokasi Kerja..."
-                                                                type="text"
-                                                                className="form-control"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-4">
-                                                        <div className="form-group">
-                                                            Nomor Akta Kelahiran
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-8">
-                                                        <div className="form-group">
-                                                            <input
-                                                                onChange={this.handleChangeAkta}
-                                                                value={this.state.akta}
-                                                                title="Akta Kelahiran"
-                                                                placeholder="Akta Kelahiran..."
-                                                                type="text"
-                                                                className="form-control"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-4">
-                                                        <div className="form-group">
-                                                            Nomor NPWP
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-8">
-                                                        <div className="form-group">
-                                                            <input
-                                                                onChange={this.handleChangeNpwp}
-                                                                value={this.state.npwp}
-                                                                title="NPWP"
-                                                                placeholder="NPWP..."
-                                                                type="text"
-                                                                className="form-control"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-4">
-                                                        <div className="form-group">
-                                                            Tanggal NPWP
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-8">
-                                                        <div className="form-group">
-                                                            <input
-                                                                onChange={this.handleChangeTanggalNpwp}
-                                                                value={this.state.tanggalNpwp}
-                                                                title="Tanggal NPWP"
-                                                                placeholder="Tanggal NPWP..."
-                                                                type="date"
-                                                                className="form-control"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-4">
-                                                        <div className="form-group">
-                                                            Nomor BPJS / Kartu Indonesia Sehat
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-8">
-                                                        <div className="form-group">
-                                                            <input
-                                                                onChange={this.handleChangeBpjs}
-                                                                value={this.state.bpjs}
-                                                                title="BPJS"
-                                                                placeholder="BPJS..."
-                                                                type="text"
-                                                                className="form-control"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-4">
-                                                        <div className="form-group">
-                                                            Nomor Karis / Karsu
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-8">
-                                                        <div className="form-group">
-                                                            <input
-                                                                onChange={this.handleChangeKaris}
-                                                                value={this.state.karis}
-                                                                title="Karis / Karsu"
-                                                                placeholder="Karis / Karsu..."
-                                                                type="text"
-                                                                className="form-control"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-4">
-                                                        <div className="form-group">
-                                                            Nomor TASPEN
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-8">
-                                                        <div className="form-group">
-                                                            <input
-                                                                onChange={this.handleChangeTaspen}
-                                                                value={this.state.taspen}
-                                                                title="TASPEN"
-                                                                placeholder="TASPEN..."
-                                                                type="text"
-                                                                className="form-control"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-4">
-                                                        <div className="form-group">
-                                                            Tanggal TASPEN
+                                                            Tanggal Surat keputusan CPNS
                                                         </div>
                                                     </div>
                                                     <div className="col-sm-8">
@@ -1903,16 +1627,33 @@ class PnsEdit extends Component {
                                                     </div>
                                                     <div className="col-sm-4">
                                                         <div className="form-group">
-                                                            Nomor TAPERA
+                                                            Tanggal Mulai Tugas (TMT) CPNS
                                                         </div>
                                                     </div>
                                                     <div className="col-sm-8">
                                                         <div className="form-group">
                                                             <input
-                                                                onChange={this.handleChangeTapera}
-                                                                value={this.state.tapera}
-                                                                title="TAPERA"
-                                                                placeholder="TAPERA..."
+                                                                onChange={this.handleChangeTanggalTaspen}
+                                                                value={this.state.tanggalTaspen}
+                                                                title="Tanggal Taspen"
+                                                                placeholder="Tanggal Taspen..."
+                                                                type="date"
+                                                                className="form-control"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-sm-4">
+                                                        <div className="form-group">
+                                                            Nama Pejabat Penetap CPNS
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-sm-8">
+                                                        <div className="form-group">
+                                                            <input
+                                                                onChange={this.handleChangeTelepon}
+                                                                value={this.state.telepon}
+                                                                title="Telepn"
+                                                                placeholder="Telepon..."
                                                                 type="text"
                                                                 className="form-control"
                                                             />
@@ -1920,16 +1661,16 @@ class PnsEdit extends Component {
                                                     </div>
                                                     <div className="col-sm-4">
                                                         <div className="form-group">
-                                                            KPPN/Kantor Pembayaran Gaji
+                                                            Nomor Surat Keputusan PNS
                                                         </div>
                                                     </div>
                                                     <div className="col-sm-8">
                                                         <div className="form-group">
                                                             <input
-                                                                onChange={this.handleChangeKppn}
-                                                                value={this.state.kppn}
-                                                                title="KPPN"
-                                                                placeholder="KPPN..."
+                                                                onChange={this.handleChangeHandphone}
+                                                                value={this.state.handphone}
+                                                                title="Handphone"
+                                                                placeholder="Handphone..."
                                                                 type="text"
                                                                 className="form-control"
                                                             />
@@ -1937,16 +1678,186 @@ class PnsEdit extends Component {
                                                     </div>
                                                     <div className="col-sm-4">
                                                         <div className="form-group">
-                                                            Kelas Jabatan / Angka
+                                                            Tanggal Surat Keputusan PNS
                                                         </div>
                                                     </div>
                                                     <div className="col-sm-8">
                                                         <div className="form-group">
                                                             <input
-                                                                onChange={this.handleChangeKelasJabatan}
-                                                                value={this.state.kelasJabatan}
-                                                                title="Kelas Jabatan"
-                                                                placeholder="Kelas Jabatan..."
+                                                                onChange={this.handleChangeTanggalTaspen}
+                                                                value={this.state.tanggalTaspen}
+                                                                title="Tanggal Taspen"
+                                                                placeholder="Tanggal Taspen..."
+                                                                type="date"
+                                                                className="form-control"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-sm-4">
+                                                        <div className="form-group">
+                                                            Tanggal Mulai Tugas (TMT) PNS
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-sm-8">
+                                                        <div className="form-group">
+                                                            <input
+                                                                onChange={this.handleChangeTanggalTaspen}
+                                                                value={this.state.tanggalTaspen}
+                                                                title="Tanggal Taspen"
+                                                                placeholder="Tanggal Taspen..."
+                                                                type="date"
+                                                                className="form-control"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-sm-4">
+                                                        <div className="form-group">
+                                                            Nomor STTPL
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-sm-8">
+                                                        <div className="form-group">
+                                                            <input
+                                                                onChange={this.handleChangeNik}
+                                                                value={this.state.nik}
+                                                                title="NIK"
+                                                                placeholder="NIK..."
+                                                                type="text"
+                                                                className="form-control"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-sm-4">
+                                                        <div className="form-group">
+                                                            Tanggal STTPL
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-sm-8">
+                                                        <div className="form-group">
+                                                            <input
+                                                                onChange={this.handleChangeTanggalTaspen}
+                                                                value={this.state.tanggalTaspen}
+                                                                title="Tanggal Taspen"
+                                                                placeholder="Tanggal Taspen..."
+                                                                type="date"
+                                                                className="form-control"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-sm-4">
+                                                        <div className="form-group">
+                                                            Nomor SPMT
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-sm-8">
+                                                        <div className="form-group">
+                                                            <input
+                                                                onChange={this.handleChangeNamaLengkap}
+                                                                value={this.state.namaLengkap}
+                                                                title="Nama"
+                                                                placeholder="Nama..."
+                                                                type="text"
+                                                                className="form-control"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-sm-4">
+                                                        <div className="form-group">
+                                                            Tanggal SPMT
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-sm-8">
+                                                        <div className="form-group">
+                                                            <input
+                                                                onChange={this.handleChangeTanggalTaspen}
+                                                                value={this.state.tanggalTaspen}
+                                                                title="Tanggal Taspen"
+                                                                placeholder="Tanggal Taspen..."
+                                                                type="date"
+                                                                className="form-control"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-sm-4">
+                                                        <div className="form-group">
+                                                            Nomor Pertek C2TH
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-sm-8">
+                                                        <div className="form-group">
+                                                            <input
+                                                                onChange={this.handleChangeAkta}
+                                                                value={this.state.akta}
+                                                                title="Akta Kelahiran"
+                                                                placeholder="Akta Kelahiran..."
+                                                                type="text"
+                                                                className="form-control"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-sm-4">
+                                                        <div className="form-group">
+                                                            Tanggal Pertek C2TH
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-sm-8">
+                                                        <div className="form-group">
+                                                            <input
+                                                                onChange={this.handleChangeTanggalTaspen}
+                                                                value={this.state.tanggalTaspen}
+                                                                title="Tanggal Taspen"
+                                                                placeholder="Tanggal Taspen..."
+                                                                type="date"
+                                                                className="form-control"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-sm-4">
+                                                        <div className="form-group">
+                                                            Nomor Surat Keterangan Dokter
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-sm-8">
+                                                        <div className="form-group">
+                                                            <input
+                                                                onChange={this.handleChangeTanggalNpwp}
+                                                                value={this.state.tanggalNpwp}
+                                                                title="Tanggal NPWP"
+                                                                placeholder="Tanggal NPWP..."
+                                                                type="date"
+                                                                className="form-control"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-sm-4">
+                                                        <div className="form-group">
+                                                            Tanggal Surat Keterangan Dokter
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-sm-8">
+                                                        <div className="form-group">
+                                                            <input
+                                                                onChange={this.handleChangeTanggalTaspen}
+                                                                value={this.state.tanggalTaspen}
+                                                                title="Tanggal Taspen"
+                                                                placeholder="Tanggal Taspen..."
+                                                                type="date"
+                                                                className="form-control"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-sm-4">
+                                                        <div className="form-group">
+                                                            Nomor Karpeg
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-sm-8">
+                                                        <div className="form-group">
+                                                            <input
+                                                                onChange={this.handleChangeKaris}
+                                                                value={this.state.karis}
+                                                                title="Karis / Karsu"
+                                                                placeholder="Karis / Karsu..."
                                                                 type="text"
                                                                 className="form-control"
                                                             />
