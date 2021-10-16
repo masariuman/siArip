@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Sat Oct 16 2021 21:15:19 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/CPNSPNSAdminController.php
+
+
+Created files:
+* .autogit/logs/log-16-9-2021-20-44-59.txt
+
+
+Deleted files:
+
+
+Renamed files:
