@@ -582,6 +582,14 @@ class ReferensiController extends Controller
             'data' => $data
         ]);
     }
+    public function statusKepegawaianCreate()
+    {
+        $data = ReferensiStatusKepegawaian::where("sutattsu", "1")->orderBy("id", "DESC")->get();
+        // dd($data);
+        return response()->json([
+            'data' => $data
+        ]);
+    }
     public function statusKepegawaianStore(Request $request)
     {
         ReferensiStatusKepegawaian::create([

@@ -538,6 +538,16 @@ class PnsEdit extends Component {
         });
     }
 
+    getStatusKepegawaian() {
+        axios.get("/admin/referensi/statusKepegawaian/create").then((response) => {
+            console.log(response);
+            this.setState({
+                statusKepegawaian: response.data.data,
+                statusKepegawaianText: response.data.data[0].rinku,
+            });
+        });
+    }
+
     getUnor() {
         axios.get("/admin/referensi/unorBidang").then((response) => {
             this.setState({
@@ -575,6 +585,7 @@ class PnsEdit extends Component {
 
     componentDidMount() {
         // this.getAgama();
+        this.getStatusKepegawaian();
         this.getData();
     }
 
@@ -801,7 +812,7 @@ class PnsEdit extends Component {
     }
 
     renderSelectStatusKepegawaian() {
-        return this.state.agama.map((data) => (
+        return this.state.statusKepegawaian.map((data) => (
             <option value={data.rinku} key={data.rinku}>
                 {data.name}
             </option>
