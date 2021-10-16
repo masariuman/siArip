@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Sat Oct 16 2021 12:09:14 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+
+
+Created files:
+* .autogit/logs/log-16-9-2021-11-38-59.txt
+* database/migrations/2021_10_16_114131_create_table_cpnspns.php
+
+
+Deleted files:
+
+
+Renamed files:
