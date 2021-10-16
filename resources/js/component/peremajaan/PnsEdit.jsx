@@ -84,28 +84,23 @@ class PnsEdit extends Component {
         this.handleChangeNip = this.handleChangeNip.bind(this);
         this.handleChangeNip9 = this.handleChangeNip9.bind(this);
 
-        this.handleChangeGelarDepan = this.handleChangeGelarDepan.bind(this);
-        this.handleChangeNamaLengkap = this.handleChangeNamaLengkap.bind(this);
-        this.handleChangeGelarBelakang = this.handleChangeGelarBelakang.bind(this);
-        this.handleChangeAlamat = this.handleChangeAlamat.bind(this);
-        this.handleChangeTelepon = this.handleChangeTelepon.bind(this);
-        this.handleChangeHandphone = this.handleChangeHandphone.bind(this);
-        this.handleChangeEmailDinas = this.handleChangeEmailDinas.bind(this);
-        this.handleChangeEmailPribadi = this.handleChangeEmailPribadi.bind(this);
-        this.handleChangeNik = this.handleChangeNik.bind(this);
-        this.handleChangeNomorKK = this.handleChangeNomorKK.bind(this);
-        this.handleChangeAgama = this.handleChangeAgama.bind(this);
-        this.handleChangeLokasiKerja = this.handleChangeLokasiKerja.bind(this);
-        this.handleChangeAkta = this.handleChangeAkta.bind(this);
-        this.handleChangeNpwp = this.handleChangeNpwp.bind(this);
-        this.handleChangeTanggalNpwp = this.handleChangeTanggalNpwp.bind(this);
-        this.handleChangeBpjs = this.handleChangeBpjs.bind(this);
-        this.handleChangeKaris = this.handleChangeKaris.bind(this);
-        this.handleChangeTaspen = this.handleChangeTaspen.bind(this);
-        this.handleChangeTanggalTaspen = this.handleChangeTanggalTaspen.bind(this);
-        this.handleChangeTapera = this.handleChangeTapera.bind(this);
-        this.handleChangeKppn = this.handleChangeKppn.bind(this);
-        this.handleChangeKelasJabatan = this.handleChangeKelasJabatan.bind(this);
+        this.handleChangeStatusKepegawaian = this.handleChangeStatusKepegawaian.bind(this);
+        this.handleChangeSkCpns = this.handleChangeSkCpns.bind(this);
+        this.handleChangeTanggalSkCpns = this.handleChangeTanggalSkCpns.bind(this);
+        this.handleChangeTmtCpns = this.handleChangeTmtCpns.bind(this);
+        this.handleChangePejabatPenetapCpns = this.handleChangePejabatPenetapCpns.bind(this);
+        this.handleChangeSkPns = this.handleChangeSkPns.bind(this);
+        this.handleChangeTanggalSkPns = this.handleChangeTanggalSkPns.bind(this);
+        this.handleChangeTmtPns = this.handleChangeTmtPns.bind(this);
+        this.handleChangeNomorSttpl = this.handleChangeNomorSttpl.bind(this);
+        this.handleChangeTanggalSttpl = this.handleChangeTanggalSttpl.bind(this);
+        this.handleChangeNomorSpmt = this.handleChangeNomorSpmt.bind(this);
+        this.handleChangeTanggalSpmt = this.handleChangeTanggalSpmt.bind(this);
+        this.handleChangeNomorPertekC2th = this.handleChangeNomorPertekC2th.bind(this);
+        this.handleChangeTanggalPertekC2th = this.handleChangeTanggalPertekC2th.bind(this);
+        this.handleChangeNomorSkd = this.handleChangeNomorSkd.bind(this);
+        this.handleChangeTanggalSkd = this.handleChangeTanggalSkd.bind(this);
+        this.handleChangeKarpeg = this.handleChangeKarpeg.bind(this);
 
 
 
@@ -1583,8 +1578,8 @@ class PnsEdit extends Component {
                                                     <div className="col-sm-8">
                                                         <div className="form-group">
                                                             <select
-                                                                value={this.state.agamaUser}
-                                                                onChange={this.handleChangeAgama}
+                                                                value={this.state.statusKepegawaianText}
+                                                                onChange={this.handleChangeStatusKepegawaian}
                                                                 className="form-control"
                                                             >
                                                                 {this.renderSelectStatusKepegawaian()}
@@ -1599,8 +1594,8 @@ class PnsEdit extends Component {
                                                     <div className="col-sm-8">
                                                         <div className="form-group">
                                                             <input
-                                                                onChange={this.handleChangeNamaLengkap}
-                                                                value={this.state.namaLengkap}
+                                                                onChange={this.handleChangeSkCpns}
+                                                                value={this.state.skCpns}
                                                                 title="Nama"
                                                                 placeholder="Nama..."
                                                                 type="text"
@@ -1616,8 +1611,8 @@ class PnsEdit extends Component {
                                                     <div className="col-sm-8">
                                                         <div className="form-group">
                                                             <input
-                                                                onChange={this.handleChangeTanggalTaspen}
-                                                                value={this.state.tanggalTaspen}
+                                                                onChange={this.handleChangeTanggalSkCpns}
+                                                                value={this.state.tanggalSkCpns}
                                                                 title="Tanggal Taspen"
                                                                 placeholder="Tanggal Taspen..."
                                                                 type="date"
@@ -1633,8 +1628,8 @@ class PnsEdit extends Component {
                                                     <div className="col-sm-8">
                                                         <div className="form-group">
                                                             <input
-                                                                onChange={this.handleChangeTanggalTaspen}
-                                                                value={this.state.tanggalTaspen}
+                                                                onChange={this.handleChangeTmtCpns}
+                                                                value={this.state.tmtCpns}
                                                                 title="Tanggal Taspen"
                                                                 placeholder="Tanggal Taspen..."
                                                                 type="date"
@@ -1650,8 +1645,8 @@ class PnsEdit extends Component {
                                                     <div className="col-sm-8">
                                                         <div className="form-group">
                                                             <input
-                                                                onChange={this.handleChangeTelepon}
-                                                                value={this.state.telepon}
+                                                                onChange={this.handleChangePejabatPenetapCpns}
+                                                                value={this.state.pejabatPenetapCpns}
                                                                 title="Telepn"
                                                                 placeholder="Telepon..."
                                                                 type="text"
@@ -1667,8 +1662,8 @@ class PnsEdit extends Component {
                                                     <div className="col-sm-8">
                                                         <div className="form-group">
                                                             <input
-                                                                onChange={this.handleChangeHandphone}
-                                                                value={this.state.handphone}
+                                                                onChange={this.handleChangeSkPns}
+                                                                value={this.state.skPns}
                                                                 title="Handphone"
                                                                 placeholder="Handphone..."
                                                                 type="text"
@@ -1684,8 +1679,8 @@ class PnsEdit extends Component {
                                                     <div className="col-sm-8">
                                                         <div className="form-group">
                                                             <input
-                                                                onChange={this.handleChangeTanggalTaspen}
-                                                                value={this.state.tanggalTaspen}
+                                                                onChange={this.handleChangeTanggalSkPns}
+                                                                value={this.state.tanggalSkPns}
                                                                 title="Tanggal Taspen"
                                                                 placeholder="Tanggal Taspen..."
                                                                 type="date"
@@ -1701,8 +1696,8 @@ class PnsEdit extends Component {
                                                     <div className="col-sm-8">
                                                         <div className="form-group">
                                                             <input
-                                                                onChange={this.handleChangeTanggalTaspen}
-                                                                value={this.state.tanggalTaspen}
+                                                                onChange={this.handleChangeTmtPns}
+                                                                value={this.state.tmtPns}
                                                                 title="Tanggal Taspen"
                                                                 placeholder="Tanggal Taspen..."
                                                                 type="date"
@@ -1718,8 +1713,8 @@ class PnsEdit extends Component {
                                                     <div className="col-sm-8">
                                                         <div className="form-group">
                                                             <input
-                                                                onChange={this.handleChangeNik}
-                                                                value={this.state.nik}
+                                                                onChange={this.handleChangeNomorSttpl}
+                                                                value={this.state.nomorSttpl}
                                                                 title="NIK"
                                                                 placeholder="NIK..."
                                                                 type="text"
@@ -1735,8 +1730,8 @@ class PnsEdit extends Component {
                                                     <div className="col-sm-8">
                                                         <div className="form-group">
                                                             <input
-                                                                onChange={this.handleChangeTanggalTaspen}
-                                                                value={this.state.tanggalTaspen}
+                                                                onChange={this.handleChangeTanggalSttpl}
+                                                                value={this.state.tanggalSttpl}
                                                                 title="Tanggal Taspen"
                                                                 placeholder="Tanggal Taspen..."
                                                                 type="date"
@@ -1752,8 +1747,8 @@ class PnsEdit extends Component {
                                                     <div className="col-sm-8">
                                                         <div className="form-group">
                                                             <input
-                                                                onChange={this.handleChangeNamaLengkap}
-                                                                value={this.state.namaLengkap}
+                                                                onChange={this.handleChangeNomorSpmt}
+                                                                value={this.state.nomorSpmt}
                                                                 title="Nama"
                                                                 placeholder="Nama..."
                                                                 type="text"
@@ -1769,8 +1764,8 @@ class PnsEdit extends Component {
                                                     <div className="col-sm-8">
                                                         <div className="form-group">
                                                             <input
-                                                                onChange={this.handleChangeTanggalTaspen}
-                                                                value={this.state.tanggalTaspen}
+                                                                onChange={this.handleChangeTanggalSpmt}
+                                                                value={this.state.tanggalSpmt}
                                                                 title="Tanggal Taspen"
                                                                 placeholder="Tanggal Taspen..."
                                                                 type="date"
@@ -1786,8 +1781,8 @@ class PnsEdit extends Component {
                                                     <div className="col-sm-8">
                                                         <div className="form-group">
                                                             <input
-                                                                onChange={this.handleChangeAkta}
-                                                                value={this.state.akta}
+                                                                onChange={this.handleChangeNomorPertekC2th}
+                                                                value={this.state.nomorPertekC2th}
                                                                 title="Akta Kelahiran"
                                                                 placeholder="Akta Kelahiran..."
                                                                 type="text"
@@ -1803,8 +1798,8 @@ class PnsEdit extends Component {
                                                     <div className="col-sm-8">
                                                         <div className="form-group">
                                                             <input
-                                                                onChange={this.handleChangeTanggalTaspen}
-                                                                value={this.state.tanggalTaspen}
+                                                                onChange={this.handleChangeTanggalPertekC2th}
+                                                                value={this.state.tanggalPertekC2th}
                                                                 title="Tanggal Taspen"
                                                                 placeholder="Tanggal Taspen..."
                                                                 type="date"
@@ -1820,8 +1815,8 @@ class PnsEdit extends Component {
                                                     <div className="col-sm-8">
                                                         <div className="form-group">
                                                             <input
-                                                                onChange={this.handleChangeTanggalNpwp}
-                                                                value={this.state.tanggalNpwp}
+                                                                onChange={this.handleChangeNomorSkd}
+                                                                value={this.state.nomorSkd}
                                                                 title="Tanggal NPWP"
                                                                 placeholder="Tanggal NPWP..."
                                                                 type="date"
@@ -1837,8 +1832,8 @@ class PnsEdit extends Component {
                                                     <div className="col-sm-8">
                                                         <div className="form-group">
                                                             <input
-                                                                onChange={this.handleChangeTanggalTaspen}
-                                                                value={this.state.tanggalTaspen}
+                                                                onChange={this.handleChangeTanggalSkd}
+                                                                value={this.state.tanggalSkd}
                                                                 title="Tanggal Taspen"
                                                                 placeholder="Tanggal Taspen..."
                                                                 type="date"
@@ -1854,8 +1849,8 @@ class PnsEdit extends Component {
                                                     <div className="col-sm-8">
                                                         <div className="form-group">
                                                             <input
-                                                                onChange={this.handleChangeKaris}
-                                                                value={this.state.karis}
+                                                                onChange={this.handleChangeKarpeg}
+                                                                value={this.state.karpeg}
                                                                 title="Karis / Karsu"
                                                                 placeholder="Karis / Karsu..."
                                                                 type="text"
@@ -1901,117 +1896,92 @@ class PnsEdit extends Component {
 
 
 
-    handleChangeGelarDepan(e) {
+    handleChangeStatusKepegawaian(e) {
         this.setState({
-            gelarDepan: e.target.value
+            statusKepegawaianText: e.target.value
         });
         // console.log(e.target.value);
     }
-    handleChangeNamaLengkap(e) {
+    handleChangeSkCpns(e) {
         this.setState({
-            namaLengkap: e.target.value
+            skCpns: e.target.value
         });
         // console.log(e.target.value);
     }
-    handleChangeGelarBelakang(e) {
+    handleChangeTanggalSkCpns(e) {
         this.setState({
-            gelarBelakang: e.target.value
+            tanggalSkCpns: e.target.value
         });
         // console.log(e.target.value);
     }
-    handleChangeAlamat(e) {
+    handleChangeTmtCpns(e) {
         this.setState({
-            alamat: e.target.value
+            tmtCpns: e.target.value
         });
     }
-    handleChangeTelepon(e) {
+    handleChangePejabatPenetapCpns(e) {
         this.setState({
-            telepon: e.target.value
+            pejabatPenetapCpns: e.target.value
         });
     }
-    handleChangeHandphone(e) {
+    handleChangeSkPns(e) {
         this.setState({
-            handphone: e.target.value
+            skPns: e.target.value
         });
     }
-    handleChangeEmailDinas(e) {
+    handleChangeTanggalSkPns(e) {
         this.setState({
-            emailDinas: e.target.value
+            tanggalSkPns: e.target.value
         });
     }
-    handleChangeEmailPribadi(e) {
+    handleChangeTmtPns(e) {
         this.setState({
-            emailPribadi: e.target.value
+            tmtPns: e.target.value
         });
     }
-    handleChangeNik(e) {
+    handleChangeNomorSttpl(e) {
         this.setState({
-            nik: e.target.value
+            nomorSttpl: e.target.value
         });
     }
-    handleChangeNomorKK(e) {
+    handleChangeTanggalSttpl(e) {
         this.setState({
-            nomorKK: e.target.value
+            tanggalSttpl: e.target.value
         });
     }
-    handleChangeAgama(e) {
+    handleChangeNomorSpmt(e) {
         this.setState({
-            agamaUser: e.target.value
+            nomorSpmt: e.target.value
         });
     }
-    handleChangeLokasiKerja(e) {
+    handleChangeTanggalSpmt(e) {
         this.setState({
-            lokasiKerja: e.target.value
+            tanggalSpmt: e.target.value
         });
     }
-    handleChangeAkta(e) {
+    handleChangeNomorPertekC2th(e) {
         this.setState({
-            akta: e.target.value
+            nomorPertekC2th: e.target.value
         });
     }
-    handleChangeNpwp(e) {
+    handleChangeTanggalPertekC2th(e) {
         this.setState({
-            npwp: e.target.value
+            tanggalPertekC2th: e.target.value
         });
     }
-    handleChangeTanggalNpwp(e) {
+    handleChangeNomorSkd(e) {
         this.setState({
-            tanggalNpwp: e.target.value
+            nomorSkd: e.target.value
         });
     }
-    handleChangeBpjs(e) {
+    handleChangeTanggalSkd(e) {
         this.setState({
-            bpjs: e.target.value
+            tanggalSkd: e.target.value
         });
     }
-    handleChangeKaris(e) {
+    handleChangeKarpeg(e) {
         this.setState({
-            karis: e.target.value
-        });
-    }
-    handleChangeTaspen(e) {
-        this.setState({
-            taspen: e.target.value
-        });
-    }
-    handleChangeTanggalTaspen(e) {
-        this.setState({
-            tanggalTaspen: e.target.value
-        });
-    }
-    handleChangeTapera(e) {
-        this.setState({
-            tapera: e.target.value
-        });
-    }
-    handleChangeKppn(e) {
-        this.setState({
-            kppn: e.target.value
-        });
-    }
-    handleChangeKelasJabatan(e) {
-        this.setState({
-            kelasJabatan: e.target.value
+            karpeg: e.target.value
         });
     }
 
