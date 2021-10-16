@@ -395,35 +395,30 @@ class PnsEdit extends Component {
         });
         const data = new FormData();
         // data.append('file', this.state.file);
-        data.append('gelarBelakang', this.state.gelarBelakang);
-        data.append('namaLengkap', this.state.namaLengkap);
-        data.append('gelarDepan', this.state.gelarDepan);
-        data.append('alamat', this.state.alamat);
-        data.append('telepon', this.state.telepon);
-        data.append('handphone', this.state.handphone);
-        data.append('emailDinas', this.state.emailDinas);
-        data.append('emailPribadi', this.state.emailPribadi);
-        data.append('nik', this.state.nik);
-        data.append('nomorKK', this.state.nomorKK);
-        data.append('agamaUser', this.state.agamaUser);
-        data.append('lokasiKerja', this.state.lokasiKerja);
-        data.append('akta', this.state.akta);
-        data.append('npwp', this.state.npwp);
-        data.append('tanggalNpwp', this.state.tanggalNpwp);
-        data.append('bpjs', this.state.bpjs);
-        data.append('karis', this.state.karis);
-        data.append('taspen', this.state.taspen);
-        data.append('tanggalTaspen', this.state.tanggalTaspen);
-        data.append('tapera', this.state.tapera);
-        data.append('kppn', this.state.kppn);
-        data.append('kelasJabatan', this.state.kelasJabatan);
-        data.append('identitasId', this.state.identitasId);
+        data.append('statusKepegawaianText', this.state.statusKepegawaianText);
+        data.append('skCpns', this.state.skCpns);
+        data.append('tanggalSkCpns', this.state.tanggalSkCpns);
+        data.append('tmtCpns', this.state.tmtCpns);
+        data.append('pejabatPenetapCpns', this.state.pejabatPenetapCpns);
+        data.append('skPns', this.state.skPns);
+        data.append('tanggalSkPns', this.state.tanggalSkPns);
+        data.append('tmtPns', this.state.tmtPns);
+        data.append('nomorSttpl', this.state.nomorSttpl);
+        data.append('tanggalSttpl', this.state.tanggalSttpl);
+        data.append('nomorSpmt', this.state.nomorSpmt);
+        data.append('tanggalSpmt', this.state.tanggalSpmt);
+        data.append('nomorPertekC2th', this.state.nomorPertekC2th);
+        data.append('tanggalPertekC2th', this.state.tanggalPertekC2th);
+        data.append('nomorSkd', this.state.nomorSkd);
+        data.append('tanggalSkd', this.state.tanggalSkd);
+        data.append('karpeg', this.state.karpeg);
+        data.append('url', this.state.url);
         // console.log(data);
         axios
-            .post(`/admin/pegawai/detail/update`, data)
+            .post(`/admin/pegawai/pns/update`, data)
             .then((response) => {
                 swal("Sukses!", "Data Berhasil Diubah!", "success");
-                this.props.history.push(`/admin/pegawai/${this.props.match.params.url}/detail`);
+                this.props.history.push(`/admin/pegawai/${this.props.match.params.url}/pns`);
             })
             .catch(error => {
                 this.setState({
@@ -467,6 +462,7 @@ class PnsEdit extends Component {
                     nomorSkd:response.data.data.cpnspns.nomorSkd,
                     tanggalSkd:response.data.data.cpnspns.tanggalSkd,
                     karpeg:response.data.data.cpnspns.karpeg,
+                    url:response.data.data.cpnspns.rinku,
 
                     gelarDepanText:response.data.data.pegawai.gelarDepanText,
                     gelarBelakangText:response.data.data.pegawai.gelarBelakangText,
