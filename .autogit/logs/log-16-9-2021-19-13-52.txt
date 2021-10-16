@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Sat Oct 16 2021 19:13:52 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/CPNSPNSAdminController.php
+* public/js/app.js
+* resources/js/component/peremajaan/PnsEdit.jsx
+
+
+Created files:
+* .autogit/logs/log-16-9-2021-18-43-29.txt
+
+
+Deleted files:
+
+
+Renamed files:
