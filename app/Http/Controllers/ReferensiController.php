@@ -1050,6 +1050,14 @@ class ReferensiController extends Controller
             'data' => $data
         ]);
     }
+    public function pangkatGolonganRuangCreate()
+    {
+        $data = ReferensiPangkatGolonganRuang::where("sutattsu", "1")->orderBy("id", "ASC")->get();
+        // dd($data);
+        return response()->json([
+            'data' => $data
+        ]);
+    }
     public function pangkatGolonganRuangStore(Request $request)
     {
         ReferensiPangkatGolonganRuang::create([
@@ -1235,6 +1243,14 @@ class ReferensiController extends Controller
             $count++;
         }
         // dd($gets);
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+    public function jenisNaikPangkatCreate()
+    {
+        $data = ReferensiJenisNaikPangkat::where("sutattsu", "1")->orderBy("id", "ASC")->get();
+        // dd($data);
         return response()->json([
             'data' => $data
         ]);

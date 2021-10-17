@@ -106,6 +106,7 @@ Route::delete('/admin/referensi/kedudukanKepegawaian/{url}', 'ReferensiControlle
 Route::post('/admin/referensi/kedudukanKepegawaian/search', 'ReferensiController@kedudukanKepegawaianSearch');
 
 Route::get('/admin/referensi/pangkatGolonganRuang/deeta', 'ReferensiController@pangkatGolonganRuang');
+Route::get('/admin/referensi/pangkatGolonganRuang/create', 'ReferensiController@pangkatGolonganRuangCreate');
 Route::post('/admin/referensi/pangkatGolonganRuang', 'ReferensiController@pangkatGolonganRuangStore');
 Route::get('/admin/referensi/pangkatGolonganRuang/{url}', 'ReferensiController@pangkatGolonganRuangEdit');
 Route::put('/admin/referensi/pangkatGolonganRuang/{url}', 'ReferensiController@pangkatGolonganRuangUpdate');
@@ -120,6 +121,7 @@ Route::delete('/admin/referensi/stlud/{url}', 'ReferensiController@stludDestroy'
 Route::post('/admin/referensi/stlud/search', 'ReferensiController@stludSearch');
 
 Route::get('/admin/referensi/jenisNaikPangkat/deeta', 'ReferensiController@jenisNaikPangkat');
+Route::get('/admin/referensi/jenisNaikPangkat/create', 'ReferensiController@jenisNaikPangkatCreate');
 Route::post('/admin/referensi/jenisNaikPangkat', 'ReferensiController@jenisNaikPangkatStore');
 Route::get('/admin/referensi/jenisNaikPangkat/{url}', 'ReferensiController@jenisNaikPangkatEdit');
 Route::put('/admin/referensi/jenisNaikPangkat/{url}', 'ReferensiController@jenisNaikPangkatUpdate');
