@@ -21,23 +21,16 @@ class CreateTablePangkat extends Migration
             $table->foreign('pegawai_id')->references('id')->on('users');
             $table->unsignedBigInteger('pangkat_id')->nullable();
             $table->foreign('pangkat_id')->references('id')->on('ref_pangkatGolonganRuang');
+            $table->unsignedBigInteger('jenisNaikPangkat_id')->nullable();
+            $table->foreign('jenisNaikPangkat_id')->references('id')->on('ref_jenisNaikPangkat');
 
-            $table->text('nomorSkCpns')->nullable()->default('');
-            $table->date('tanggalSkCpns')->nullable();
-            $table->date('tmtCpns')->nullable();
-            $table->text('namaPejabatPenetapCpns')->nullable()->default('');
-            $table->text('nomorSkPns')->nullable()->default('');
-            $table->date('tanggalSkPns')->nullable();
-            $table->date('tmtPns')->nullable();
-            $table->text('nomorSttpl')->nullable()->default('');
-            $table->date('tanggalSttpl')->nullable();
-            $table->text('nomorSpmt')->nullable()->default('');
-            $table->date('tanggalSpmt')->nullable();
-            $table->text('nomorPertekC2th')->nullable()->default('');
-            $table->date('tanggalPertekC2th')->nullable();
-            $table->text('nomorSkd')->nullable()->default('');
-            $table->date('tanggalSkd')->nullable();
-            $table->text('karpeg')->nullable()->default('');
+            $table->text('masaKerjaGolonganTahun')->nullable()->default('');
+            $table->text('masaKerjaGolonganBulan')->nullable()->default('');
+            $table->date('tmtGolongan')->nullable();
+            $table->text('nomorSk')->nullable()->default('');
+            $table->date('tanggalSk')->nullable();
+            $table->text('nomorPertek')->nullable()->default('');
+            $table->date('tanggalPertek')->nullable();
 
             $table->enum('sutattsu', ['1', '0', '2'])->default('1');
             $table->timestamps();
