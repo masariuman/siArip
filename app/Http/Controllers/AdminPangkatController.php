@@ -146,7 +146,7 @@ class AdminPangkatController extends Controller
                 'tanggalPertek' => $data['tanggalPertek']
             ]);
         $pagination = 5;
-        $data['pangkat'] = Pangkat::where('pegawai_id',$data['pegawai']['id'])->whereIn('sutattsu',['1', '2'])->orderBy("id", "ASC")->paginate($pagination);
+        $data['pangkat'] = Pangkat::where('pegawai_id',$pegawai['id'])->whereIn('sutattsu',['1', '2'])->orderBy("id", "ASC")->paginate($pagination);
         $count = $data['pangkat']->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data['pangkat'] as $items) {
             $items['nomor'] = $count;
@@ -237,5 +237,52 @@ class AdminPangkatController extends Controller
     public function destroy($id)
     {
         //
+        $pangkat = Pangkat::where('rinku',$id)->first();
+        $pegawai = Uuzaa::where('id', $pangkat['pegawai_id'])->first();
+            $pangkat->update([
+                'sutattsu' => '0'
+            ]);
+        $pagination = 5;
+        $data['pangkat'] = Pangkat::where('pegawai_id',$pegawai['id'])->whereIn('sutattsu',['1', '2'])->orderBy("id", "ASC")->paginate($pagination);
+        $count = $data['pangkat']->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data['pangkat'] as $items) {
+            $items['nomor'] = $count;
+            $items['golongan'] =$items->pangkat->name;
+            $items['golongan2'] =" ( " . $items->pangkat->pangkat . " ) ";
+            $items['jenisNaikPangkat'] = $items->jenisNaikPangkat->name;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+
+    public function aktif($id)
+    {
+        //
+        $pangkat = Pangkat::where('sutattsu','2')->get();
+        foreach ($pangkat as $key => $value) {
+            $value->update([
+                'sutattsu' => '1'
+            ]);
+        }
+        $pangkat = Pangkat::where('rinku',$id)->first();
+        $pegawai = Uuzaa::where('id', $pangkat['pegawai_id'])->first();
+            $pangkat->update([
+                'sutattsu' => '2'
+            ]);
+        $pagination = 5;
+        $data['pangkat'] = Pangkat::where('pegawai_id',$pegawai['id'])->whereIn('sutattsu',['1', '2'])->orderBy("id", "ASC")->paginate($pagination);
+        $count = $data['pangkat']->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data['pangkat'] as $items) {
+            $items['nomor'] = $count;
+            $items['golongan'] =$items->pangkat->name;
+            $items['golongan2'] =" ( " . $items->pangkat->pangkat . " ) ";
+            $items['jenisNaikPangkat'] = $items->jenisNaikPangkat->name;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
     }
 }

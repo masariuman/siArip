@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Sun Oct 17 2021 23:29:46 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/AdminPangkatController.php
+* public/js/app.js
+* resources/js/component/peremajaan/Pangkat.jsx
+* resources/js/warudo/Menu.jsx
+
+
+Created files:
+* .autogit/logs/log-17-9-2021-22-20-11.txt
+
+
+Deleted files:
+
+
+Renamed files:

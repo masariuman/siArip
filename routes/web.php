@@ -233,6 +233,7 @@ Route::post('/admin/pegawai/pangkat/search', 'AdminPangkatController@search');
 Route::get('/admin/pegawai/pangkat/{url}/edit', 'AdminPangkatController@edit');
 Route::post('/admin/pegawai/pangkat/update', 'AdminPangkatController@apdet');
 Route::delete('/admin/pegawai/pangkat/{url}', 'AdminPangkatController@destroy');
+Route::post('/admin/pegawai/pangkat/aktif/{url}', 'AdminPangkatController@aktif');
 
 // Route::post('/pegawai/arsip', 'UuzaaController@arsipPegawai');
 // Route::post('/pegawai/search', 'UuzaaController@arsipPegawaiSearch');

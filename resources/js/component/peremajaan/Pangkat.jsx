@@ -350,10 +350,10 @@ class Pangkat extends Component {
 
     handleDeleteButton(e) {
         axios
-            .get(`/admin/pegawai/arsip/${e}/edit`)
+            .get(`/admin/pegawai/pangkat/${e}/edit`)
             .then(response => {
                 swal({
-                    title: `Yakin ingin menghapus arsip ${response.data.data.name} ?`,
+                    title: `Yakin ingin menghapus pangkat ${response.data.data.golongan.name} ( ${response.data.data.golongan.pangkat} )?`,
                     text: "Kalau Terhapus, Hubungi Admin Untuk Mengembalikan Data yang Terhapus!",
                     icon: "warning",
                     buttons: true,
@@ -365,12 +365,56 @@ class Pangkat extends Component {
                             loading: true
                         });
                         axios
-                            .delete(`/admin/pegawai/arsip/${e}`, {
+                            .delete(`/admin/pegawai/pangkat/${e}`, {
                                 url: e
                             })
                             .then(response => {
                                 this.setState({
-                                    arsip : response.data.data.arsip.data,
+                                    data : response.data.data.pangkat.data,
+                                    loading: false
+                                });
+                                swal("Sukses!", "Data Berhasil Dihapus!", "success");
+                                // console.log("from handle sumit", response);
+                            })
+                            .catch(error => {
+                                this.setState({
+                                    loading: false
+                                });
+                                swal("Error!", "Gagal Menghapus Data, Silahkan Hubungi Admin!", "error");
+                            });
+                    } else {
+                      swal("Data Tidak Terhapus!");
+                    }
+                  });
+            })
+            .catch(error => {
+                swal("Error!", "Terdapat Masalah, Silahkan Hubungi Admin!", "error");
+            });
+    }
+
+    handleAktifButton(e) {
+        axios
+            .get(`/admin/pegawai/pangkat/${e}/edit`)
+            .then(response => {
+                swal({
+                    title: `Yakin ingin mengaktifkan pangkat ${response.data.data.golongan.name} ( ${response.data.data.golongan.pangkat} ) sebagai pangkat sekarang ?`,
+                    text: "Kalau Terhapus, Hubungi Admin Untuk Mengembalikan Data yang Terhapus!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                  })
+                  .then((willDelete) => {
+                    if (willDelete) {
+                        this.setState({
+                            loading: true
+                        });
+                        axios
+                            .post(`/admin/pegawai/pangkat/aktif/${e}`, {
+                                url: e
+                            })
+                            .then(response => {
+                                this.setState({
+                                    data : response.data.data.pangkat.data,
                                     loading: false
                                 });
                                 swal("Sukses!", "Data Berhasil Dihapus!", "success");
@@ -495,9 +539,9 @@ class Pangkat extends Component {
         data.append('tanggalSk', this.state.tanggalSk);
         data.append('nomorPertek', this.state.nomorPertek);
         data.append('tanggalPertek', this.state.tanggalPertek);
-        data.append('url', this.props.match.params.url);
+        data.append('url', this.state.url);
         axios
-            .post(`/admin/pegawai/arsip/apdet`, data)
+            .post(`/admin/pegawai/pangkat/update`, data)
             .then(response => {
                 // console.log(response);
                 this.setState({
@@ -703,16 +747,21 @@ class Pangkat extends Component {
                         <small>{data.tanggalPertek}</small>
                     </td>
                     <td id="downloadButton">
-                        <div className="text-center">
+                        {/* <div className="text-center">
                             {data.file ? (
                                 <a href={`/zaFail/${data.file}`} className="mr-2 mb-2 btn btn-outline-secondary">Download</a>
                             ) : (
                                 <span></span>
                             )}
-                            {/* <button data-target="#detailModal" data-toggle="modal" className="mr-2 mb-2 btn btn-outline-info" type="button" onClick={this.handleEditButton.bind(this, data.rinku)} id={'detail'+data.nomor}>Detail</button> */}
-                        </div>
+                            <button data-target="#detailModal" data-toggle="modal" className="mr-2 mb-2 btn btn-outline-info" type="button" onClick={this.handleEditButton.bind(this, data.rinku)} id={'detail'+data.nomor}>Detail</button>
+                        </div> */}
                         <div className="text-center">
-                            <button className="mr-2 mb-2 btn btn-outline-success" type="button" onClick={this.handleDeleteButton.bind(this, data.rinku)} id={'hapus'+data.nomor}>Aktifkan</button> <br />
+                            {data.sutattsu === '2' ? (
+                                <span className="masariuman_alasanVerifikasiClass">Pangkat Aktif</span>
+                            ) : (
+                                <button className="mr-2 mb-2 btn btn-outline-success" type="button" onClick={this.handleAktifButton.bind(this, data.rinku)} id={'hapus'+data.nomor}>Aktifkan</button>
+                            )}
+                            <br />
                             <button data-target="#editModal" data-toggle="modal" className="mr-2 mb-2 btn btn-outline-warning" type="button" onClick={this.handleEditButton.bind(this, data.rinku)} id={'ubah'+data.nomor}>Ubah</button> <br />
                             <button className="mr-2 mb-2 btn btn-outline-danger" type="button" onClick={this.handleDeleteButton.bind(this, data.rinku)} id={'hapus'+data.nomor}>Hapus</button>
                         </div>
