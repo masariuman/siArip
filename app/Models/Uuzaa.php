@@ -41,4 +41,9 @@ class Uuzaa extends Model
     {
         return $this->hasMany('App\Models\CPNSPNS', 'pegawai_id');
     }
+
+    public function pangkat()
+    {
+        return $this->hasMany('App\Models\Pangkat', 'pegawai_id');
+    }
 }

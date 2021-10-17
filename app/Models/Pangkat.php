@@ -26,8 +26,12 @@ class Pangkat extends Model
     {
         return $this->belongsTo('App\Models\User', 'pegawai_id');
     }
-    public function kategori()
+    public function pangkat()
     {
-        return $this->belongsTo('App\Models\ReferensiKategoriArsip', 'kategori_id');
+        return $this->belongsTo('App\Models\ReferensiPangkatGolonganRuang', 'pangkat_id');
+    }
+    public function jenisNaikPangkat()
+    {
+        return $this->belongsTo('App\Models\ReferensiJenisNaikPangkat', 'jenisNaikPangkat_id');
     }
 }

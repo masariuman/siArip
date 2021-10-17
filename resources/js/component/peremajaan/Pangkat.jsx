@@ -91,7 +91,6 @@ class Pangkat extends Component {
         return !this.state.uploaderSashin || this.state.uploaderSashin === "" ? <img alt="" src="/warudo/dist/img/avatar.jpg" /> : <img alt="" src={"/sashin/"+this.state.uploaderSashin} />;
     }
 
-
     handleTambahButton(e) {
         this.setState({
             asalSurat: "",
