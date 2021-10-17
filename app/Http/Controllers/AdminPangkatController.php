@@ -42,10 +42,37 @@ class AdminPangkatController extends Controller
     {
         $data = $request->request->all();
         // dd($request);
-        $file = $request->files->all();
         $pegawai = Uuzaa::where('rinku', $data['pegawai_id'])->first();
         $golongan = ReferensiPangkatGolonganRuang::where('rinku', $data['pangkat_id'])->first();
         $jenisNaikPangkat = ReferensiJenisNaikPangkat::where('rinku', $data['jenisNaikPangkat_id'])->first();
+        if ($data['masaKerjaGolonganTahun']===null || $data['masaKerjaGolonganTahun']==='null' || $data['masaKerjaGolonganTahun']==='undefined') {
+            // dd('asd');
+            $data['masaKerjaGolonganTahun']="";
+        }
+        if ($data['masaKerjaGolonganBulan']===null || $data['masaKerjaGolonganBulan']==='null' || $data['masaKerjaGolonganBulan']==='undefined') {
+            // dd('asd');
+            $data['masaKerjaGolonganBulan']="";
+        }
+        if ($data['tmtGolongan']===null || $data['tmtGolongan']==='null' || $data['tmtGolongan']==='undefined') {
+            // dd('asd');
+            $data['tmtGolongan']=date('Y-m-d', time());
+        }
+        if ($data['nomorSk']===null || $data['nomorSk']==='null' || $data['nomorSk']==='undefined') {
+            // dd('asd');
+            $data['nomorSk']="";
+        }
+        if ($data['tanggalSk']===null || $data['tanggalSk']==='null' || $data['tanggalSk']==='undefined') {
+            // dd('asd');
+            $data['tanggalSk']=date('Y-m-d', time());
+        }
+        if ($data['nomorPertek']===null || $data['nomorPertek']==='null' || $data['nomorPertek']==='undefined') {
+            // dd('asd');
+            $data['nomorPertek']="";
+        }
+        if ($data['tanggalPertek']===null || $data['tanggalPertek']==='null' || $data['tanggalPertek']==='undefined') {
+            // dd('asd');
+            $data['tanggalPertek']=date('Y-m-d', time());
+        }
             Pangkat::create([
                 'pegawai_id' => $pegawai->id,
                 'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string))))),
@@ -61,7 +88,8 @@ class AdminPangkatController extends Controller
             ]);
         $data['data'] = Pangkat::orderBy("id", "DESC")->first();
         $data['data']['nomor'] = "BARU";
-        $data['data']['golongan'] = $data['data']->pangkat->name . " ( " . $data['data']->pangkat->pangkat . " ) ";
+        $data['data']['golongan'] =$data['data']->pangkat->name;
+        $data['data']['golongan2'] =" ( " . $data['data']->pangkat->pangkat . " ) ";
         $data['data']['jenisNaikPangkat'] = $data['data']->jenisNaikPangkat->name;
         return response()->json([
             'data' => $data
@@ -71,6 +99,65 @@ class AdminPangkatController extends Controller
     public function apdet(Request $request)
     {
         //
+        $data = $request->request->all();
+        // dd($request);
+        $pangkat = Pangkat::where('rinku',$data['url'])->first();
+        $pegawai = Uuzaa::where('id', $pangkat['pegawai_id'])->first();
+        $golongan = ReferensiPangkatGolonganRuang::where('rinku', $data['pangkat_id'])->first();
+        $jenisNaikPangkat = ReferensiJenisNaikPangkat::where('rinku', $data['jenisNaikPangkat_id'])->first();
+        if ($data['masaKerjaGolonganTahun']===null || $data['masaKerjaGolonganTahun']==='null' || $data['masaKerjaGolonganTahun']==='undefined') {
+            // dd('asd');
+            $data['masaKerjaGolonganTahun']="";
+        }
+        if ($data['masaKerjaGolonganBulan']===null || $data['masaKerjaGolonganBulan']==='null' || $data['masaKerjaGolonganBulan']==='undefined') {
+            // dd('asd');
+            $data['masaKerjaGolonganBulan']="";
+        }
+        if ($data['tmtGolongan']===null || $data['tmtGolongan']==='null' || $data['tmtGolongan']==='undefined') {
+            // dd('asd');
+            $data['tmtGolongan']=date('Y-m-d', time());
+        }
+        if ($data['nomorSk']===null || $data['nomorSk']==='null' || $data['nomorSk']==='undefined') {
+            // dd('asd');
+            $data['nomorSk']="";
+        }
+        if ($data['tanggalSk']===null || $data['tanggalSk']==='null' || $data['tanggalSk']==='undefined') {
+            // dd('asd');
+            $data['tanggalSk']=date('Y-m-d', time());
+        }
+        if ($data['nomorPertek']===null || $data['nomorPertek']==='null' || $data['nomorPertek']==='undefined') {
+            // dd('asd');
+            $data['nomorPertek']="";
+        }
+        if ($data['tanggalPertek']===null || $data['tanggalPertek']==='null' || $data['tanggalPertek']==='undefined') {
+            // dd('asd');
+            $data['tanggalPertek']=date('Y-m-d', time());
+        }
+            $pangkat->update([
+                'pegawai_id' => $pegawai->id,
+                'pangkat_id' => $golongan->id,
+                'jenisNaikPangkat_id' => $jenisNaikPangkat->id,
+                'masaKerjaGolonganTahun' => $data['masaKerjaGolonganTahun'],
+                'masaKerjaGolonganBulan' => $data['masaKerjaGolonganBulan'],
+                'tmtGolongan' => $data['tmtGolongan'],
+                'nomorSk' => $data['nomorSk'],
+                'tanggalSk' => $data['tanggalSk'],
+                'nomorPertek' => $data['nomorPertek'],
+                'tanggalPertek' => $data['tanggalPertek']
+            ]);
+        $pagination = 5;
+        $data['pangkat'] = Pangkat::where('pegawai_id',$data['pegawai']['id'])->whereIn('sutattsu',['1', '2'])->orderBy("id", "ASC")->paginate($pagination);
+        $count = $data['pangkat']->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data['pangkat'] as $items) {
+            $items['nomor'] = $count;
+            $items['golongan'] =$items->pangkat->name;
+            $items['golongan2'] =" ( " . $items->pangkat->pangkat . " ) ";
+            $items['jenisNaikPangkat'] = $items->jenisNaikPangkat->name;
+            $count++;
+        }
+        return response()->json([
+            'data' => $data
+        ]);
     }
 
     /**
@@ -119,6 +206,14 @@ class AdminPangkatController extends Controller
     public function edit($id)
     {
         //
+        $data['pangkat'] = Pangkat::where('rinku',$id)->first();
+        // dd($data);
+        $data['golongan'] = ReferensiPangkatGolonganRuang::where('id',$data['pangkat']['pangkat_id'])->first();
+        $data['jenisNaikPangkat'] = ReferensiJenisNaikPangkat::where('id',$data['pangkat']['jenisNaikPangkat_id'])->first();
+        // $data['heyaRinku'] = $data->heya->rinku;
+        return response()->json([
+            'data' => $data
+        ]);
     }
 
     /**

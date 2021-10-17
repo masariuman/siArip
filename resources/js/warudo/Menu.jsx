@@ -21,6 +21,7 @@ class Menu extends Component {
         };
         this.renderSashin = this.renderSashin.bind(this);
         this.renderLegendMenu = this.renderLegendMenu.bind(this);
+        this.renderLegendMenu2 = this.renderLegendMenu2.bind(this);
         this.handleButtonLogout = this.handleButtonLogout.bind(this);
         this.handleEditButton = this.handleEditButton.bind(this);
         this.modalPengaturanUser = this.modalPengaturanUser.bind(this);
@@ -452,6 +453,33 @@ class Menu extends Component {
         : <li></li>;
     }
 
+    renderLegendMenu2() {
+        return this.state.level === "0" ?
+        <li className=" has-sub-menu">
+        <NavLink
+            activeClassName="masariuman-active"
+            to={`/peremajaanData`}
+        >
+            <div className="icon-w">
+                <div className="os-icon os-icon-mail"></div>
+            </div>
+            <span>Input / Update Data Pegawai</span>
+        </NavLink>
+        <div className="sub-menu-w">
+            <div className="sub-menu-header masariuman_colorWhite">
+                Input / Update Data Pegawai
+            </div>
+            <div className="sub-menu-icon">
+                <i className="os-icon os-icon-mail"></i>
+            </div>
+            <div className="sub-menu-i masariuman_menuDescription">
+                Laman ini adalah laman untuk memanajemen data pegawai. Laman ini berisikan informasi data-data pegawai kabupaten mempawah.
+            </div>
+        </div>
+        </li>
+        : <li></li>;
+    }
+
     render() {
         return (
             <div className="menu-w color-scheme-dark color-style-bright menu-position-side menu-side-left menu-layout-mini sub-menu-style-over sub-menu-color-bright selected-menu-color-light menu-activated-on-hover menu-has-selected-link">
@@ -582,11 +610,31 @@ class Menu extends Component {
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Identitas Pegawai
                                 </Link>
                             </li>
+                            <li>
+                                <Link to={`/pangkatAkhir`}>
+                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Pangkat Akhir
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={`/jabatanAkhir`}>
+                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Jabatan Akhir
+                                </Link>
+                            </li>
                         </ul>
                         <ul className="sub-menu">
                             <li>
                                 <Link to={`/pns`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Data CPNS / PNS
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={`/pangkat`}>
+                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Pangkat
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={`/jabatan`}>
+                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Jabatan
                                 </Link>
                             </li>
                         </ul>
@@ -669,29 +717,8 @@ class Menu extends Component {
                             </div>
                         </div> */}
                     {/* </li> */}
-                    <li className=" has-sub-menu">
-                        <NavLink
-                            activeClassName="masariuman-active"
-                            to={`/peremajaanData`}
-                        >
-                            <div className="icon-w">
-                                <div className="os-icon os-icon-mail"></div>
-                            </div>
-                            <span>Input / Update Data Pegawai</span>
-                        </NavLink>
-                        <div className="sub-menu-w">
-                            <div className="sub-menu-header masariuman_colorWhite">
-                                Input / Update Data Pegawai
-                            </div>
-                            <div className="sub-menu-icon">
-                                <i className="os-icon os-icon-mail"></i>
-                            </div>
-                            <div className="sub-menu-i masariuman_menuDescription">
-                                Laman ini adalah laman untuk memanajemen data pegawai. Laman ini berisikan informasi data-data pegawai kabupaten mempawah.
-                            </div>
-                        </div>
-                    </li>
-                    <li className=" has-sub-menu">
+
+                    {/* <li className=" has-sub-menu">
                         <NavLink
                             activeClassName="masariuman-active"
                             to={`/surat-keluar`}
@@ -712,7 +739,8 @@ class Menu extends Component {
                                 Laman ini adalah laman untuk memanajemen data dari surat yang keluar dari kantor ke kantor lain. Laman ini berisikan informasi surat-surat yang keluar dan file-file surat yang dapat di simpan atau di unduh/download.
                             </div>
                         </div>
-                    </li>
+                    </li> */}
+                    {this.renderLegendMenu2()}
                     {this.renderLegendMenu()}
                 </ul>
                 {this.modalPengaturanUser()}

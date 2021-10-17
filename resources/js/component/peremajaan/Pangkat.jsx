@@ -399,18 +399,22 @@ class Pangkat extends Component {
 
     handleEditButton(e) {
         axios
-            .get(`/admin/pegawai/arsip/${e}/edit`)
+            .get(`/admin/pegawai/pangkat/${e}/edit`)
             .then(response => {
-                console.log(response);
+                // console.log(response);
                 this.setState({
-                    kategoriName : response.data.data.kategori_name,
-                    name : response.data.data.name,
-                    keterangan : response.data.data.keterangan,
+                    pangkat_id : response.data.data.golongan.rinku,
+                    jenisNaikPangkat_id : response.data.data.jenisNaikPangkat.rinku,
+                    masaKerjaGolonganTahun : response.data.data.pangkat.masaKerjaGolonganTahun,
+                    masaKerjaGolonganBulan : response.data.data.pangkat.masaKerjaGolonganBulan,
+                    tmtGolongan : response.data.data.pangkat.tmtGolongan,
+                    nomorSk : response.data.data.pangkat.nomorSk,
+                    tanggalSk : response.data.data.pangkat.tanggalSk,
+                    nomorPertek : response.data.data.pangkat.nomorPertek,
+                    tanggalPertek : response.data.data.pangkat.tanggalPertek,
+
                     loading: false,
                     url: e,
-                    filePath: response.data.data.file,
-                    fileUrl: response.data.data.fileurl,
-                    file: null
                 });
             })
             .catch(error => {
@@ -454,20 +458,6 @@ class Pangkat extends Component {
                 console.log(response);
                 this.setState({
                     data: [response.data.data.data, ...this.state.data],
-                    // unorName: "",
-                    // bidangName: "",
-                    // subbidName: "",
-                    // kategoriName: "",
-                    // keterangan: "",
-                    // name: "",
-                    // agamaUser: "",
-                    // gelarBelakang: "",
-                    // gelarDepan: "",
-                    // nip: "",
-                    // nip9: "",
-                    // namaLengkap: "",
-                    // tempatLahir: "",
-                    // tanggalLahir: "",
                     file: null,
                     filePath: null,
                     fileUrl: null,
@@ -496,24 +486,22 @@ class Pangkat extends Component {
             loading: true
         });
         const data = new FormData();
-        // data.append('file', this.state.file);
-        data.append('file', this.state.file);
-        data.append('kategoriName', this.state.kategoriName);
-        data.append('keterangan', this.state.keterangan);
-        data.append('name', this.state.name);
-        data.append('url', this.state.url);
-        console.log(data);
+        data.append('pangkat_id', this.state.pangkat_id);
+        data.append('jenisNaikPangkat_id', this.state.jenisNaikPangkat_id);
+        data.append('masaKerjaGolonganTahun', this.state.masaKerjaGolonganTahun);
+        data.append('masaKerjaGolonganBulan', this.state.masaKerjaGolonganBulan);
+        data.append('tmtGolongan', this.state.tmtGolongan);
+        data.append('nomorSk', this.state.nomorSk);
+        data.append('tanggalSk', this.state.tanggalSk);
+        data.append('nomorPertek', this.state.nomorPertek);
+        data.append('tanggalPertek', this.state.tanggalPertek);
+        data.append('url', this.props.match.params.url);
         axios
-            .post(`/admin/pegawai/arsip/update`, data)
+            .post(`/admin/pegawai/arsip/apdet`, data)
             .then(response => {
-                console.log(response);
+                // console.log(response);
                 this.setState({
-                    arsip : response.data.data.arsip.data,
-                    // namaLengkap : response.data.data.pegawai.name,
-                    // nip : response.data.data.pegawai.juugyouinBangou,
-                    // gelarBelakang : response.data.data.pegawai.gelarBelakang,
-                    // gelarDepan : response.data.data.pegawai.gelarDepan,
-                    // arsip : response.data.data.arsip.data,
+                    data : response.data.data.pangkat.data,
                     file: null,
                     filePath: null,
                     fileUrl: null,
@@ -724,9 +712,9 @@ class Pangkat extends Component {
                             {/* <button data-target="#detailModal" data-toggle="modal" className="mr-2 mb-2 btn btn-outline-info" type="button" onClick={this.handleEditButton.bind(this, data.rinku)} id={'detail'+data.nomor}>Detail</button> */}
                         </div>
                         <div className="text-center">
+                            <button className="mr-2 mb-2 btn btn-outline-success" type="button" onClick={this.handleDeleteButton.bind(this, data.rinku)} id={'hapus'+data.nomor}>Aktifkan</button> <br />
                             <button data-target="#editModal" data-toggle="modal" className="mr-2 mb-2 btn btn-outline-warning" type="button" onClick={this.handleEditButton.bind(this, data.rinku)} id={'ubah'+data.nomor}>Ubah</button> <br />
-                            <button className="mr-2 mb-2 btn btn-outline-danger" type="button" onClick={this.handleDeleteButton.bind(this, data.rinku)} id={'hapus'+data.nomor}>Hapus</button> <br />
-                            <button className="mr-2 mb-2 btn btn-outline-success" type="button" onClick={this.handleDeleteButton.bind(this, data.rinku)} id={'hapus'+data.nomor}>Aktifkan</button>
+                            <button className="mr-2 mb-2 btn btn-outline-danger" type="button" onClick={this.handleDeleteButton.bind(this, data.rinku)} id={'hapus'+data.nomor}>Hapus</button>
                         </div>
                     </td>
                 </tr>
@@ -975,33 +963,49 @@ class Pangkat extends Component {
                         </div>
                         <div className="onboarding-content with-gradient masariuman_width100percent">
                         <h4 className="onboarding-title">
-                            Ubah Data Arsip
+                            Ubah Data Pangkat
                         </h4>
                         <form onSubmit={this.handleEditSubmit}>
-                            <div className="row">
-                            <div className="col-sm-3">
+                        <div className="row">
+                            <div className="col-sm-6">
                                 <div className="form-group">
-                                    kategori :
+                                    Golongan :
                                 </div>
                             </div>
-                            <div className="col-sm-9">
+                            <div className="col-sm-6">
                                 <div className="form-group">
                                     <select
-                                        value={this.state.kategoriName}
-                                        onChange={this.handleChangeKategori}
+                                        value={this.state.pangkat_id}
+                                        onChange={this.handleChangeGolongan}
                                         className="form-control"
                                     >
-                                        {this.renderSelectKategori()}
+                                        {this.renderSelectGolongan()}
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="col-sm-6">
+                                <div className="form-group">
+                                    Jenis Kenaikan Pangkat (KP) :
+                                </div>
+                            </div>
+                            <div className="col-sm-6">
+                                <div className="form-group">
+                                    <select
+                                        value={this.state.jenisNaikPangkat_id}
+                                        onChange={this.handleChangeJenisKenaikanPangkat}
+                                        className="form-control"
+                                    >
+                                        {this.renderSelectJenisKenaikanPangkat()}
                                     </select>
                                 </div>
                             </div>
                             <div className="col-sm-12">
                                 <div className="form-group">
                                     <input
-                                        onChange={this.handleChangeName}
-                                        value={this.state.name}
-                                        title="Nama Berkas"
-                                        placeholder="Nama Berkas..."
+                                        onChange={this.handleChangeMasaKerjaGolonganTahun}
+                                        value={this.state.masaKerjaGolonganTahun}
+                                        title="Masa Kerja Golongan (Tahun)"
+                                        placeholder="Masa Kerja Golongan (Tahun)..."
                                         type="text"
                                         className="form-control"
                                     />
@@ -1010,44 +1014,96 @@ class Pangkat extends Component {
                             <div className="col-sm-12">
                                 <div className="form-group">
                                     <input
-                                        onChange={this.handleChangeKeterangan}
-                                        value={this.state.keterangan}
-                                        title="keterangan"
-                                        placeholder="keterangan..."
+                                        onChange={this.handleChangeMasaKerjaGolonganBulan}
+                                        value={this.state.masaKerjaGolonganBulan}
+                                        title="Masa Kerja Golongan (Bulan)"
+                                        placeholder="Masa Kerja Golongan (Bulan)..."
                                         type="text"
                                         className="form-control"
                                     />
                                 </div>
                             </div>
-                            <div className="col-sm-12">
+                            <div className="col-sm-6">
+                                <div className="form-group">
+                                    TMT Golongan :
+                                </div>
+                            </div>
+                            <div className="col-sm-6">
                                 <div className="form-group">
                                     <input
-                                        onChange={this.handleChangeFile}
-                                        title="File"
-                                        placeholder="File.."
-                                        type="file"
-                                        className="form-control masariuman_displayNone"
-                                        ref="fileUploader"
+                                        onChange={this.handleChangeTmtGolongan}
+                                        value={this.state.tmtGolongan}
+                                        title="TMT Golongan"
+                                        placeholder="TMT Golongan..."
+                                        type="date"
+                                        className="form-control"
                                     />
                                 </div>
                             </div>
+
                             <div className="col-sm-12">
-                                <table className="masariuman_tableFile">
-                                    <tbody>
-                                        <tr>
-                                            <td className="masariuman_width110px">
-                                                <button className="mr-2 mb-2 btn btn-primary" type="button" onClick={this.handleButtonFile} >Upload File</button>
-                                            </td>
-                                            <td className="form-group">
-                                                <a target="_blank" href={this.state.fileUrl}>{this.state.filePath}</a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div className="form-group">
+                                    <input
+                                        onChange={this.handleChangeNomorSK}
+                                        value={this.state.nomorSk}
+                                        title="Nomor Surat Keputusan (SK)"
+                                        placeholder="Nomor Surat Keputusan (SK)..."
+                                        type="text"
+                                        className="form-control"
+                                    />
+                                </div>
                             </div>
+                            <div className="col-sm-6">
+                                <div className="form-group">
+                                    Tanggal Surat Keputusan (SK) :
+                                </div>
+                            </div>
+                            <div className="col-sm-6">
+                                <div className="form-group">
+                                    <input
+                                        onChange={this.handleChangeTanggalSK}
+                                        value={this.state.tanggalSk}
+                                        title="Tanggal Surat Keputusan (SK)"
+                                        placeholder="Tanggal Surat Keputusan (SK)..."
+                                        type="date"
+                                        className="form-control"
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="col-sm-12">
+                                <div className="form-group">
+                                    <input
+                                        onChange={this.handleChangeNomorPertek}
+                                        value={this.state.nomorPertek}
+                                        title="Nomor Pertek BKN"
+                                        placeholder="Nomor Pertek BKN..."
+                                        type="text"
+                                        className="form-control"
+                                    />
+                                </div>
+                            </div>
+                            <div className="col-sm-6">
+                                <div className="form-group">
+                                    Tanggal Pertek BKN :
+                                </div>
+                            </div>
+                            <div className="col-sm-6">
+                                <div className="form-group">
+                                    <input
+                                        onChange={this.handleChangeTanggalPertek}
+                                        value={this.state.tanggalPertek}
+                                        title="Tanggal Pertek BKN"
+                                        placeholder="Tanggal Pertek BKN..."
+                                        type="date"
+                                        className="form-control"
+                                    />
+                                </div>
+                            </div>
+
                             <div className="col-sm-12">
                                 <div className="form-group text-center">
-                                    <button className="mr-2 mb-2 btn btn-warning" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Ubah Arsip</button>
+                                    <button className="mr-2 mb-2 btn btn-warning" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Ubah Data Pangkat</button>
                                 </div>
                             </div>
                             </div>
@@ -1340,8 +1396,8 @@ class Pangkat extends Component {
                                                 Manajemen Pangkat Pegawai
                                             </div>
                                             <div>
-                                                {/* <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal" onClick={this.handleTambahButton}>Tambah Pangkat Baru</button>
-                                                <div className="col-sm-4 float-right" id="cari">
+                                                <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal" onClick={this.handleTambahButton}>Tambah Pangkat Baru</button>
+                                                {/* <div className="col-sm-4 float-right" id="cari">
                                                     <input type="text" className="form-control" onChange={this.handleChangeCari}
                                                         value={this.state.cari} placeholder="Cari Arsip..."></input>
                                                 </div> */}
