@@ -1,0 +1,28 @@
+-------------------- Auto-Git Log --------------------
+		Sun Oct 17 2021 09:11:12 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/IdentitasPegawaiController.php
+* app/Http/Controllers/UuzaaController.php
+* public/js/app.js
+* resources/js/component/pegawai/Pns.jsx
+* resources/js/component/peremajaan/Arsip.jsx
+* resources/js/component/peremajaan/Detail.jsx
+* resources/js/component/peremajaan/DetailEdit.jsx
+* resources/js/component/peremajaan/Jabatan.jsx
+* resources/js/component/peremajaan/Pangkat.jsx
+* resources/js/component/peremajaan/Pengajuan.jsx
+* resources/js/component/peremajaan/Pns.jsx
+* resources/js/component/peremajaan/PnsEdit.jsx
+* routes/web.php
+
+
+Created files:
+* .autogit/logs/log-16-9-2021-23-16-42.txt
+
+
+Deleted files:
+
+
+Renamed files:

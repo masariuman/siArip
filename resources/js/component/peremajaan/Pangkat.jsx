@@ -1161,7 +1161,7 @@ class Pangkat extends Component {
                                             <div>
                                                 <Link
                                                     to={`/admin/pegawai/${this.props.match.params.url}/arsip`}
-                                                    className="btn btn-primary masariuman_width100percent masariuman_borderleftright0px"
+                                                    className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
                                                 >
                                                     <span className="pe-7s-pen"> </span> Arsip
                                                 </Link>
@@ -1192,15 +1192,15 @@ class Pangkat extends Component {
                                             </div>
                                             <div>
                                                 <Link
-                                                    to={`/admin/pegawai/${this.props.match.params.url}/pangkatAkhir`}
-                                                    className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
+                                                    to={`/admin/pegawai/${this.props.match.params.url}/pangkat`}
+                                                    className="btn btn-primary masariuman_width100percent masariuman_borderleftright0px"
                                                 >
                                                     <span className="pe-7s-pen"> </span> Pangkat Akhir
                                                 </Link>
                                             </div>
                                             <div>
                                                 <Link
-                                                    to={`/admin/pegawai/${this.props.match.params.url}/jabatanAkhir`}
+                                                    to={`/admin/pegawai/${this.props.match.params.url}/jabatan`}
                                                     className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
                                                 >
                                                     <span className="pe-7s-pen"> </span> Jabatan Akhir
@@ -1211,13 +1211,13 @@ class Pangkat extends Component {
                                     <div className="col-md-8">
                                         <div className="element-box">
                                             <h5 className="form-header">
-                                            Arsip {this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang}
+                                            Pangkat {this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang}
                                             </h5>
                                             <div className="form-desc">
-                                                Manajemen Arsip Pegawai
+                                                Manajemen Pangkat Pegawai
                                             </div>
                                             <div>
-                                                <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal" onClick={this.handleTambahButton}>Tambah Arsip Baru</button>
+                                                <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal" onClick={this.handleTambahButton}>Tambah Pangkat Baru</button>
                                                 <div className="col-sm-4 float-right" id="cari">
                                                     <input type="text" className="form-control" onChange={this.handleChangeCari}
                                                         value={this.state.cari} placeholder="Cari Arsip..."></input>
