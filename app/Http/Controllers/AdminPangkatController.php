@@ -95,19 +95,13 @@ class AdminPangkatController extends Controller
             $data['pegawai']['gelarBelakang'] = ", " . $data['pegawai']['gelarBelakang'];
         }
         $data['pangkat'] = Pangkat::where('pegawai_id',$data['pegawai']['id'])->whereIn('sutattsu',['1', '2'])->orderBy("id", "ASC")->paginate($pagination);
-        $count = $data['arsip']->CurrentPage() * $pagination - ($pagination - 1);
-        foreach ($data['arsip'] as $items) {
+        $count = $data['pangkat']->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data['pangkat'] as $items) {
             $items['nomor'] = $count;
-            $items['kategori'] = $items->kategori->name;
+            $items['golongan'] =$items->pangkat->name;
+            $items['golongan2'] =" ( " . $items->pangkat->pangkat . " ) ";
+            $items['jenisNaikPangkat'] = $items->jenisNaikPangkat->name;
             $count++;
-        }
-        $data['identitasPegawai'] = IdentitasPegawai::where('pegawai_id', $data['pegawai']['id'])->first();
-        if ($data['identitasPegawai'] != null) {
-            if ($data['identitasPegawai']['agama'] === null || $data['identitasPegawai']['agama'] === "") {
-                $data['identitasPegawai']['agamaUser'] = "";
-            } else {
-                $data['identitasPegawai']['agamaUser'] = $data['identitasPegawai']->agama->name;
-            }
         }
 
         // $data['heyaRinku'] = $data->heya->rinku;

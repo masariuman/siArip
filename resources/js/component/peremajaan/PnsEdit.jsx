@@ -1492,7 +1492,7 @@ class PnsEdit extends Component {
                             <div className="element-wrapper">
                                 {/* content here */}
                                 <div className="row">
-                                    <div className="col-md-4">
+                                    <div className="col-md-3">
                                         <div className="element-box masariuman_leftSide">
                                             <div className="masariuman_foto">
                                                 <img className="masariuman_width220px" alt="" src={this.state.sashin} />
@@ -1552,7 +1552,7 @@ class PnsEdit extends Component {
                                             </div>
                                         </div>
                                     </div>
-                                        <div className="col-md-8">
+                                        <div className="col-md-9">
                                             <div className="element-box">
                                                 <div className="masariuman_marginBottom50px">
                                                     <div className="float-left">

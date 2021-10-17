@@ -550,13 +550,13 @@ class Pangkat extends Component {
                     nip : response.data.data.pegawai.juugyouinBangou,
                     gelarBelakang : response.data.data.pegawai.gelarBelakang,
                     gelarDepan : response.data.data.pegawai.gelarDepan,
-                    arsip : response.data.data.arsip.data,
-                    sashin : response.data.data.pegawai.sashin,
+                    data : response.data.data.pangkat.data,
+                    sashin : '/sashin/'+response.data.data.pegawai.sashin,
                     // ubahPetunjukId: response.data.data.data[0].rinku,
                     loading: false,
-                    activePage: response.data.data.arsip.current_page,
-                    itemsCountPerPage: response.data.data.arsip.per_page,
-                    totalItemsCount: response.data.data.arsip.total,
+                    activePage: response.data.data.pangkat.current_page,
+                    itemsCountPerPage: response.data.data.pangkat.per_page,
+                    totalItemsCount: response.data.data.pangkat.total,
                     pageRangeDisplayed: 10
                 });
                 $('#petunjuk').on('click',function() {
@@ -699,14 +699,20 @@ class Pangkat extends Component {
                 <tr key={data.rinku} className="masariuman_table">
                     <th scope="row" className="text-center">{data.nomor}</th>
                     <td className="text-center">
-                        {data.golongan}
+                        {data.golongan} <br />
+                        <small>{data.golongan2}</small> <br />
+                        <small>TMT {data.tmtGolongan}</small>
                     </td>
+                    <td className="text-center">
                         {data.jenisNaikPangkat}
-                    <td className="text-center">
-                        {data.nomorSk}
                     </td>
                     <td className="text-center">
-                        {data.nomorPertek}
+                        {data.nomorSk}  <br />
+                        <small>{data.tanggalSk}</small>
+                    </td>
+                    <td className="text-center">
+                        {data.nomorPertek} <br />
+                        <small>{data.tanggalPertek}</small>
                     </td>
                     <td id="downloadButton">
                         <div className="text-center">
@@ -718,8 +724,9 @@ class Pangkat extends Component {
                             {/* <button data-target="#detailModal" data-toggle="modal" className="mr-2 mb-2 btn btn-outline-info" type="button" onClick={this.handleEditButton.bind(this, data.rinku)} id={'detail'+data.nomor}>Detail</button> */}
                         </div>
                         <div className="text-center">
-                            <button data-target="#editModal" data-toggle="modal" className="mr-2 mb-2 btn btn-outline-warning" type="button" onClick={this.handleEditButton.bind(this, data.rinku)} id={'ubah'+data.nomor}>Ubah</button>
-                            <button className="mr-2 mb-2 btn btn-outline-danger" type="button" onClick={this.handleDeleteButton.bind(this, data.rinku)} id={'hapus'+data.nomor}>Hapus</button>
+                            <button data-target="#editModal" data-toggle="modal" className="mr-2 mb-2 btn btn-outline-warning" type="button" onClick={this.handleEditButton.bind(this, data.rinku)} id={'ubah'+data.nomor}>Ubah</button> <br />
+                            <button className="mr-2 mb-2 btn btn-outline-danger" type="button" onClick={this.handleDeleteButton.bind(this, data.rinku)} id={'hapus'+data.nomor}>Hapus</button> <br />
+                            <button className="mr-2 mb-2 btn btn-outline-success" type="button" onClick={this.handleDeleteButton.bind(this, data.rinku)} id={'hapus'+data.nomor}>Aktifkan</button>
                         </div>
                     </td>
                 </tr>
@@ -1264,10 +1271,10 @@ class Pangkat extends Component {
                             <div className="element-wrapper">
                                 {/* content here */}
                                 <div className="row">
-                                    <div className="col-md-4">
+                                    <div className="col-md-3">
                                         <div className="element-box masariuman_leftSide">
                                             <div className="masariuman_foto">
-                                                <img className="masariuman_width220px" alt="" src={`/sashin/${this.state.sashin}`} />
+                                                <img className="masariuman_width220px" alt="" src={this.state.sashin} />
                                             </div>
                                             <div>
                                                 <span className="masariuman-bold">{this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang}</span> <br/>
@@ -1324,7 +1331,7 @@ class Pangkat extends Component {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="col-md-8">
+                                    <div className="col-md-9">
                                         <div className="element-box">
                                             <h5 className="form-header">
                                             Pangkat {this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang}
@@ -1333,11 +1340,11 @@ class Pangkat extends Component {
                                                 Manajemen Pangkat Pegawai
                                             </div>
                                             <div>
-                                                <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal" onClick={this.handleTambahButton}>Tambah Pangkat Baru</button>
+                                                {/* <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal" onClick={this.handleTambahButton}>Tambah Pangkat Baru</button>
                                                 <div className="col-sm-4 float-right" id="cari">
                                                     <input type="text" className="form-control" onChange={this.handleChangeCari}
                                                         value={this.state.cari} placeholder="Cari Arsip..."></input>
-                                                </div>
+                                                </div> */}
                                             </div>
                                             <div className="table-responsive" id="ruanganTable">
                                                 <table id="tabeldata" width="100%" className="table table-striped table-lightfont">
