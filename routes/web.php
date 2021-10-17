@@ -252,6 +252,8 @@ Route::post('/admin/pegawai/search', 'UuzaaController@pegawaiSearch');
 
 Route::post('/identitasPegawai/deeta/update', 'IdentitasPegawaiController@store');
 
+Route::get('/identitasPegawai/pns', 'IdentitasPegawaiController@pns');
+
 
 Route::resources([
     'kanrisha/heya/deeta' => 'HeyaController',

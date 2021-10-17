@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Uuzaa;
 use App\Models\IdentitasPegawai;
 use App\Models\ReferensiAgama;
+use App\Models\CPNSPNS;
 use Illuminate\Support\Facades\Auth;
 
 class IdentitasPegawaiController extends Controller
@@ -253,5 +254,37 @@ class IdentitasPegawaiController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function pns()
+    {
+        $data['pegawai'] = Auth::user();
+        if ($data['pegawai']['gelarDepan'] === null || $data['pegawai']['gelarDepan'] === "") {
+            $data['pegawai']['gelarDepan'] = "";
+        } else {
+            $data['pegawai']['gelarDepan'] = $data['pegawai']['gelarDepan'] . ". ";
+        }
+        if ($data['pegawai']['gelarBelakang'] === null || $data['pegawai']['gelarBelakang'] === "") {
+            $data['pegawai']['gelarBelakang'] = "";
+        } else {
+            $data['pegawai']['gelarBelakang'] = ", " . $data['pegawai']['gelarBelakang'];
+        }
+        $data['cpnspns'] = CPNSPNS::where('pegawai_id', $data['pegawai']['id'])->first();
+        if ($data['cpnspns'] != null) {
+            if ($data['cpnspns']['statusKepegawaian_id'] === null || $data['cpnspns']['statusKepegawaian_id'] === "") {
+                $data['cpnspns']['statusKepegawaianText'] = "";
+                $data['cpnspns']['statusKepegawaianrinku'] = "";
+            } else {
+                $data['cpnspns']['statusKepegawaianText'] = $data['cpnspns']->statusKepegawaian->name;
+                $data['cpnspns']['statusKepegawaianrinku'] = $data['cpnspns']->statusKepegawaian->rinku;
+            }
+        }
+
+
+
+        // $data['heyaRinku'] = $data->heya->rinku;
+        return response()->json([
+            'data' => $data
+        ]);
     }
 }

@@ -9,7 +9,9 @@ use App\Models\ReferensiSubBidang;
 use App\Models\Arsip;
 use App\Models\ReferensiKategoriArsip;
 use App\Models\IdentitasPegawai;
+use App\Models\CPNSPNS;
 use App\Models\ReferensiAgama;
+use App\Models\ReferensiStatusKepegawaian;
 use Uuid;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -94,6 +96,7 @@ class UuzaaController extends Controller
         $data = $request->request->all();
         $subbid = ReferensiSubBidang::where('rinku', $data['subbidName'])->first();
         $agama = ReferensiAgama::where('rinku',$data['agamaUser'])->first();
+        $statusKepegawaian = ReferensiStatusKepegawaian::where('sutattsu','1')->first();
         if ($data['gelarDepan']===null) {
             $data['gelarDepan']="";
         }
@@ -129,6 +132,19 @@ class UuzaaController extends Controller
             'tanggalNpwp' => $date,
             'tanggalTaspen' => $date,
             'agama_id' => $agama['id']
+        ]);
+        CPNSPNS::create([
+            'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string))))),
+            'pegawai_id' => $data['id'],
+            'tanggalSkCpns' => $date,
+            'tmtCpns' => $date,
+            'tanggalSkPns' => $date,
+            'tmtPns' => $date,
+            'tanggalSttpl' => $date,
+            'tanggalSpmt' => $date,
+            'tanggalPertekC2th' => $date,
+            'tanggalSkd' => $date,
+            'statusKepegawaian_id' => $statusKepegawaian['id']
         ]);
         // $pagination = 5;
         // $data = Uuzaa::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);

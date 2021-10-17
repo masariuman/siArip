@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Sat Oct 16 2021 23:16:42 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* public/js/app.js
+* resources/js/reactRoute.jsx
+* resources/js/warudo/Menu.jsx
+
+
+Created files:
+* .autogit/logs/log-16-9-2021-22-46-18.txt
+* resources/js/component/pegawai/Pns.jsx
+
+
+Deleted files:
+
+
+Renamed files:

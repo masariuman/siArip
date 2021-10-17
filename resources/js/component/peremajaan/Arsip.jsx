@@ -1184,18 +1184,10 @@ class Arsip extends Component {
                                             </div>
                                             <div>
                                                 <Link
-                                                    to={`/admin/pegawai/${this.props.match.params.url}/cpns`}
-                                                    className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
-                                                >
-                                                    <span className="pe-7s-pen"> </span> CPNS
-                                                </Link>
-                                            </div>
-                                            <div>
-                                                <Link
                                                     to={`/admin/pegawai/${this.props.match.params.url}/pns`}
                                                     className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
                                                 >
-                                                    <span className="pe-7s-pen"> </span> PNS
+                                                    <span className="pe-7s-pen"> </span> CPNS / PNS
                                                 </Link>
                                             </div>
                                             <div>
