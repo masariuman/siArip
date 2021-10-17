@@ -25,4 +25,9 @@ class ReferensiSubBidang extends Model
     {
         return $this->hasMany('App\Models\User')->withTimestamps();
     }
+
+    public function jabatan()
+    {
+        return $this->hasMany('App\Models\Jabatan', 'subbid_id');
+    }
 }

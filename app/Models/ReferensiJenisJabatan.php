@@ -14,4 +14,9 @@ class ReferensiJenisJabatan extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function jabatan()
+    {
+        return $this->hasMany('App\Models\Jabatan', 'jenisJabatan_id');
+    }
 }

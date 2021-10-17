@@ -695,17 +695,18 @@ class Pangkat extends Component {
             loading: true
         });
         axios
-            .get(`/admin/pegawai/${this.props.match.params.url}?page=${pageNumber}`)
+            .get(`/admin/pegawai/pangkat/${this.props.match.params.url}?page=${pageNumber}`)
             .then(response => {
                 console.log(response);
                 this.setState({
-                    arsip : response.data.data.arsip.data,
+                    // arsip : response.data.data.arsip.data,
                     // data: response.data.data.arsip.data,
+                    data : response.data.data.pangkat.data,
+                    // ubahPetunjukId: response.data.data.data[0].rinku,
                     loading: false,
-                    activePage: response.data.data.arsip.current_page,
-                    itemsCountPerPage: response.data.data.arsip.per_page,
-                    totalItemsCount: response.data.data.arsip.total,
-                    pageRangeDisplayed: 10
+                    activePage: response.data.data.pangkat.current_page,
+                    itemsCountPerPage: response.data.data.pangkat.per_page,
+                    totalItemsCount: response.data.data.pangkat.total,
                 });
             })
             .catch(error => {

@@ -46,4 +46,9 @@ class Uuzaa extends Model
     {
         return $this->hasMany('App\Models\Pangkat', 'pegawai_id');
     }
+
+    public function jabatan()
+    {
+        return $this->hasMany('App\Models\Jabatan', 'pegawai_id');
+    }
 }

@@ -10,7 +10,9 @@ use App\Models\Arsip;
 use App\Models\ReferensiKategoriArsip;
 use App\Models\IdentitasPegawai;
 use App\Models\CPNSPNS;
+use App\Models\Jabatan;
 use App\Models\ReferensiAgama;
+use App\Models\ReferensiJenisJabatan;
 use App\Models\ReferensiStatusKepegawaian;
 use Uuid;
 use Illuminate\Support\Facades\Hash;
@@ -97,6 +99,7 @@ class UuzaaController extends Controller
         $subbid = ReferensiSubBidang::where('rinku', $data['subbidName'])->first();
         $agama = ReferensiAgama::where('rinku',$data['agamaUser'])->first();
         $statusKepegawaian = ReferensiStatusKepegawaian::where('sutattsu','1')->first();
+        $jenisJabatan = ReferensiJenisJabatan::where('sutattsu','1')->first();
         if ($data['gelarDepan']===null) {
             $data['gelarDepan']="";
         }
@@ -145,6 +148,15 @@ class UuzaaController extends Controller
             'tanggalPertekC2th' => $date,
             'tanggalSkd' => $date,
             'statusKepegawaian_id' => $statusKepegawaian['id']
+        ]);
+        Jabatan::create([
+            'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string))))),
+            'pegawai_id' => $data['id'],
+            'tmtJabatan' => $date,
+            'tmtPelantikan' => $date,
+            'tanggalSk' => $date,
+            'subbid_id' =>  $subbid->id,
+            'jenisJabatan_id' => $jenisJabatan['id']
         ]);
         // $pagination = 5;
         // $data = Uuzaa::where("sutattsu", "1")->orderBy("id", "DESC")->paginate($pagination);
