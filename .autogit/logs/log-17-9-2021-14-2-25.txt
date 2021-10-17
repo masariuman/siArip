@@ -1,0 +1,21 @@
+-------------------- Auto-Git Log --------------------
+		Sun Oct 17 2021 14:02:25 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* public/js/app.js
+* resources/js/component/peremajaan/Arsip.jsx
+* resources/js/component/peremajaan/Detail.jsx
+* resources/js/component/peremajaan/DetailEdit.jsx
+* resources/js/component/peremajaan/Jabatan.jsx
+* resources/js/component/peremajaan/Pangkat.jsx
+
+
+Created files:
+* .autogit/logs/log-17-9-2021-9-11-12.txt
+
+
+Deleted files:
+
+
+Renamed files:
