@@ -83,6 +83,13 @@ class Pangkat extends Component {
 
         this.handleChangeGolongan = this.handleChangeGolongan.bind(this);
         this.handleChangeJenisKenaikanPangkat = this.handleChangeJenisKenaikanPangkat.bind(this);
+        this.handleChangeMasaKerjaGolonganTahun = this.handleChangeMasaKerjaGolonganTahun.bind(this);
+        this.handleChangeMasaKerjaGolonganBulan = this.handleChangeMasaKerjaGolonganBulan.bind(this);
+        this.handleChangeTmtGolongan = this.handleChangeTmtGolongan.bind(this);
+        this.handleChangeNomorSK = this.handleChangeNomorSK.bind(this);
+        this.handleChangeTanggalSK = this.handleChangeTanggalSK.bind(this);
+        this.handleChangeNomorPertek = this.handleChangeNomorPertek.bind(this);
+        this.handleChangeTanggalPertek = this.handleChangeTanggalPertek.bind(this);
 
 
         this.handleChangeNip = this.handleChangeNip.bind(this);
@@ -151,6 +158,55 @@ class Pangkat extends Component {
     handleChangeJenisKenaikanPangkat(e) {
         this.setState({
             jenisNaikPangkat_id: e.target.value
+        });
+        // console.log(e.target.value);
+    }
+
+    handleChangeMasaKerjaGolonganTahun(e) {
+        this.setState({
+            masaKerjaGolonganTahun: e.target.value
+        });
+        // console.log(e.target.value);
+    }
+
+    handleChangeMasaKerjaGolonganBulan(e) {
+        this.setState({
+            masaKerjaGolonganBulan: e.target.value
+        });
+        // console.log(e.target.value);
+    }
+
+    handleChangeTmtGolongan(e) {
+        this.setState({
+            tmtGolongan: e.target.value
+        });
+        // console.log(e.target.value);
+    }
+
+    handleChangeNomorSK(e) {
+        this.setState({
+            nomorSk: e.target.value
+        });
+        // console.log(e.target.value);
+    }
+
+    handleChangeTanggalSK(e) {
+        this.setState({
+            tanggalSk: e.target.value
+        });
+        // console.log(e.target.value);
+    }
+
+    handleChangeNomorPertek(e) {
+        this.setState({
+            nomorPertek: e.target.value
+        });
+        // console.log(e.target.value);
+    }
+
+    handleChangeTanggalPertek(e) {
+        this.setState({
+            tanggalPertek: e.target.value
         });
         // console.log(e.target.value);
     }
@@ -382,13 +438,18 @@ class Pangkat extends Component {
             loading: true
         });
         const data = new FormData();
-        data.append('file', this.state.file);
-        data.append('kategoriName', this.state.kategoriName);
-        data.append('keterangan', this.state.keterangan);
-        data.append('name', this.state.name);
+        data.append('pangkat_id', this.state.kategoriName);
+        data.append('jenisNaikPangkat_id', this.state.keterangan);
+        data.append('masaKerjaGolonganTahun', this.state.name);
+        data.append('masaKerjaGolonganBulan', this.state.name);
+        data.append('tmtGolongan', this.state.name);
+        data.append('nomorSk', this.state.name);
+        data.append('tanggalSk', this.state.name);
+        data.append('nomorPertek', this.state.name);
+        data.append('tanggalPertek', this.state.name);
         data.append('pegawai_id', this.props.match.params.url);
         axios
-            .post(`/admin/pegawai/arsip`, data)
+            .post(`/admin/pegawai/pangkat`, data)
             .then(response => {
                 console.log(response);
                 this.setState({
@@ -795,8 +856,8 @@ class Pangkat extends Component {
                             <div className="col-sm-12">
                                 <div className="form-group">
                                     <input
-                                        onChange={this.handleChangeName}
-                                        value={this.state.name}
+                                        onChange={this.handleChangeMasaKerjaGolonganTahun}
+                                        value={this.state.masaKerjaGolonganTahun}
                                         title="Masa Kerja Golongan (Tahun)"
                                         placeholder="Masa Kerja Golongan (Tahun)..."
                                         type="text"
@@ -807,8 +868,8 @@ class Pangkat extends Component {
                             <div className="col-sm-12">
                                 <div className="form-group">
                                     <input
-                                        onChange={this.handleChangeName}
-                                        value={this.state.name}
+                                        onChange={this.handleChangeMasaKerjaGolonganBulan}
+                                        value={this.state.masaKerjaGolonganBulan}
                                         title="Masa Kerja Golongan (Bulan)"
                                         placeholder="Masa Kerja Golongan (Bulan)..."
                                         type="text"
@@ -824,8 +885,8 @@ class Pangkat extends Component {
                             <div className="col-sm-6">
                                 <div className="form-group">
                                     <input
-                                        onChange={this.handleChangeKeterangan}
-                                        value={this.state.keterangan}
+                                        onChange={this.handleChangeTmtGolongan}
+                                        value={this.state.tmtGolongan}
                                         title="TMT Golongan"
                                         placeholder="TMT Golongan..."
                                         type="date"
@@ -837,8 +898,8 @@ class Pangkat extends Component {
                             <div className="col-sm-12">
                                 <div className="form-group">
                                     <input
-                                        onChange={this.handleChangeKeterangan}
-                                        value={this.state.keterangan}
+                                        onChange={this.handleChangeNomorSK}
+                                        value={this.state.nomorSk}
                                         title="Nomor Surat Keputusan (SK)"
                                         placeholder="Nomor Surat Keputusan (SK)..."
                                         type="text"
@@ -854,8 +915,8 @@ class Pangkat extends Component {
                             <div className="col-sm-6">
                                 <div className="form-group">
                                     <input
-                                        onChange={this.handleChangeKeterangan}
-                                        value={this.state.keterangan}
+                                        onChange={this.handleChangeTanggalSK}
+                                        value={this.state.tanggalSk}
                                         title="Tanggal Surat Keputusan (SK)"
                                         placeholder="Tanggal Surat Keputusan (SK)..."
                                         type="date"
@@ -867,8 +928,8 @@ class Pangkat extends Component {
                             <div className="col-sm-12">
                                 <div className="form-group">
                                     <input
-                                        onChange={this.handleChangeKeterangan}
-                                        value={this.state.keterangan}
+                                        onChange={this.handleChangeNomorPertek}
+                                        value={this.state.nomorPertek}
                                         title="Nomor Pertek BKN"
                                         placeholder="Nomor Pertek BKN..."
                                         type="text"
@@ -884,8 +945,8 @@ class Pangkat extends Component {
                             <div className="col-sm-6">
                                 <div className="form-group">
                                     <input
-                                        onChange={this.handleChangeKeterangan}
-                                        value={this.state.keterangan}
+                                        onChange={this.handleChangeTanggalPertek}
+                                        value={this.state.tanggalPertek}
                                         title="Tanggal Pertek BKN"
                                         placeholder="Tanggal Pertek BKN..."
                                         type="date"

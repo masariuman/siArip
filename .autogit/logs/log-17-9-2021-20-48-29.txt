@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Sun Oct 17 2021 20:48:29 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/ReferensiController.php
+* public/js/app.js
+* resources/js/component/peremajaan/Pangkat.jsx
+* routes/web.php
+
+
+Created files:
+* .autogit/logs/log-17-9-2021-20-18-2.txt
+
+
+Deleted files:
+
+
+Renamed files:

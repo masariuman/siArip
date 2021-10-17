@@ -221,11 +221,17 @@ Route::delete('/admin/referensi/kategoriArsip/{url}', 'ReferensiController@kateg
 Route::post('/admin/referensi/kategoriArsip/search', 'ReferensiController@kategoriArsipSearch');
 
 Route::post('/admin/pegawai/arsip', 'UuzaaController@arsipPegawai');
-Route::post('/admin/pegawai/arsip/search', 'UuzaaController@arsipPegawaiSearch');
+// Route::post('/admin/pegawai/arsip/search', 'UuzaaController@arsipPegawaiSearch');
 Route::get('/admin/pegawai/arsip/{url}/edit', 'UuzaaController@arsipPegawaiEdit');
 Route::post('/admin/pegawai/arsip/update', 'UuzaaController@arsipPegawaiUpdate');
 Route::post('/admin/pegawai/arsip/search', 'UuzaaController@arsipPegawaiArsipSearch');
 Route::delete('/admin/pegawai/arsip/{url}', 'UuzaaController@arsipPegawaiArsipDelete');
+
+Route::post('/admin/pegawai/pangkat', 'AdminPangkatController@store');
+Route::post('/admin/pegawai/pangkat/search', 'AdminPangkatController@search');
+Route::get('/admin/pegawai/pangkat/{url}/edit', 'AdminPangkatController@edit');
+Route::post('/admin/pegawai/pangkat/update', 'AdminPangkatController@apdet');
+Route::delete('/admin/pegawai/pangkat/{url}', 'AdminPangkatController@destroy');
 
 // Route::post('/pegawai/arsip', 'UuzaaController@arsipPegawai');
 // Route::post('/pegawai/search', 'UuzaaController@arsipPegawaiSearch');
