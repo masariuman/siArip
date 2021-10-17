@@ -438,22 +438,22 @@ class Pangkat extends Component {
             loading: true
         });
         const data = new FormData();
-        data.append('pangkat_id', this.state.kategoriName);
-        data.append('jenisNaikPangkat_id', this.state.keterangan);
-        data.append('masaKerjaGolonganTahun', this.state.name);
-        data.append('masaKerjaGolonganBulan', this.state.name);
-        data.append('tmtGolongan', this.state.name);
-        data.append('nomorSk', this.state.name);
-        data.append('tanggalSk', this.state.name);
-        data.append('nomorPertek', this.state.name);
-        data.append('tanggalPertek', this.state.name);
+        data.append('pangkat_id', this.state.pangkat_id);
+        data.append('jenisNaikPangkat_id', this.state.jenisNaikPangkat_id);
+        data.append('masaKerjaGolonganTahun', this.state.masaKerjaGolonganTahun);
+        data.append('masaKerjaGolonganBulan', this.state.masaKerjaGolonganBulan);
+        data.append('tmtGolongan', this.state.tmtGolongan);
+        data.append('nomorSk', this.state.nomorSk);
+        data.append('tanggalSk', this.state.tanggalSk);
+        data.append('nomorPertek', this.state.nomorPertek);
+        data.append('tanggalPertek', this.state.tanggalPertek);
         data.append('pegawai_id', this.props.match.params.url);
         axios
             .post(`/admin/pegawai/pangkat`, data)
             .then(response => {
                 console.log(response);
                 this.setState({
-                    arsip: [response.data.data.arsip, ...this.state.arsip],
+                    data: [response.data.data.data, ...this.state.data],
                     // unorName: "",
                     // bidangName: "",
                     // subbidName: "",
@@ -541,7 +541,7 @@ class Pangkat extends Component {
             // loading: true
         });
         axios
-            .get(`/admin/pegawai/${this.props.match.params.url}`)
+            .get(`/admin/pegawai/pangkat/${this.props.match.params.url}`)
             .then(response => {
                 // console.log(response);
                 this.setState({
@@ -694,33 +694,19 @@ class Pangkat extends Component {
     }
 
     renderData() {
-        return !this.state.arsip.length ? <tr><td colSpan="9" className="text-center">Data Tidak Ditemukan</td></tr> :
-            this.state.arsip.map(data => (
+        return !this.state.data.length ? <tr><td colSpan="9" className="text-center">Data Tidak Ditemukan</td></tr> :
+            this.state.data.map(data => (
                 <tr key={data.rinku} className="masariuman_table">
                     <th scope="row" className="text-center">{data.nomor}</th>
                     <td className="text-center">
-                        <Highlighter
-                            highlightClassName="YourHighlightClass"
-                            searchWords={[this.state.cari]}
-                            autoEscape={true}
-                            textToHighlight={data.kategori.name}
-                        />
+                        {data.golongan}
+                    </td>
+                        {data.jenisNaikPangkat}
+                    <td className="text-center">
+                        {data.nomorSk}
                     </td>
                     <td className="text-center">
-                        <Highlighter
-                            highlightClassName="YourHighlightClass"
-                            searchWords={[this.state.cari]}
-                            autoEscape={true}
-                            textToHighlight={data.name}
-                        />
-                    </td>
-                    <td className="text-center">
-                        <Highlighter
-                            highlightClassName="YourHighlightClass"
-                            searchWords={[this.state.cari]}
-                            autoEscape={true}
-                            textToHighlight={data.keterangan}
-                        />
+                        {data.nomorPertek}
                     </td>
                     <td id="downloadButton">
                         <div className="text-center">
@@ -957,7 +943,7 @@ class Pangkat extends Component {
 
                             <div className="col-sm-12">
                                 <div className="form-group text-center">
-                                    <button className="mr-2 mb-2 btn btn-primary" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Tambah Arsip Baru</button>
+                                    <button className="mr-2 mb-2 btn btn-primary" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Tambah Data Pangkat Baru</button>
                                 </div>
                             </div>
                             </div>
@@ -1325,7 +1311,7 @@ class Pangkat extends Component {
                                                     to={`/admin/pegawai/${this.props.match.params.url}/pangkat`}
                                                     className="btn btn-primary masariuman_width100percent masariuman_borderleftright0px"
                                                 >
-                                                    <span className="pe-7s-pen"> </span> Pangkat Akhir
+                                                    <span className="pe-7s-pen"> </span> Pangkat
                                                 </Link>
                                             </div>
                                             <div>
@@ -1333,7 +1319,7 @@ class Pangkat extends Component {
                                                     to={`/admin/pegawai/${this.props.match.params.url}/jabatan`}
                                                     className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
                                                 >
-                                                    <span className="pe-7s-pen"> </span> Jabatan Akhir
+                                                    <span className="pe-7s-pen"> </span> Jabatan
                                                 </Link>
                                             </div>
                                         </div>
@@ -1358,9 +1344,10 @@ class Pangkat extends Component {
                                                     <thead>
                                                         <tr>
                                                             <th className="width50px text-center">NO</th>
-                                                            <th className="width50px text-center">Kategori</th>
-                                                            <th className="text-center">Nama Arsip</th>
-                                                            <th className="text-center">Keterangan</th>
+                                                            <th className="width50px text-center">Pangkat</th>
+                                                            <th className="width50px text-center">Jenis Naik Pangkat</th>
+                                                            <th className="text-center">Nomor SK</th>
+                                                            <th className="text-center">Nomor Pertek</th>
                                                             <th className="text-center">Aksi</th>
                                                             {/* <th className="width250px text-center">ACTION</th> */}
                                                         </tr>

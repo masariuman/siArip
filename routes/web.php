@@ -228,6 +228,7 @@ Route::post('/admin/pegawai/arsip/search', 'UuzaaController@arsipPegawaiArsipSea
 Route::delete('/admin/pegawai/arsip/{url}', 'UuzaaController@arsipPegawaiArsipDelete');
 
 Route::post('/admin/pegawai/pangkat', 'AdminPangkatController@store');
+Route::get('/admin/pegawai/pangkat/{url}', 'AdminPangkatController@show');
 Route::post('/admin/pegawai/pangkat/search', 'AdminPangkatController@search');
 Route::get('/admin/pegawai/pangkat/{url}/edit', 'AdminPangkatController@edit');
 Route::post('/admin/pegawai/pangkat/update', 'AdminPangkatController@apdet');
