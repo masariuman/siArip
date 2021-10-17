@@ -1,0 +1,21 @@
+-------------------- Auto-Git Log --------------------
+		Sun Oct 17 2021 19:47:47 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Models/Pangkat.php
+* app/Models/ReferensiJenisNaikPangkat.php
+* app/Models/ReferensiPangkatGolonganRuang.php
+* app/Models/Uuzaa.php
+* resources/js/component/peremajaan/Pangkat.jsx
+
+
+Created files:
+* .autogit/logs/log-17-9-2021-16-3-53.txt
+* app/Http/Controllers/PangkatController.php
+
+
+Deleted files:
+
+
+Renamed files:

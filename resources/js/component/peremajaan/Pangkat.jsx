@@ -37,6 +37,17 @@ class Pangkat extends Component {
             keterangan : "",
             arsip: [],
 
+            pegawai_id : "",
+            pangkat_id : "",
+            jenisNaikPangkat_id : "",
+            masaKerjaGolonganTahun : "",
+            masaKerjaGolonganBulan : "",
+            tmtGolongan : "",
+            nomorSk : "",
+            tanggalSk : "",
+            nomorPertek : "",
+            tanggalPertek : "",
+
             dataEditInput: "",
             buttonTambahModal: "",
             cari: "",
