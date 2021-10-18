@@ -1539,7 +1539,7 @@ class PnsEdit extends Component {
                                                     to={`/admin/pegawai/${this.props.match.params.url}/pangkat`}
                                                     className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
                                                 >
-                                                    <span className="pe-7s-pen"> </span> Pangkat Akhir
+                                                    <span className="pe-7s-pen"> </span> Pangkat
                                                 </Link>
                                             </div>
                                             <div>
@@ -1547,7 +1547,7 @@ class PnsEdit extends Component {
                                                     to={`/admin/pegawai/${this.props.match.params.url}/jabatan`}
                                                     className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
                                                 >
-                                                    <span className="pe-7s-pen"> </span> Jabatan Akhir
+                                                    <span className="pe-7s-pen"> </span> Jabatan
                                                 </Link>
                                             </div>
                                         </div>

@@ -156,6 +156,7 @@ class UuzaaController extends Controller
             'tmtPelantikan' => $date,
             'tanggalSk' => $date,
             'subbid_id' =>  $subbid->id,
+            'sutattsu' => '2',
             'jenisJabatan_id' => $jenisJabatan['id']
         ]);
         // $pagination = 5;

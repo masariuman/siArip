@@ -1,0 +1,23 @@
+-------------------- Auto-Git Log --------------------
+		Mon Oct 18 2021 00:30:29 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/UuzaaController.php
+* app/Models/ReferensiJenisJabatan.php
+* app/Models/ReferensiSubBidang.php
+* app/Models/Uuzaa.php
+* public/js/app.js
+* resources/js/component/peremajaan/Pangkat.jsx
+
+
+Created files:
+* .autogit/logs/log-18-9-2021-0-0-10.txt
+* app/Models/Jabatan.php
+* database/migrations/2021_10_18_000958_create_table_jabatan.php
+
+
+Deleted files:
+
+
+Renamed files:

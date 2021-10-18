@@ -235,6 +235,15 @@ Route::post('/admin/pegawai/pangkat/update', 'AdminPangkatController@apdet');
 Route::delete('/admin/pegawai/pangkat/{url}', 'AdminPangkatController@destroy');
 Route::post('/admin/pegawai/pangkat/aktif/{url}', 'AdminPangkatController@aktif');
 
+
+Route::post('/admin/pegawai/jabatan', 'AdminJabatanController@store');
+Route::get('/admin/pegawai/jabatan/{url}', 'AdminJabatanController@show');
+Route::post('/admin/pegawai/jabatan/search', 'AdminJabatanController@search');
+Route::get('/admin/pegawai/jabatan/{url}/edit', 'AdminJabatanController@edit');
+Route::post('/admin/pegawai/jabatan/update', 'AdminJabatanController@apdet');
+Route::delete('/admin/pegawai/jabatan/{url}', 'AdminJabatanController@destroy');
+Route::post('/admin/pegawai/jabatan/aktif/{url}', 'AdminJabatanController@aktif');
+
 // Route::post('/pegawai/arsip', 'UuzaaController@arsipPegawai');
 // Route::post('/pegawai/search', 'UuzaaController@arsipPegawaiSearch');
 // Route::get('/pegawai/arsip/{url}/edit', 'UuzaaController@arsipPegawaiEdit');
