@@ -136,6 +136,13 @@ class Jabatan extends Component {
         // console.log(e.target.value);
     }
 
+    handleChangeJenisJabatan(e) {
+        this.setState({
+            jenisJabatan_id: e.target.value
+        });
+        // console.log(e.target.value);
+    }
+
     handleChangeKategori(e) {
         this.setState({
             kategoriName: e.target.value
