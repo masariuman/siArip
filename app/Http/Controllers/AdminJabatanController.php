@@ -43,6 +43,48 @@ class AdminJabatanController extends Controller
     public function store(Request $request)
     {
         //
+        $data = $request->request->all();
+        // dd($request);
+        $pegawai = Uuzaa::where('rinku', $data['pegawai_id'])->first();
+        // dd($pegawai->id);
+        $jenisJabatan_id = ReferensiJenisJabatan::where('rinku', $data['jenisJabatan_id'])->first();
+        $subbid_id = ReferensiSubBidang::where('rinku', $data['subbid_id'])->first();
+        if ($data['jabatan']===null || $data['jabatan']==='null' || $data['jabatan']==='undefined') {
+            // dd('asd');
+            $data['jabatan']="";
+        }
+        if ($data['tmtJabatan']===null || $data['tmtJabatan']==='null' || $data['tmtJabatan']==='undefined') {
+            // dd('asd');
+            $data['tmtJabatan']=date('Y-m-d', time());
+        }
+        if ($data['tmtPelantikan']===null || $data['tmtPelantikan']==='null' || $data['tmtPelantikan']==='undefined') {
+            // dd('asd');
+            $data['tmtPelantikan']=date('Y-m-d', time());
+        }
+        if ($data['nomorSk']===null || $data['nomorSk']==='null' || $data['nomorSk']==='undefined') {
+            // dd('asd');
+            $data['nomorSk']="";
+        }
+        if ($data['tanggalSk']===null || $data['tanggalSk']==='null' || $data['tanggalSk']==='undefined') {
+            // dd('asd');
+            $data['tanggalSk']=date('Y-m-d', time());
+        }
+            Jabatan::create([
+                'pegawai_id' => $pegawai->id,
+                'rinku' => str_replace('#', 'o', str_replace('.', 'A', str_replace('/', '$', Hash::make(Hash::make(Uuid::generate()->string))))),
+                'jenisJabatan_id' => $jenisJabatan_id->id,
+                'subbid_id' => $subbid_id->id,
+                'jabatan' => $data['jabatan'],
+                'tmtJabatan' => $data['tmtJabatan'],
+                'tmtPelantikan' => $data['tmtPelantikan'],
+                'nomorSk' => $data['nomorSk'],
+                'tanggalSk' => $data['tanggalSk']
+            ]);
+        $data['data'] = Jabatan::orderBy("id", "DESC")->first();
+        $data['data']['nomor'] = "BARU";
+        return response()->json([
+            'data' => $data
+        ]);
     }
 
     public function apdet(Request $request)

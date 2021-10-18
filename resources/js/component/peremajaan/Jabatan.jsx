@@ -48,6 +48,10 @@ class Jabatan extends Component {
             nomorSk : "",
             tanggalSk : "",
 
+            jenisJabatanText : "",
+            unorText : "",
+            subbidText : "",
+
             dataEditInput: "",
             buttonTambahModal: "",
             cari: "",
@@ -139,6 +143,27 @@ class Jabatan extends Component {
     handleChangeJenisJabatan(e) {
         this.setState({
             jenisJabatan_id: e.target.value
+        });
+        // console.log(e.target.value);
+    }
+
+    handleChangeJabatan(e) {
+        this.setState({
+            jabatan: e.target.value
+        });
+        // console.log(e.target.value);
+    }
+
+    handleChangeTmtJabatan(e) {
+        this.setState({
+            tmtJabatan: e.target.value
+        });
+        // console.log(e.target.value);
+    }
+
+    handleChangeTmtPelantikan(e) {
+        this.setState({
+            tmtPelantikan: e.target.value
         });
         // console.log(e.target.value);
     }
@@ -488,18 +513,16 @@ class Jabatan extends Component {
             loading: true
         });
         const data = new FormData();
-        data.append('pangkat_id', this.state.pangkat_id);
-        data.append('jenisNaikPangkat_id', this.state.jenisNaikPangkat_id);
-        data.append('masaKerjaGolonganTahun', this.state.masaKerjaGolonganTahun);
-        data.append('masaKerjaGolonganBulan', this.state.masaKerjaGolonganBulan);
-        data.append('tmtGolongan', this.state.tmtGolongan);
+        data.append('jenisJabatan_id', this.state.jenisJabatan_id);
+        data.append('subbid_id', this.state.subbidName);
+        data.append('jabatan', this.state.jabatan);
+        data.append('tmtJabatan', this.state.tmtJabatan);
+        data.append('tmtPelantikan', this.state.tmtPelantikan);
         data.append('nomorSk', this.state.nomorSk);
         data.append('tanggalSk', this.state.tanggalSk);
-        data.append('nomorPertek', this.state.nomorPertek);
-        data.append('tanggalPertek', this.state.tanggalPertek);
         data.append('pegawai_id', this.props.match.params.url);
         axios
-            .post(`/admin/pegawai/pangkat`, data)
+            .post(`/admin/pegawai/jabatan`, data)
             .then(response => {
                 console.log(response);
                 this.setState({
@@ -575,7 +598,7 @@ class Jabatan extends Component {
             // loading: true
         });
         axios
-            .get(`/admin/pegawai/pangkat/${this.props.match.params.url}`)
+            .get(`/admin/pegawai/jabatan/${this.props.match.params.url}`)
             .then(response => {
                 // console.log(response);
                 this.setState({
@@ -693,7 +716,8 @@ class Jabatan extends Component {
     }
 
     getJenisJabatan() {
-        axios.get("/admin/referensi/jenisJabatan").then((response) => {
+        axios.get("/admin/referensi/jenisJabatan/create").then((response) => {
+            console.log(response);
             this.setState({
                 jenisJabatan: response.data.data,
                 jenisJabatan_id: response.data.data[0].rinku
@@ -729,8 +753,8 @@ class Jabatan extends Component {
     componentDidMount() {
         this.getData();
         // this.getAgama();
-        this.getGolongan();
-        this.getJenisKenaikanPangkat();
+        this.getJenisJabatan();
+        this.getUnor();
     }
 
     componentDidUpdate() {
@@ -743,20 +767,20 @@ class Jabatan extends Component {
                 <tr key={data.rinku} className="masariuman_table">
                     <th scope="row" className="text-center">{data.nomor}</th>
                     <td className="text-center">
-                        {data.golongan} <br />
-                        <small>{data.golongan2}</small> <br />
-                        <small>TMT {data.tmtGolongan}</small>
+                        {data.jenisJabatanText} <br />
+                        <small>{data.jabatan}</small> <br />
+                        <small>TMT {data.tmtJabatan}</small>
                     </td>
                     <td className="text-center">
-                        {data.jenisNaikPangkat}
+                        {data.unorText} <br /> - <br />
+                        <small>{data.subbidText}</small> <br />
                     </td>
                     <td className="text-center">
-                        {data.nomorSk}  <br />
+                        {data.tmtPelantikan}
+                    </td>
+                    <td className="text-center">
+                        {data.nomorSk}
                         <small>{data.tanggalSk}</small>
-                    </td>
-                    <td className="text-center">
-                        {data.nomorPertek} <br />
-                        <small>{data.tanggalPertek}</small>
                     </td>
                     <td id="downloadButton">
                         {/* <div className="text-center">
@@ -798,21 +822,21 @@ class Jabatan extends Component {
         ));
     }
 
-    renderSelectGolongan() {
-        return this.state.pangkat.map((data) => (
-            <option value={data.rinku} key={data.rinku}>
-                {data.name}
-            </option>
-        ));
-    }
+    // renderSelectGolongan() {
+    //     return this.state.pangkat.map((data) => (
+    //         <option value={data.rinku} key={data.rinku}>
+    //             {data.name}
+    //         </option>
+    //     ));
+    // }
 
-    renderSelectJenisKenaikanPangkat() {
-        return this.state.jenisNaikPangkat.map((data) => (
-            <option value={data.rinku} key={data.rinku}>
-                {data.name}
-            </option>
-        ));
-    }
+    // renderSelectJenisKenaikanPangkat() {
+    //     return this.state.jenisNaikPangkat.map((data) => (
+    //         <option value={data.rinku} key={data.rinku}>
+    //             {data.name}
+    //         </option>
+    //     ));
+    // }
 
     renderSelectKategori() {
         return this.state.kategori.map((data) => (
@@ -1055,7 +1079,7 @@ class Jabatan extends Component {
                                         onChange={this.handleChangeGolongan}
                                         className="form-control"
                                     >
-                                        {this.renderSelectGolongan()}
+                                        {/* {this.renderSelectGolongan()} */}
                                     </select>
                                 </div>
                             </div>
@@ -1071,7 +1095,7 @@ class Jabatan extends Component {
                                         onChange={this.handleChangeJenisKenaikanPangkat}
                                         className="form-control"
                                     >
-                                        {this.renderSelectJenisKenaikanPangkat()}
+                                        {/* {this.renderSelectJenisKenaikanPangkat()} */}
                                     </select>
                                 </div>
                             </div>
@@ -1483,10 +1507,10 @@ class Jabatan extends Component {
                                                     <thead>
                                                         <tr>
                                                             <th className="width50px text-center">NO</th>
-                                                            <th className="width50px text-center">Pangkat</th>
-                                                            <th className="width50px text-center">Jenis Naik Pangkat</th>
+                                                            <th className="width50px text-center">Jabatan</th>
+                                                            <th className="width50px text-center">Unor</th>
+                                                            <th className="text-center">TMT Pelantikan</th>
                                                             <th className="text-center">Nomor SK</th>
-                                                            <th className="text-center">Nomor Pertek</th>
                                                             <th className="text-center">Aksi</th>
                                                             {/* <th className="width250px text-center">ACTION</th> */}
                                                         </tr>
