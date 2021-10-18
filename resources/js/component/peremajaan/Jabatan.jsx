@@ -600,20 +600,20 @@ class Jabatan extends Component {
         axios
             .get(`/admin/pegawai/jabatan/${this.props.match.params.url}`)
             .then(response => {
-                // console.log(response);
+                console.log(response);
                 this.setState({
                     // data: response.data.data.data,
                     namaLengkap : response.data.data.pegawai.name,
                     nip : response.data.data.pegawai.juugyouinBangou,
                     gelarBelakang : response.data.data.pegawai.gelarBelakang,
                     gelarDepan : response.data.data.pegawai.gelarDepan,
-                    data : response.data.data.pangkat.data,
+                    data : response.data.data.jabatan.data,
                     sashin : '/sashin/'+response.data.data.pegawai.sashin,
                     // ubahPetunjukId: response.data.data.data[0].rinku,
                     loading: false,
-                    activePage: response.data.data.pangkat.current_page,
-                    itemsCountPerPage: response.data.data.pangkat.per_page,
-                    totalItemsCount: response.data.data.pangkat.total,
+                    activePage: response.data.data.jabatan.current_page,
+                    itemsCountPerPage: response.data.data.jabatan.per_page,
+                    totalItemsCount: response.data.data.jabatan.total,
                     pageRangeDisplayed: 10
                 });
                 $('#petunjuk').on('click',function() {
@@ -772,14 +772,14 @@ class Jabatan extends Component {
                         <small>TMT {data.tmtJabatan}</small>
                     </td>
                     <td className="text-center">
-                        {data.unorText} <br /> - <br />
+                        {data.unorText.name} <br /> - <br />
                         <small>{data.subbidText}</small> <br />
                     </td>
                     <td className="text-center">
                         {data.tmtPelantikan}
                     </td>
                     <td className="text-center">
-                        {data.nomorSk}
+                        {data.nomorSk} <br />
                         <small>{data.tanggalSk}</small>
                     </td>
                     <td id="downloadButton">

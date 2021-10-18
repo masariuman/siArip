@@ -117,11 +117,11 @@ class AdminJabatanController extends Controller
         $count = $data['jabatan']->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data['jabatan'] as $items) {
             $items['nomor'] = $count;
-            $items['subbid'] =$items->subbid->name;
+            $items['subbidText'] =$items->subbid->name;
             $subbid = ReferensiSubBidang::where('id',$items->subbid->id)->first();
             $bidang = ReferensiBidang::where('id',$subbid->ref_bidang->id)->first();
-            $items['unor'] =ReferensiUnor::where('id',$bidang->ref_unor->id)->first();
-            $items['jenisJabatan'] = $items->jenisJabatan->name;
+            $items['unorText'] =ReferensiUnor::where('id',$bidang->ref_unor->id)->first();
+            $items['jenisJabatanText'] = $items->jenisJabatan->name;
             $count++;
         }
 
