@@ -470,19 +470,19 @@ class Jabatan extends Component {
 
     handleEditButton(e) {
         axios
-            .get(`/admin/pegawai/pangkat/${e}/edit`)
+            .get(`/admin/pegawai/jabatan/${e}/edit`)
             .then(response => {
-                // console.log(response);
+                console.log(response);
                 this.setState({
-                    pangkat_id : response.data.data.golongan.rinku,
-                    jenisNaikPangkat_id : response.data.data.jenisNaikPangkat.rinku,
-                    masaKerjaGolonganTahun : response.data.data.pangkat.masaKerjaGolonganTahun,
-                    masaKerjaGolonganBulan : response.data.data.pangkat.masaKerjaGolonganBulan,
-                    tmtGolongan : response.data.data.pangkat.tmtGolongan,
-                    nomorSk : response.data.data.pangkat.nomorSk,
-                    tanggalSk : response.data.data.pangkat.tanggalSk,
-                    nomorPertek : response.data.data.pangkat.nomorPertek,
-                    tanggalPertek : response.data.data.pangkat.tanggalPertek,
+                    jenisJabatan_id : response.data.data.jenisJabatan_id,
+                    subbidName : response.data.data.subbidName,
+                    bidangName : response.data.data.bidangName,
+                    unorName : response.data.data.unorName,
+                    jabatan : response.data.data.jabatan.jabatan,
+                    tmtJabatan : response.data.data.jabatan.tmtJabatan,
+                    tmtPelantikan : response.data.data.jabatan.tmtPelantikan,
+                    nomorSk : response.data.data.jabatan.nomorSk,
+                    tanggalSk : response.data.data.jabatan.tanggalSk,
 
                     loading: false,
                     url: e,
@@ -1066,58 +1066,78 @@ class Jabatan extends Component {
                             Ubah Data Jabatan
                         </h4>
                         <form onSubmit={this.handleEditSubmit}>
-                        <div className="row">
+                            <div className="row">
                             <div className="col-sm-6">
                                 <div className="form-group">
-                                    Golongan :
+                                    Jenis Jabatan :
                                 </div>
                             </div>
                             <div className="col-sm-6">
                                 <div className="form-group">
                                     <select
-                                        value={this.state.pangkat_id}
-                                        onChange={this.handleChangeGolongan}
+                                        value={this.state.jenisJabatan_id}
+                                        onChange={this.handleChangeJenisJabatan}
                                         className="form-control"
                                     >
-                                        {/* {this.renderSelectGolongan()} */}
+                                        {this.renderSelectJenisJabatan()}
                                     </select>
                                 </div>
                             </div>
                             <div className="col-sm-6">
                                 <div className="form-group">
-                                    Jenis Kenaikan Pangkat (KP) :
+                                    Unit Organisasi :
                                 </div>
                             </div>
                             <div className="col-sm-6">
                                 <div className="form-group">
                                     <select
-                                        value={this.state.jenisNaikPangkat_id}
-                                        onChange={this.handleChangeJenisKenaikanPangkat}
+                                        value={this.state.unorName}
+                                        onChange={this.handleChangeUnor}
                                         className="form-control"
                                     >
-                                        {/* {this.renderSelectJenisKenaikanPangkat()} */}
+                                        {this.renderSelectUnor()}
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="col-sm-6">
+                                <div className="form-group">
+                                    Bidang :
+                                </div>
+                            </div>
+                            <div className="col-sm-6">
+                                <div className="form-group">
+                                    <select
+                                        value={this.state.bidangName}
+                                        onChange={this.handleChangeBidang}
+                                        className="form-control"
+                                    >
+                                        {this.renderSelectBidang()}
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="col-sm-6">
+                                <div className="form-group">
+                                    Sub Bidang :
+                                </div>
+                            </div>
+                            <div className="col-sm-6">
+                                <div className="form-group">
+                                    <select
+                                        value={this.state.subbidName}
+                                        onChange={this.handleChangeSubbid}
+                                        className="form-control"
+                                    >
+                                        {this.renderSelectSubbid()}
                                     </select>
                                 </div>
                             </div>
                             <div className="col-sm-12">
                                 <div className="form-group">
                                     <input
-                                        onChange={this.handleChangeMasaKerjaGolonganTahun}
-                                        value={this.state.masaKerjaGolonganTahun}
-                                        title="Masa Kerja Golongan (Tahun)"
-                                        placeholder="Masa Kerja Golongan (Tahun)..."
-                                        type="text"
-                                        className="form-control"
-                                    />
-                                </div>
-                            </div>
-                            <div className="col-sm-12">
-                                <div className="form-group">
-                                    <input
-                                        onChange={this.handleChangeMasaKerjaGolonganBulan}
-                                        value={this.state.masaKerjaGolonganBulan}
-                                        title="Masa Kerja Golongan (Bulan)"
-                                        placeholder="Masa Kerja Golongan (Bulan)..."
+                                        onChange={this.handleChangeJabatan}
+                                        value={this.state.jabatan}
+                                        title="Nama Jabatan"
+                                        placeholder="Nama Jabatan..."
                                         type="text"
                                         className="form-control"
                                     />
@@ -1125,16 +1145,33 @@ class Jabatan extends Component {
                             </div>
                             <div className="col-sm-6">
                                 <div className="form-group">
-                                    TMT Golongan :
+                                    TMT Jabatan :
                                 </div>
                             </div>
                             <div className="col-sm-6">
                                 <div className="form-group">
                                     <input
-                                        onChange={this.handleChangeTmtGolongan}
-                                        value={this.state.tmtGolongan}
-                                        title="TMT Golongan"
-                                        placeholder="TMT Golongan..."
+                                        onChange={this.handleChangeTmtJabatan}
+                                        value={this.state.tmtJabatan}
+                                        title="TMT Jabatan"
+                                        placeholder="TMT Jabatan..."
+                                        type="date"
+                                        className="form-control"
+                                    />
+                                </div>
+                            </div>
+                            <div className="col-sm-6">
+                                <div className="form-group">
+                                    TMT Pelantikan :
+                                </div>
+                            </div>
+                            <div className="col-sm-6">
+                                <div className="form-group">
+                                    <input
+                                        onChange={this.handleChangeTmtPelantikan}
+                                        value={this.state.tmtPelantikan}
+                                        title="TMT Pelantikan"
+                                        placeholder="TMT Pelantikan..."
                                         type="date"
                                         className="form-control"
                                     />
@@ -1172,38 +1209,8 @@ class Jabatan extends Component {
                             </div>
 
                             <div className="col-sm-12">
-                                <div className="form-group">
-                                    <input
-                                        onChange={this.handleChangeNomorPertek}
-                                        value={this.state.nomorPertek}
-                                        title="Nomor Pertek BKN"
-                                        placeholder="Nomor Pertek BKN..."
-                                        type="text"
-                                        className="form-control"
-                                    />
-                                </div>
-                            </div>
-                            <div className="col-sm-6">
-                                <div className="form-group">
-                                    Tanggal Pertek BKN :
-                                </div>
-                            </div>
-                            <div className="col-sm-6">
-                                <div className="form-group">
-                                    <input
-                                        onChange={this.handleChangeTanggalPertek}
-                                        value={this.state.tanggalPertek}
-                                        title="Tanggal Pertek BKN"
-                                        placeholder="Tanggal Pertek BKN..."
-                                        type="date"
-                                        className="form-control"
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="col-sm-12">
                                 <div className="form-group text-center">
-                                    <button className="mr-2 mb-2 btn btn-warning" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Ubah Data Jabatan</button>
+                                    <button className="mr-2 mb-2 btn btn-primary" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Tambah Data Jabatan Baru</button>
                                 </div>
                             </div>
                             </div>

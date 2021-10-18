@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Tue Oct 19 2021 00:37:14 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/AdminJabatanController.php
+* public/js/app.js
+* resources/js/component/peremajaan/Jabatan.jsx
+
+
+Created files:
+* .autogit/logs/log-19-9-2021-0-6-54.txt
+
+
+Deleted files:
+
+
+Renamed files:

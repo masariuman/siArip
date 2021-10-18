@@ -140,6 +140,22 @@ class AdminJabatanController extends Controller
     public function edit($id)
     {
         //
+        $data['jabatan'] = Jabatan::where('rinku',$id)->first();
+        // dd($data);
+        // $data['golongan'] = ReferensiPangkatGolonganRuang::where('id',$data['pangkat']['pangkat_id'])->first();
+        // $data['jenisNaikPangkat'] = ReferensiJenisNaikPangkat::where('id',$data['pangkat']['jenisNaikPangkat_id'])->first();
+
+        $data['subbidName'] =$data['jabatan']->subbid->rinku;
+        $subbid = ReferensiSubBidang::where('id',$data['jabatan']->subbid->id)->first();
+        $bidang = ReferensiBidang::where('id',$subbid->ref_bidang->id)->first();
+        $data['bidangName'] =$bidang->rinku;
+        $unor = ReferensiUnor::where('id',$bidang->ref_unor->id)->first();
+        $data['unorName'] =$unor->rinku;
+        $data['jenisJabatan_id'] = $data['jabatan']->jenisJabatan->rinku;
+        // $data['heyaRinku'] = $data->heya->rinku;
+        return response()->json([
+            'data' => $data
+        ]);
     }
 
     /**
