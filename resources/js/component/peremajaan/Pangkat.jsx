@@ -417,14 +417,14 @@ class Pangkat extends Component {
                                     data : response.data.data.pangkat.data,
                                     loading: false
                                 });
-                                swal("Sukses!", "Data Berhasil Dihapus!", "success");
+                                swal("Sukses!", "Data Berhasil Diaktifkan!", "success");
                                 // console.log("from handle sumit", response);
                             })
                             .catch(error => {
                                 this.setState({
                                     loading: false
                                 });
-                                swal("Error!", "Gagal Menghapus Data, Silahkan Hubungi Admin!", "error");
+                                swal("Error!", "Gagal Mengaktifkan Data, Silahkan Hubungi Admin!", "error");
                             });
                     } else {
                       swal("Data Tidak Terhapus!");

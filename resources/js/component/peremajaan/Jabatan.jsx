@@ -321,10 +321,10 @@ class Jabatan extends Component {
         this.setState({
             bidangName: e.target.value
         });
-        axios.get(`/admin/referensi/unorBidang/${e.target.value}`).then((response) => {
+        axios.get(`/admin/referensi/bidangSubbid/${e.target.value}`).then((response) => {
             this.setState({
-                bidang: response.data.data.data,
-                bidangName: response.data.data.data[0].url,
+                subbid: response.data.data.subbid.data,
+                subbidName: response.data.data.subbid.data[0].rinku,
             });
         });
         // console.log(e.target.value);
@@ -377,10 +377,10 @@ class Jabatan extends Component {
 
     handleDeleteButton(e) {
         axios
-            .get(`/admin/pegawai/pangkat/${e}/edit`)
+            .get(`/admin/pegawai/jabatan/${e}/edit`)
             .then(response => {
                 swal({
-                    title: `Yakin ingin menghapus pangkat ${response.data.data.golongan.name} ( ${response.data.data.golongan.pangkat} )?`,
+                    title: `Yakin ingin menghapus Jabatan ${response.data.data.jabatan.jabatan} ?`,
                     text: "Kalau Terhapus, Hubungi Admin Untuk Mengembalikan Data yang Terhapus!",
                     icon: "warning",
                     buttons: true,
@@ -392,12 +392,12 @@ class Jabatan extends Component {
                             loading: true
                         });
                         axios
-                            .delete(`/admin/pegawai/pangkat/${e}`, {
+                            .delete(`/admin/pegawai/jabatan/${e}`, {
                                 url: e
                             })
                             .then(response => {
                                 this.setState({
-                                    data : response.data.data.pangkat.data,
+                                    data : response.data.data.jabatan.data,
                                     loading: false
                                 });
                                 swal("Sukses!", "Data Berhasil Dihapus!", "success");
@@ -421,10 +421,10 @@ class Jabatan extends Component {
 
     handleAktifButton(e) {
         axios
-            .get(`/admin/pegawai/pangkat/${e}/edit`)
+            .get(`/admin/pegawai/jabatan/${e}/edit`)
             .then(response => {
                 swal({
-                    title: `Yakin ingin mengaktifkan pangkat ${response.data.data.golongan.name} ( ${response.data.data.golongan.pangkat} ) sebagai pangkat sekarang ?`,
+                    title: `Yakin ingin mengaktifkan jabatan ${response.data.data.jabatan.jabatan} sebagai jabatan sekarang ?`,
                     text: "Kalau Terhapus, Hubungi Admin Untuk Mengembalikan Data yang Terhapus!",
                     icon: "warning",
                     buttons: true,
@@ -436,22 +436,22 @@ class Jabatan extends Component {
                             loading: true
                         });
                         axios
-                            .post(`/admin/pegawai/pangkat/aktif/${e}`, {
+                            .post(`/admin/pegawai/jabatan/aktif/${e}`, {
                                 url: e
                             })
                             .then(response => {
                                 this.setState({
-                                    data : response.data.data.pangkat.data,
+                                    data : response.data.data.jabatan.data,
                                     loading: false
                                 });
-                                swal("Sukses!", "Data Berhasil Dihapus!", "success");
+                                swal("Sukses!", "Data Berhasil Diaktifkan!", "success");
                                 // console.log("from handle sumit", response);
                             })
                             .catch(error => {
                                 this.setState({
                                     loading: false
                                 });
-                                swal("Error!", "Gagal Menghapus Data, Silahkan Hubungi Admin!", "error");
+                                swal("Error!", "Gagal Mengaktifkan Data, Silahkan Hubungi Admin!", "error");
                             });
                     } else {
                       swal("Data Tidak Terhapus!");
@@ -477,6 +477,8 @@ class Jabatan extends Component {
                     jenisJabatan_id : response.data.data.jenisJabatan_id,
                     subbidName : response.data.data.subbidName,
                     bidangName : response.data.data.bidangName,
+                    bidang : response.data.data.bidang,
+                    subbid : response.data.data.subbid,
                     unorName : response.data.data.unorName,
                     jabatan : response.data.data.jabatan.jabatan,
                     tmtJabatan : response.data.data.jabatan.tmtJabatan,
@@ -555,22 +557,20 @@ class Jabatan extends Component {
             loading: true
         });
         const data = new FormData();
-        data.append('pangkat_id', this.state.pangkat_id);
-        data.append('jenisNaikPangkat_id', this.state.jenisNaikPangkat_id);
-        data.append('masaKerjaGolonganTahun', this.state.masaKerjaGolonganTahun);
-        data.append('masaKerjaGolonganBulan', this.state.masaKerjaGolonganBulan);
-        data.append('tmtGolongan', this.state.tmtGolongan);
+        data.append('jenisJabatan_id', this.state.jenisJabatan_id);
+        data.append('subbid_id', this.state.subbidName);
+        data.append('jabatan', this.state.jabatan);
+        data.append('tmtJabatan', this.state.tmtJabatan);
+        data.append('tmtPelantikan', this.state.tmtPelantikan);
         data.append('nomorSk', this.state.nomorSk);
         data.append('tanggalSk', this.state.tanggalSk);
-        data.append('nomorPertek', this.state.nomorPertek);
-        data.append('tanggalPertek', this.state.tanggalPertek);
         data.append('url', this.state.url);
         axios
-            .post(`/admin/pegawai/pangkat/update`, data)
+            .post(`/admin/pegawai/jabatan/update`, data)
             .then(response => {
                 // console.log(response);
                 this.setState({
-                    data : response.data.data.pangkat.data,
+                    data : response.data.data.jabatan.data,
                     file: null,
                     filePath: null,
                     fileUrl: null,
@@ -730,18 +730,18 @@ class Jabatan extends Component {
             loading: true
         });
         axios
-            .get(`/admin/pegawai/pangkat/${this.props.match.params.url}?page=${pageNumber}`)
+            .get(`/admin/pegawai/jabatan/${this.props.match.params.url}?page=${pageNumber}`)
             .then(response => {
                 console.log(response);
                 this.setState({
                     // arsip : response.data.data.arsip.data,
                     // data: response.data.data.arsip.data,
-                    data : response.data.data.pangkat.data,
+                    data : response.data.data.jabatan.data,
                     // ubahPetunjukId: response.data.data.data[0].rinku,
                     loading: false,
-                    activePage: response.data.data.pangkat.current_page,
-                    itemsCountPerPage: response.data.data.pangkat.per_page,
-                    totalItemsCount: response.data.data.pangkat.total,
+                    activePage: response.data.data.jabatan.current_page,
+                    itemsCountPerPage: response.data.data.jabatan.per_page,
+                    totalItemsCount: response.data.data.jabatan.total,
                 });
             })
             .catch(error => {
@@ -793,7 +793,7 @@ class Jabatan extends Component {
                         </div> */}
                         <div className="text-center">
                             {data.sutattsu === '2' ? (
-                                <span className="masariuman_alasanVerifikasiClass">Pangkat Aktif</span>
+                                <span className="masariuman_alasanVerifikasiClass">Jabatan Aktif</span>
                             ) : (
                                 <button className="mr-2 mb-2 btn btn-outline-success" type="button" onClick={this.handleAktifButton.bind(this, data.rinku)} id={'hapus'+data.nomor}>Aktifkan</button>
                             )}
@@ -1210,7 +1210,7 @@ class Jabatan extends Component {
 
                             <div className="col-sm-12">
                                 <div className="form-group text-center">
-                                    <button className="mr-2 mb-2 btn btn-primary" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Tambah Data Jabatan Baru</button>
+                                    <button className="mr-2 mb-2 btn btn-warning" data-target="#onboardingWideFormModal" data-toggle="modal" type="submit">Ubah Data Jabatan</button>
                                 </div>
                             </div>
                             </div>
