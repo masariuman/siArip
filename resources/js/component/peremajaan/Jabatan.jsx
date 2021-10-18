@@ -38,17 +38,15 @@ class Jabatan extends Component {
             arsip: [],
 
             pegawai_id : "",
-            pangkat : [],
-            pangkat_id : "",
-            jenisNaikPangkat_id : "",
-            jenisNaikPangkat : [],
-            masaKerjaGolonganTahun : "",
-            masaKerjaGolonganBulan : "",
-            tmtGolongan : "",
+            jenisJabatan : [],
+            jenisJabatan_id : "",
+            subbid_id : "",
+            subbid : [],
+            jabatan : "",
+            tmtJabatan : "",
+            tmtPelantikan : "",
             nomorSk : "",
             tanggalSk : "",
-            nomorPertek : "",
-            tanggalPertek : "",
 
             dataEditInput: "",
             buttonTambahModal: "",
@@ -81,15 +79,12 @@ class Jabatan extends Component {
         this.handleChangeName = this.handleChangeName.bind(this);
         this.handleChangeKeterangan = this.handleChangeKeterangan.bind(this);
 
-        this.handleChangeGolongan = this.handleChangeGolongan.bind(this);
-        this.handleChangeJenisKenaikanPangkat = this.handleChangeJenisKenaikanPangkat.bind(this);
-        this.handleChangeMasaKerjaGolonganTahun = this.handleChangeMasaKerjaGolonganTahun.bind(this);
-        this.handleChangeMasaKerjaGolonganBulan = this.handleChangeMasaKerjaGolonganBulan.bind(this);
-        this.handleChangeTmtGolongan = this.handleChangeTmtGolongan.bind(this);
+        this.handleChangeJenisJabatan = this.handleChangeJenisJabatan.bind(this);
+        this.handleChangeJabatan = this.handleChangeJabatan.bind(this);
+        this.handleChangeTmtJabatan = this.handleChangeTmtJabatan.bind(this);
+        this.handleChangeTmtPelantikan = this.handleChangeTmtPelantikan.bind(this);
         this.handleChangeNomorSK = this.handleChangeNomorSK.bind(this);
         this.handleChangeTanggalSK = this.handleChangeTanggalSK.bind(this);
-        this.handleChangeNomorPertek = this.handleChangeNomorPertek.bind(this);
-        this.handleChangeTanggalPertek = this.handleChangeTanggalPertek.bind(this);
 
 
         this.handleChangeNip = this.handleChangeNip.bind(this);
@@ -294,12 +289,12 @@ class Jabatan extends Component {
         this.setState({
             bidangName: e.target.value
         });
-        // axios.get(`/admin/referensi/unorBidang/${e.target.value}`).then((response) => {
-        //     this.setState({
-        //         bidang: response.data.data.data,
-        //         bidangName: response.data.data.data[0].url,
-        //     });
-        // });
+        axios.get(`/admin/referensi/unorBidang/${e.target.value}`).then((response) => {
+            this.setState({
+                bidang: response.data.data.data,
+                bidangName: response.data.data.data[0].url,
+            });
+        });
         // console.log(e.target.value);
     }
 
@@ -307,12 +302,12 @@ class Jabatan extends Component {
         this.setState({
             subbidName: e.target.value
         });
-        // axios.get(`/admin/referensi/unorBidang/${e.target.value}`).then((response) => {
-        //     this.setState({
-        //         bidang: response.data.data.data,
-        //         bidangName: response.data.data.data[0].url,
-        //     });
-        // });
+        axios.get(`/admin/referensi/unorBidang/${e.target.value}`).then((response) => {
+            this.setState({
+                bidang: response.data.data.data,
+                bidangName: response.data.data.data[0].url,
+            });
+        });
         // console.log(e.target.value);
     }
 
@@ -690,6 +685,15 @@ class Jabatan extends Component {
         });
     }
 
+    getJenisJabatan() {
+        axios.get("/admin/referensi/jenisJabatan").then((response) => {
+            this.setState({
+                jenisJabatan: response.data.data,
+                jenisJabatan_id: response.data.data[0].rinku
+            });
+        });
+    }
+
     handlePageChange(pageNumber) {
         this.setState({
             loading: true
@@ -811,6 +815,14 @@ class Jabatan extends Component {
         ));
     }
 
+    renderSelectJenisJabatan() {
+        return this.state.jenisJabatan.map((data) => (
+            <option value={data.rinku} key={data.rinku}>
+                {data.name}
+            </option>
+        ));
+    }
+
     renderSelectUnor() {
         return this.state.unor.map((data) => (
             <option value={data.rinku} key={data.rinku}>
@@ -860,11 +872,11 @@ class Jabatan extends Component {
                             <div className="col-sm-6">
                                 <div className="form-group">
                                     <select
-                                        value={this.state.pangkat_id}
-                                        onChange={this.handleChangeGolongan}
+                                        value={this.state.jenisJabatan_id}
+                                        onChange={this.handleChangeJenisJabatan}
                                         className="form-control"
                                     >
-                                        {this.renderSelectGolongan()}
+                                        {this.renderSelectJenisJabatan()}
                                     </select>
                                 </div>
                             </div>
@@ -876,11 +888,11 @@ class Jabatan extends Component {
                             <div className="col-sm-6">
                                 <div className="form-group">
                                     <select
-                                        value={this.state.jenisNaikPangkat_id}
-                                        onChange={this.handleChangeJenisKenaikanPangkat}
+                                        value={this.state.unorName}
+                                        onChange={this.handleChangeUnor}
                                         className="form-control"
                                     >
-                                        {this.renderSelectJenisKenaikanPangkat()}
+                                        {this.renderSelectUnor()}
                                     </select>
                                 </div>
                             </div>
@@ -892,12 +904,12 @@ class Jabatan extends Component {
                             <div className="col-sm-6">
                                 <div className="form-group">
                                     <select
-                                        value={this.state.jenisNaikPangkat_id}
-                                        onChange={this.handleChangeJenisKenaikanPangkat}
+                                        value={this.state.bidangName}
+                                        onChange={this.handleChangeBidang}
                                         className="form-control"
                                     >
-                                        {this.renderSelectJenisKenaikanPangkat()}
-                                    </select>x .p]fzl;fl;
+                                        {this.renderSelectBidang()}
+                                    </select>
                                 </div>
                             </div>
                             <div className="col-sm-6">
@@ -908,33 +920,21 @@ class Jabatan extends Component {
                             <div className="col-sm-6">
                                 <div className="form-group">
                                     <select
-                                        value={this.state.jenisNaikPangkat_id}
-                                        onChange={this.handleChangeJenisKenaikanPangkat}
+                                        value={this.state.subbidName}
+                                        onChange={this.handleChangeSubbid}
                                         className="form-control"
                                     >
-                                        {this.renderSelectJenisKenaikanPangkat()}
+                                        {this.renderSelectSubbid()}
                                     </select>
                                 </div>
                             </div>
                             <div className="col-sm-12">
                                 <div className="form-group">
                                     <input
-                                        onChange={this.handleChangeMasaKerjaGolonganTahun}
-                                        value={this.state.masaKerjaGolonganTahun}
-                                        title="Masa Kerja Golongan (Tahun)"
-                                        placeholder="Masa Kerja Golongan (Tahun)..."
-                                        type="text"
-                                        className="form-control"
-                                    />
-                                </div>
-                            </div>
-                            <div className="col-sm-12">
-                                <div className="form-group">
-                                    <input
-                                        onChange={this.handleChangeMasaKerjaGolonganBulan}
-                                        value={this.state.masaKerjaGolonganBulan}
-                                        title="Masa Kerja Golongan (Bulan)"
-                                        placeholder="Masa Kerja Golongan (Bulan)..."
+                                        onChange={this.handleChangeJabatan}
+                                        value={this.state.jabatan}
+                                        title="Nama Jabatan"
+                                        placeholder="Nama Jabatan..."
                                         type="text"
                                         className="form-control"
                                     />
@@ -942,16 +942,33 @@ class Jabatan extends Component {
                             </div>
                             <div className="col-sm-6">
                                 <div className="form-group">
-                                    TMT Golongan :
+                                    TMT Jabatan :
                                 </div>
                             </div>
                             <div className="col-sm-6">
                                 <div className="form-group">
                                     <input
-                                        onChange={this.handleChangeTmtGolongan}
-                                        value={this.state.tmtGolongan}
-                                        title="TMT Golongan"
-                                        placeholder="TMT Golongan..."
+                                        onChange={this.handleChangeTmtJabatan}
+                                        value={this.state.tmtJabatan}
+                                        title="TMT Jabatan"
+                                        placeholder="TMT Jabatan..."
+                                        type="date"
+                                        className="form-control"
+                                    />
+                                </div>
+                            </div>
+                            <div className="col-sm-6">
+                                <div className="form-group">
+                                    TMT Pelantikan :
+                                </div>
+                            </div>
+                            <div className="col-sm-6">
+                                <div className="form-group">
+                                    <input
+                                        onChange={this.handleChangeTmtPelantikan}
+                                        value={this.state.tmtPelantikan}
+                                        title="TMT Pelantikan"
+                                        placeholder="TMT Pelantikan..."
                                         type="date"
                                         className="form-control"
                                     />
@@ -982,36 +999,6 @@ class Jabatan extends Component {
                                         value={this.state.tanggalSk}
                                         title="Tanggal Surat Keputusan (SK)"
                                         placeholder="Tanggal Surat Keputusan (SK)..."
-                                        type="date"
-                                        className="form-control"
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="col-sm-12">
-                                <div className="form-group">
-                                    <input
-                                        onChange={this.handleChangeNomorPertek}
-                                        value={this.state.nomorPertek}
-                                        title="Nomor Pertek BKN"
-                                        placeholder="Nomor Pertek BKN..."
-                                        type="text"
-                                        className="form-control"
-                                    />
-                                </div>
-                            </div>
-                            <div className="col-sm-6">
-                                <div className="form-group">
-                                    Tanggal Pertek BKN :
-                                </div>
-                            </div>
-                            <div className="col-sm-6">
-                                <div className="form-group">
-                                    <input
-                                        onChange={this.handleChangeTanggalPertek}
-                                        value={this.state.tanggalPertek}
-                                        title="Tanggal Pertek BKN"
-                                        placeholder="Tanggal Pertek BKN..."
                                         type="date"
                                         className="form-control"
                                     />

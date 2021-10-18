@@ -192,6 +192,7 @@ Route::delete('/admin/referensi/diklatFungsional/{url}', 'ReferensiController@di
 Route::post('/admin/referensi/diklatFungsional/search', 'ReferensiController@diklatFungsionalSearch');
 
 Route::get('/admin/referensi/jenisJabatan/deeta', 'ReferensiController@jenisJabatan');
+Route::get('/admin/referensi/jenisJabatan/create', 'ReferensiController@jenisJabatanCreate');
 Route::post('/admin/referensi/jenisJabatan', 'ReferensiController@jenisJabatanStore');
 Route::get('/admin/referensi/jenisJabatan/{url}', 'ReferensiController@jenisJabatanEdit');
 Route::put('/admin/referensi/jenisJabatan/{url}', 'ReferensiController@jenisJabatanUpdate');

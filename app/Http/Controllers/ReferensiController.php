@@ -2185,6 +2185,14 @@ class ReferensiController extends Controller
             'data' => $data
         ]);
     }
+    public function jenisJabatanCreate()
+    {
+        $data = ReferensiJenisJabatan::where("sutattsu", "1")->orderBy("id", "DESC")->get();
+        // dd($data);
+        return response()->json([
+            'data' => $data
+        ]);
+    }
     public function jenisJabatanStore(Request $request)
     {
         ReferensiJenisJabatan::create([
