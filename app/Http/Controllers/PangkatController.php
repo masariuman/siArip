@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Uuzaa;
+use App\Models\Pangkat;
+use App\Models\ReferensiPangkatGolonganRuang;
+use App\Models\ReferensiJenisNaikPangkat;
+use Illuminate\Support\Facades\Auth;
 
 class PangkatController extends Controller
 {
@@ -14,6 +19,32 @@ class PangkatController extends Controller
     public function index()
     {
         //
+        $pagination = 5;
+        $data['pegawai'] = Auth::user();
+        if ($data['pegawai']['gelarDepan'] === null || $data['pegawai']['gelarDepan'] === "") {
+            $data['pegawai']['gelarDepan'] = "";
+        } else {
+            $data['pegawai']['gelarDepan'] = $data['pegawai']['gelarDepan'] . ". ";
+        }
+        if ($data['pegawai']['gelarBelakang'] === null || $data['pegawai']['gelarBelakang'] === "") {
+            $data['pegawai']['gelarBelakang'] = "";
+        } else {
+            $data['pegawai']['gelarBelakang'] = ", " . $data['pegawai']['gelarBelakang'];
+        }
+        $data['pangkat'] = Pangkat::where('pegawai_id',$data['pegawai']['id'])->whereIn('sutattsu',['1', '2'])->orderBy("id", "ASC")->paginate($pagination);
+        $count = $data['pangkat']->CurrentPage() * $pagination - ($pagination - 1);
+        foreach ($data['pangkat'] as $items) {
+            $items['nomor'] = $count;
+            $items['golongan'] =$items->pangkat->name;
+            $items['golongan2'] =" ( " . $items->pangkat->pangkat . " ) ";
+            $items['jenisNaikPangkat'] = $items->jenisNaikPangkat->name;
+            $count++;
+        }
+
+        // $data['heyaRinku'] = $data->heya->rinku;
+        return response()->json([
+            'data' => $data
+        ]);
     }
 
     /**

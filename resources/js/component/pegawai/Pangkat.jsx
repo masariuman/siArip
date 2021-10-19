@@ -573,7 +573,7 @@ class Pangkat extends Component {
             // loading: true
         });
         axios
-            .get(`/admin/pegawai/pangkat/${this.props.match.params.url}`)
+            .get(`/pangkat/deeta/`)
             .then(response => {
                 // console.log(response);
                 this.setState({
@@ -1377,67 +1377,7 @@ class Pangkat extends Component {
                             <div className="element-wrapper">
                                 {/* content here */}
                                 <div className="row">
-                                    <div className="col-md-3">
-                                        <div className="element-box masariuman_leftSide">
-                                            <div className="masariuman_foto">
-                                                <img className="masariuman_width220px" alt="" src={this.state.sashin} />
-                                            </div>
-                                            <div>
-                                                <span className="masariuman-bold">{this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang}</span> <br/>
-                                                <small>NIP. {this.state.nip}</small>
-                                            </div>
-                                            <br />
-                                            <div>
-                                                <Link
-                                                    to={`/admin/pegawai/${this.props.match.params.url}/arsip`}
-                                                    className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
-                                                >
-                                                    <span className="pe-7s-pen"> </span> Arsip
-                                                </Link>
-                                            </div>
-                                            <div>
-                                                <Link
-                                                    to={`/admin/pegawai/${this.props.match.params.url}/pengajuan`}
-                                                    className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
-                                                >
-                                                    <span className="pe-7s-pen"> </span> Pengajuan
-                                                </Link>
-                                            </div>
-                                            <div>
-                                                <Link
-                                                    to={`/admin/pegawai/${this.props.match.params.url}/detail`}
-                                                    className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
-                                                >
-                                                    <span className="pe-7s-pen"> </span> Identitas
-                                                </Link>
-                                            </div>
-                                            <div>
-                                                <Link
-                                                    to={`/admin/pegawai/${this.props.match.params.url}/pns`}
-                                                    className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
-                                                >
-                                                    <span className="pe-7s-pen"> </span> CPNS / PNS
-                                                </Link>
-                                            </div>
-                                            <div>
-                                                <Link
-                                                    to={`/admin/pegawai/${this.props.match.params.url}/pangkat`}
-                                                    className="btn btn-primary masariuman_width100percent masariuman_borderleftright0px"
-                                                >
-                                                    <span className="pe-7s-pen"> </span> Pangkat
-                                                </Link>
-                                            </div>
-                                            <div>
-                                                <Link
-                                                    to={`/admin/pegawai/${this.props.match.params.url}/jabatan`}
-                                                    className="btn-transition btn btn-shadow btn-outline-primary masariuman_width100percent masariuman_borderleftright0px"
-                                                >
-                                                    <span className="pe-7s-pen"> </span> Jabatan
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-9">
+                                    <div className="col-md-12">
                                         <div className="element-box">
                                             <h5 className="form-header">
                                             Pangkat {this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang}
