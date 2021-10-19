@@ -289,11 +289,11 @@ class Menu extends Component {
 
     renderLegendMenu() {
         return this.state.level === "0" ?
-            <li className=" has-sub-menu">
+            <li className=" has-sub-menu masariuman_backgroundColorGreen">
                 <NavLink
                     onClick={this.noNav}
-                    activeClassName="masariuman-active"
-                    to={`/kanrisha`}
+                    activeClassName="masariuman-adminActive"
+                    to={`/admin/referensi`}
                 >
                     <div className="icon-w">
                         <div className="os-icon os-icon-aperture"></div>
@@ -455,9 +455,9 @@ class Menu extends Component {
 
     renderLegendMenu2() {
         return this.state.level === "0" ?
-        <li className=" has-sub-menu">
+        <li className="has-sub-menu masariuman_backgroundColorGreen">
         <NavLink
-            activeClassName="masariuman-active"
+            activeClassName="masariuman-adminActive"
             to={`/peremajaanData`}
         >
             <div className="icon-w">

@@ -26,7 +26,7 @@ class DashboardIndex extends Component {
             totalMenunggu: 0,
             totalDiterima: 0,
             totalDitolak: 0,
-            totalSurat30HariTerakhir : 0,
+            totalArsip30HariTerakhir : 0,
 
             dateTotalArsipPerDay: [],
             dateTotalPengajuanPerDay: [],
@@ -66,6 +66,7 @@ class DashboardIndex extends Component {
                     dataTotalDiterimaPerDay: response.data.data.dataTotalDiterimaPerDay,
                     dataTotalDitolakPerDay: response.data.data.dataTotalDitolakPerDay,
 
+                    totalArsip30HariTerakhir: response.data.data.totalArsip30HariTerakhir,
 
                     loading: false
                 });
@@ -355,10 +356,10 @@ class DashboardIndex extends Component {
                                                     <div className="tab-pane active" id="tab_overview">
                                                         <div className="el-tablo bigger">
                                                             <div className="label">
-                                                                Total Arsip dan pengajuan 30 Hari Terakhir
+                                                                Total Arsip 30 Hari Terakhir
                                                             </div>
                                                             <div className="value">
-                                                                {this.state.totalSurat30HariTerakhir}
+                                                                {this.state.totalArsip30HariTerakhir}
                                                             </div>
                                                         </div>
                                                         <div className="el-chart-w">

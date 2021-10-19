@@ -523,3 +523,22 @@ html {
         background-color: rgba(0, 0, 0, 0);
         text-shadow: rgba(0, 0, 0, 0.24) 2px 2px 2px;
 }
+
+.masariuman_backgroundColorGreen {
+    background-color: green;
+}
+
+.menu-w.sub-menu-style-over ul.main-menu > li.masariuman_backgroundColorGreen.active {
+    border-right-color: rgb(144, 189, 77) !important;
+    border-bottom-color: rgb(144, 189, 77) !important;
+}
+
+.menu-w.sub-menu-style-over.sub-menu-color-bright ul.main-menu > li.masariuman_backgroundColorGreen.active > a {
+     background-color: rgb(144, 189, 77) !important;;
+}
+
+
+.masariuman-adminActive {
+    background-color: rgb(144, 189, 77);
+    color: #fff;
+}
