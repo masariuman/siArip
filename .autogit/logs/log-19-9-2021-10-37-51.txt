@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Tue Oct 19 2021 10:37:51 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* database/migrations/2014_10_12_000000_create_users_table.php
+* public/js/app.js
+* resources/js/component/pegawai/Pangkat.jsx
+
+
+Created files:
+* .autogit/logs/log-19-9-2021-10-7-24.txt
+
+
+Deleted files:
+
+
+Renamed files:

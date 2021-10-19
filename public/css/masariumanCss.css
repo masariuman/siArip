@@ -510,3 +510,13 @@ html {
 .masariuman_marginBottom50px {
     margin-bottom: 50px;
 }
+
+.masariuman_tableBold {
+        font-family: verdana;
+        font-weight: bold;
+        text-align: center;
+        font-size: 12px;
+        color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0);
+        text-shadow: rgba(0, 0, 0, 0.24) 2px 2px 2px;
+}

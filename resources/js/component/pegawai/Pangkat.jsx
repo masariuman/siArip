@@ -745,6 +745,9 @@ class Pangkat extends Component {
                         {data.jenisNaikPangkat}
                     </td>
                     <td className="text-center">
+                        {data.masaKerjaGolonganTahun} Tahun {data.masaKerjaGolonganBulan} Bulan
+                    </td>
+                    <td className="text-center">
                         {data.nomorSk}  <br />
                         <small>{data.tanggalSk}</small>
                     </td>
@@ -1384,10 +1387,10 @@ class Pangkat extends Component {
                                             Pangkat {this.state.gelarDepan + this.state.namaLengkap + this.state.gelarBelakang}
                                             </h5>
                                             <div className="form-desc">
-                                                Manajemen Pangkat Pegawai
+                                                Daftar Pangkat
                                             </div>
                                             <div>
-                                                <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal" onClick={this.handleTambahButton}>Tambah Pangkat Baru</button>
+                                                {/* <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal" onClick={this.handleTambahButton}>Tambah Pangkat Baru</button> */}
                                                 {/* <div className="col-sm-4 float-right" id="cari">
                                                     <input type="text" className="form-control" onChange={this.handleChangeCari}
                                                         value={this.state.cari} placeholder="Cari Arsip..."></input>
@@ -1398,8 +1401,9 @@ class Pangkat extends Component {
                                                     <thead>
                                                         <tr>
                                                             <th className="width50px text-center">NO</th>
-                                                            <th className="width50px text-center">Pangkat</th>
-                                                            <th className="width50px text-center">Jenis Naik Pangkat</th>
+                                                            <th className="text-center">Pangkat</th>
+                                                            <th className="text-center">Jenis Naik Pangkat</th>
+                                                            <th className="text-center">Masa Kerja</th>
                                                             <th className="text-center">Nomor SK</th>
                                                             <th className="text-center">Nomor Pertek</th>
                                                             {/* <th className="text-center">Aksi</th> */}
