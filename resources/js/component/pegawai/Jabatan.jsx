@@ -767,6 +767,11 @@ class Jabatan extends Component {
                 <tr key={data.rinku} className="masariuman_table">
                     <th scope="row" className="text-center">{data.nomor}</th>
                     <td className="text-center">
+                        {data.sutattsu === '2' ? (
+                            <span className="masariuman_alasanVerifikasiClass">Jabatan Aktif</span>
+                        ) : (
+                            <span></span>
+                        )} <br />
                         {data.jenisJabatanText} <br />
                         <small>{data.jabatan}</small> <br />
                         <small>TMT {data.tmtJabatan}</small>
@@ -782,7 +787,7 @@ class Jabatan extends Component {
                         {data.nomorSk} <br />
                         <small>{data.tanggalSk}</small>
                     </td>
-                    <td id="downloadButton">
+                    {/* <td id="downloadButton"> */}
                         {/* <div className="text-center">
                             {data.file ? (
                                 <a href={`/zaFail/${data.file}`} className="mr-2 mb-2 btn btn-outline-secondary">Download</a>
@@ -791,7 +796,7 @@ class Jabatan extends Component {
                             )}
                             <button data-target="#detailModal" data-toggle="modal" className="mr-2 mb-2 btn btn-outline-info" type="button" onClick={this.handleEditButton.bind(this, data.rinku)} id={'detail'+data.nomor}>Detail</button>
                         </div> */}
-                        <div className="text-center">
+                        {/* <div className="text-center">
                             {data.sutattsu === '2' ? (
                                 <span className="masariuman_alasanVerifikasiClass">Jabatan Aktif</span>
                             ) : (
@@ -801,7 +806,7 @@ class Jabatan extends Component {
                             <button data-target="#editModal" data-toggle="modal" className="mr-2 mb-2 btn btn-outline-warning" type="button" onClick={this.handleEditButton.bind(this, data.rinku)} id={'ubah'+data.nomor}>Ubah</button> <br />
                             <button className="mr-2 mb-2 btn btn-outline-danger" type="button" onClick={this.handleDeleteButton.bind(this, data.rinku)} id={'hapus'+data.nomor}>Hapus</button>
                         </div>
-                    </td>
+                    </td> */}
                 </tr>
             ));
     }
@@ -1443,7 +1448,7 @@ class Jabatan extends Component {
                                                 Manajemen Jabatan Pegawai
                                             </div>
                                             <div>
-                                                <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal" onClick={this.handleTambahButton}>Tambah Jabatan Baru</button>
+                                                {/* <button className="mr-2 mb-2 btn btn-primary" data-target="#tambahModal" data-toggle="modal" type="button" id="buttonTambahModal" onClick={this.handleTambahButton}>Tambah Jabatan Baru</button> */}
                                                 {/* <div className="col-sm-4 float-right" id="cari">
                                                     <input type="text" className="form-control" onChange={this.handleChangeCari}
                                                         value={this.state.cari} placeholder="Cari Arsip..."></input>
@@ -1458,7 +1463,6 @@ class Jabatan extends Component {
                                                             <th className="width50px text-center">Unor</th>
                                                             <th className="text-center">TMT Pelantikan</th>
                                                             <th className="text-center">Nomor SK</th>
-                                                            <th className="text-center">Aksi</th>
                                                             {/* <th className="width250px text-center">ACTION</th> */}
                                                         </tr>
                                                     </thead>

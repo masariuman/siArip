@@ -1,0 +1,20 @@
+-------------------- Auto-Git Log --------------------
+		Tue Oct 19 2021 14:40:27 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* public/js/app.js
+* resources/js/reactRoute.jsx
+* routes/web.php
+
+
+Created files:
+* .autogit/logs/log-19-9-2021-14-10-9.txt
+* app/Http/Controllers/JabatanController.php
+* resources/js/component/pegawai/Jabatan.jsx
+
+
+Deleted files:
+
+
+Renamed files:
