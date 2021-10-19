@@ -823,7 +823,7 @@ class Pengajuan extends Component {
                         </div>
                         <div className="onboarding-content with-gradient masariuman_width100percent">
                         <h4 className="onboarding-title">
-                            Keterangan Pengajuan
+                            Keterangan Penolakan
                         </h4>
                             <div className="row">
                             <div className="col-sm-12">

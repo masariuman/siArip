@@ -1,0 +1,23 @@
+-------------------- Auto-Git Log --------------------
+		Tue Oct 19 2021 01:38:30 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/AdminJabatanController.php
+* public/js/app.js
+* resources/js/component/peremajaan/Jabatan.jsx
+* resources/js/component/peremajaan/Pangkat.jsx
+
+
+Created files:
+* .autogit/logs/log-19-9-2021-1-7-36.txt
+* public/zaFail/199603142020121003_Akta_20211019013730.pdf
+* public/zaFail/199603142020121003_Akta_20211019013744.pdf
+* "public/zaFail/199603142020121003_SK CPNS_20211019013706.pdf"
+* "public/zaFail/199603142020121003_SK CPNS_20211019013720.pdf"
+
+
+Deleted files:
+
+
+Renamed files:
