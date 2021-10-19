@@ -21,9 +21,11 @@ class DashboardIndex extends Component {
             total: 0,
             data: [],
             date: [],
-            totalSuratMasuk: 0,
-            totalSuratKeluar: 0,
-            totalSurat: 0,
+            totalArsip: 0,
+            totalPengajuan: 0,
+            totalMenunggu: 0,
+            totalDiterima: 0,
+            totalDitolak: 0,
             totalSurat30HariTerakhir : 0,
             dateSuratMasuk: [],
             dateSuratKeluar: [],
@@ -38,18 +40,15 @@ class DashboardIndex extends Component {
             loading: true
         });
         axios
-            .get("/kanrisha/dashboard/deeta")
+            .get("/dashboard/deeta")
             .then(response => {
                 // console.log(response);
                 this.setState({
-                    totalSuratMasuk: response.data.data.totalSuratMasuk,
-                    totalSuratKeluar: response.data.data.totalSuratKeluar,
-                    totalSurat: response.data.data.totalSurat,
-                    totalSurat30HariTerakhir : response.data.data.totalSurat30HariTerakhir,
-                    dateSuratMasuk: response.data.data.dateSuratMasuk,
-                    dateSuratKeluar: response.data.data.dateSuratKeluar,
-                    dataSuratMasukPerDay: response.data.data.dataSuratMasukPerDay,
-                    dataSuratKeluarPerDay: response.data.data.dataSuratKeluarPerDay,
+                    totalArsip: response.data.data.totalArsip,
+                    totalPengajuan: response.data.data.totalPengajuan,
+                    totalMenunggu: response.data.data.totalMenunggu,
+                    totalDiterima: response.data.data.totalDiterima,
+                    totalDitolak: response.data.data.totalDitolak,
                     loading: false
                 });
                 // console.log(this.state);
@@ -60,11 +59,11 @@ class DashboardIndex extends Component {
                       labels: this.state.dateSuratMasuk,
                       datasets: [
                         {
-                            label: "Total Surat Masuk",
+                            label: "Total Arsip",
                             fill: false,
                             lineTension: 0.3,
                             backgroundColor: "#fff",
-                            borderColor: "#047bf8",
+                            borderColor: "#bf00ff",
                             borderCapStyle: 'butt',
                             borderDash: [],
                             borderDashOffset: 0.0,
@@ -83,11 +82,57 @@ class DashboardIndex extends Component {
                             responsive: true
                         },
                         {
-                            label: "Total Surat Keluar",
+                            label: "Total Pengajuan Diterima",
+                            fill: false,
+                            lineTension: 0.3,
+                            backgroundColor: "#fff",
+                            borderColor: "#00ff37",
+                            borderCapStyle: 'butt',
+                            borderDash: [],
+                            borderDashOffset: 0.0,
+                            borderJoinStyle: 'miter',
+                            pointBorderColor: "#fff",
+                            pointBackgroundColor: "#141E41",
+                            pointBorderWidth: 3,
+                            pointHoverRadius: 10,
+                            pointHoverBackgroundColor: "#FC2055",
+                            pointHoverBorderColor: "#fff",
+                            pointHoverBorderWidth: 3,
+                            pointRadius: 5,
+                            pointHitRadius: 10,
+                            data: this.state.dataSuratMasukPerDay,
+                            spanGaps: false,
+                            responsive: true
+                        },
+                        {
+                            label: "Total Pengajuan Ditolak",
                             fill: false,
                             lineTension: 0.3,
                             backgroundColor: "#fff",
                             borderColor: "#fc1433",
+                            borderCapStyle: 'butt',
+                            borderDash: [],
+                            borderDashOffset: 0.0,
+                            borderJoinStyle: 'miter',
+                            pointBorderColor: "#fff",
+                            pointBackgroundColor: "#141E41",
+                            pointBorderWidth: 3,
+                            pointHoverRadius: 10,
+                            pointHoverBackgroundColor: "#FC2055",
+                            pointHoverBorderColor: "#fff",
+                            pointHoverBorderWidth: 3,
+                            pointRadius: 5,
+                            pointHitRadius: 10,
+                            data: this.state.dataSuratMasukPerDay,
+                            spanGaps: false,
+                            responsive: true
+                        },
+                        {
+                            label: "Total Pengajuan",
+                            fill: false,
+                            lineTension: 0.3,
+                            backgroundColor: "#fff",
+                            borderColor: "#047bf8",
                             borderCapStyle: 'butt',
                             borderDash: [],
                             borderDashOffset: 0.0,
@@ -200,19 +245,19 @@ class DashboardIndex extends Component {
                                 <div className="col-sm-12">
                                     <div className="element-wrapper masariuman_displayFlex masariuman_paddingBottom0">
                                         <div className="col-sm-6">
-                                            <a className="element-box el-tablo centered trend-in-corner padded bold-label">
+                                            <a className="element-box el-tablo centered trend-in-corner padded bold-label masariuman_colorPurple">
                                                 <div className="value">
-                                                    {this.state.totalSuratMasuk}
+                                                    {this.state.totalArsip}
                                                 </div>
                                                 <div className="label">
-                                                    Total File
+                                                    Total Arsip
                                                 </div>
                                             </a>
                                         </div>
                                         <div className="col-sm-6">
-                                            <a className="element-box el-tablo centered trend-in-corner padded bold-label masariuman_colorGreen">
+                                            <a className="element-box el-tablo centered trend-in-corner padded bold-label masariuman_colorBlue">
                                                 <div className="value">
-                                                {this.state.totalSuratKeluar}
+                                                {this.state.totalPengajuan}
                                                 </div>
                                                 <div className="label">
                                                     Total Pengajuan
@@ -228,7 +273,7 @@ class DashboardIndex extends Component {
                                         <div className="col-sm-4">
                                             <a className="element-box el-tablo centered trend-in-corner padded bold-label">
                                                 <div className="value">
-                                                    {this.state.totalSuratMasuk}
+                                                    {this.state.totalMenunggu}
                                                 </div>
                                                 <div className="label">
                                                     Total Pengajuan Belum Diverifikasi
@@ -236,9 +281,9 @@ class DashboardIndex extends Component {
                                             </a>
                                         </div>
                                         <div className="col-sm-4">
-                                            <a className="element-box el-tablo centered trend-in-corner padded bold-label masariuman_colorGreen">
+                                            <a className="element-box el-tablo centered trend-in-corner padded bold-label masariuman_colorRed">
                                                 <div className="value">
-                                                {this.state.totalSuratKeluar}
+                                                {this.state.totalDitolak}
                                                 </div>
                                                 <div className="label">
                                                     Total Pengajuan Ditolak
@@ -248,7 +293,7 @@ class DashboardIndex extends Component {
                                         <div className="col-sm-4">
                                             <a className="element-box el-tablo centered trend-in-corner padded bold-label masariuman_colorGreen">
                                                 <div className="value">
-                                                {this.state.totalSuratKeluar}
+                                                {this.state.totalDiterima}
                                                 </div>
                                                 <div className="label">
                                                     Total Pengajuan Diterima
@@ -273,7 +318,7 @@ class DashboardIndex extends Component {
                                                 <div className="os-tabs-controls">
                                                     <ul className="nav nav-tabs smaller">
                                                         <li className="nav-item">
-                                                            <a className="nav-link active" data-toggle="tab">Total Surat 30 Hari Terakhir</a>
+                                                            <a className="nav-link active" data-toggle="tab">Total Arsip dan Pengajuan 30 Hari Terakhir</a>
                                                         </li>
                                                     </ul>
                                                     <ul className="nav nav-pills smaller d-none d-md-flex">
@@ -292,7 +337,7 @@ class DashboardIndex extends Component {
                                                     <div className="tab-pane active" id="tab_overview">
                                                         <div className="el-tablo bigger">
                                                             <div className="label">
-                                                                Total Surat 30 Hari Terakhir
+                                                                Total Arsip dan pengajuan 30 Hari Terakhir
                                                             </div>
                                                             <div className="value">
                                                                 {this.state.totalSurat30HariTerakhir}
