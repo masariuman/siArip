@@ -732,8 +732,13 @@ class Pangkat extends Component {
                 <tr key={data.rinku} className="masariuman_table">
                     <th scope="row" className="text-center">{data.nomor}</th>
                     <td className="text-center">
-                        {data.golongan} <br />
-                        <small>{data.golongan2}</small> <br />
+                     {data.sutattsu === '2' ? (
+                                <span className="masariuman_alasanVerifikasiClass">Pangkat Aktif</span>
+                            ) : (
+                                <span></span>
+                            )} <br />
+                        <span className="masariuman_tableBold">{data.golongan}
+                        <small>{data.golongan2}</small> </span><br />
                         <small>TMT {data.tmtGolongan}</small>
                     </td>
                     <td className="text-center">
@@ -747,7 +752,7 @@ class Pangkat extends Component {
                         {data.nomorPertek} <br />
                         <small>{data.tanggalPertek}</small>
                     </td>
-                    <td id="downloadButton">
+                    {/* <td id="downloadButton"> */}
                         {/* <div className="text-center">
                             {data.file ? (
                                 <a href={`/zaFail/${data.file}`} className="mr-2 mb-2 btn btn-outline-secondary">Download</a>
@@ -756,17 +761,13 @@ class Pangkat extends Component {
                             )}
                             <button data-target="#detailModal" data-toggle="modal" className="mr-2 mb-2 btn btn-outline-info" type="button" onClick={this.handleEditButton.bind(this, data.rinku)} id={'detail'+data.nomor}>Detail</button>
                         </div> */}
-                        <div className="text-center">
-                            {data.sutattsu === '2' ? (
-                                <span className="masariuman_alasanVerifikasiClass">Pangkat Aktif</span>
-                            ) : (
-                                <button className="mr-2 mb-2 btn btn-outline-success" type="button" onClick={this.handleAktifButton.bind(this, data.rinku)} id={'hapus'+data.nomor}>Aktifkan</button>
-                            )}
+                        {/* <div className="text-center">
+
                             <br />
                             <button data-target="#editModal" data-toggle="modal" className="mr-2 mb-2 btn btn-outline-warning" type="button" onClick={this.handleEditButton.bind(this, data.rinku)} id={'ubah'+data.nomor}>Ubah</button> <br />
                             <button className="mr-2 mb-2 btn btn-outline-danger" type="button" onClick={this.handleDeleteButton.bind(this, data.rinku)} id={'hapus'+data.nomor}>Hapus</button>
                         </div>
-                    </td>
+                    </td> */}
                 </tr>
             ));
     }
@@ -1401,7 +1402,7 @@ class Pangkat extends Component {
                                                             <th className="width50px text-center">Jenis Naik Pangkat</th>
                                                             <th className="text-center">Nomor SK</th>
                                                             <th className="text-center">Nomor Pertek</th>
-                                                            <th className="text-center">Aksi</th>
+                                                            {/* <th className="text-center">Aksi</th> */}
                                                             {/* <th className="width250px text-center">ACTION</th> */}
                                                         </tr>
                                                     </thead>
