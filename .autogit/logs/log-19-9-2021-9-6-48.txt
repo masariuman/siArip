@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Tue Oct 19 2021 09:06:48 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+
+
+Created files:
+* .autogit/logs/log-19-9-2021-8-36-32.txt
+* resources/js/component/pegawai/Pangkat.jsx
+
+
+Deleted files:
+
+
+Renamed files:

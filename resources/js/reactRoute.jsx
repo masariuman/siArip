@@ -54,6 +54,7 @@ import PengajuanIndex from "./component/pegawai/Pengajuan";
 import IdentitasPegawaiIndex from "./component/pegawai/IdentitasPegawai";
 import IdentitasPegawaiEditIndex from "./component/pegawai/IdentitasPegawaiEdit";
 import PnsIndex from "./component/pegawai/Pns";
+import Pangkat from "./component/pegawai/Pangkat";
 
 class ReactRoute extends Component {
     constructor(props) {
@@ -108,6 +109,11 @@ class ReactRoute extends Component {
                         exact
                         path="/pns"
                         component={PnsIndex}
+                    />
+                    <Route
+                        exact
+                        path="/pangkat"
+                        component={Pangkat}
                     />
 
 
@@ -308,13 +314,33 @@ class ReactRoute extends Component {
                     />
                     <Route
                         exact
-                        path="/surat-keluar"
-                        component={KeluarIndex}
+                        path="/arsip"
+                        component={ArsipIndex}
                     />
                     <Route
                         exact
-                        path="/peremajaanData"
-                        component={PeremajaanData}
+                        path="/pengajuan"
+                        component={PengajuanIndex}
+                    />
+                    <Route
+                        exact
+                        path="/identitasPegawai"
+                        component={IdentitasPegawaiIndex}
+                    />
+                    <Route
+                        exact
+                        path="/identitasPegawai/:url/edit"
+                        component={IdentitasPegawaiEditIndex}
+                    />
+                    <Route
+                        exact
+                        path="/pns"
+                        component={PnsIndex}
+                    />
+                    <Route
+                        exact
+                        path="/pangkat"
+                        component={Pangkat}
                     />
                     <Empatkosongempat />
                 </Switch>
