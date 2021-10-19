@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Tue Oct 19 2021 11:08:22 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* public/css/masariumanCss.css
+* public/js/app.js
+* resources/js/component/pegawai/Pangkat.jsx
+
+
+Created files:
+* .autogit/logs/log-19-9-2021-10-37-51.txt
+
+
+Deleted files:
+
+
+Renamed files:
