@@ -63,4 +63,31 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Models\Heya', 'heya_id');
     }
+
+    public function ref_subbid()
+    {
+        return $this->belongsTo('App\Models\ReferensiSubBidang', 'subBidang_id');
+    }
+    public function arsip()
+    {
+        return $this->hasMany('App\Models\Arsip', 'pegawai_id');
+    }
+    public function identitasPegawai()
+    {
+        return $this->hasMany('App\Models\IdentitasPegawai', 'pegawai_id');
+    }
+    public function cpnspns()
+    {
+        return $this->hasMany('App\Models\CPNSPNS', 'pegawai_id');
+    }
+
+    public function pangkat()
+    {
+        return $this->hasMany('App\Models\Pangkat', 'pegawai_id');
+    }
+
+    public function jabatan()
+    {
+        return $this->hasMany('App\Models\Jabatan', 'pegawai_id');
+    }
 }

@@ -27,10 +27,16 @@ class DashboardIndex extends Component {
             totalDiterima: 0,
             totalDitolak: 0,
             totalSurat30HariTerakhir : 0,
-            dateSuratMasuk: [],
-            dateSuratKeluar: [],
-            dataSuratMasukPerDay: [],
-            dataSuratKeluarPerDay: [],
+
+            dateTotalArsipPerDay: [],
+            dateTotalPengajuanPerDay: [],
+            dateTotalDiterimaPerDay: [],
+            dateTotalDitolakPerDay: [],
+
+            dataTotalArsipPerDay: [],
+            dataTotalPengajuanPerDay: [],
+            dataTotalDiterimaPerDay: [],
+            dataTotalDitolakPerDay: [],
             loading: true
         };
     }
@@ -49,6 +55,18 @@ class DashboardIndex extends Component {
                     totalMenunggu: response.data.data.totalMenunggu,
                     totalDiterima: response.data.data.totalDiterima,
                     totalDitolak: response.data.data.totalDitolak,
+
+                    dateTotalArsipPerDay: response.data.data.dateTotalArsipPerDay,
+                    dateTotalPengajuanPerDay: response.data.data.dateTotalPengajuanPerDay,
+                    dateTotalDiterimaPerDay: response.data.data.dateTotalDiterimaPerDay,
+                    dateTotalDitolakPerDay: response.data.data.dateTotalDitolakPerDay,
+
+                    dataTotalArsipPerDay: response.data.data.dataTotalArsipPerDay,
+                    dataTotalPengajuanPerDay: response.data.data.dataTotalPengajuanPerDay,
+                    dataTotalDiterimaPerDay: response.data.data.dataTotalDiterimaPerDay,
+                    dataTotalDitolakPerDay: response.data.data.dataTotalDitolakPerDay,
+
+
                     loading: false
                 });
                 // console.log(this.state);
@@ -56,7 +74,7 @@ class DashboardIndex extends Component {
                     var translationChart = $("#translationChart"); // line chart data
 
                     var lineData = {
-                      labels: this.state.dateSuratMasuk,
+                      labels: this.state.dateTotalArsipPerDay,
                       datasets: [
                         {
                             label: "Total Arsip",
@@ -77,7 +95,7 @@ class DashboardIndex extends Component {
                             pointHoverBorderWidth: 3,
                             pointRadius: 5,
                             pointHitRadius: 10,
-                            data: this.state.dataSuratMasukPerDay,
+                            data: this.state.dataTotalArsipPerDay,
                             spanGaps: false,
                             responsive: true
                         },
@@ -100,7 +118,7 @@ class DashboardIndex extends Component {
                             pointHoverBorderWidth: 3,
                             pointRadius: 5,
                             pointHitRadius: 10,
-                            data: this.state.dataSuratMasukPerDay,
+                            data: this.state.dataTotalDiterimaPerDay,
                             spanGaps: false,
                             responsive: true
                         },
@@ -123,7 +141,7 @@ class DashboardIndex extends Component {
                             pointHoverBorderWidth: 3,
                             pointRadius: 5,
                             pointHitRadius: 10,
-                            data: this.state.dataSuratMasukPerDay,
+                            data: this.state.dataTotalDitolakPerDay,
                             spanGaps: false,
                             responsive: true
                         },
@@ -146,7 +164,7 @@ class DashboardIndex extends Component {
                             pointHoverBorderWidth: 3,
                             pointRadius: 5,
                             pointHitRadius: 10,
-                            data: this.state.dataSuratKeluarPerDay,
+                            data: this.state.dataTotalPengajuanPerDay,
                             spanGaps: false,
                             responsive: true
                         }
