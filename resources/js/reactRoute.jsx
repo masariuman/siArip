@@ -55,6 +55,7 @@ import IdentitasPegawaiIndex from "./component/pegawai/IdentitasPegawai";
 import IdentitasPegawaiEditIndex from "./component/pegawai/IdentitasPegawaiEdit";
 import PnsIndex from "./component/pegawai/Pns";
 import Pangkat from "./component/pegawai/Pangkat";
+import Jabatan from "./component/pegawai/Jabatan";
 
 class ReactRoute extends Component {
     constructor(props) {
@@ -114,6 +115,11 @@ class ReactRoute extends Component {
                         exact
                         path="/pangkat"
                         component={Pangkat}
+                    />
+                    <Route
+                        exact
+                        path="/jabatan"
+                        component={Jabatan}
                     />
 
 
