@@ -611,13 +611,8 @@ class Menu extends Component {
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`/pangkatAkhir`}>
-                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Pangkat Akhir
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to={`/jabatanAkhir`}>
-                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Jabatan Akhir
+                                <Link to={`/pangkat`}>
+                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Pangkat
                                 </Link>
                             </li>
                         </ul>
@@ -625,11 +620,6 @@ class Menu extends Component {
                             <li>
                                 <Link to={`/pns`}>
                                     <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Data CPNS / PNS
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to={`/pangkat`}>
-                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Pangkat
                                 </Link>
                             </li>
                             <li>
