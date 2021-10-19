@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Tue Oct 19 2021 20:34:31 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* public/js/app.js
+* resources/js/component/dashboard/Index.jsx
+* resources/js/warudo/Menu.jsx
+
+
+Created files:
+* .autogit/logs/log-19-9-2021-15-41-0.txt
+
+
+Deleted files:
+
+
+Renamed files:
