@@ -319,7 +319,7 @@ class ReactRoute extends Component {
                 </Switch>
             :
                 <Switch>
-                    <Route
+                   <Route
                         exact
                         path="/"
                         component={DashboardIndex}
@@ -353,6 +353,11 @@ class ReactRoute extends Component {
                         exact
                         path="/pangkat"
                         component={Pangkat}
+                    />
+                    <Route
+                        exact
+                        path="/jabatan"
+                        component={Jabatan}
                     />
                     <Empatkosongempat />
                 </Switch>

@@ -544,9 +544,13 @@ class UuzaaController extends Controller
     {
         //
         $pagination = 5;
-        $data = Uuzaa::where("sutattsu", "1")->where("name", "like", "%" . $request->cari . "%")
-            ->orWhere("juugyouinBangou", "like", "%" . $request->cari . "%")
-            ->orderBy("id", "DESC")->paginate($pagination);
+        $cari = $request->cari;
+        $data = Uuzaa::where("sutattsu", "1")
+        ->where(function ($query) use ($cari) {
+            $query->where("name", "like", "%" . $cari . "%")
+                ->orWhere("juugyouinBangou", "like", "%" . $cari . "%");
+        })
+        ->orderBy("id", "DESC")->paginate($pagination);
         $count = $data->CurrentPage() * $pagination - ($pagination - 1);
         foreach ($data as $items) {
             $items['nomor'] = $count;
