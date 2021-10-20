@@ -9,6 +9,7 @@ import DashboardIndex from "./component/dashboard/Index";
 import KeluarIndex from "./component/keluar/Index";
 
 import PeremajaanData from "./component/peremajaan/Index";
+import AdminIndex from "./component/dashboard/Admin";
 import AdminDetailPegawai from "./component/peremajaan/Detail";
 import AdminDetailPegawaiEdit from "./component/peremajaan/DetailEdit";
 import AdminArsipPegawai from "./component/peremajaan/Arsip";
@@ -129,6 +130,11 @@ class ReactRoute extends Component {
                         exact
                         path="/peremajaanData"
                         component={PeremajaanData}
+                    />
+                    <Route
+                        exact
+                        path="/admin"
+                        component={AdminIndex}
                     />
                     <Route
                         exact
