@@ -222,12 +222,15 @@ class DetailEdit extends Component {
     }
 
     handleChangeFile(e) {
-        // console.log(e.target.files[0]);
-        this.setState({
-            file: e.target.files[0],
-            filePath: e.target.value,
-            fileUrl: e.target.value,
+        if (e.target.files[0].size >= 2045398) {
+            swal("Error!", "Ukuran Data Harus Dibawah 2MB", "error");
+        } else {
+            this.setState({
+                file: e.target.files[0],
+                filePath: e.target.value,
+                fileUrl: e.target.value,
         });
+        }
     }
 
     handleChangeCari(e) {

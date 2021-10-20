@@ -115,29 +115,36 @@ class Menu extends Component {
         //     filePath: e.target.value,
         //     fileUrl: e.target.value,
         // });
-        const data = new FormData();
-        data.append('file', e.target.files[0]);
-        axios
-            .post("/kanrisha/uuzaa/sashin", data)
-            .then(response => {
-                // console.log(response.data.data.data);
-                axios.get("/getUuzaa").then((response) => {
-                    this.setState({
-                        uuzaaMei: response.data.data.name,
-                        reberu: response.data.data.level,
-                        sashin: response.data.data.sashin,
-                        rinku: response.data.data.rinku,
+
+        if (e.target.files[0].size >= 2045398) {
+            swal("Error!", "Ukuran Data Harus Dibawah 2MB", "error");
+        } else {
+            const data = new FormData();
+            data.append('file', e.target.files[0]);
+            axios
+                .post("/kanrisha/uuzaa/sashin", data)
+                .then(response => {
+                    // console.log(response.data.data.data);
+                    axios.get("/getUuzaa").then((response) => {
+                        this.setState({
+                            uuzaaMei: response.data.data.name,
+                            reberu: response.data.data.level,
+                            sashin: response.data.data.sashin,
+                            rinku: response.data.data.rinku,
+                        });
                     });
+                    swal("Sukses!", "Foto Berhasi Diubah!", "success");
+                    // console.log("from handle sumit", response);
+                })
+                .catch(error => {
+                    this.setState({
+                        loading: false
+                    });
+                    swal("Error!", "Gagal Mengubah Foto, Silahkan Hubungi Admin!", "error");
                 });
-                swal("Sukses!", "Foto Berhasi Diubah!", "success");
-                // console.log("from handle sumit", response);
-            })
-            .catch(error => {
-                this.setState({
-                    loading: false
-                });
-                swal("Error!", "Gagal Mengubah Foto, Silahkan Hubungi Admin!", "error");
-            });
+        }
+
+
     }
 
     modalPengaturanUser() {

@@ -233,10 +233,15 @@ class DashboardIndex extends Component {
         this.getData();
     }
 
+    handleDetail(e) {
+        let path = `/admin/pegawai/${e}/pengajuan`;
+        this.props.history.push(path);
+    }
+
     renderData() {
         return !this.state.arsip.length ? <tr><td colSpan="9" className="text-center">Data Tidak Ditemukan</td></tr> :
             this.state.arsip.map(data => (
-                <tr key={data.rinku} className="masariuman_table">
+                <tr key={data.rinku} className="masariuman_table" onClick={this.handleDetail.bind(this, data.pegawaiRinku)}>
                     <th scope="row" className="text-center">{data.nomor}</th>
                     <td className="text-center">
                         {data.kategori.name}

@@ -120,28 +120,6 @@ class DashboardController extends Controller
         $data['totalDiterima'] = count($Diterima);
         $data['totalDitolak'] = count($Ditolak);
 
-        // if ($user['reberu'] === "0" || $user['reberu'] === "1") {
-        //     $totalSuratMasuk = SuratMasuk::where("sutattsu", "1")->get();
-        //     $totalSuratKeluar = SuratKeluar::where("sutattsu", "1")->get();
-        //     for ($i = 0; $i < $day; $i++) {
-        //         $dataSuratMasukPerDay[$i] = SuratMasuk::whereDate('created_at', today()->subDays($day2))->where("sutattsu", "1")->get();
-        //         $data['dateSuratMasuk'][] = today()->subDays($day2)->format('d');
-        //         $dataSuratKeluarPerDay[$i] = SuratKeluar::whereDate('created_at', today()->subDays($day2))->where("sutattsu", "1")->get();
-        //         $data['dateSuratKeluar'][] = today()->subDays($day2)->format('d');
-        //         $day2--;
-        //     }
-        //     foreach ($dataSuratMasukPerDay as $key => $value) {
-        //         $data['dataSuratMasukPerDay'][] = count($value);
-        //     }
-        //     foreach ($dataSuratKeluarPerDay as $key => $value) {
-        //         $data['dataSuratKeluarPerDay'][] = count($value);
-        //     }
-        //     $totalSuratMasuk30HariTerakhir = count(SuratMasuk::where('created_at', '>=', $date)->where("sutattsu", "1")->get());
-        //     $totalSuratKeluar30HariTerakhir = count(SuratKeluar::where('created_at', '>=', $date)->where("sutattsu", "1")->get());
-        //     $data['totalSurat30HariTerakhir'] = $totalSuratMasuk30HariTerakhir + $totalSuratKeluar30HariTerakhir;
-        // } elseif ($user['reberu'] === "2") {
-            // $totalSuratMasuk = $user->heya->masuk()->where("sutattsu", "1")->get();
-            // $totalSuratKeluar = $user->heya->keluar()->where("sutattsu", "1")->get();
             for ($i = 0; $i < $day; $i++) {
                 $dataTotalArsipPerDay[$i] = $user->arsip()->whereDate('created_at', today()
                                                 ->subDays($day2))->whereIn("sutattsu", ['1', '2'])->get();
@@ -174,17 +152,13 @@ class DashboardController extends Controller
                 $data['dataTotalDitolakPerDay'][] = count($value);
             }
             $data['totalArsip30HariTerakhir'] = count($user->arsip()->where('created_at', '>=', $date)->whereIn("sutattsu", ['1', '2'])->get());
-            // $totalSuratKeluar30HariTerakhir = count($user->heya->keluar()->where('created_at', '>=', $date)->where("sutattsu", "1")->get());
-            // $data['totalSurat30HariTerakhir'] = $totalSuratMasuk30HariTerakhir + $totalSuratKeluar30HariTerakhir;
-        // }
-        // $data['totalSuratMasuk'] = count($totalSuratMasuk);
-        // $data['totalSuratKeluar'] = count($totalSuratKeluar);
-        // $data['totalSurat'] = $data['totalSuratKeluar'] + $data['totalSuratMasuk'];
+
         $data['belumVerif'] = Arsip::where('sutattsu','3')->orderBy('id','DESC')->get();
         $count = 1;
         foreach ($data['belumVerif'] as $items) {
             $items['nomor'] = $count;
             $items['kategori'] = $items->kategori->name;
+            $items['pegawaiRinku'] = $items->pegawai->rinku;
             $count++;
         }
 
