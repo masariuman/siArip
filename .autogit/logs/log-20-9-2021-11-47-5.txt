@@ -1,0 +1,17 @@
+-------------------- Auto-Git Log --------------------
+		Wed Oct 20 2021 11:47:05 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* public/js/app.js
+* resources/js/component/dashboard/Admin.jsx
+
+
+Created files:
+* .autogit/logs/log-20-9-2021-11-16-44.txt
+
+
+Deleted files:
+
+
+Renamed files:
