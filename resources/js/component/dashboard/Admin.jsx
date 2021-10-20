@@ -274,48 +274,12 @@ class DashboardIndex extends Component {
                                             </a>
                                         </div>
                                         <div className="col-sm-6">
-                                            <a className="element-box el-tablo centered trend-in-corner padded bold-label masariuman_colorBlue">
-                                                <div className="value">
-                                                {this.state.totalPengajuan}
-                                                </div>
-                                                <div className="label">
-                                                    Total Pengajuan
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-sm-12">
-                                    <div className="element-wrapper masariuman_displayFlex masariuman_paddingBottom0">
-                                        <div className="col-sm-4">
                                             <a className="element-box el-tablo centered trend-in-corner padded bold-label">
                                                 <div className="value">
                                                     {this.state.totalMenunggu}
                                                 </div>
                                                 <div className="label">
                                                     Total Pengajuan Belum Diverifikasi
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div className="col-sm-4">
-                                            <a className="element-box el-tablo centered trend-in-corner padded bold-label masariuman_colorRed">
-                                                <div className="value">
-                                                {this.state.totalDitolak}
-                                                </div>
-                                                <div className="label">
-                                                    Total Pengajuan Ditolak
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div className="col-sm-4">
-                                            <a className="element-box el-tablo centered trend-in-corner padded bold-label masariuman_colorGreen">
-                                                <div className="value">
-                                                {this.state.totalDiterima}
-                                                </div>
-                                                <div className="label">
-                                                    Total Pengajuan Diterima
                                                 </div>
                                             </a>
                                         </div>

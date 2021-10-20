@@ -1,0 +1,17 @@
+-------------------- Auto-Git Log --------------------
+		Wed Oct 20 2021 09:45:46 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* resources/js/reactRoute.jsx
+
+
+Created files:
+* .autogit/logs/log-20-9-2021-9-15-25.txt
+* resources/js/component/dashboard/Admin.jsx
+
+
+Deleted files:
+
+
+Renamed files:
