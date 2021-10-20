@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Wed Oct 20 2021 07:30:11 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* public/css/masariumanCss.css
+* public/js/app.js
+* resources/js/warudo/Menu.jsx
+
+
+Created files:
+* .autogit/logs/log-20-9-2021-6-59-43.txt
+
+
+Deleted files:
+
+
+Renamed files:
