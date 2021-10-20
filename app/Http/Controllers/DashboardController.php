@@ -196,7 +196,8 @@ class DashboardController extends Controller
     public function getPengajuan()
     {
         //
-        $data['belumVerif'] = Arsip::where('sutattsu','3')->orderBy('id','DESC')->get();
+        $belumVerif = Arsip::where('sutattsu','3')->orderBy('id','DESC')->get();
+        $data['jumlahBelumVerif'] = count($belumVerif);
         return response()->json([
             'data' => $data
         ]);

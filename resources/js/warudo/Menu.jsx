@@ -13,6 +13,7 @@ class Menu extends Component {
             newPass: "",
             newPassConfirm: "",
             level: "",
+            jumlahBelumVerif : 0,
             oldPass:"",
             file: null,
             filePath: null,
@@ -282,20 +283,16 @@ class Menu extends Component {
 
     getPegajuan () {
         axios.get("/getPengajuan").then((response) => {
-            console.log(response);
-            // this.setState({
-            //     uuzaaMei: response.data.data.name,
-            //     reberu: response.data.data.level,
-            //     sashin: response.data.data.sashin,
-            //     rinku: response.data.data.rinku,
-            //     level: response.data.data.reberu
-            // });
+            // console.log(response);
+            this.setState({
+                jumlahBelumVerif: response.data.data.jumlahBelumVerif
+            });
         });
     }
 
     componentDidMount() {
         this.getUuzaa();
-        this.pengajuan();
+        this.getPegajuan();
     }
 
     renderSashin() {
@@ -508,9 +505,13 @@ class Menu extends Component {
             <span>Dashboard Admin</span>
         </NavLink>
         <div className="sub-menu-w">
-            <div className="sub-menu-header masariuman_colorWhite">
-            Dashboard Admin
-            </div>
+            {this.state.jumlahBelumVerif === 0 ? (
+                <div className="sub-menu-header masariuman_colorWhite">
+                    Dashboard Admin
+                </div>
+            ) : (
+                <span></span>
+            )}
             <div className="sub-menu-icon">
                 <i className="os-icon os-icon-mail"></i>
             </div>
