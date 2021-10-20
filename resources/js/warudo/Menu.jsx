@@ -388,6 +388,7 @@ class Menu extends Component {
                                 </Link>
                             </li>
                         </ul>
+
                         <ul className="sub-menu">
                             <li>
                                 <Link to={`/admin/referensi/pangkatGolonganRuang`}>
@@ -405,6 +406,7 @@ class Menu extends Component {
                                 </Link>
                             </li>
                         </ul>
+
                         <ul className="sub-menu">
                             <li>
                                 <Link to={`/admin/referensi/tingkatPendidikan`}>
@@ -432,6 +434,7 @@ class Menu extends Component {
                                 </Link>
                             </li>
                         </ul>
+
                         <ul className="sub-menu">
                             <li>
                                 <Link to={`/admin/referensi/jabatanFungsionalUmum`}>
