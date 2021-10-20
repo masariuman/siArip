@@ -183,7 +183,7 @@ class UuzaaController extends Controller
 
         if ($data['reberu'] === "3") {
             $data['level'] = "User";
-        } else if ($itdataems['reberu'] === "2") {
+        } else if ($data['reberu'] === "2") {
             $data['level'] = "Administrator";
         } else if ($data['reberu'] === "1") {
             $data['level'] = "Super Admin";
