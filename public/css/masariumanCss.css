@@ -545,3 +545,13 @@ html {
 .menu-w.color-scheme-dark.color-style-bright ul.main-menu > li > a.masariuman-adminActive > div.icon-w {
     color: #ffffff;
 }
+
+.masariuman_menuVerif {
+    display: block !important;
+    color: #fff;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 50%; /* may require vendor prefixes */
+    background: red;
+}

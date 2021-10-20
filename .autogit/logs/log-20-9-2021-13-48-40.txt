@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Wed Oct 20 2021 13:48:40 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/DashboardController.php
+* public/js/app.js
+* resources/js/warudo/Menu.jsx
+
+
+Created files:
+* .autogit/logs/log-20-9-2021-13-18-17.txt
+
+
+Deleted files:
+
+
+Renamed files:

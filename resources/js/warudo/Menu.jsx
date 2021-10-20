@@ -499,19 +499,25 @@ class Menu extends Component {
             activeClassName="masariuman-adminActive"
             to={`/aadmin/`}
         >
-            <div className="icon-w">
-                <div className="os-icon os-icon-mail"></div>
-            </div>
+            {this.state.jumlahBelumVerif === 0 ? (
+                <div className="sub-menu-header masariuman_colorWhite">
+                    <div className="icon-w">
+                        <div className="os-icon os-icon-mail"></div>
+                    </div>
+                </div>
+            ) : (
+                <div className="sub-menu-header masariuman_colorWhite">
+                    <div className="icon-w">
+                        <span className="masariuman_menuVerif">{this.state.jumlahBelumVerif}*</span>
+                    </div>
+                </div>
+            )}
             <span>Dashboard Admin</span>
         </NavLink>
         <div className="sub-menu-w">
-            {this.state.jumlahBelumVerif === 0 ? (
-                <div className="sub-menu-header masariuman_colorWhite">
-                    Dashboard Admin
-                </div>
-            ) : (
-                <span></span>
-            )}
+            <div className="sub-menu-header masariuman_colorWhite">
+                Dashboard Admin
+            </div>
             <div className="sub-menu-icon">
                 <i className="os-icon os-icon-mail"></i>
             </div>
