@@ -542,6 +542,10 @@ html {
     background-color: rgb(144, 189, 77);
 }
 
+.menu-w.color-scheme-dark.color-style-bright ul.main-menu > li > a.masariuman-adminActive > div > div.icon-w {
+    color: #ffffff;
+}
+
 .menu-w.color-scheme-dark.color-style-bright ul.main-menu > li > a.masariuman-adminActive > div.icon-w {
     color: #ffffff;
 }

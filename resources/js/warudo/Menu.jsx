@@ -354,7 +354,7 @@ class Menu extends Component {
                             </li>
                             <li>
                                 <Link to={`/admin/referensi/subBidang`}>
-                                    <i className="os-icon os-icon-home"></i> &nbsp;&nbsp;&nbsp;Sub Bidang
+                                    <i className="os-icon os-icon-hierarchy-structure-2"></i> &nbsp;&nbsp;&nbsp;Sub Bidang
                                 </Link>
                             </li>
                             {/* <li>
@@ -369,103 +369,103 @@ class Menu extends Component {
                             </li>
                             <li>
                                 <Link to={`/admin/referensi/kedudukanKepegawaian`}>
-                                    <i className="os-icon os-icon-users"></i> &nbsp;&nbsp;&nbsp;Kedudukan Kepegawaian
+                                    <i className="os-icon os-icon-cv-2"></i> &nbsp;&nbsp;&nbsp;Kedudukan Kepegawaian
                                 </Link>
                             </li>
                             <li>
                                 <Link to={`/admin/referensi/jenisKepegawaian`}>
-                                    <i className="os-icon os-icon-users"></i> &nbsp;&nbsp;&nbsp;Jenis Kepegawaian
+                                    <i className="os-icon os-icon-cv-2"></i> &nbsp;&nbsp;&nbsp;Jenis Kepegawaian
                                 </Link>
                             </li>
                             <li>
                                 <Link to={`/admin/referensi/jenisHukumanDisiplin`}>
-                                    <i className="os-icon os-icon-users"></i> &nbsp;&nbsp;&nbsp;Jenis Hukuman Disiplin
+                                    <i className="os-icon os-icon-alert-triangle"></i> &nbsp;&nbsp;&nbsp;Jenis Hukuman Disiplin
                                 </Link>
                             </li>
                             <li>
                                 <Link to={`/admin/referensi/jenisPenghargaan`}>
-                                    <i className="os-icon os-icon-users"></i> &nbsp;&nbsp;&nbsp;Jenis Penghargaan
+                                    <i className="os-icon os-icon-award"></i> &nbsp;&nbsp;&nbsp;Jenis Penghargaan
                                 </Link>
                             </li>
                         </ul>
                         <ul className="sub-menu">
                             <li>
                                 <Link to={`/admin/referensi/pangkatGolonganRuang`}>
-                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Pangkat / Golongan Ruang
+                                    <i className="fa fa-star"></i> &nbsp;&nbsp;&nbsp;Pangkat / Golongan Ruang
                                 </Link>
                             </li>
                             <li>
                                 <Link to={`/admin/referensi/stlud`}>
-                                    <i className="os-icon os-icon-home"></i> &nbsp;&nbsp;&nbsp;STLUD
+                                    <i className="os-icon os-icon-bookmark"></i> &nbsp;&nbsp;&nbsp;STLUD
                                 </Link>
                             </li>
                             <li>
                                 <Link to={`/admin/referensi/jenisNaikPangkat`}>
-                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Jenis Naik Pangkat
+                                    <i className="fa fa-star-o"></i> &nbsp;&nbsp;&nbsp;Jenis Naik Pangkat
                                 </Link>
                             </li>
                         </ul>
                         <ul className="sub-menu">
                             <li>
                                 <Link to={`/admin/referensi/tingkatPendidikan`}>
-                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Tingkat Pendidikan
+                                    <i className="fa fa-university"></i> &nbsp;&nbsp;&nbsp;Tingkat Pendidikan
                                 </Link>
                             </li>
                             <li>
                                 <Link to={`/admin/referensi/jurusanPendidikan`}>
-                                    <i className="os-icon os-icon-home"></i> &nbsp;&nbsp;&nbsp;Jurusan Pendidikan
+                                    <i className="fa fa-graduation-cap"></i> &nbsp;&nbsp;&nbsp;Jurusan Pendidikan
                                 </Link>
                             </li>
                             <li>
                                 <Link to={`/admin/referensi/diklatStruktural`}>
-                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Diklat Struktural
+                                    <i className="fa fa-usb"></i> &nbsp;&nbsp;&nbsp;Diklat Struktural
                                 </Link>
                             </li>
                             <li>
                                 <Link to={`/admin/referensi/diklatFungsional`}>
-                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Diklat Fungsional
+                                    <i className="fa fa-usb"></i> &nbsp;&nbsp;&nbsp;Diklat Fungsional
                                 </Link>
                             </li>
                             <li>
                                 <Link to={`/admin/referensi/diklatTeknis`}>
-                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Diklat Teknis
+                                    <i className="fa fa-usb"></i> &nbsp;&nbsp;&nbsp;Diklat Teknis
                                 </Link>
                             </li>
                         </ul>
                         <ul className="sub-menu">
                             <li>
                                 <Link to={`/admin/referensi/jabatanFungsionalUmum`}>
-                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Jabatan Fungsional Umum
+                                    <i className="os-icon os-icon-trending-up"></i> &nbsp;&nbsp;&nbsp;Jabatan Fungsional Umum
                                 </Link>
                             </li>
                             <li>
                                 <Link to={`/admin/referensi/jabatanFungsionalTertentu`}>
-                                    <i className="os-icon os-icon-home"></i> &nbsp;&nbsp;&nbsp;Jabatan Fungsional Tertentu
+                                    <i className="os-icon os-icon-trending-up"></i> &nbsp;&nbsp;&nbsp;Jabatan Fungsional Tertentu
                                 </Link>
                             </li>
                             <li>
                                 <Link to={`/admin/referensi/jabatanKorpri`}>
-                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Jabatan KORPRI
+                                    <i className="os-icon os-icon-trending-up"></i> &nbsp;&nbsp;&nbsp;Jabatan KORPRI
                                 </Link>
                             </li>
                             <li>
                                 <Link to={`/admin/referensi/eselonJabatan`}>
-                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Eselon Jabatan
+                                    <i className="os-icon os-icon-trending-up"></i> &nbsp;&nbsp;&nbsp;Eselon Jabatan
                                 </Link>
                             </li>
                             <li>
                                 <Link to={`/admin/referensi/jenisJabatan`}>
-                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Jenis Jabatan
+                                    <i className="os-icon os-icon-trending-up"></i> &nbsp;&nbsp;&nbsp;Jenis Jabatan
                                 </Link>
                             </li>
                             <li>
                                 <Link to={`/admin/referensi/pejabatPenetap`}>
-                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Pejabat Penetap
+                                    <i className="fa fa-user-secret"></i> &nbsp;&nbsp;&nbsp;Pejabat Penetap
                                 </Link>
                             </li>
                             <li>
                                 <Link to={`/admin/referensi/pejabatNegara`}>
-                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Pejabat Negara
+                                    <i className="fa fa-user-secret"></i> &nbsp;&nbsp;&nbsp;Pejabat Negara
                                 </Link>
                             </li>
                         </ul>
@@ -507,7 +507,7 @@ class Menu extends Component {
         <li className="has-sub-menu masariuman_backgroundColorGreen">
         <NavLink
             activeClassName="masariuman-adminActive"
-            to={`/aadmin/`}
+            to={`/aadmin`}
         >
             {this.state.jumlahBelumVerif === 0 ? (
                 <div className="sub-menu-header masariuman_colorWhite">
@@ -522,7 +522,7 @@ class Menu extends Component {
                     </div>
                 </div>
             )}
-            <span>Dashboard Admin</span>
+            {/* <span>Dashboard Admin</span> */}
         </NavLink>
         <div className="sub-menu-w">
             <div className="sub-menu-header masariuman_colorWhite">

@@ -454,16 +454,7 @@ class Peremajaan extends Component {
                         'next #buttonTambahModal' : 'Untuk Menambah Data Baru, Tekan Tombol Tambah Surat Masuk Baru'
                     },
                     {
-                        'next #ubah1' : 'Untuk Mengubah Data, Tekan Tombol Ubah Berikut'
-                    },
-                    {
-                        'next #hapus1' : 'Untuk Menghapus Data, Tekan Hapus Berikut'
-                    },
-                    {
-                        'next #detail1' : 'Untuk Menghapus Data, Tekan Hapus Berikut'
-                    },
-                    {
-                        'next #downloadButton' : "Apabila Anda Ada Melakukan Upload Data Ketika Menambahkan Data Baru <br> Atau Mengubah Data Baru, Maka Akan Muncul <br> Tombol <button class='mr-2 mb-2 btn btn-outline-secondary'>Download</button> Yang Dapat Digunakan Untuk Mendownload/Mengunduh Data"
+                        'next #pegawai' : "klik pada data pegawai untuk membuka detail dari data pegawai tersebut"
                     },
                     {
                         'next #pagination' : 'Untuk Melihat Data Berikutnya, Pilih Pada Angka Berikut Untuk Melihat Data Pada Halaman Selanjutnya'
@@ -554,7 +545,7 @@ class Peremajaan extends Component {
     renderData() {
         return !this.state.data.length ? <tr><td colSpan="9" className="text-center">Data Tidak Ditemukan</td></tr> :
             this.state.data.map(data => (
-                <tr key={data.rinku} className="masariuman_table"  onClick={this.handleDetail.bind(this, data.rinku)}>
+                <tr id="pegawai" key={data.rinku} className="masariuman_table"  onClick={this.handleDetail.bind(this, data.rinku)}>
                     <th scope="row" className="text-center">{data.nomor}</th>
                     <td className="text-center">
                         <img className="masariuman_width70px" alt="" src={"/sashin/"+data.sashin} />
@@ -586,7 +577,7 @@ class Peremajaan extends Component {
                     <td className="text-center">
                         {data.usia}
                     </td>
-                    <td className="text-center">
+                    {/* <td className="text-center">
                         <Highlighter
                             highlightClassName="YourHighlightClass"
                             searchWords={[this.state.cari]}
@@ -601,7 +592,7 @@ class Peremajaan extends Component {
                             autoEscape={true}
                             textToHighlight="ruang"
                         />
-                    </td>
+                    </td> */}
                     {/* <td id="downloadButton">
                         <div className="text-center">
                             {data.file ? (
@@ -1337,8 +1328,8 @@ class Peremajaan extends Component {
                                                     <th className="text-center">Nama</th>
                                                     <th className="text-center">Tempat, Tanggal Lahir</th>
                                                     <th className="text-center">Usia</th>
-                                                    <th className="text-center">Gol. Ruang</th>
-                                                    <th className="text-center">TMT Pangkat</th>
+                                                    {/* <th className="text-center">Gol. Ruang</th> */}
+                                                    {/* <th className="text-center">TMT Pangkat</th> */}
                                                     {/* <th className="width250px text-center">ACTION</th> */}
                                                 </tr>
                                             </thead>

@@ -221,7 +221,10 @@ class DashboardIndex extends Component {
                         },
                         {
                             'next #meno' : 'Pilih Menu Pada Panel Berikut Untuk Membuka Halaman Sesuai Dengan Menu Yang Dipilih.'
-                        }
+                        },
+                        {
+                            'next #pegawai' : "klik pada data pegawai untuk membuka detail dari data pegawai tersebut"
+                        },
                     ];
                     enjoyhint_instance.set(enjoyhint_script_steps);
                     enjoyhint_instance.run();
@@ -241,7 +244,7 @@ class DashboardIndex extends Component {
     renderData() {
         return !this.state.arsip.length ? <tr><td colSpan="9" className="text-center">Data Tidak Ditemukan</td></tr> :
             this.state.arsip.map(data => (
-                <tr key={data.rinku} className="masariuman_table" onClick={this.handleDetail.bind(this, data.pegawaiRinku)}>
+                <tr id="pegawai" key={data.rinku} className="masariuman_table" onClick={this.handleDetail.bind(this, data.pegawaiRinku)}>
                     <th scope="row" className="text-center">{data.nomor}</th>
                     <td className="text-center">
                         {data.kategori.name}
