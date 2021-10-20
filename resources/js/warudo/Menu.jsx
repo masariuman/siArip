@@ -20,6 +20,7 @@ class Menu extends Component {
             confirmOldPass: null,
         };
         this.renderSashin = this.renderSashin.bind(this);
+        this.renderLegendDashboard = this.renderLegendDashboard.bind(this);
         this.renderLegendMenu = this.renderLegendMenu.bind(this);
         this.renderLegendMenu2 = this.renderLegendMenu2.bind(this);
         this.handleButtonLogout = this.handleButtonLogout.bind(this);
@@ -480,6 +481,33 @@ class Menu extends Component {
         : <li></li>;
     }
 
+    renderLegendDashboard() {
+        return this.state.level === "0" ?
+        <li className="has-sub-menu masariuman_backgroundColorGreen">
+        <NavLink
+            activeClassName="masariuman-adminActive"
+            to={`/admin/`}
+        >
+            <div className="icon-w">
+                <div className="os-icon os-icon-mail"></div>
+            </div>
+            <span>Dashboard Admin</span>
+        </NavLink>
+        <div className="sub-menu-w">
+            <div className="sub-menu-header masariuman_colorWhite">
+            Dashboard Admin
+            </div>
+            <div className="sub-menu-icon">
+                <i className="os-icon os-icon-mail"></i>
+            </div>
+            <div className="sub-menu-i masariuman_menuDescription">
+                Laman ini adalah laman utama admin dari aplikasi ini. Laman ini memuat informasi umum seputar arsip dan pengajuan dan memiliki grafik untuk melihat perkembangan arsip dan pengajuan perharinya serta memiliki list pengajuan yang belum diverirfikasi.
+            </div>
+        </div>
+        </li>
+        : <li></li>;
+    }
+
     render() {
         return (
             <div className="menu-w color-scheme-dark color-style-bright menu-position-side menu-side-left menu-layout-mini sub-menu-style-over sub-menu-color-bright selected-menu-color-light menu-activated-on-hover menu-has-selected-link">
@@ -581,7 +609,7 @@ class Menu extends Component {
                                 <i className="os-icon os-icon-layout"></i>
                             </div>
                             <div className="sub-menu-i masariuman_menuDescription">
-                                Laman ini adalah laman utama dari aplikasi ini. Laman ini memuat informasi berupa jumlah surat dan memiliki grafik untuk melihat perkembangan surat perharinya.
+                                Laman ini adalah laman utama dari aplikasi ini. Laman ini memuat informasi umum seputar arsip dan pengajuan dan memiliki grafik untuk melihat perkembangan arsip dan pengajuan perharinya.
                             </div>
                         </div>
                     </li>
@@ -730,6 +758,7 @@ class Menu extends Component {
                             </div>
                         </div>
                     </li> */}
+                    {this.renderLegendDashboard()}
                     {this.renderLegendMenu2()}
                     {this.renderLegendMenu()}
                 </ul>

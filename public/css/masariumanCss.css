@@ -540,5 +540,8 @@ html {
 
 .masariuman-adminActive {
     background-color: rgb(144, 189, 77);
-    color: #fff;
+}
+
+.menu-w.color-scheme-dark.color-style-bright ul.main-menu > li > a.masariuman-adminActive > div.icon-w {
+    color: #ffffff;
 }
