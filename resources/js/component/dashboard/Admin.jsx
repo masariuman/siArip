@@ -339,6 +339,57 @@ class DashboardIndex extends Component {
                                     </div>
                                 </div>
                             </div>
+                            <div className="row">
+                                <div className="col-sm-12">
+                                    <div className="element-wrapper masariuman_paddingBottom0">
+                                        {/* content here */}
+                                        <div className="element-box">
+                                            <h5 className="form-header">
+                                                Dashboard
+                                            </h5>
+                                            <div className="form-desc">
+                                                Manajemen Dashboard
+                                            </div>
+                                            <div className="os-tabs-w">
+                                                <div className="os-tabs-controls">
+                                                    <ul className="nav nav-tabs smaller">
+                                                        <li className="nav-item">
+                                                            <a className="nav-link active" data-toggle="tab">Total Arsip dan Pengajuan 30 Hari Terakhir</a>
+                                                        </li>
+                                                    </ul>
+                                                    <ul className="nav nav-pills smaller d-none d-md-flex">
+                                                        {/* <li className="nav-item">
+                                                            <a className="nav-link active masariuman_cursorPointer" data-toggle="tab" onClick={this.changeGetData.bind(this, 7)}>7 Days</a>
+                                                        </li>
+                                                        <li className="nav-item">
+                                                            <a className="nav-link masariuman_cursorPointer" data-toggle="tab" onClick={this.changeGetData.bind(this, 14)}>14 Days</a>
+                                                        </li>
+                                                        <li className="nav-item">
+                                                            <a className="nav-link masariuman_cursorPointer" data-toggle="tab" onClick={this.changeGetData.bind(this, 30)}>30 Days</a>
+                                                        </li> */}
+                                                    </ul>
+                                                </div>
+                                                <div className="tab-content">
+                                                    <div className="tab-pane active" id="tab_overview">
+                                                        <div className="el-tablo bigger">
+                                                            <div className="label">
+                                                                Total Arsip 30 Hari Terakhir
+                                                            </div>
+                                                            <div className="value">
+                                                                {this.state.totalArsip30HariTerakhir}
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div className="tab-pane" id="tab_sales"></div>
+                                                    <div className="tab-pane" id="tab_conversion"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {/* end content here */}
+                                    </div>
+                                </div>
+                            </div>
                             <DarkMode />
                         </div>
                     </div>
