@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/logout', 'UuzaaController@logout');
 
 Route::get('/getUuzaa', 'UuzaaController@getUuzaa');
+Route::get('/getPengajuan', 'DashboardController@getPengajuan');
 
 Route::post('/kanrisha/masuk/deeta/update', 'suratMasukCOntroller@apdet');
 Route::post('/kanrisha/keluar/deeta/update', 'suratKeluarController@apdet');

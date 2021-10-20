@@ -70,6 +70,8 @@ class DashboardIndex extends Component {
 
                     totalArsip30HariTerakhir: response.data.data.totalArsip30HariTerakhir,
 
+                    arsip: response.data.data.belumVerif,
+
                     loading: false
                 });
                 // console.log(this.state);
@@ -245,10 +247,9 @@ class DashboardIndex extends Component {
                     <td className="text-center">
                         {data.keterangan}
                     </td>
-                    <td id="downloadButton" className="text-center" onClick={this.handleEditButton.bind(this, data.rinku)}>
+                    <td id="downloadButton" className="text-center">
                         <span className="mr-2 mb-2 btn btn-warning btn-rounded" type="button" data-target="#editModal" data-toggle="modal">
-                            {data.status} <br/>
-                            <small>{data.keteranganTolak}</small>
+                            Belum Terverifikasi
                         </span>
                     </td>
                 </tr>
@@ -414,4 +415,4 @@ class DashboardIndex extends Component {
     }
 }
 
-export def
+export default DashboardIndex;

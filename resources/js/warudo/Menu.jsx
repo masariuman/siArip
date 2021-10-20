@@ -280,8 +280,22 @@ class Menu extends Component {
         });
     }
 
+    getPegajuan () {
+        axios.get("/getPengajuan").then((response) => {
+            console.log(response);
+            // this.setState({
+            //     uuzaaMei: response.data.data.name,
+            //     reberu: response.data.data.level,
+            //     sashin: response.data.data.sashin,
+            //     rinku: response.data.data.rinku,
+            //     level: response.data.data.reberu
+            // });
+        });
+    }
+
     componentDidMount() {
         this.getUuzaa();
+        this.pengajuan();
     }
 
     renderSashin() {

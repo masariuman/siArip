@@ -180,7 +180,23 @@ class DashboardController extends Controller
         // $data['totalSuratMasuk'] = count($totalSuratMasuk);
         // $data['totalSuratKeluar'] = count($totalSuratKeluar);
         // $data['totalSurat'] = $data['totalSuratKeluar'] + $data['totalSuratMasuk'];
+        $data['belumVerif'] = Arsip::where('sutattsu','3')->orderBy('id','DESC')->get();
+        $count = 1;
+        foreach ($data['belumVerif'] as $items) {
+            $items['nomor'] = $count;
+            $items['kategori'] = $items->kategori->name;
+            $count++;
+        }
 
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+
+    public function getPengajuan()
+    {
+        //
+        $data['belumVerif'] = Arsip::where('sutattsu','3')->orderBy('id','DESC')->get();
         return response()->json([
             'data' => $data
         ]);
