@@ -18,6 +18,7 @@ class DashboardIndex extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            arsip: [],
             total: 0,
             data: [],
             date: [],
@@ -39,6 +40,7 @@ class DashboardIndex extends Component {
             dataTotalDitolakPerDay: [],
             loading: true
         };
+        this.renderData = this.renderData.bind(this);
     }
 
     getData() {
@@ -229,6 +231,30 @@ class DashboardIndex extends Component {
         this.getData();
     }
 
+    renderData() {
+        return !this.state.arsip.length ? <tr><td colSpan="9" className="text-center">Data Tidak Ditemukan</td></tr> :
+            this.state.arsip.map(data => (
+                <tr key={data.rinku} className="masariuman_table">
+                    <th scope="row" className="text-center">{data.nomor}</th>
+                    <td className="text-center">
+                        {data.kategori.name}
+                    </td>
+                    <td className="text-center">
+                        {data.name}
+                    </td>
+                    <td className="text-center">
+                        {data.keterangan}
+                    </td>
+                    <td id="downloadButton" className="text-center" onClick={this.handleEditButton.bind(this, data.rinku)}>
+                        <span className="mr-2 mb-2 btn btn-warning btn-rounded" type="button" data-target="#editModal" data-toggle="modal">
+                            {data.status} <br/>
+                            <small>{data.keteranganTolak}</small>
+                        </span>
+                    </td>
+                </tr>
+            ));
+    }
+
     render() {
         return (
             this.state.loading === true ? <Loading /> :
@@ -345,45 +371,34 @@ class DashboardIndex extends Component {
                                         {/* content here */}
                                         <div className="element-box">
                                             <h5 className="form-header">
-                                                Dashboard
+                                                Data Yang Belum Diverifikasi
                                             </h5>
                                             <div className="form-desc">
-                                                Manajemen Dashboard
+                                                Tekan pada data untuk membuka profil pegawai dari pengajuan yang diajukan
                                             </div>
-                                            <div className="os-tabs-w">
-                                                <div className="os-tabs-controls">
-                                                    <ul className="nav nav-tabs smaller">
-                                                        <li className="nav-item">
-                                                            <a className="nav-link active" data-toggle="tab">Total Arsip dan Pengajuan 30 Hari Terakhir</a>
-                                                        </li>
-                                                    </ul>
-                                                    <ul className="nav nav-pills smaller d-none d-md-flex">
-                                                        {/* <li className="nav-item">
-                                                            <a className="nav-link active masariuman_cursorPointer" data-toggle="tab" onClick={this.changeGetData.bind(this, 7)}>7 Days</a>
-                                                        </li>
-                                                        <li className="nav-item">
-                                                            <a className="nav-link masariuman_cursorPointer" data-toggle="tab" onClick={this.changeGetData.bind(this, 14)}>14 Days</a>
-                                                        </li>
-                                                        <li className="nav-item">
-                                                            <a className="nav-link masariuman_cursorPointer" data-toggle="tab" onClick={this.changeGetData.bind(this, 30)}>30 Days</a>
-                                                        </li> */}
-                                                    </ul>
-                                                </div>
-                                                <div className="tab-content">
-                                                    <div className="tab-pane active" id="tab_overview">
-                                                        <div className="el-tablo bigger">
-                                                            <div className="label">
-                                                                Total Arsip 30 Hari Terakhir
-                                                            </div>
-                                                            <div className="value">
-                                                                {this.state.totalArsip30HariTerakhir}
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                    <div className="tab-pane" id="tab_sales"></div>
-                                                    <div className="tab-pane" id="tab_conversion"></div>
-                                                </div>
+                                            <div className="table-responsive" id="ruanganTable">
+                                                <table id="tabeldata" width="100%" className="table table-striped table-lightfont">
+                                                    <thead>
+                                                        <tr>
+                                                            <th className="width50px text-center">NO</th>
+                                                            <th className="width50px text-center">Kategori</th>
+                                                            <th className="text-center">Nama Arsip</th>
+                                                            <th className="text-center">Keterangan</th>
+                                                            <th className="text-center">Status</th>
+                                                            {/* <th className="width250px text-center">ACTION</th> */}
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>{this.renderData()}</tbody>
+                                                </table>
+                                            </div>
+                                            <div className="d-flex justify-content-center" id="pagination">
+                                                {/* <Pagination
+                                                    activePage={this.state.activePage}
+                                                    itemsCountPerPage={this.state.itemsCountPerPage}
+                                                    totalItemsCount={this.state.totalItemsCount}
+                                                    pageRangeDisplayed={this.state.pageRangeDisplayed}
+                                                    onChange={this.handlePageChange}
+                                                /> */}
                                             </div>
                                         </div>
                                         {/* end content here */}
@@ -399,4 +414,4 @@ class DashboardIndex extends Component {
     }
 }
 
-export default DashboardIndex;
+export def
