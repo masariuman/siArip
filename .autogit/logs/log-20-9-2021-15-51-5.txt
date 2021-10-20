@@ -1,0 +1,30 @@
+-------------------- Auto-Git Log --------------------
+		Wed Oct 20 2021 15:51:05 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* public/js/app.js
+* resources/js/component/pegawai/Arsip.jsx
+* resources/js/component/pegawai/IdentitasPegawai.jsx
+* resources/js/component/pegawai/IdentitasPegawaiEdit.jsx
+* resources/js/component/pegawai/Jabatan.jsx
+* resources/js/component/pegawai/Pangkat.jsx
+* resources/js/component/pegawai/Pengajuan.jsx
+* resources/js/component/pegawai/Pns.jsx
+* resources/js/warudo/Menu.jsx
+
+
+Created files:
+* .autogit/logs/log-20-9-2021-15-20-23.txt
+* public/sashin/199603142020121003_20211020152209.png
+* public/sashin/199603142020121003_20211020152216.webp
+* public/sashin/199603142020121003_20211020152226.jpg
+* public/sashin/199603142020121003_20211020152540.png
+* public/sashin/199603142020121003_20211020152828.png
+* public/sashin/199603142020121003_20211020153348.png
+
+
+Deleted files:
+
+
+Renamed files:

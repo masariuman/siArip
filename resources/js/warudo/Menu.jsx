@@ -333,7 +333,7 @@ class Menu extends Component {
                         <ul className="sub-menu">
                             <li>
                                 <Link to={`/admin/referensi/kategoriArsip`}>
-                                    <i className="os-icon os-icon-users"></i> &nbsp;&nbsp;&nbsp;Kategori Arsip
+                                    <i className="os-icon os-icon-grid"></i> &nbsp;&nbsp;&nbsp;Kategori Arsip
                                 </Link>
                             </li>
                             <li>
@@ -354,7 +354,7 @@ class Menu extends Component {
                             </li>
                             <li>
                                 <Link to={`/admin/referensi/subBidang`}>
-                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Sub Bidang
+                                    <i className="os-icon os-icon-home"></i> &nbsp;&nbsp;&nbsp;Sub Bidang
                                 </Link>
                             </li>
                             {/* <li>
@@ -483,7 +483,7 @@ class Menu extends Component {
             to={`/peremajaanData`}
         >
             <div className="icon-w">
-                <div className="os-icon os-icon-mail"></div>
+                <div className="os-icon os-icon-users"></div>
             </div>
             <span>Input / Update Data Pegawai</span>
         </NavLink>
@@ -492,7 +492,7 @@ class Menu extends Component {
                 Input / Update Data Pegawai
             </div>
             <div className="sub-menu-icon">
-                <i className="os-icon os-icon-mail"></i>
+                <i className="os-icon os-icon-users"></i>
             </div>
             <div className="sub-menu-i masariuman_menuDescription">
                 Laman ini adalah laman untuk memanajemen data pegawai. Laman ini berisikan informasi data-data pegawai kabupaten mempawah.
@@ -512,7 +512,7 @@ class Menu extends Component {
             {this.state.jumlahBelumVerif === 0 ? (
                 <div className="sub-menu-header masariuman_colorWhite">
                     <div className="icon-w">
-                        <div className="os-icon os-icon-mail"></div>
+                        <div className="os-icon os-icon-layers"></div>
                     </div>
                 </div>
             ) : (
@@ -529,7 +529,7 @@ class Menu extends Component {
                 Dashboard Admin
             </div>
             <div className="sub-menu-icon">
-                <i className="os-icon os-icon-mail"></i>
+                <i className="os-icon os-icon-layers"></i>
             </div>
             <div className="sub-menu-i masariuman_menuDescription">
                 Laman ini adalah laman utama admin dari aplikasi ini. Laman ini memuat informasi umum seputar arsip dan pengajuan dan memiliki grafik untuk melihat perkembangan arsip dan pengajuan perharinya serta memiliki list pengajuan yang belum diverirfikasi.
@@ -651,7 +651,7 @@ class Menu extends Component {
                             to={`/identitasPegawai`}
                         >
                             <div className="icon-w">
-                                <div className="os-icon os-icon-layout"></div>
+                                <div className="os-icon os-icon-cv-2"></div>
                             </div>
                             <span>Data Pegawai</span>
                         </NavLink>
@@ -660,30 +660,30 @@ class Menu extends Component {
                         INFO PEGAWAI
                     </div>
                     <div className="sub-menu-icon">
-                        <i className="os-icon os-icon-aperture"></i>
+                        <i className="os-icon os-icon-cv-2"></i>
                     </div>
                     <div className="sub-menu-i">
                         <ul className="sub-menu">
                             <li>
                                 <Link to={`/identitasPegawai`}>
-                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Identitas Pegawai
+                                    <i className="os-icon os-icon-cv-2"></i> &nbsp;&nbsp;&nbsp;Identitas Pegawai
                                 </Link>
                             </li>
                             <li>
                                 <Link to={`/pangkat`}>
-                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Pangkat
+                                    <i className="fa fa-star"></i> &nbsp;&nbsp;&nbsp;Pangkat
                                 </Link>
                             </li>
                         </ul>
                         <ul className="sub-menu">
                             <li>
                                 <Link to={`/pns`}>
-                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Data CPNS / PNS
+                                    <i className="fa fa-odnoklassniki"></i> &nbsp;&nbsp;&nbsp;Data CPNS / PNS
                                 </Link>
                             </li>
                             <li>
                                 <Link to={`/jabatan`}>
-                                    <i className="fa fa-sitemap"></i> &nbsp;&nbsp;&nbsp;Jabatan
+                                    <i className="fa fa-line-chart"></i> &nbsp;&nbsp;&nbsp;Jabatan
                                 </Link>
                             </li>
                         </ul>
@@ -697,7 +697,7 @@ class Menu extends Component {
                             to={`/arsip`}
                         >
                             <div className="icon-w">
-                                <div className="os-icon os-icon-layout"></div>
+                                <div className="os-icon os-icon-agenda-1"></div>
                             </div>
                             <span>Arsip</span>
                         </NavLink>
@@ -706,7 +706,7 @@ class Menu extends Component {
                                 ARSIP
                             </div>
                             <div className="sub-menu-icon">
-                                <i className="os-icon os-icon-layout"></i>
+                                <i className="os-icon os-icon-agenda-1"></i>
                             </div>
                             <div className="sub-menu-i masariuman_menuDescription">
                                 Laman ini adalah laman Arsip. Laman ini memuat Arsip dari pegawai yang bersangkutan.
@@ -720,7 +720,7 @@ class Menu extends Component {
                             to={`/pengajuan`}
                         >
                             <div className="icon-w">
-                                <div className="os-icon os-icon-layout"></div>
+                                <div className="os-icon os-icon-email-forward"></div>
                             </div>
                             <span>Pengajuan Data Baru / perubahan Data</span>
                         </NavLink>
@@ -729,7 +729,7 @@ class Menu extends Component {
                                 PENGAJUAN DATA BARU / PERUBAHAN DATA
                             </div>
                             <div className="sub-menu-icon">
-                                <i className="os-icon os-icon-layout"></i>
+                                <i className="os-icon os-icon-email-forward"></i>
                             </div>
                             <div className="sub-menu-i masariuman_menuDescription">
                                 Laman ini adalah laman Pengajuan. Laman ini adalah tempat untuk mengajukan data baru atau perubahan data yang telah ada yang didasarkan dengan bukti scan berkas yang berkaitan dengan pengajuan data yang ingin diajukan.
