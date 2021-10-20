@@ -460,16 +460,13 @@ class Arsip extends Component {
                     var enjoyhint_instance = new EnjoyHint({});
                     var enjoyhint_script_steps = [
                     {
-                        'next #buttonTambahModal' : 'Untuk Menambah Data Baru, Tekan Tombol Tambah Surat Masuk Baru'
+                        'next #buttonTambahModal' : 'Untuk Menambah Data Baru, Tekan Tombol Tambah Arsip Baru'
                     },
                     {
                         'next #ubah1' : 'Untuk Mengubah Data, Tekan Tombol Ubah Berikut'
                     },
                     {
                         'next #hapus1' : 'Untuk Menghapus Data, Tekan Hapus Berikut'
-                    },
-                    {
-                        'next #detail1' : 'Untuk Menghapus Data, Tekan Hapus Berikut'
                     },
                     {
                         'next #downloadButton' : "Apabila Anda Ada Melakukan Upload Data Ketika Menambahkan Data Baru <br> Atau Mengubah Data Baru, Maka Akan Muncul <br> Tombol <button class='mr-2 mb-2 btn btn-outline-secondary'>Download</button> Yang Dapat Digunakan Untuk Mendownload/Mengunduh Data"

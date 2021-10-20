@@ -1,0 +1,37 @@
+-------------------- Auto-Git Log --------------------
+		Wed Oct 20 2021 15:20:23 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/DashboardController.php
+* public/js/app.js
+* resources/js/component/dashboard/Admin.jsx
+* resources/js/component/pegawai/Arsip.jsx
+* resources/js/component/pegawai/IdentitasPegawai.jsx
+* resources/js/component/pegawai/IdentitasPegawaiEdit.jsx
+* resources/js/component/pegawai/Jabatan.jsx
+* resources/js/component/pegawai/Pangkat.jsx
+* resources/js/component/pegawai/Pengajuan.jsx
+* resources/js/component/pegawai/Pns.jsx
+* resources/js/component/peremajaan/Arsip.jsx
+* resources/js/component/peremajaan/Cpns.jsx
+* resources/js/component/peremajaan/CpnsEdit.jsx
+* resources/js/component/peremajaan/Detail.jsx
+* resources/js/component/peremajaan/DetailEdit.jsx
+* resources/js/component/peremajaan/Index.jsx
+* resources/js/component/peremajaan/Jabatan.jsx
+* resources/js/component/peremajaan/Pangkat.jsx
+* resources/js/component/peremajaan/Pengajuan.jsx
+* resources/js/component/peremajaan/Pns.jsx
+* resources/js/component/peremajaan/PnsEdit.jsx
+* resources/js/warudo/Menu.jsx
+
+
+Created files:
+* .autogit/logs/log-20-9-2021-14-49-48.txt
+
+
+Deleted files:
+
+
+Renamed files:

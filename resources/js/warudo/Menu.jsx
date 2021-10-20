@@ -115,7 +115,10 @@ class Menu extends Component {
         //     filePath: e.target.value,
         //     fileUrl: e.target.value,
         // });
-
+        // console.log(e.target.files[0].type);
+        // if (!e.target.files[0].name.match(/\.(jpg|jpeg|png|gif)$/)) {
+        //     swal("Error!", "bukan gamabr", "error");
+        // }
         if (e.target.files[0].size >= 2045398) {
             swal("Error!", "Ukuran Data Harus Dibawah 2MB", "error");
         } else {
@@ -140,7 +143,7 @@ class Menu extends Component {
                     this.setState({
                         loading: false
                     });
-                    swal("Error!", "Gagal Mengubah Foto, Silahkan Hubungi Admin!", "error");
+                    swal("Error!", "Gagal Mengubah Foto, Foto yang diupload bukan berupa gambar. Apabila pesan ini masih ada, Silahkan Hubungi Admin!", "error");
                 });
         }
 
