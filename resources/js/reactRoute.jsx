@@ -133,7 +133,7 @@ class ReactRoute extends Component {
                     />
                     <Route
                         exact
-                        path="/admin"
+                        path="/aadmin"
                         component={AdminIndex}
                     />
                     <Route

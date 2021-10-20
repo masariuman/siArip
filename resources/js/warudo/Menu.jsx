@@ -486,7 +486,7 @@ class Menu extends Component {
         <li className="has-sub-menu masariuman_backgroundColorGreen">
         <NavLink
             activeClassName="masariuman-adminActive"
-            to={`/admin/`}
+            to={`/aadmin/`}
         >
             <div className="icon-w">
                 <div className="os-icon os-icon-mail"></div>

@@ -100,7 +100,7 @@ class DashboardController extends Controller
         ]);
     }
 
-    public function idmin()
+    public function admin()
     {
         //
         $day = 30;
@@ -108,11 +108,11 @@ class DashboardController extends Controller
         $date = today()->subDays($day);
         $user = Auth::user();
 
-        $Arsip = Arsip::where("pegawai_id", $user['id'])->whereIn('sutattsu',['1', '2'])->get();
-        $Pengajuan = Arsip::where("pegawai_id", $user['id'])->whereIn('sutattsu',['2', '3', '4'])->get();
-        $Menunggu = Arsip::where("pegawai_id", $user['id'])->where('sutattsu','3')->get();
-        $Diterima = Arsip::where("pegawai_id", $user['id'])->where('sutattsu','2')->get();
-        $Ditolak = Arsip::where("pegawai_id", $user['id'])->where('sutattsu','4')->get();
+        $Arsip = Arsip::whereIn('sutattsu',['1', '2'])->get();
+        $Pengajuan = Arsip::whereIn('sutattsu',['2', '3', '4'])->get();
+        $Menunggu = Arsip::where('sutattsu','3')->get();
+        $Diterima = Arsip::where('sutattsu','2')->get();
+        $Ditolak = Arsip::where('sutattsu','4')->get();
 
         $data['totalArsip'] = count($Arsip);
         $data['totalPengajuan'] = count($Pengajuan);

@@ -46,7 +46,7 @@ class DashboardIndex extends Component {
             loading: true
         });
         axios
-            .get("/dashboard/deeta")
+            .get("/admin/dashboard/deeta")
             .then(response => {
                 // console.log(response);
                 this.setState({
