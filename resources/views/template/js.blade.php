@@ -48,6 +48,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"></script>
 <script src="/enjoyhint/enjoyhint.min.js"></script>
 
+<script>
+    $(function(){ console.clear(); });
+</script>
+
 
 
 
