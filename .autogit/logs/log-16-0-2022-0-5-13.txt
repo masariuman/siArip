@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Sun Jan 16 2022 00:05:13 GMT+0700 (Indochina Time)
+------------------------------------------------------
+
+Modified files:
+
+
+Created files:
+* .autogit/logs/log-29-9-2021-9-58-32.txt
+* public/zaFail/199603142020121003_Ijazah_20211029101524.sql
+
+
+Deleted files:
+
+
+Renamed files:
