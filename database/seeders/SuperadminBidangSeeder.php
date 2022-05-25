@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class superadmin extends Seeder
+class SuperadminBidangSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,15 +13,11 @@ class superadmin extends Seeder
      */
     public function run()
     {
-        DB::table('ref_unor')->insert([
-            'rinku' => 'asdqweasdqweasdqwe',
-            'name' => 'Unornya LegendaryPowerfullAdmin',
-
-        ]);
         DB::table('ref_bidang')->insert([
             'rinku' => 'asdqweasdqweasdqweq',
             'refUnor_id' => 1,
             'name' => 'Bidangnya LegendaryPowerfullAdmin',
 
         ]);
-        DB::table('ref
+    }
+}
